@@ -1,0 +1,105 @@
+risk_id,risk_title,country,probability,acaps_p,risk_level,status,outcome,first_date,last_date
+R0353,"Taliban attacks on provincial capitals lead to civil war violence levels, resulting in humanitarian needs for the affected population.",Afghanistan,,,,Not materialised,0,,
+R0990,"Unsafe return of Afghan nationals from Pakistan causes food, shelter and livelihood shortage upon their arrival at Afghanistan along with risk of persecution. ",Afghanistan,Medium,0.5,Medium,Materialised,1,2025-05-01,2025-05-08
+R1015,"La Niña in Afghanistan worsens drought and leads to widespread agricultural losses, water scarcity, and acute food insecurity in 2026",Afghanistan,High,0.7,High,Materialised,1,2025-02-09,2026-03-31
+R1056,Resource-related clashes and political tensions in Tindouf camps restrict humanitarian access and increase protection risks for Sahrawi refugees,Algeria,Medium,0.5,Medium,Materialised,1,2026-07-01,2026-09-07
+R0371,"Heavy rains in late August 2022 cause floods that affect previously affected areas, especially in the northeast, and new areas, especially in the southeast, aggravating the humanitarian situation.",Bangladesh,Medium,0.5,Medium,Not materialised,0,,
+R1020,"Intensifying political violence approaching the February 2026 election in Bangladesh increases protection risks and constrains food, healthcare, and livelihood access",Bangladesh,High,0.7,High,Not materialised,0,,
+R1039,"Prolonged fuel shortages in Bangladesh worsen food security and disrupt health, telecommunications, and other essential services",Bangladesh,High,0.7,High,Materialised,1,2026-05-01,2026-07-12
+R0510,High public debt has reduced state capacity to provide public services including health services,Burundi,Medium,0.5,Medium,Materialised,1,,
+R0094,Increase of violent attacks on civilians and IDP camps in the Far North region,Cameroon,Medium,0.5,Medium,Not materialised,0,,
+R0116,Food shortages due to the blocked Douala-Bangui transportation route,Central African Republic,Medium,0.5,Medium,Not materialised,0,,
+R0369,An increase in paramilitary and National Liberation Army violence in areas previously held by the Revolutionary Armed Forces of Colombia lead to displacement and access constraints.,Colombia,Medium,0.5,Medium,Materialised,1,,
+R1013,Intensified territorial disputes among armed groups over illegal mining corridors in southern Bolívar lead to mass displacement and confinement,Colombia,High,0.7,High,Not materialised,0,2024-11-10,2026-04-30
+R1019,"La Niña-driven above-normal rainfall and flooding in Colombia cause widespread crop damage, landslides, waterborne diseases, and food insecurity and malnutrition",Colombia,Very High,0.9,High,Materialised,1,2026-02-01,2026-06-11
+R1023,Worsening energy shortages and U.S. pressure lead to essential service disruptions and rising humanitarian needs in Cuba,Cuba,High,0.7,High,Materialised,1,2025-10-01,2026-06-11
+R0529,Increased intercommunal conflict and militia attacks in southwestern DRC trigger new displacements and worsen the humanitarian crisis ,Democratic Republic of the Congo,Medium,0.5,Medium,Materialised,1,,
+R0462,The intensification of anti-MONUSCO demonstrations leads to recurrent suspensions of humanitarian activities and the inability to meet humanitarian needs for the affected population.,Democratic Republic of the Congo,Low,0.3,Medium,Materialised,1,,
+R0463,The deployment of the regional military force leads to more displacement and increased humanitarian needs in eastern Democratic Republic of Congo.,Democratic Republic of the Congo,Medium,0.5,Medium,Materialised,1,,
+R0552,"DRC general elections trigger heightened levels of violence, leading to increasing protection threats, population displacement, and food insecurity",Democratic Republic of the Congo,Medium,0.5,Medium,Not materialised,0,,
+R0365,"The expansion of the areas under the control of the March 23 Movement (M23) in Nord-Kivu causes increased violence targeting Rwandophone communities, resulting in displacement and protection needs.","Democratic Republic of the Congo, Rwanda",Low,0.3,Medium,Materialised,1,,
+R0553,The impact of war in Gaza and the Red Sea blockade on Egypt’s economy limits access to food and increases malnutrition levels among children,Egypt,Medium,0.5,Medium,Materialised,1,,
+R1026,"Potential Red Sea disruptions from a US–Iran conflict reduce foreign currency earnings, heighten food insecurity, and disrupt services across Egypt",Egypt,High,0.7,High,Materialised,1,2017-09-07,2026-08-02
+R0522,"The escalation of conflict in Amhara Region resulting in displacement of people, destruction of infrastructure and fatalities",Ethiopia,High,0.7,High,Materialised,1,,
+R0105,Deterioration of food security due to COVID-19 and economic crisis,Haiti,High,0.7,High,Not materialised,0,,
+R0349,"Election delays contribute to popular unrest and violence in the capital before spilling into surrounding rural areas, causing delays in the delivery of food aid.",Haiti,Medium,0.5,Medium,Materialised,1,,
+R1018,"La Niña-driven above-normal rainfall and tropical cyclone intensification cause widespread flooding, an increase in water-borne diseases and malnutrition",Haiti,High,0.7,High,Materialised,1,2025-01-30,2026-04-01
+R1040,"El Niño-driven above-average temperatures and below-average precipitation cause widespread drought in the Central American Dry Corridor (El Salvador, Guatemala, and Honduras), increasing food and health needs","Honduras, Guatemala, El Salvador",Very High,0.9,High,Materialised,1,2026-06-05,2026-10-02
+R1008,"Rising water scarcity in Iran leads to a deterioration in health, food security, and livelihood needs",Iran,High,0.7,High,Materialised,1,2025-01-15,2026-08-05
+R1030,"Direct US–Iran military confrontation causes mass civilian casualties in Iran and regional conflict spillover, leading to displacement and service collapse",Iran,High,0.7,High,Materialised,1,,
+R0030,Attacks by the Islamic State of Iraq and Syria (ISIS) escalate after the expulsion of anti-ISIS coalition forces,Iraq,Medium,0.5,Medium,Not materialised,0,,
+R1029,"The US/Israel–Iran escalation affecting the Strait of Hormuz drives conflict, food insecurity, livelihood collapse, and protection risks in Iraq",Iraq,Low,0.3,Medium,Not materialised,0,2026-03-01,2026-06-10
+R0996,Contested electoral process ahead of Côte d'Ivoire’s October 2025 elections leads to political violence and protection risks,Ivory Coast,Medium,0.5,Medium,Not materialised,0,2025-07-01,2025-10-28
+R0345,"The expansion of armed groups from central Sahel to coastal countries (Benin, Côte d’Ivoire, Ghana, and Togo) leads to displacement and increased food insecurity.","Ivory Coast, Benin, Togo, Ghana",Low,0.3,Medium,Materialised,1,,
+R0305,"Electoral violence and increased intercommunal conflict throughout Kenya result in displacement, the disruption of livelihoods, and protection concerns.",Kenya,Medium,0.5,Medium,Not materialised,0,,
+R0998,Intensifying humanitarian and security crisis in Kenya worsens conditions in refugee camps,Kenya,High,0.7,High,Materialised,1,2025-06-01,2025-09-11
+R0031,A rising number of Syrian refugees opt for an unsafe return to Syria to avoid a deepening economic crisis in Lebanon and the repercussions of the 2020 Beirut explosion,Lebanon,Medium,0.5,Medium,Not materialised,0,,
+R0274,Diplomatic tensions between Lebanon and the Gulf states affect Lebanon's economy and aggravate humanitarian needs,Lebanon,Medium,0.5,Medium,Not materialised,0,,
+R0960,Increased intensity and spread of the conflict between Hezbollah and Israel increases humanitarian needs in Lebanon,Lebanon,Medium,0.5,Medium,Materialised,1,,
+R0985,"Attempts to politically marginalise and militarily weaken Hezbollah in Lebanon leads to internal tensions, protests, and displacement",Lebanon,High,0.7,High,Not materialised,0,2024-11-01,2026-03-26
+R1027,"Hezbollah–Israel escalation related to Israeli/United States attack on Iran results in increased internal displacement, cross-border movements, and worsening food insecurity",Lebanon,High,0.7,High,Materialised,1,2026-03-01,2026-03-26
+R1034,Intercommunal tensions between IDPs and host communities in Lebanon result in localised clashes and further displacement,Lebanon,Medium,0.5,Medium,Not materialised,0,2026-04-01,2026-08-02
+R0970,Economic instability and a threat to the UN-brokered peace deal amid Libya's oilfield shutdown and Central Bank dispute,Libya,Low,0.3,Medium,Not materialised,0,,
+R0976,"Russia's increased military presence in eastern Libya leads to a return to conflict, displacement, and increased humanitarian needs",Libya,Low,0.3,Medium,Not materialised,0,2024-12-01,2025-07-24
+R0995,"The consolidation of power by Dbeibeh's forces across Libya provokes counteractions from other factions, renewing clashes and protection risks",Libya,Low,0.3,Medium,Not materialised,0,2025-04-28,2025-11-24
+R1028,"A contested April 2026 electoral process in Libya heightens localised armed clashes, displacement, and service disruptions",Libya,Low,0.3,Medium,Not materialised,0,2025-08-01,2026-06-01
+R0033,Rise of inter-communal violence in central Mali leads to increased internal displacement,Mali,Medium,0.5,Medium,Materialised,1,,
+R0089,Deterioration of humanitarian situation in Mali,Mali,Medium,0.5,Medium,Not materialised,0,,
+R0242,An increase in security incidents lead to displacement in Niono circle.,Mali,Medium,0.5,Medium,Not materialised,0,,
+R0301,Economic sanctions lead to the loss of livelihoods and increased food insecurity.,Mali,High,0.7,High,Materialised,1,,
+R1014,Failure of essential services owing to the blockade in Mali leads to civil unrest and destabilisation and aggravates needs,Mali,High,0.7,High,Materialised,1,2025-11-26,2026-04-27
+R1005,Tension over limited resources leads to localised clashes in Hodh Ech Chargui wilaya,Mauritania,Very Low,0.1,Low,Not materialised,0,2025-08-27,2026-03-26
+R0296,"The implementation of the Migrant Protection Protocol leads to an increased number of migrants stranded at the border lacking protection, shelter, and services.",Mexico,High,0.7,High,Not materialised,0,,
+R0952,Dzud-related extreme weather conditions leading to decreased livelihoods.,Mongolia,Very High,0.9,High,Materialised,1,,
+R0335,"Drought across Morocco leads to water shortages, decreased agricultural production, and increased food and vegetable prices",Morocco,Medium,0.5,Medium,Not materialised,0,,
+R0977,Escalating civil unrest leads to increased protection risks and poverty,Mozambique,Very High,0.9,High,Materialised,1,,
+R1017,La Niña-induced heavy rainfall and enhanced cyclonic activity from October–March in central and northern Mozambique increase flooding and displacement,Mozambique,High,0.7,High,Materialised,1,2025-01-30,2026-01-29
+R0134,Increased violence around upcoming elections in early 2022 leads to civil war and countrywide conflict after the elections,Myanmar,Low,0.3,Medium,Not materialised,0,,
+R0961,Conscription policies implemented by the Myanmar military junta and some EAOs heighten protection concerns throughout the country,Myanmar,Very High,0.9,High,Materialised,1,,
+R1012,Escalating armed conflict during the December 2025 election in Myanmar heightens protection risks,Myanmar,High,0.7,High,Materialised,1,2025-10-30,2026-02-26
+R0387,Political violence during the November 2022 general elections lead to protection and displacement issues.,Nepal,Medium,0.5,Medium,Not materialised,0,,
+R0978,Lakurawa armed group resurgence in North West Nigeria and southern Niger heightens insecurity and leads to more displacement,"Nigeria, Niger",Medium,0.5,Medium,Materialised,1,2025-03-01,2025-03-26
+R1021,A return to large‑scale conflict in Gaza stokes a further deterioration of food security and humanitarian conditions,Palestine,High,0.7,High,Materialised,1,2023-10-01,2026-06-10
+R1041,Escalation of confrontation between Israel forces and Palestinian armed groups in the West Bank leads to increased displacement and livelihood and healthcare needs.,Palestine,Medium,0.5,Medium,Not materialised,0,2026-07-01,2026-08-02
+R0546,"Continued protests across Panama, following the government's approval to exploit a mining area in a biodiverse jungle, result in access constraints and disruption of services and economic activities for some population groups",Panama,Medium,0.5,Medium,Not materialised,0,,
+R0957,"Deteriorating socioeconomic situation in Papua New Guinea trigger violent incidents such as riots in urban areas, heightening protection concerns",Papua New Guinea,Medium,0.5,Medium,Not materialised,0,,
+R0492,"Continued protests and restrictions on mobility affect the economic security, living conditions, and humanitarian needs of the economically vulnerable population groups, particularly Venezuelan migrants with an irregular status and asylum seekers.",Peru,Medium,0.5,Medium,Not materialised,0,,
+R0303,Political violence and attacks by armed groups in Mindanao around the May presidential elections result in displacement and protection issues.,Philippines,Medium,0.5,Medium,Materialised,1,,
+R0542,Village and youth council elections in Mindanao islands trigger violence among rival groups leading to internal displacements and need for assistance to IDPs,Philippines,Very High,0.9,High,Not materialised,0,,
+R1016,"La Niña-driven above-normal rainfall and enhanced cyclonic activity in the Philippines cause widespread flooding, agricultural damage, and displacement",Philippines,High,0.7,High,Materialised,1,2026-02-26,2026-02-26
+R0190,"Conflict in Mogadishu between pro-Government and pro-opposition military forces, as well as increased Al-Shabaab attacks, result in displacement and humanitarian access constraints",Somalia,Medium,0.5,Medium,Materialised,1,,
+R1007,Escalating tensions around universal suffrage in Somalia heightens conflict and instability ahead of the 2026 elections,Somalia,High,0.7,High,Materialised,1,2025-10-25,2026-06-08
+R1009,Consecutive below-average rains amid expected La Niña conditions in northern and central Somalia deepen drought Impacts,Somalia,Very High,0.9,High,Materialised,1,2025-10-06,2026-06-09
+R1033,The escalation of political and armed conflict in Southwest state leads to large‑scale displacement and worsens humanitarian conditions,Somalia,High,0.7,High,Materialised,1,,
+R0332,"The depletion of foreign currency reserves and economic decline affect people's access to basic goods and services and livelihoods, leading to humanitarian needs among the most vulnerable.",Sri Lanka,Medium,0.5,Medium,Materialised,1,,
+R0002,Establishment of military regime leads to increased conflict and spread of violence across Sudan,Sudan,High,0.7,High,Materialised,1,,
+R0018,"Economic crisis leads to increased food insecurity, socio-political instability, and protection concerns amid protest",Sudan,Very High,0.9,High,Materialised,1,,
+R0120,Growing inflation and an economic crisis in Sudan result in high food insecurity levels,Sudan,Medium,0.5,Medium,Materialised,1,,
+R0073,The declaration of a state of emergency escalates protests that may lead to violence and further displacement in the Darfur region,Sudan,Low,0.3,Medium,Materialised,1,,
+R0248,"Camps and basic services in East Darfur state are stretched beyond capacity following the influx of up to 100,000 South Sudanese refugees by June 2016 ",Sudan,High,0.7,High,Materialised,1,,
+R0200,Tensions between the military and political components in Sudan’s transitional government result in social unrest and increased access constraints for humanitarian organisations,Sudan,Low,0.3,Medium,Materialised,1,,
+R0357,Türkiye's military incursion into northern Syria triggered by the nearing general elections results in the displacement of people from areas of conflict.,Syria,Medium,0.5,Medium,Not materialised,0,,
+R0367,"The government offensive in Deir-ez-Zor city results in displacement and damage to critical infrastructure, generating WASH needs.",Syria,,,,Not materialised,0,,
+R0999,Escalations between loyalists to former President Bashar Al Assad and Sunni armed groups result in internal and cross-border displacement,Syria,Medium,0.5,Medium,Not materialised,0,2025-03-01,2026-03-30
+R1000,"The escalation of clashes between Druze and Sunni armed groups leads to displacement and increased needs for food, shelter, water, and healthcare",Syria,High,0.7,High,Materialised,1,2025-07-21,2025-11-24
+R1001,"Further Israeli expansion in southern Syria triggers armed group resistance, displacement, and heightened food insecurity",Syria,Medium,0.5,Medium,Materialised,1,2025-07-23,2026-07-09
+R1002,A prolonged Syria–Lebanon border conflict results in displacement and increases shelter and livelihood needs,Syria,Medium,0.5,Medium,Not materialised,0,2025-07-01,2026-04-25
+R1003,Severe shortage of services triggers unrest and breakout attempts in Al Hol and Al Roj camps ,Syria,Very Low,0.1,Low,Materialised,1,2025-11-12,2026-02-12
+R1004,"Water scarcity, especially in northeast and northwest Syria result in livelihoods and services’ disruptions, reduced food production and protests ",Syria,Low,0.3,Medium,Not materialised,0,2025-08-23,2026-04-25
+R0107,Spreading of the violent insurgency of Cabo Delgado into the Tanzanian territory.,Tanzania,Very Low,0.1,Low,Not materialised,0,,
+R0982,"Flooding and landslides in Tanzania kill people, destroy infrastructure, damage crops, and increase waterborne diseases, aggravating socioeconomic and environmental vulnerabilities",Tanzania,Medium,0.5,Medium,Materialised,1,2025-03-01,2025-04-29
+R0549,"Drought conditions due to the El Nino, high rice prices in the international market, and restrictions imposed by India on their rice exports worsen food insecurity outcomes",Timor Leste,High,0.7,High,Materialised,1,,
+R0078,"COVID-19 and related restrictions worsen the Tunisian socioeconomic crisis, especially in the south, leading to increased migration across the Central Mediterranean route and growing protection needs",Tunisia,Medium,0.5,Medium,Not materialised,0,,
+R0254,The escalation and spread of violence between PKK and government forces in southeastern Türkiye cause insecurity in affected areas.,Turkey,Low,0.3,Medium,Materialised,1,2025-05-01,2025-07-04
+R0108,Escalation of violence in the lead-up to national presidential elections due on the 14 of January 2021.,Uganda,High,0.7,High,Materialised,1,,
+R0215,Cholera outbreak spreads to overcrowd Burundi refugee camps.,Uganda,,,,Not materialised,0,,
+R1022,Post-election civil unrest and state security crackdowns lead to heightened protection risks for civilians,Uganda,,,,Not materialised,0,,
+R0954,Protests against agricultural exports from Ukraine intensify across the European Union block Ukraine’s border leading to further economic strain.,Ukraine,Medium,0.5,Medium,Materialised,1,,
+R0993,"Resurgence of Russian attacks on Ukraine's energy infrastructure affect essential needs, socioeconomic conditions, and humanitarian operations after the end of the partial ceasefire in late April 2025",Ukraine,Medium,0.5,Medium,Materialised,1,,
+R1011,US military build-up in the Caribbean triggers internal destabilisation in Venezuela and heightens humanitarian needs,Venezuela,Medium,0.5,Medium,Materialised,1,2025-01-03,2026-04-01
+R0007,"Breakdown in the peace process leads to escalation of conflict in Al Hodeidah, worsening food insecurity and increasing the spread of cholera",Yemen,,,,Materialised,1,,
+R0525,"The Southern Transitional Council push for an independence of the south results in local fighting, leading to displacements and increased needs for the affected ",Yemen,Low,0.3,Medium,Not materialised,0,,
+R1025,"The US–Iran escalation leads to strikes on Houthi-held ports, crippling infrastructure and disrupting vital humanitarian supply chains in Yemen",Yemen,Medium,0.5,Medium,Not materialised,0,,
+R0106,"Deterioration of food security due to poor agricultural seasons, COVID-19, and economic crisis",Zimbabwe,Medium,0.5,Medium,Materialised,1,,
+R0090,Increase of food insecurity,Zimbabwe,High,0.7,High,Materialised,1,,
+R0512,"El Niño in Zimbabwe increases the needs of those already affected by drought, cyclones, disease outbreaks, and protracted economic instability",Zimbabwe,High,0.7,High,Materialised,1,,

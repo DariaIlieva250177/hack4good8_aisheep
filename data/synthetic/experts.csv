@@ -1,0 +1,11 @@
+expert_id,pseudonym,anonymity_level,sim_skill,sim_bias,sim_noise
+E01,Falcon,known_to_acaps,0.16,-0.14,0.66
+E02,Kestrel,known_to_acaps,0.61,-0.29,0.89
+E03,Sparrow,pseudonymous,0.04,-0.24,0.75
+E04,Marten,pseudonymous,0.04,0.32,0.82
+E05,Acacia,pseudonymous,0.51,-0.24,0.36
+E06,Linden,anonymous,0.47,-0.01,0.68
+E07,Heron,anonymous,0.92,0.27,0.66
+E08,Cedar,pseudonymous,0.63,-0.18,0.91
+E09,Juniper,anonymous,0.51,-0.03,0.55
+E10,Badger,known_to_acaps,0.5,0.03,0.72
