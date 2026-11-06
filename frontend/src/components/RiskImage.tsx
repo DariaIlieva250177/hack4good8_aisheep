@@ -9,7 +9,7 @@ import './RiskImage.css';
 interface RiskImageProps {
   family: Family;
   image?: ImageCategory;
-  variant?: 'card' | 'compact' | 'thumb' | 'tile';
+  variant?: 'card' | 'compact' | 'thumb' | 'tile' | 'hero';
   /** Layer drawn between the tint and the image (the waves) */
   behind?: ReactNode;
   /** Layer drawn above the image (swipe labels) */
@@ -38,7 +38,7 @@ export function RiskImage({ family, image, variant = 'card', behind, overlay, de
         src={imageUrl(category)}
         alt={decorative ? '' : en.imageAlt[category]}
         style={{ filter }}
-        loading={variant === 'card' ? 'eager' : 'lazy'}
+        loading={variant === 'card' || variant === 'hero' ? 'eager' : 'lazy'}
         decoding="async"
         draggable={false}
       />

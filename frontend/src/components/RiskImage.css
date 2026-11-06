@@ -20,6 +20,10 @@
 .risk-image--tile {
   block-size: 100%;
 }
+.risk-image--hero {
+  aspect-ratio: 1;
+  max-block-size: 100%;
+}
 
 .risk-image__tint {
   position: absolute;

@@ -1,0 +1,25 @@
+.tile-wheel {
+  position: relative;
+  block-size: 150px;
+  margin-inline: calc(-1 * var(--gutter));
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.tile-wheel:active {
+  cursor: grabbing;
+}
+
+.tile-wheel__tile {
+  position: absolute;
+  inset-block-start: 14px;
+  inset-inline-start: calc(50% - 44px);
+  inline-size: 88px;
+  block-size: 112px;
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 6px 6px 14px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
+  pointer-events: none;
+}

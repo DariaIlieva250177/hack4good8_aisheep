@@ -75,6 +75,31 @@ export const en = {
     forgot: 'Forgot password?',
     signUp: 'Sign up',
     or: 'or',
+    showPassword: 'Show password',
+    tilesLabel: 'Risk illustrations. Drag to spin.',
+  },
+
+  intro: {
+    label: 'Welcome',
+    stories: [
+      {
+        title: 'See what ACAPS sees',
+        body: 'Each card is a live ACAPS risk analysis for the countries you know.',
+      },
+      {
+        title: 'Tell us if it holds',
+        body: 'Yes, partly or no. A few minutes at a time, whenever you have them.',
+      },
+      {
+        title: 'Your name, your choice',
+        body: 'Show your name, use a pseudonym or stay anonymous. Nothing you write is ever public.',
+      },
+    ],
+    storyOf: (i: number, n: number) => `Story ${i} of ${n}`,
+    previous: 'Previous story',
+    next: 'Next story',
+    start: 'Get started',
+    haveAccount: 'I already have an account',
   },
 
   card: {
