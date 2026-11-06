@@ -7,6 +7,7 @@ import { Placeholder } from './screens/Placeholder';
 import { Login } from './screens/Login';
 import { Risks } from './screens/Risks';
 import { Profile } from './screens/Profile';
+import { Todo } from './screens/Todo';
 
 export default function App() {
   return (
@@ -18,7 +19,7 @@ export default function App() {
             <Route path="/" element={<Login />} />
             <Route element={<AppShell />}>
               <Route path="/risks" element={<Risks />} />
-              <Route path="/todo" element={<Placeholder title="To-do" />} />
+              <Route path="/todo" element={<Todo />} />
               <Route path="/alerts" element={<Placeholder title="Notifications" />} />
               <Route path="/community" element={<Placeholder title="Community" />} />
               <Route path="/community/:riskId" element={<Placeholder title="Community topic" />} />
