@@ -1,0 +1,74 @@
+.notif-list {
+  margin-block-start: 12px;
+  padding-block: 8px;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.notif-list > li + li {
+  border-block-start: 1px solid var(--line);
+}
+
+.notif {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  inline-size: 100%;
+  min-block-size: 72px;
+  padding: 14px 18px;
+  border: 0;
+  background: none;
+  text-align: start;
+}
+
+.notif--unread {
+  background: var(--highlight-12);
+}
+
+.notif__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  inline-size: 44px;
+  block-size: 44px;
+  border-radius: 50%;
+  background: var(--ground);
+  box-shadow: var(--soft-raised);
+  color: var(--acaps-dark);
+}
+
+.notif__text {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.notif__kind {
+  color: var(--ink-2);
+}
+
+.notif__title {
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.notif--unread .notif__title {
+  font-weight: 600;
+}
+
+.notif__side {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  flex: none;
+}
+
+/* Unread: yellow dot with a dark ring, since yellow alone is too light on the ground */
+.notif__dot {
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: 50%;
+  background: var(--highlight);
+  box-shadow: 0 0 0 1.5px var(--ink);
+}
