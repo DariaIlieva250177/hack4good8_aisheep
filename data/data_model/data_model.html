@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ground Truth – data model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfbfd;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --line: #dfe3ea;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171c;
+      --surface: #1d2027;
+      --text: #e7e9ee;
+      --muted: #a3aab8;
+      --line: #343944;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  main { max-width: 1180px; margin: 0 auto; padding: 40px 24px 64px; }
+  h1 { font-size: 28px; font-weight: 600; margin: 0 0 6px; }
+  h2 { font-size: 19px; font-weight: 600; margin: 40px 0 10px; }
+  p { margin: 0 0 12px; max-width: 72ch; }
+  .lead { color: var(--muted); }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 22px 0 18px; padding: 0; list-style: none; font-size: 14px; }
+  .legend li { display: flex; align-items: center; gap: 8px; }
+  .swatch { width: 14px; height: 14px; border-radius: 4px; border: 1px solid var(--line); }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    overflow-x: auto;
+  }
+  #erd svg { display: block; margin: 0 auto; }
+  #erd svg.erDiagram .divider path { stroke-opacity: 0.5; }
+  #erd svg.erDiagram .row-rect-odd path, #erd svg.erDiagram .row-rect-odd rect,
+  #erd svg.erDiagram .row-rect-even path, #erd svg.erDiagram .row-rect-even rect { stroke: none !important; }
+  .hint { font-size: 14px; color: var(--muted); margin-top: 10px; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; background: var(--surface); }
+  th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; }
+  code { font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace; font-size: 0.92em; }
+  .error { color: #b3261e; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Ground Truth data model</h1>
+  <p class="lead">The tables the hackathon demo uses, how they connect, and the tables planned for later. Answers only carry an expert ID; real names sit in one separate table that only ACAPS can open. All expert data in the demo is synthetic.</p>
+
+  <ul class="legend" aria-label="Table groups">
+    <li><span class="swatch" data-group="acaps"></span>From ACAPS (read only)</li>
+    <li><span class="swatch" data-group="people"></span>People</li>
+    <li><span class="swatch" data-group="contrib"></span>Browsing and contributions</li>
+    <li><span class="swatch" data-group="forecast"></span>Forecasting</li>
+  </ul>
+
+  <div class="diagram"><div id="erd" role="img" aria-label="Entity relationship diagram of the Ground Truth data model">Loading the diagram…</div></div>
+  <p class="hint">PK is a table's own ID; FK points to another table. A line reads like "one risk has many triggers". Scroll sideways on small screens. Full field descriptions are in <code>docs/data_model.md</code>.</p>
+
+  <h2>Planned for later</h2>
+  <p>Designed in the platform concept, not built during the hackathon.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Table</th><th>Main fields</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><code>APPROVALS</code></td><td>expert_id, decision, decided_by, date</td><td>Record of ACAPS approving each expert</td></tr>
+        <tr><td><code>NOTIFICATION_TOKENS</code></td><td>random_code, device_token, platform</td><td>Device alerts, stored apart from answers</td></tr>
+        <tr><td><code>NOTIFICATION_ADDRESSES</code></td><td>random_code, email</td><td>Opt-in email alerts, held by a separate service</td></tr>
+        <tr><td><code>DISCUSSION_POSTS</code></td><td>post_id, round_id, expert_id, side, text, reply_to</td><td>The structured for-and-against discussion</td></tr>
+        <tr><td><code>SIGNALS</code></td><td>signal_id, expert_id, country, type, text, status</td><td>New risks or missing triggers raised outside a check-in</td></tr>
+        <tr><td><code>RANK_HISTORY</code></td><td>expert_id, rank, from_date, to_date</td><td>How ranks change over the past 12 months</td></tr>
+        <tr><td><code>CERTIFICATES</code></td><td>certificate_id, expert_id, reason, verification_code, issued</td><td>Recognition, including for anonymous experts</td></tr>
+        <tr><td><code>CLIENT_REQUESTS</code></td><td>request_id, client, question, service_level, round_id, status</td><td>Expert panel analysis on request</td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';
+
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+const GROUPS = {
+  acaps:    dark ? {fill:'#2E3B4A', text:'#E6ECF2', line:'#8FA1B5'} : {fill:'#D3DCE6', text:'#1E2A38', line:'#5A6B7F'},
+  people:   dark ? {fill:'#3C3489', text:'#EEEDFE', line:'#AFA9EC'} : {fill:'#CECBF6', text:'#26215C', line:'#534AB7'},
+  contrib:  dark ? {fill:'#173A63', text:'#E3EEFB', line:'#7FAEE6'} : {fill:'#C9DDF5', text:'#0E2E55', line:'#2F6DB5'},
+  forecast: dark ? {fill:'#085041', text:'#E1F5EE', line:'#5DCAA5'} : {fill:'#9FE1CB', text:'#04342C', line:'#0F6E56'},
+};
+const TABLE_GROUP = {
+  RISKS:'acaps', TRIGGERS:'acaps',
+  EXPERTS:'people', EXPERT_IDENTITY:'people', PANELS:'people', PANEL_MEMBERS:'people',
+  CARD_SWIPES:'contrib', ROUNDS:'contrib', RESPONSES:'contrib', TRIGGER_VOTES:'contrib', SUGGESTED_TRIGGERS:'contrib', ROUND_SUMMARIES:'contrib',
+  FORECAST_QUESTIONS:'forecast', FORECASTS:'forecast', SCORES:'forecast',
+};
+
+document.querySelectorAll('.swatch').forEach(s => {
+  const g = GROUPS[s.dataset.group];
+  s.style.background = g.fill; s.style.borderColor = g.line;
+});
+
+const definition = `erDiagram
+  RISKS ||--o{ TRIGGERS : has
+  RISKS ||--o{ CARD_SWIPES : "shown as card"
+  EXPERTS ||--o{ CARD_SWIPES : swipes
+  RISKS ||--o{ ROUNDS : "asked about in"
+  PANELS ||--o{ ROUNDS : runs
+  PANELS ||--o{ PANEL_MEMBERS : includes
+  EXPERTS ||--o{ PANEL_MEMBERS : joins
+  EXPERTS ||--o| EXPERT_IDENTITY : "private details"
+  ROUNDS ||--o{ RESPONSES : collects
+  EXPERTS ||--o{ RESPONSES : gives
+  RESPONSES ||--o{ TRIGGER_VOTES : contains
+  TRIGGERS ||--o{ TRIGGER_VOTES : "voted on"
+  RESPONSES ||--o{ SUGGESTED_TRIGGERS : adds
+  ROUNDS ||--o| ROUND_SUMMARIES : "summarised in"
+  RISKS ||--o{ FORECAST_QUESTIONS : "turned into"
+  TRIGGERS |o--o{ FORECAST_QUESTIONS : "can be about"
+  FORECAST_QUESTIONS ||--o{ FORECASTS : receives
+  EXPERTS ||--o{ FORECASTS : makes
+  RESPONSES |o--o{ FORECASTS : "given in"
+  FORECAST_QUESTIONS ||--o{ SCORES : "scored in"
+  EXPERTS ||--o{ SCORES : earns
+  RISKS {
+    string risk_id PK
+    string title
+    string country
+    string risk_type
+    string acaps_probability
+    float acaps_p
+    string risk_level
+    string risk_trend
+    string priority_needs
+    string status
+    int outcome
+    string urgency
+  }
+  TRIGGERS {
+    string trigger_id PK
+    string risk_id FK
+    string title
+    string description
+  }
+  EXPERTS {
+    string expert_id PK
+    string pseudonym
+    string anonymity_level
+    bool approved
+    string rank
+    string language
+  }
+  EXPERT_IDENTITY {
+    string expert_id PK
+    string name
+    string organisation
+    string email
+  }
+  PANELS {
+    string panel_id PK
+    string country
+    string moderator
+  }
+  PANEL_MEMBERS {
+    string panel_id FK
+    string expert_id FK
+  }
+  CARD_SWIPES {
+    string expert_id FK
+    string risk_id FK
+    string action
+    date swiped
+  }
+  ROUNDS {
+    string round_id PK
+    string panel_id FK
+    string risk_id FK
+    int round_number
+    date opens
+    date closes
+  }
+  RESPONSES {
+    string response_id PK
+    string round_id FK
+    string expert_id FK
+    string stance
+    string comment
+    string source_url
+    bool ai_draft_used
+    bool hidden_from_acaps
+    string anonymity_used
+    int version
+    string revises_response_id FK
+    date submitted
+  }
+  TRIGGER_VOTES {
+    string response_id FK
+    string trigger_id FK
+    string vote
+  }
+  SUGGESTED_TRIGGERS {
+    string suggestion_id PK
+    string response_id FK
+    string text
+    string status
+  }
+  ROUND_SUMMARIES {
+    string round_id FK
+    string summary
+    bool approved
+    date published
+  }
+  FORECAST_QUESTIONS {
+    string question_id PK
+    string risk_id FK
+    string trigger_id FK
+    string question
+    int horizon_months
+    date closes
+    date resolves_on
+    string resolution_rule
+    string status
+    int outcome
+  }
+  FORECASTS {
+    string forecast_id PK
+    string question_id FK
+    string expert_id FK
+    string response_id FK
+    string answer_level
+    float probability
+    date submitted
+  }
+  SCORES {
+    string expert_id FK
+    string question_id FK
+    float brier
+    date scored_on
+  }`;
+
+try {
+  await document.fonts.ready;
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'base',
+    fontFamily: '"IBM Plex Sans", "Segoe UI", system-ui, sans-serif',
+    er: { useMaxWidth: false },
+    themeVariables: {
+      darkMode: dark,
+      fontSize: '13px',
+      fontFamily: '"IBM Plex Sans", "Segoe UI", system-ui, sans-serif',
+      lineColor: dark ? '#9aa3b2' : '#6b7383',
+      textColor: dark ? '#d6dae2' : '#2a3140',
+      primaryColor: GROUPS.people.fill,
+      primaryTextColor: GROUPS.people.text,
+      primaryBorderColor: GROUPS.people.line,
+      attributeBackgroundColorOdd: dark ? '#1d2027' : '#ffffff',
+      attributeBackgroundColorEven: dark ? '#23262e' : '#f5f6f9',
+    },
+  });
+  const { svg } = await mermaid.render('erd-svg', definition);
+  const host = document.getElementById('erd');
+  host.innerHTML = svg;
+
+  const names = Object.keys(TABLE_GROUP);
+  host.querySelectorAll('svg.erDiagram .node').forEach(node => {
+    let name = null;
+    const labels = [];
+    node.querySelectorAll('text, tspan, span, div, p').forEach(el => {
+      const t = el.textContent.trim();
+      if (names.includes(t)) { name = t; labels.push(el); }
+    });
+    const c = GROUPS[TABLE_GROUP[name] || 'people'];
+    const firstPath = node.querySelector('path[d]');
+    if (firstPath) {
+      const nums = firstPath.getAttribute('d').match(/-?[\d.]+/g)?.map(Number);
+      if (nums && nums.length >= 8) {
+        const xs = [nums[0], nums[2], nums[4], nums[6]];
+        const ys = [nums[1], nums[3], nums[5], nums[7]];
+        const x = Math.min(...xs), y = Math.min(...ys);
+        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect.setAttribute('x', x); rect.setAttribute('y', y);
+        rect.setAttribute('width', Math.max(...xs) - x); rect.setAttribute('height', Math.max(...ys) - y);
+        rect.setAttribute('rx', '8');
+        for (const a of ['stroke-width', 'class', 'style']) {
+          if (firstPath.hasAttribute(a)) rect.setAttribute(a, firstPath.getAttribute(a));
+        }
+        rect.style.setProperty('fill', c.fill, 'important');
+        rect.style.setProperty('stroke', c.line, 'important');
+        firstPath.replaceWith(rect);
+      }
+    }
+    labels.forEach(el => {
+      el.style.setProperty('fill', c.text, 'important');
+      el.style.setProperty('color', c.text, 'important');
+      el.style.setProperty('font-weight', '600', 'important');
+    });
+  });
+} catch (err) {
+  document.getElementById('erd').innerHTML =
+    '<p class="error">The diagram could not load. It needs an internet connection to fetch the diagram library. Details: ' +
+    String(err && err.message || err) + '</p>';
+}
+</script>
+</body>
+</html>
