@@ -46,3 +46,9 @@
     linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
   mask-composite: intersect;
 }
+
+/* At thumbnail size the full four-edge fade eats the picture; fade only the rim. */
+.risk-image--thumb .risk-image__img {
+  -webkit-mask-image: radial-gradient(ellipse 58% 58% at 50% 50%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 58% 58% at 50% 50%, #000 62%, transparent 100%);
+}

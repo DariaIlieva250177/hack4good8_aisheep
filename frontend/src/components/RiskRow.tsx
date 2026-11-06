@@ -12,21 +12,20 @@ import './RiskRow.css';
 interface RiskRowProps {
   risk: Risk;
   to: string;
-  /** Line under the title, e.g. member count */
+  /** Line under the chips, e.g. member count */
   meta?: ReactNode;
-  /** Extra marker at the end, e.g. unread count */
+  /** Marker next to the level chip, e.g. unread count */
   marker?: ReactNode;
-  unread?: boolean;
 }
 
 /** A list row for a risk: blended thumbnail, two-line title, thin level edge. */
-export function RiskRow({ risk, to, meta, marker, unread }: RiskRowProps) {
+export function RiskRow({ risk, to, meta, marker }: RiskRowProps) {
   const { mode } = useMode();
   const veryHigh = risk.probability === 'Very High';
 
   return (
     <li>
-      <Link to={to} className={`risk-row risk-row--${risk.level.toLowerCase()}${unread ? ' risk-row--unread' : ''}`}>
+      <Link to={to} className={`risk-row risk-row--${risk.level.toLowerCase()}`}>
         <RiskImage family={risk.family} image={risk.image} variant="thumb" decorative />
         <span className="risk-row__text">
           <span className="risk-row__title">{risk.title}</span>
@@ -39,10 +38,10 @@ export function RiskRow({ risk, to, meta, marker, unread }: RiskRowProps) {
               </>
             )}
             {veryHigh && mode === 'lite' && <VeryHighBadge />}
-            {meta}
+            {marker}
           </span>
+          {meta && <span className="risk-row__sub t-small">{meta}</span>}
         </span>
-        {marker}
         <ChevronRight className="risk-row__chevron" size={20} aria-hidden="true" />
       </Link>
     </li>

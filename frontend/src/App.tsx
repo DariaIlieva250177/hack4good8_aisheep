@@ -9,6 +9,7 @@ import { Risks } from './screens/Risks';
 import { Profile } from './screens/Profile';
 import { Todo } from './screens/Todo';
 import { AnswerDetail } from './screens/AnswerDetail';
+import { Community } from './screens/Community';
 
 export default function App() {
   return (
@@ -22,7 +23,7 @@ export default function App() {
               <Route path="/risks" element={<Risks />} />
               <Route path="/todo" element={<Todo />} />
               <Route path="/alerts" element={<Placeholder title="Notifications" />} />
-              <Route path="/community" element={<Placeholder title="Community" />} />
+              <Route path="/community" element={<Community />} />
               <Route path="/community/:riskId" element={<Placeholder title="Community topic" />} />
               <Route path="/ranking" element={<Placeholder title="Ranking" />} />
               <Route path="/profile" element={<Profile />} />
