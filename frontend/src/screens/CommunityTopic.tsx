@@ -7,6 +7,7 @@ import { VerdictButtons } from '../components/VerdictButtons';
 import { Avatar } from '../components/Avatar';
 import { IdentityFooter } from '../components/RiskCard';
 import { useToast } from '../components/Toast';
+import { GlassButton } from '../components/glass/GlassButton';
 import { getMe, getTopic, markCommunityRead, submitAnswer } from '../data/api';
 import { useQuery } from '../data/useQuery';
 import type { Answer, Verdict } from '../data/types';
@@ -68,9 +69,9 @@ export function CommunityTopic() {
             <div className="inset topic__note">
               <textarea id="topic-note" rows={3} value={note} onChange={(e) => setNote(e.target.value)} />
             </div>
-            <button type="submit" className="btn btn-primary btn-pill" disabled={sending}>
+            <GlassButton type="submit" variant="primary" pill disabled={sending}>
               {en.topic.send}
-            </button>
+            </GlassButton>
             {me && <IdentityFooter me={me} />}
           </form>
         )}

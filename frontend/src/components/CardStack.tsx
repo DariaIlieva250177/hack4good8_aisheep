@@ -6,6 +6,7 @@ import { RiskCard, RiskChips } from './RiskCard';
 import { RiskImage } from './RiskImage';
 import { useMode } from '../mode/ModeContext';
 import { useToast } from './Toast';
+import { GlassButton } from './glass/GlassButton';
 import { en } from '../i18n/en';
 import './CardStack.css';
 
@@ -76,14 +77,14 @@ export function CardStack({ risks, me, onLater, onSkip, onSend, onAddNote }: Car
 
       {front && (
         <div className="card-stack__buttons">
-          <button type="button" className="btn btn-soft btn-pill" onClick={() => act('skip', front)}>
+          <GlassButton pill onClick={() => act('skip', front)}>
             <X size={18} aria-hidden="true" />
             {en.card.skip}
-          </button>
-          <button type="button" className="btn btn-soft btn-pill" onClick={() => act('later', front)}>
+          </GlassButton>
+          <GlassButton pill onClick={() => act('later', front)}>
             <Clock size={18} aria-hidden="true" />
             {en.card.later}
-          </button>
+          </GlassButton>
         </div>
       )}
     </section>

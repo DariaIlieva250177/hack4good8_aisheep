@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Avatar } from './Avatar';
+import { GlassButton, GlassLayer } from './glass/GlassButton';
 import { displayNameFor, getMe } from '../data/api';
 import { useQuery } from '../data/useQuery';
 import { en } from '../i18n/en';
@@ -30,9 +31,9 @@ export function ScreenHeader({ title, showTitle = true, back = false, avatar = t
     <header className={`screen-header screen-header--${tone}`}>
       <div className="screen-header__side">
         {back && (
-          <button type="button" className="btn btn-soft btn-icon screen-header__back" onClick={goBack} aria-label={en.common.back}>
+          <GlassButton icon className="screen-header__back" onClick={goBack} aria-label={en.common.back}>
             <ArrowLeft size={22} aria-hidden="true" />
-          </button>
+          </GlassButton>
         )}
       </div>
       <h1 className={showTitle ? 'screen-header__title' : 'sr-only'}>{title}</h1>
@@ -40,10 +41,11 @@ export function ScreenHeader({ title, showTitle = true, back = false, avatar = t
         {avatar && me && (
           <button
             type="button"
-            className="avatar-button"
+            className="avatar-button glass-host"
             onClick={() => navigate('/profile', { state: { from: location.pathname } })}
             aria-label={en.common.openProfile}
           >
+            <GlassLayer radius={24} />
             <Avatar name={displayNameFor(me)} identity={me.identity} seed={me.id} size={40} you />
           </button>
         )}

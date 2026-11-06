@@ -5,6 +5,7 @@ import type { Risk, User, Verdict } from '../data/types';
 import { RiskImage } from './RiskImage';
 import { AreaChip, FamilyChip, LevelChip, VeryHighBadge } from './Chips';
 import { VerdictButtons } from './VerdictButtons';
+import { GlassButton } from './glass/GlassButton';
 import { useMode } from '../mode/ModeContext';
 import { en } from '../i18n/en';
 import './RiskCard.css';
@@ -34,12 +35,12 @@ export function RiskCard({ risk, me, verdict, onVerdict, onAddNote, onSend, over
         <p className="risk-card__question expert t-quote">{en.card.question}</p>
         <VerdictButtons value={verdict} onChange={onVerdict} labelledBy={titleId} />
         <div className="risk-card__actions">
-          <button type="button" className="btn btn-soft btn-pill" onClick={onAddNote}>
+          <GlassButton pill onClick={onAddNote}>
             {en.card.addNote}
-          </button>
-          <button type="button" className="btn btn-primary btn-pill" onClick={onSend} aria-disabled={!verdict}>
+          </GlassButton>
+          <GlassButton variant="primary" pill onClick={onSend} aria-disabled={!verdict}>
             {en.card.send}
-          </button>
+          </GlassButton>
           <span className="risk-card__count t-small t-muted">{en.card.answered(risk.answered, risk.panelSize)}</span>
         </div>
         <IdentityFooter me={me} />

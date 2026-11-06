@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import './Toast.css';
+import { GlassLayer } from './glass/GlassButton';
 
 interface ToastOptions {
   message: string;
@@ -32,13 +33,14 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             {toast.action && (
               <button
                 type="button"
-                className="toast__action"
+                className="toast__action glass-host"
                 onClick={() => {
                   toast.action!.onClick();
                   setToast(null);
                 }}
               >
-                {toast.action.label}
+                <GlassLayer radius={16} tone="primary" />
+                <span>{toast.action.label}</span>
               </button>
             )}
           </div>

@@ -3,6 +3,7 @@ import { Bell, Layers, ListTodo, Trophy, Users, type LucideIcon } from 'lucide-r
 import { unreadNotificationCount } from '../data/api';
 import { useStoreValue } from '../data/useQuery';
 import { en } from '../i18n/en';
+import { GlassLayer } from './glass/GlassButton';
 import './GlassTabBar.css';
 
 const TABS: { to: string; label: string; Icon: LucideIcon; badge?: boolean }[] = [
@@ -17,7 +18,8 @@ export function GlassTabBar({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
   const unread = useStoreValue(unreadNotificationCount);
 
   return (
-    <nav className={`tabbar ${tone === 'dark' ? 'glass-dark tabbar--dark' : 'glass'}`} aria-label={en.tabs.label}>
+    <nav className={`tabbar glass-host ${tone === 'dark' ? 'glass-dark tabbar--dark' : 'glass'}`} aria-label={en.tabs.label}>
+      <GlassLayer radius={34} tone="bar" />
       <ul className="tabbar__list">
         {TABS.map(({ to, label, Icon, badge }) => (
           <li key={to}>

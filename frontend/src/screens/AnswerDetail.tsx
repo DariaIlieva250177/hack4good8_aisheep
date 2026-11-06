@@ -5,6 +5,7 @@ import { ScreenHeader } from '../components/ScreenHeader';
 import { RiskHeader } from '../components/RiskHeader';
 import { VerdictButtons } from '../components/VerdictButtons';
 import { useToast } from '../components/Toast';
+import { GlassButton } from '../components/glass/GlassButton';
 import { displayNameFor, getMe, getRisk, submitAnswer } from '../data/api';
 import { useQuery } from '../data/useQuery';
 import type { Verdict } from '../data/types';
@@ -160,10 +161,10 @@ export function AnswerDetail() {
               );
             })}
           </ul>
-          <button type="button" className="btn btn-soft btn-pill answer__add" onClick={addSource}>
+          <GlassButton pill className="answer__add" onClick={addSource}>
             <Plus size={18} aria-hidden="true" />
             {en.answer.addSource}
-          </button>
+          </GlassButton>
         </fieldset>
 
         {tried && empty && (
@@ -173,9 +174,9 @@ export function AnswerDetail() {
           </p>
         )}
 
-        <button type="submit" className="btn btn-primary btn-pill answer__submit" disabled={sending}>
+        <GlassButton type="submit" variant="primary" pill className="answer__submit" disabled={sending}>
           {en.answer.submit}
-        </button>
+        </GlassButton>
         {me && <p className="t-small t-muted answer__note">{en.answer.note(displayNameFor(me))}</p>}
       </form>
     </div>

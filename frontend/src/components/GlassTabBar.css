@@ -1,4 +1,5 @@
-.tabbar {
+.tabbar,
+.tabbar.glass-host {
   position: fixed;
   inset-inline: 8px;
   inset-block-end: calc(10px + var(--safe-bottom));

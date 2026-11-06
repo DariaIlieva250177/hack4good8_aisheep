@@ -4,6 +4,7 @@ import { Bell, ChevronRight, Globe, Info, KeyRound, Palette, UserRound, Wifi, ty
 import { ScreenHeader } from '../components/ScreenHeader';
 import { Avatar } from '../components/Avatar';
 import { useToast } from '../components/Toast';
+import { GlassLayer } from '../components/glass/GlassButton';
 import { displayNameFor, getMe, setIdentity } from '../data/api';
 import { useQuery } from '../data/useQuery';
 import type { IdentityMode } from '../data/types';
@@ -169,9 +170,12 @@ function SegmentedSetting<T extends string>({ name, Icon, label, options, labels
           {options.map((option) => (
             <label key={option} className="segmented__option">
               <input type="radio" name={name} value={option} checked={value === option} onChange={() => onChange(option)} />
-              <span className="segmented__face">
-                {value === option && <span className="you-dot" aria-hidden="true" />}
-                {labels[option]}
+              <span className="segmented__face glass-host">
+                <GlassLayer radius={22} />
+                <span className="segmented__text">
+                  {value === option && <span className="you-dot" aria-hidden="true" />}
+                  {labels[option]}
+                </span>
               </span>
             </label>
           ))}

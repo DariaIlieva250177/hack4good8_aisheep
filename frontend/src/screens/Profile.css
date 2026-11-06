@@ -96,6 +96,7 @@
 
 .segmented__option input {
   position: absolute;
+  z-index: 2; /* above the glass face so taps and tests hit the radio */
   opacity: 0;
   inset: 0;
   margin: 0;
@@ -204,4 +205,10 @@
 
 .switch:checked::after {
   inset-inline-start: 25px;
+}
+
+.segmented__text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }

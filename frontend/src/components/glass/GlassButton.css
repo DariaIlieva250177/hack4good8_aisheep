@@ -1,0 +1,81 @@
+/* The glass layer fills whatever hosts it and sits under the host's content. */
+.glass-host,
+.glass-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-host > .glass-layer,
+.glass-btn > .glass-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glass-btn__label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.glass-host > :not(.glass-layer) {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+ * Rich mode. GlassSurface splits and recombines colour channels, which only
+ * works over an opaque backdrop; inside our translucent cards it turns grey.
+ * So secondary glass buttons sit on an opaque base matching the glass tone.
+ */
+:root[data-mode="rich"] .glass-btn.btn-soft {
+  background: var(--control-solid);
+  box-shadow: 0 4px 14px var(--glass-drop);
+}
+
+:root[data-mode="rich"] .glass-btn.btn-soft[aria-pressed="true"] {
+  background: var(--control-on-solid);
+  box-shadow: inset 0 2px 8px var(--glass-drop);
+}
+
+:root[data-mode="rich"] .segmented__face.glass-host {
+  background: var(--control-solid);
+}
+
+:root[data-mode="rich"] .segmented__option input:checked + .segmented__face.glass-host {
+  background: var(--control-on-solid);
+}
+
+/* The tab bar floats over the opaque page, so the real glass replaces its own frost. */
+:root[data-mode="rich"] .tabbar.glass {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-color: transparent;
+}
+
+/* Keep the sheen faint on blue so white labels stay readable in the frosted fallback. */
+.glass-layer--primary .glass-surface__sheen,
+.glass-layer--primary .glass-surface__rim {
+  opacity: 0.4;
+}
+
+/* Light theme: GlassSurface's dark inner shadows read as grey on our pale blue
+   field, so swap them for a white rim and inner glow. Dark theme keeps them. */
+:root:not([data-theme="dark"]) .glass-layer--soft.glass-surface--svg,
+:root:not([data-theme="dark"]) .glass-layer--bar.glass-surface--svg {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
+    inset 0 1px 8px rgba(255, 255, 255, 0.7),
+    inset 0 -2px 6px rgba(0, 75, 120, 0.08);
+}
+
+:root:not([data-theme="dark"]) .glass-layer--primary.glass-surface--svg {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    inset 0 1px 6px rgba(255, 255, 255, 0.3);
+}

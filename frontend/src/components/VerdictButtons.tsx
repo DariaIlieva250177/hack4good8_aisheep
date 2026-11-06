@@ -1,5 +1,6 @@
 import type { Verdict } from '../data/types';
 import { en } from '../i18n/en';
+import { GlassButton } from './glass/GlassButton';
 import './VerdictButtons.css';
 
 const VERDICTS: Verdict[] = ['yes', 'partly', 'no'];
@@ -14,16 +15,10 @@ export function VerdictButtons({ value, onChange, labelledBy }: VerdictButtonsPr
   return (
     <div className="verdicts" role="group" aria-labelledby={labelledBy}>
       {VERDICTS.map((v) => (
-        <button
-          key={v}
-          type="button"
-          className="btn btn-soft verdicts__btn"
-          aria-pressed={value === v}
-          onClick={() => onChange(v)}
-        >
+        <GlassButton key={v} className="verdicts__btn" aria-pressed={value === v} onClick={() => onChange(v)}>
           {value === v && <span className="you-dot" aria-hidden="true" />}
           {en.verdicts[v]}
-        </button>
+        </GlassButton>
       ))}
     </div>
   );

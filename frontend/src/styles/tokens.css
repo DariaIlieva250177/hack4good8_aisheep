@@ -24,6 +24,9 @@
   --surface: rgba(255, 255, 255, 0.55); /* cards */
   --control: rgba(255, 255, 255, 0.62); /* buttons, pills, rows */
   --control-on: rgba(0, 150, 186, 0.16); /* selected */
+  /* Opaque equivalents: the refractive glass needs an opaque backdrop or it greys out */
+  --control-solid: #f2f7fb;
+  --control-on-solid: #d3e9f2;
   --field: rgba(255, 255, 255, 0.42); /* input wells */
   --glass-line: rgba(255, 255, 255, 0.85);
   --glass-drop: rgba(0, 48, 90, 0.14);
@@ -137,6 +140,8 @@
   --surface: rgba(18, 44, 66, 0.55);
   --control: rgba(255, 255, 255, 0.08);
   --control-on: rgba(127, 211, 234, 0.18);
+  --control-solid: #163248;
+  --control-on-solid: #1d4b62;
   --field: rgba(0, 10, 20, 0.28);
   --glass-line: rgba(255, 255, 255, 0.13);
   --glass-drop: rgba(0, 0, 0, 0.35);

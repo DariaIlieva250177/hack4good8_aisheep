@@ -7,6 +7,7 @@ import { MetalShape } from '../components/MetalShape';
 import { RiskImage } from '../components/RiskImage';
 import { TileWheel } from '../components/TileWheel';
 import { useToast } from '../components/Toast';
+import { GlassButton } from '../components/glass/GlassButton';
 import { useMode } from '../mode/ModeContext';
 import { en } from '../i18n/en';
 import './Login.css';
@@ -105,9 +106,9 @@ function Intro({ onDone, reducedMotion }: { onDone: () => void; reducedMotion: b
       </div>
 
       <div className="intro__actions">
-        <button type="button" className="btn btn-primary btn-pill intro__start" onClick={onDone}>
+        <GlassButton variant="primary" pill className="intro__start" onClick={onDone}>
           {en.intro.start}
-        </button>
+        </GlassButton>
         <button type="button" className="link-btn" onClick={onDone}>
           {en.intro.haveAccount}
         </button>
@@ -191,9 +192,9 @@ function LoginForm({ reducedMotion }: { reducedMotion: boolean }) {
           </div>
         </div>
 
-        <button type="submit" className="btn btn-primary btn-pill login__submit">
+        <GlassButton type="submit" variant="primary" pill className="login__submit">
           {en.login.submit}
-        </button>
+        </GlassButton>
 
         <p className="login__links t-small">
           <button type="button" className="link-btn" onClick={notYet}>
