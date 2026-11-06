@@ -1,0 +1,26 @@
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  overflow: hidden;
+  border-radius: 50%;
+  color: var(--white);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.avatar--you {
+  box-shadow: 0 0 0 2px var(--ground), 0 0 0 4px var(--acaps-blue);
+}
+
+.avatar-button {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 48px;
+  block-size: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ground);
+  box-shadow: var(--soft-raised);
+}

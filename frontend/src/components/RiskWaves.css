@@ -1,0 +1,14 @@
+.risk-waves--card {
+  position: absolute;
+  inset: -6% 4%;
+  inline-size: 92%;
+  block-size: 112%;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.risk-waves--row {
+  inline-size: 28px;
+  block-size: 28px;
+  flex: none;
+}

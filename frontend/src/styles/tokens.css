@@ -1,0 +1,93 @@
+/* Design tokens for the AI Sheep expert app.
+   Red means risk level only. Never use orange or purple (ACAPS reserves them). */
+
+:root {
+  /* Colour */
+  --ink: #000000;
+  --ink-2: #4f5a63;
+  --acaps-dark: #004b78;
+  --acaps-blue: #0096ba; /* "you" marker only; icons and large text */
+  --highlight: #d8d800; /* "new since last round" only */
+  --highlight-12: rgba(216, 216, 0, 0.12);
+  --ground: #e4e8eb;
+  --night: #001f33;
+  --line: #c9ced2;
+  --white: #ffffff;
+
+  /* Night (Ranking) text */
+  --night-ink: #ffffff;
+  --night-ink-2: #b7c6d1;
+  --night-line: rgba(255, 255, 255, 0.22);
+
+  /* Risk level ramp */
+  --level-high: #b8163c;
+  --level-high-ink: #ffffff;
+  --level-medium: #d97a8c;
+  --level-medium-ink: #3d0613;
+  --level-low: #efc3cc;
+  --level-low-ink: #5c0a1e;
+
+  /* Risk families: tint / label */
+  --fam-conflict-tint: #e8e6d6;
+  --fam-conflict: #5f5c36;
+  --fam-political-tint: #e3e7ee;
+  --fam-political: #475670;
+  --fam-economic-tint: #f3ead2;
+  --fam-economic: #7a5c17;
+  --fam-hydromet-tint: #deeaf1;
+  --fam-hydromet: #2f6385;
+  --fam-geophysical-tint: #ede4dc;
+  --fam-geophysical: #664e3c;
+  --fam-environmental-tint: #e2ece0;
+  --fam-environmental: #43623f;
+  --fam-technological-tint: #e5e6e8;
+  --fam-technological: #4d5257;
+  --fam-health-tint: #dcede9;
+  --fam-health: #285f58;
+  --fam-fallback: #4f5a63;
+
+  /* Typography */
+  --font-system: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font: var(--font-system);
+  --fs-question: 40px;
+  --fs-quote: 24px;
+  --fs-title: 20px;
+  --fs-body: 16px;
+  --fs-ui: 16px;
+  --fs-small: 14px;
+  --expert-stretch: 75%;
+
+  /* Soft (neumorphic) surfaces */
+  --shadow-dark: #c3c9ce;
+  --shadow-light: #ffffff;
+  --soft-card: 18px 18px 36px var(--shadow-dark), -18px -18px 36px var(--shadow-light);
+  --soft-raised: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  --soft-pressed: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+  --radius-card: 32px;
+  --radius-control: 16px;
+  --radius-pill: 999px;
+
+  /* Glass surfaces */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.85);
+  --glass-dark-bg: rgba(0, 36, 60, 0.72);
+  --glass-dark-border: 1px solid rgba(255, 255, 255, 0.22);
+  --glass-blur: blur(20px) saturate(150%);
+
+  /* Layout */
+  --gutter: 20px;
+  --tabbar-h: 68px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --focus: 2px solid var(--acaps-blue);
+}
+
+:root[data-mode="rich"] {
+  --font: "Bricolage Grotesque Variable", var(--font-system);
+}
+
+/* Lite mode: no blur, so glass becomes a near-solid surface */
+:root[data-mode="lite"] {
+  --glass-bg: rgba(255, 255, 255, 0.96);
+  --glass-dark-bg: rgba(0, 36, 60, 0.97);
+  --glass-blur: none;
+}

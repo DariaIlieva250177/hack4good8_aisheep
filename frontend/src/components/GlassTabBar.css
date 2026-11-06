@@ -1,0 +1,85 @@
+.tabbar {
+  position: fixed;
+  inset-inline: 12px;
+  inset-block-end: calc(10px + var(--safe-bottom));
+  z-index: 40;
+  max-inline-size: 460px;
+  margin-inline: auto;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 12px 32px rgba(0, 31, 51, 0.16);
+}
+
+.tabbar__list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  block-size: var(--tabbar-h);
+  padding-inline: 6px;
+}
+
+.tabbar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  block-size: 100%;
+  min-inline-size: 44px;
+  border-radius: var(--radius-pill);
+  color: var(--ink-2);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.tabbar__label {
+  font-size: var(--fs-small);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.tabbar__item.active {
+  color: var(--acaps-dark);
+  font-weight: 600;
+}
+
+.tabbar__item.active .tabbar__icon svg {
+  fill: var(--acaps-dark);
+  fill-opacity: 0.16;
+}
+
+.tabbar__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.tabbar__badge {
+  position: absolute;
+  inset-block-start: -6px;
+  inset-inline-start: 14px;
+  display: grid;
+  place-items: center;
+  min-inline-size: 20px;
+  block-size: 20px;
+  padding-inline: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--highlight);
+  color: var(--ink);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 0 0 2px var(--white);
+}
+
+.tabbar--dark .tabbar__item {
+  color: var(--night-ink-2);
+}
+.tabbar--dark .tabbar__item.active {
+  color: var(--white);
+}
+.tabbar--dark .tabbar__item.active .tabbar__icon svg {
+  fill: var(--white);
+}
+.tabbar--dark .tabbar__badge {
+  box-shadow: 0 0 0 2px var(--night);
+}
