@@ -96,8 +96,8 @@ a {
 .expert {
   font-weight: 600;
   font-stretch: var(--expert-stretch);
-  line-height: 1.12;
-  letter-spacing: -0.005em;
+  line-height: 1.2;
+  letter-spacing: 0.005em;
 }
 
 :root[data-mode="lite"] .expert {
