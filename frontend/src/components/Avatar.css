@@ -21,6 +21,6 @@
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: var(--ground);
+  background: var(--control);
   box-shadow: var(--soft-raised);
 }

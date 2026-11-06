@@ -108,13 +108,14 @@
   gap: 6px;
   min-block-size: 44px;
   border-radius: var(--radius-pill);
-  background: var(--ground);
+  background: var(--control);
   box-shadow: var(--soft-raised);
   font-weight: 500;
   cursor: pointer;
 }
 
 .segmented__option input:checked + .segmented__face {
+  background: var(--control-on);
   box-shadow: var(--soft-pressed);
   color: var(--accent);
   font-weight: 600;
@@ -176,7 +177,7 @@
   margin: 0;
   border: 1px solid var(--switch-border); /* 3:1 against the ground */
   border-radius: var(--radius-pill);
-  background: var(--ground);
+  background: var(--field);
   box-shadow: var(--soft-pressed);
   cursor: pointer;
   transition: background 0.2s ease;

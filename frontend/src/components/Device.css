@@ -3,7 +3,8 @@
   position: relative;
   block-size: var(--screen-h);
   overflow: hidden;
-  background: var(--ground);
+  background: var(--app-bg);
+  background-color: var(--ground);
   /* Makes the frame the containing block for position: fixed children */
   transform: translateZ(0);
 }

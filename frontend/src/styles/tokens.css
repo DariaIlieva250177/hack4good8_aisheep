@@ -4,16 +4,30 @@
 :root {
   /* Colour */
   --ink: #000000;
-  --ink-2: #4f5a63;
+  --ink-2: #44515b;
   --acaps-dark: #004b78;
   --acaps-blue: #0096ba; /* "you" marker only; icons and large text */
   --highlight: #d8d800; /* "new since last round" only */
   --highlight-12: rgba(216, 216, 0, 0.12);
-  --ground: #e4e8eb;
+  --ground: #d6e5f2; /* solid fallback behind the gradient */
   --night: #001f33;
-  --line: #c9ced2;
+  --line: rgba(0, 75, 120, 0.14);
   --white: #ffffff;
-  --desk: #cdd5db; /* page behind the phone frame on desktop */
+  --desk: #b7cbdd; /* page behind the phone frame on desktop */
+
+  /* Glass theme: frosted surfaces over a blue field */
+  --app-bg:
+    radial-gradient(110% 55% at 0% 0%, rgba(255, 255, 255, 0.85) 0%, transparent 60%),
+    radial-gradient(80% 45% at 100% 28%, rgba(0, 150, 186, 0.3) 0%, transparent 70%),
+    radial-gradient(90% 50% at 10% 95%, rgba(0, 75, 120, 0.24) 0%, transparent 70%),
+    linear-gradient(180deg, #e6f0f8 0%, #c8dbec 100%);
+  --surface: rgba(255, 255, 255, 0.55); /* cards */
+  --control: rgba(255, 255, 255, 0.62); /* buttons, pills, rows */
+  --control-on: rgba(0, 150, 186, 0.16); /* selected */
+  --field: rgba(255, 255, 255, 0.42); /* input wells */
+  --glass-line: rgba(255, 255, 255, 0.85);
+  --glass-drop: rgba(0, 48, 90, 0.14);
+  --card-blur: blur(22px) saturate(160%);
   --bezel: #0e1a22;
 
   /* Theme roles. --acaps-dark stays the brand constant; these switch with the theme. */
@@ -70,12 +84,12 @@
   --fs-small: 14px;
   --expert-stretch: 75%;
 
-  /* Soft (neumorphic) surfaces */
-  --shadow-dark: #c3c9ce;
-  --shadow-light: #ffffff;
-  --soft-card: 18px 18px 36px var(--shadow-dark), -18px -18px 36px var(--shadow-light);
-  --soft-raised: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
-  --soft-pressed: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+  /* Surface depth: a white glass hairline plus a soft blue drop shadow */
+  --shadow-dark: var(--glass-drop);
+  --shadow-light: transparent;
+  --soft-card: inset 0 0 0 1px var(--glass-line), 0 18px 44px var(--glass-drop);
+  --soft-raised: inset 0 0 0 1px var(--glass-line), 0 4px 14px var(--glass-drop);
+  --soft-pressed: inset 0 0 0 1px var(--glass-line), inset 0 2px 8px var(--glass-drop);
   --radius-card: 32px;
   --radius-control: 16px;
   --radius-pill: 999px;
@@ -103,6 +117,9 @@
   --glass-bg: rgba(255, 255, 255, 0.96);
   --glass-dark-bg: rgba(0, 36, 60, 0.97);
   --glass-blur: none;
+  /* No blur in lite mode, so cards go nearly opaque to stay readable */
+  --card-blur: none;
+  --surface: rgba(255, 255, 255, 0.88);
 }
 
 /* ---------- Dark theme ----------
@@ -110,11 +127,19 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --ink: #eef3f6;
-  --ink-2: #a9b7c1;
-  --ground: #1c262e;
-  --line: #34424c;
-  --shadow-dark: #11181d;
-  --shadow-light: #283640;
+  --ink-2: #a9bccb;
+  --ground: #0b2236;
+  --line: rgba(255, 255, 255, 0.12);
+  --app-bg:
+    radial-gradient(90% 50% at 100% 20%, rgba(0, 150, 186, 0.28) 0%, transparent 70%),
+    radial-gradient(90% 55% at 0% 90%, rgba(0, 75, 120, 0.45) 0%, transparent 70%),
+    linear-gradient(180deg, #071a2b 0%, #0b2741 100%);
+  --surface: rgba(18, 44, 66, 0.55);
+  --control: rgba(255, 255, 255, 0.08);
+  --control-on: rgba(127, 211, 234, 0.18);
+  --field: rgba(0, 10, 20, 0.28);
+  --glass-line: rgba(255, 255, 255, 0.13);
+  --glass-drop: rgba(0, 0, 0, 0.35);
   --accent: #7fd3ea;
   --primary: #0a5f8f;
   --paper: #121b21;
@@ -122,9 +147,9 @@
   --switch-border: #84939d;
   --level-high-text: #ff9db1;
   --highlight-12: rgba(216, 216, 0, 0.14);
-  --desk: #0a1217;
+  --desk: #06121c;
   --bezel: #000000;
-  --glass-bg: rgba(28, 38, 46, 0.62);
+  --glass-bg: rgba(14, 38, 58, 0.62);
   --glass-border: 1px solid rgba(255, 255, 255, 0.12);
   /* Multiply would sink the illustrations into a dark card, so show them as lit panels. */
   --image-blend: normal;
@@ -132,5 +157,6 @@
 }
 
 :root[data-theme="dark"][data-mode="lite"] {
-  --glass-bg: rgba(28, 38, 46, 0.97);
+  --glass-bg: rgba(14, 38, 58, 0.97);
+  --surface: rgba(18, 44, 66, 0.92);
 }

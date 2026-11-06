@@ -129,7 +129,9 @@ a {
 /* ---------- Surfaces ---------- */
 
 .soft-card {
-  background: var(--ground);
+  background: var(--surface);
+  -webkit-backdrop-filter: var(--card-blur);
+  backdrop-filter: var(--card-blur);
   border-radius: var(--radius-card);
   box-shadow: var(--soft-card);
 }
@@ -184,7 +186,7 @@ a {
 }
 
 .btn-soft {
-  background: var(--ground);
+  background: var(--control);
   color: var(--ink);
   box-shadow: var(--soft-raised);
 }
@@ -192,6 +194,7 @@ a {
 /* Selected state: pressed + dark text + weight 600 + blue dot. Never shadow alone. */
 .btn-soft[aria-pressed="true"],
 .btn-soft[aria-checked="true"] {
+  background: var(--control-on);
   box-shadow: var(--soft-pressed);
   color: var(--accent);
   font-weight: 600;
@@ -243,7 +246,7 @@ a {
   min-block-size: 48px;
   padding-inline: 16px;
   border-radius: var(--radius-control);
-  background: var(--ground);
+  background: var(--field);
   box-shadow: var(--soft-pressed);
   color: var(--ink-2);
 }

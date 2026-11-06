@@ -44,7 +44,7 @@
 }
 
 .chip--area {
-  background: var(--ground);
+  background: var(--control);
   box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
   color: var(--ink-2);
 }

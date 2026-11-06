@@ -12,7 +12,7 @@
   padding-inline: 8px 10px;
   border-radius: 24px;
   border-inline-start: 4px solid var(--edge, var(--line));
-  background: var(--ground);
+  background: var(--control);
   box-shadow: var(--soft-raised);
   color: var(--ink);
   text-decoration: none;

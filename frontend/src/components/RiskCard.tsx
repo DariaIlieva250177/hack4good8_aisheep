@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { UserRound } from 'lucide-react';
 import type { Risk, User, Verdict } from '../data/types';
 import { RiskImage } from './RiskImage';
-import { FireBorder } from './FireBorder';
 import { AreaChip, FamilyChip, LevelChip, VeryHighBadge } from './Chips';
 import { VerdictButtons } from './VerdictButtons';
 import { useMode } from '../mode/ModeContext';
@@ -17,41 +16,35 @@ interface RiskCardProps {
   onVerdict: (v: Verdict) => void;
   onAddNote: () => void;
   onSend: () => void;
-  /** Only the front card gets the fire border */
-  front?: boolean;
   /** Swipe hint drawn over the image */
   overlay?: ReactNode;
 }
 
-export function RiskCard({ risk, me, verdict, onVerdict, onAddNote, onSend, front = true, overlay }: RiskCardProps) {
+export function RiskCard({ risk, me, verdict, onVerdict, onAddNote, onSend, overlay }: RiskCardProps) {
   const titleId = `risk-${risk.id}-title`;
-  const fire = risk.level === 'High' && front;
 
   return (
-    <div className={fire ? 'fire-host' : undefined}>
-      {fire && <FireBorder />}
-      <article className="risk-card soft-card" aria-labelledby={titleId}>
-        <RiskImage family={risk.family} image={risk.image} overlay={overlay} />
-        <div className="risk-card__body">
-          <RiskChips risk={risk} />
-          <h2 id={titleId} className="risk-card__title t-title">
-            {risk.title}
-          </h2>
-          <p className="risk-card__question expert t-quote">{en.card.question}</p>
-          <VerdictButtons value={verdict} onChange={onVerdict} labelledBy={titleId} />
-          <div className="risk-card__actions">
-            <button type="button" className="btn btn-soft btn-pill" onClick={onAddNote}>
-              {en.card.addNote}
-            </button>
-            <button type="button" className="btn btn-primary btn-pill" onClick={onSend} aria-disabled={!verdict}>
-              {en.card.send}
-            </button>
-            <span className="risk-card__count t-small t-muted">{en.card.answered(risk.answered, risk.panelSize)}</span>
-          </div>
-          <IdentityFooter me={me} />
+    <article className="risk-card soft-card" aria-labelledby={titleId}>
+      <RiskImage family={risk.family} image={risk.image} overlay={overlay} />
+      <div className="risk-card__body">
+        <RiskChips risk={risk} />
+        <h2 id={titleId} className="risk-card__title t-title">
+          {risk.title}
+        </h2>
+        <p className="risk-card__question expert t-quote">{en.card.question}</p>
+        <VerdictButtons value={verdict} onChange={onVerdict} labelledBy={titleId} />
+        <div className="risk-card__actions">
+          <button type="button" className="btn btn-soft btn-pill" onClick={onAddNote}>
+            {en.card.addNote}
+          </button>
+          <button type="button" className="btn btn-primary btn-pill" onClick={onSend} aria-disabled={!verdict}>
+            {en.card.send}
+          </button>
+          <span className="risk-card__count t-small t-muted">{en.card.answered(risk.answered, risk.panelSize)}</span>
         </div>
-      </article>
-    </div>
+        <IdentityFooter me={me} />
+      </div>
+    </article>
   );
 }
 

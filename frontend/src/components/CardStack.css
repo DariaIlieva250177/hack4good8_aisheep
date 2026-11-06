@@ -38,7 +38,8 @@
   display: grid;
   gap: 12px;
   padding: 4px 20px 20px;
-  opacity: 0.5;
+  /* Keeps the ghost as tall as a card, but its text would show through the glass */
+  visibility: hidden;
 }
 
 :root[data-mode="lite"] .card-stack__ghost-body {
