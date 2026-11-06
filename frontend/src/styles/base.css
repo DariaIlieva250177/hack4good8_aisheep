@@ -272,7 +272,7 @@ a {
 /* ---------- Screen layout ---------- */
 
 .screen {
-  min-block-size: 100dvh;
+  min-block-size: var(--screen-h, 100dvh);
   padding-inline: var(--gutter);
   padding-block-end: calc(var(--tabbar-h) + var(--safe-bottom) + 40px);
 }

@@ -13,6 +13,8 @@
   --night: #001f33;
   --line: #c9ced2;
   --white: #ffffff;
+  --desk: #cdd5db; /* page behind the phone frame on desktop */
+  --bezel: #0e1a22;
 
   /* Night (Ranking) text */
   --night-ink: #ffffff;

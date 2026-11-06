@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { GlassTabBar } from './GlassTabBar';
+import { scrollToTop } from './Device';
 
 /** Layout for every signed-in screen: content plus the floating tab bar. */
 export function AppShell() {
@@ -9,10 +10,11 @@ export function AppShell() {
 
   useEffect(() => {
     document.body.classList.toggle('night', dark);
+    return () => document.body.classList.remove('night');
   }, [dark]);
 
   useEffect(() => {
-    if (!hash) window.scrollTo(0, 0);
+    if (!hash) scrollToTop();
   }, [pathname, hash]);
 
   return (
