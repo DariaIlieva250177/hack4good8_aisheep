@@ -12,9 +12,10 @@ declare module 'd3-geo' {
   }
   export interface GeoPath {
     (object: unknown): string | null;
+    context(ctx: CanvasRenderingContext2D | null): GeoPath;
   }
   export function geoOrthographic(): GeoProjection;
-  export function geoPath(projection?: GeoProjection): GeoPath;
+  export function geoPath(projection?: GeoProjection, context?: CanvasRenderingContext2D | null): GeoPath;
   export function geoGraticule10(): unknown;
   export function geoCentroid(object: unknown): [number, number];
   export function geoDistance(a: [number, number], b: [number, number]): number;

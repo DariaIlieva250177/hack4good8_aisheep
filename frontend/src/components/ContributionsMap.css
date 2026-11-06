@@ -4,10 +4,16 @@
   padding-block: 8px;
 }
 
-.contrib-map svg {
+.contrib-map canvas {
   inline-size: min(100%, 320px);
   block-size: auto;
   aspect-ratio: 1;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.contrib-map canvas:active {
+  cursor: grabbing;
 }
 
 .contrib-list {
