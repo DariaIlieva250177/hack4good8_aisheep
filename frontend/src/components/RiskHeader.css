@@ -1,0 +1,17 @@
+.risk-header {
+  overflow: hidden;
+}
+
+.risk-header__body {
+  display: grid;
+  gap: 12px;
+  padding: 2px 20px 22px;
+}
+
+:root[data-mode="lite"] .risk-header__body {
+  padding-block-start: 20px;
+}
+
+.risk-header__title {
+  color: var(--acaps-dark);
+}
