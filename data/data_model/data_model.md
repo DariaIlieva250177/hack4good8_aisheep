@@ -1,21 +1,25 @@
 # Data model
 
-How the app stores ACAPS risks, experts and their contributions. Each section below is one table: what it stores, what it is used for, and who fills it.
+How Ground Truth stores ACAPS risks, experts and their contributions. Each section is one table: its fields, what it stores, what it is used for and who fills it.
+
+The model has two parts:
+
+- **Demo tables:** everything the hackathon demo needs. These are built now.
+- **Later tables:** the rest of the platform concept, listed at the end. They are designed but not built during the hackathon.
 
 All expert data during the hackathon is **synthetic**. No personal data of real experts is used.
 
 ## How to read the tables
 
-- **PK** (primary key) is the table's own ID.
-- **FK** (foreign key) is an ID that points to another table.
+- **PK** (primary key) is the table's own ID. **FK** (foreign key) points to another table.
 - Answers only ever store an `expert_id`. Real names live in one separate table (`EXPERT_IDENTITY`), so no screen can show them by accident.
+- Settings that are still to be confirmed with ACAPS (probability bands, minimum answers, urgency thresholds) are kept in one place in the code, so a decision is a one-line change.
 
-The tables fall into five groups:
-
-| Group | Tables |
+| Group | Demo tables |
 |---|---|
 | From ACAPS (read only) | `RISKS`, `TRIGGERS` |
 | People | `EXPERTS`, `EXPERT_IDENTITY`, `PANELS`, `PANEL_MEMBERS` |
+| Browsing | `CARD_SWIPES` |
 | Contributions | `ROUNDS`, `RESPONSES`, `TRIGGER_VOTES`, `SUGGESTED_TRIGGERS` |
 | Results | `ROUND_SUMMARIES` |
 | Forecasting | `FORECAST_QUESTIONS`, `FORECASTS`, `SCORES` |
@@ -29,18 +33,22 @@ The tables fall into five groups:
 | Field | Type | Notes |
 |---|---|---|
 | `risk_id` | string, PK | e.g. `R1043` |
-| `title` | string | |
+| `title` | string | shown on the card |
 | `country` | string | can list several countries |
+| `risk_type` | string | new emerging risk, deterioration of an existing crisis, or future impact of a hazard |
 | `acaps_probability` | string | Very Low ... Very High |
-| `acaps_p` | float | the same as a number (0-1), bands to confirm with ACAPS |
+| `acaps_p` | float | the same as a number (0-1); bands to confirm with ACAPS |
 | `risk_level` | string | Low, Medium, High |
+| `risk_trend` | string | Improved, Stable, Deteriorated (filled for about 55% of risks) |
+| `priority_needs` | string | sectors most likely affected, e.g. Food security, Protection, WASH |
 | `status` | string | Active, Materialised, Not materialised |
 | `outcome` | int | 1 = happened, 0 = did not, empty = still active or unknown |
+| `urgency` | string | worked out for the card colour, see "Card urgency colours" below |
 
 - **Stores:** one row per ACAPS risk.
-- **Used for:** the risk shown on the check-in card, and the outcomes used for scoring.
-- **Filled by:** notebook `02_prepare_data`, from the ACAPS Risk Radar export.
-- **Example:** `R1043` · Chad · High · 0.70 · Active · outcome empty.
+- **Used for:** the swipe cards, the check-in, and the outcomes used for scoring.
+- **Filled by:** notebook `02_prepare_data`, from the ACAPS Risk Radar export. `urgency` is calculated.
+- **Example:** `R1043` · Chad · High · Deteriorated · Active · urgency `very_urgent`.
 
 ### `TRIGGERS`
 
@@ -52,7 +60,7 @@ The tables fall into five groups:
 | `description` | string | |
 
 - **Stores:** one row per trigger, linked to its risk.
-- **Used for:** the trigger lines on the check-in card, where experts vote likely, not likely or don't know.
+- **Used for:** the trigger lines in the check-in, where experts vote likely, not likely or don't know.
 - **Filled by:** notebook `02_prepare_data`, which splits the trigger text.
 - **Example:** `T0618` · `R1043` · "Expansion of cross-border attacks and insecurity".
 
@@ -66,13 +74,23 @@ The tables fall into five groups:
 |---|---|---|
 | `expert_id` | string, PK | e.g. `E07` |
 | `pseudonym` | string | e.g. Heron |
-| `anonymity_level` | string | `known_to_acaps`, `pseudonymous`, `anonymous` |
+| `anonymity_level` | string | `known_to_acaps`, `verified_anonymous`, `verified_deleted` |
+| `approved` | bool | approved by ACAPS |
+| `rank` | string | Observer, Tracker, Sentinel, Beacon |
 | `language` | string | e.g. English, French |
 
-- **Stores:** the public side of an expert.
-- **Used for:** everything the app shows about an expert. Answers point here, never to a real name.
-- **Filled by:** the expert, when joining.
-- **Example:** `E07` · Heron · anonymous · English.
+- **Stores:** the side of an expert the app works with. It never holds a real name.
+- **Used for:** everything the app shows about an expert.
+- **Filled by:** the expert when joining; ACAPS sets `approved`; `rank` is recalculated automatically.
+- **Example:** `E07` · Heron · `verified_deleted` · approved · Sentinel · English.
+
+The three anonymity levels:
+
+| Level | What ACAPS keeps | What peers see | What the public sees |
+|---|---|---|---|
+| `known_to_acaps` | Identity stored | Pseudonym | Nothing personal, ever |
+| `verified_anonymous` | Identity stored, never shown in the app | Pseudonym | Nothing personal, ever |
+| `verified_deleted` | Identity checked at approval, then deleted | Pseudonym | Nothing personal, ever |
 
 ### `EXPERT_IDENTITY`
 
@@ -84,9 +102,9 @@ The tables fall into five groups:
 | `email` | string | |
 
 - **Stores:** real name, organisation and email.
-- **Used for:** only ACAPS contacting or verifying experts who chose "known to ACAPS". Fully anonymous experts have **no row** here.
-- **Filled by:** the expert, only if their chosen level allows it.
-- **Why separate:** keeping real names in their own table means no screen can show them by accident.
+- **Used for:** ACAPS approving, contacting and verifying experts.
+- **Filled by:** the expert at sign-up.
+- **Rule:** for `verified_deleted` experts, the row is deleted after approval, so there is **no row** for them afterwards.
 
 ### `PANELS`
 
@@ -96,10 +114,9 @@ The tables fall into five groups:
 | `country` | string | the country or context |
 | `moderator` | string | the ACAPS moderator |
 
-- **Stores:** one row per small expert group, usually one per country.
-- **Used for:** keeping groups small (5-10 experts) and moderated, as the brief asks. Check-ins and questions go to a panel.
+- **Stores:** one small expert group per country, around 5 to 10 people.
+- **Used for:** deciding which cards and check-ins an expert sees.
 - **Filled by:** ACAPS.
-- **Example:** `P-TCD` · Chad · moderator Alex.
 
 ### `PANEL_MEMBERS`
 
@@ -108,10 +125,39 @@ The tables fall into five groups:
 | `panel_id` | string, FK → `PANELS` | |
 | `expert_id` | string, FK → `EXPERTS` | |
 
-- **Stores:** which expert is in which panel. One expert can be in several panels.
-- **Used for:** deciding who gets which check-in, and who counts towards the group view.
+- **Stores:** which expert is in which panel. Panels follow expertise, not only nationality, so one expert can be in several.
 - **Filled by:** ACAPS, when inviting experts.
-- **Example:** `P-TCD` · `E07`.
+
+---
+
+## Browsing
+
+### `CARD_SWIPES`
+
+| Field | Type | Notes |
+|---|---|---|
+| `expert_id` | string, FK → `EXPERTS` | |
+| `risk_id` | string, FK → `RISKS` | |
+| `action` | string | `pick` (swipe right) or `skip` (swipe left) |
+| `swiped` | date | |
+
+- **Stores:** each swipe on a risk card.
+- **Used for:** the expert's queue of picked risks. ACAPS sees only skip **counts** per risk, which show where a panel lacks knowledge, never who skipped.
+- **Filled by:** the expert, by swiping (or the buttons on desktop).
+- **Example:** `E07` · `R1043` · pick · 6 Nov.
+
+### Card urgency colours
+
+`urgency` on `RISKS` decides the card colour. Every card also shows the text label and an icon, so colour is never the only signal.
+
+| `urgency` | Colour | Label | When |
+|---|---|---|---|
+| `very_urgent` | Red | Very urgent | High risk that is deteriorating, or a check-in closing within 48 hours |
+| `urgent` | Orange | Urgent | High risk |
+| `watch` | Yellow | Watch | Medium risk |
+| `not_urgent` | Light green | Not so urgent | Low risk, or a risk that is improving |
+
+The thresholds are a setting, to confirm with ACAPS.
 
 ---
 
@@ -129,9 +175,8 @@ The tables fall into five groups:
 | `closes` | date | |
 
 - **Stores:** one check-in on one risk for one panel.
-- **Used for:** the Delphi process. In round 1 experts answer independently. In round 2, after seeing the group view, they can refine their answers.
-- **Filled by:** ACAPS, or automatically when a new analysis is published.
-- **Example:** `RD1043-1` · Chad panel · `R1043` · round 1 · 6-13 Nov.
+- **Used for:** the Delphi process. In round 1 experts answer independently; after seeing the group view they can revise.
+- **Filled by:** ACAPS, or automatically when a risk is published or updated.
 
 ### `RESPONSES`
 
@@ -140,14 +185,20 @@ The tables fall into five groups:
 | `response_id` | string, PK | e.g. `RS001` |
 | `round_id` | string, FK → `ROUNDS` | |
 | `expert_id` | string, FK → `EXPERTS` | |
-| `comment` | string | optional, one line |
-| `anonymity_used` | string | the level the expert chose when answering |
+| `stance` | string | `agree` or `disagree` with ACAPS's analysis |
+| `comment` | string | optional, short |
+| `source_url` | string | optional article or paper |
+| `ai_draft_used` | bool | true if the comment started as an AI draft from the source; the expert always edits and approves it |
+| `hidden_from_acaps` | bool | per-answer anonymity for `known_to_acaps` experts |
+| `anonymity_used` | string | the expert's level when answering |
+| `version` | int | 1 = first answer, 2 = revised answer, ... |
+| `revises_response_id` | string, FK → `RESPONSES` | the earlier answer this one replaces; empty for version 1 |
 | `submitted` | date | |
 
-- **Stores:** one expert's answer in one round.
-- **Used for:** the record that an expert took part. Trigger votes, suggestions and forecasts hang off it.
+- **Stores:** one expert's answer in one round. A revised answer is a **new row**, so the first answer is kept and ACAPS can see how views moved.
+- **Used for:** the group view (how many agree), the moderator view, and the record that an expert took part.
 - **Filled by:** the expert, by pressing "Send my view".
-- **Why `anonymity_used`:** if the expert changes their level later, you still know what they agreed to when answering.
+- **Rule:** when `hidden_from_acaps` is true, no ACAPS screen shows which expert gave the answer. It still counts towards the expert's track record automatically.
 
 ### `TRIGGER_VOTES`
 
@@ -157,10 +208,8 @@ The tables fall into five groups:
 | `trigger_id` | string, FK → `TRIGGERS` | |
 | `vote` | string | `likely`, `not_likely`, `dont_know` |
 
-- **Stores:** one vote per trigger per response.
-- **Used for:** the "how many agree" bars in the group view, and the agreement column in the moderator view.
-- **Filled by:** the expert, by tapping on the check-in card.
-- **Example:** `RS001` · `T0618` · likely.
+- **Stores:** one vote per trigger per response (optional for the expert).
+- **Used for:** the "how many think this trigger is likely" bars in the group view.
 
 ### `SUGGESTED_TRIGGERS`
 
@@ -171,10 +220,9 @@ The tables fall into five groups:
 | `text` | string | |
 | `status` | string | `new`, `accepted`, `rejected` |
 
-- **Stores:** ideas an expert adds about what's missing.
-- **Used for:** the "what's missing" part of ground truthing. Accepted suggestions can become real triggers in ACAPS's analysis, which is the loop back to ACAPS.
-- **Filled by:** the expert writes it, and the moderator sets the status.
-- **Example:** "Seasonal flooding blocks aid routes" · new.
+- **Stores:** triggers an expert thinks ACAPS missed, added during a check-in.
+- **Used for:** the "what's missing" part of ground truthing. Accepted ones feed back into ACAPS's analysis.
+- **Filled by:** the expert writes it; the moderator sets the status.
 
 ---
 
@@ -189,10 +237,9 @@ The tables fall into five groups:
 | `approved` | bool | |
 | `published` | date | |
 
-- **Stores:** the moderator's written summary of a round.
-- **Used for:** the summary text in the group view, and the only thing ever shown publicly (once approved).
-- **Filled by:** the moderator, possibly starting from an AI draft (allowed behind the scenes).
-- **Note:** the group numbers (median, how many agree) are **not stored**. They are calculated from the answers when the screen opens, so they stay up to date and cannot leak individual answers.
+- **Stores:** the moderator's written summary of a round, possibly started from an AI draft.
+- **Used for:** the summary in the group view, and the only thing ever shown publicly (once approved).
+- **Note:** group numbers (how many agree, median forecast) are **not stored**. They are calculated from `RESPONSES` and `FORECASTS` when the screen opens, and only once the minimum number of answers is reached (a setting, suggested: 3).
 
 ---
 
@@ -206,17 +253,14 @@ The tables fall into five groups:
 | `risk_id` | string, FK → `RISKS` | |
 | `trigger_id` | string, FK → `TRIGGERS` | optional, if the question is about one trigger |
 | `question` | string | a clear yes-or-no question |
-| `horizon_months` | int | e.g. 6, or shorter for the pilot |
+| `horizon_months` | int | 2 by default, to fit the two-month pilot |
 | `closes` | date | no more forecasts after this |
 | `resolves_on` | date | when the answer is decided |
 | `resolution_rule` | string | how the answer is decided |
 | `status` | string | `open`, `closed`, `resolved` |
 | `outcome` | int | 1 or 0 once resolved |
 
-- **Stores:** a yes-or-no question with a deadline and a rule for deciding the answer.
-- **Used for:** turning ACAPS's analysis into something that can be scored.
-- **Filled by:** ACAPS, or generated from risks and triggers. The moderator sets the outcome.
-- **Example:** `Q1043-A` · "Will cross-border attacks into eastern Chad increase before 30 April 2027?" · 6 months · open · rule: "Yes if ACAPS marks R1043 as materialised".
+- **Example:** `Q1043-A` · "Will cross-border attacks into eastern Chad increase in the next two months?" · 2 months · open.
 
 ### `FORECASTS`
 
@@ -225,14 +269,21 @@ The tables fall into five groups:
 | `forecast_id` | string, PK | |
 | `question_id` | string, FK → `FORECAST_QUESTIONS` | |
 | `expert_id` | string, FK → `EXPERTS` | |
-| `response_id` | string, FK → `RESPONSES` | optional, the check-in it was given in |
-| `probability` | float | 0-1 |
+| `response_id` | string, FK → `RESPONSES` | the check-in it was given in |
+| `answer_level` | string | `very_unlikely`, `unlikely`, `even_chance`, `likely`, `very_likely`, `dont_know` |
+| `probability` | float | worked out from `answer_level`; empty for `dont_know` |
 | `submitted` | date | |
 
-- **Stores:** one expert's probability for one question. Every update is a new row with its own date, so the history is kept.
-- **Used for:** the probability slider on the check-in card, the group forecast, and later the scoring.
-- **Filled by:** the expert, using the slider.
-- **Example:** `F001` · `Q1043-A` · Heron · 0.70 · 6 Nov, then `F014` · 0.80 · 20 Dec.
+The five-level scale mirrors ACAPS's own probability scale. The percentages are a setting, to confirm with ACAPS:
+
+| `answer_level` | `probability` |
+|---|---|
+| `very_unlikely` | 0.10 |
+| `unlikely` | 0.30 |
+| `even_chance` | 0.50 |
+| `likely` | 0.70 |
+| `very_likely` | 0.90 |
+| `dont_know` | empty, not scored |
 
 ### `SCORES`
 
@@ -240,13 +291,12 @@ The tables fall into five groups:
 |---|---|---|
 | `expert_id` | string, FK → `EXPERTS` | |
 | `question_id` | string, FK → `FORECAST_QUESTIONS` | |
-| `brier` | float | (forecast − outcome)², lower is better |
+| `brier` | float | (probability − outcome)², lower is better |
 | `scored_on` | date | |
 
-- **Stores:** each expert's Brier score on each resolved question.
-- **Used for:** the scoreboard and an expert's own track record.
-- **Filled by:** automatically, when a question resolves (the calculation tested in notebook `03_synthetic_experts_scoring`).
-- **Example:** Heron · `Q1043-A` · (0.80 − 1)² = 0.04.
+- **Scoring method:** the **Brier score**. It rewards honest forecasts and is easy to explain: 0 is perfect, 0.25 is always guessing 50%. It was tested in notebook `03_synthetic_experts_scoring` on 104 real ACAPS outcomes.
+- **Simple accuracy** ("right on 8 of 10 forecasts") is shown as an extra in each expert's yearly overview, but ranks use the Brier score.
+- **Filled by:** automatically, when a question resolves.
 
 ---
 
@@ -254,21 +304,35 @@ The tables fall into five groups:
 
 | Data | The expert | Other panel experts | ACAPS moderator | Public |
 |---|---|---|---|---|
-| `EXPERT_IDENTITY` | own only | never | only if "known to ACAPS" | never |
-| Individual `RESPONSES`, votes, forecasts | own only | never | yes, by pseudonym | never |
-| Group numbers (median, how many agree) | yes | yes, after a minimum number of answers | yes | never |
+| `EXPERT_IDENTITY` | own only | never | yes, except `verified_deleted` (no row exists) | never |
+| Individual responses, votes, forecasts | own only | never | yes, by pseudonym, unless `hidden_from_acaps` | never |
+| Card swipes | own only | never | skip counts per risk only | never |
+| Group numbers | yes | yes, after the minimum number of answers | yes | never |
 | `ROUND_SUMMARIES` | yes | yes | writes and approves | only if approved |
-| `SCORES` / scoreboard | own score | to decide | yes, by pseudonym | never |
+| Rank and scores | own | rank next to pseudonym, if ACAPS agrees | yes, by pseudonym | never |
 
-## How it all works together
+---
 
-ACAPS risks and triggers (`RISKS`, `TRIGGERS`) go to small groups of pseudonymous experts (`EXPERTS`, `PANELS`) in check-ins (`ROUNDS`). Their votes, ideas and forecasts are saved without names (`RESPONSES`, `TRIGGER_VOTES`, `SUGGESTED_TRIGGERS`, `FORECASTS`), summarised by ACAPS (`ROUND_SUMMARIES`), and scored once questions resolve (`FORECAST_QUESTIONS`, `SCORES`).
+## Later tables (designed, not built in the demo)
+
+| Table | Main fields | Purpose |
+|---|---|---|
+| `APPROVALS` | expert_id, decision, decided_by, date | Record of ACAPS approving each expert |
+| `NOTIFICATION_TOKENS` | random_code, device_token, platform | Device alerts, stored apart from answers |
+| `NOTIFICATION_ADDRESSES` | random_code, email | Opt-in email alerts, held by a separate service |
+| `DISCUSSION_POSTS` | post_id, round_id, expert_id, side (for or against), text, reply_to | The structured discussion |
+| `SIGNALS` | signal_id, expert_id, country, type (new risk or missing trigger), text, status | Input raised outside a check-in |
+| `RANK_HISTORY` | expert_id, rank, from_date, to_date | How ranks change over the past 12 months |
+| `CERTIFICATES` | certificate_id, expert_id, reason, verification_code, issued | Recognition, including for anonymous experts |
+| `CLIENT_REQUESTS` | request_id, client, question, service_level, round_id, status | Expert panel analysis on request |
+
+---
 
 ## Open questions for ACAPS
 
-1. Minimum number of answers before the group view is shown (suggestion: 3).
-2. Whether moderators may see pseudonyms of fully anonymous experts.
-3. Whether experts can change past answers, or only answer again in a new round.
-4. Forecast horizon for the two-month pilot: six months, or shorter questions too?
-5. Who resolves forecast questions, and which forecast counts (the last one before closing, or an average).
-6. Whether the scoreboard is shown to other experts, or only to the expert and ACAPS.
+1. Is `verified_deleted` acceptable, and which notification channels would ACAPS accept for those experts?
+2. Which probability bands should the forecast scale use: the infographic or the methodology PDF?
+3. What is the minimum number of answers before the group view opens (suggested: 3)?
+4. May moderators see pseudonyms of fully anonymous experts?
+5. Which data should set a card's urgency colour?
+6. Should other experts see ranks next to pseudonyms?
