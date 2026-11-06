@@ -50,7 +50,7 @@
 }
 
 .chip--veryhigh {
-  border: 1.5px solid var(--level-high);
-  color: var(--level-high);
-  background: var(--white);
+  border: 1.5px solid var(--level-high-text);
+  color: var(--level-high-text);
+  background: var(--paper);
 }

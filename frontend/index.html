@@ -7,6 +7,14 @@
     <meta name="theme-color" content="#e4e8eb" />
     <meta name="referrer" content="no-referrer" />
     <title>AI Sheep</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a light flash.
+      try {
+        var t = localStorage.getItem('theme');
+        var dark = t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

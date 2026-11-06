@@ -39,12 +39,12 @@
 }
 
 .tabbar__item.active {
-  color: var(--acaps-dark);
+  color: var(--accent);
   font-weight: 600;
 }
 
 .tabbar__item.active .tabbar__icon svg {
-  fill: var(--acaps-dark);
+  fill: var(--accent);
   fill-opacity: 0.16;
 }
 
@@ -65,11 +65,11 @@
   padding-inline: 5px;
   border-radius: var(--radius-pill);
   background: var(--highlight);
-  color: var(--ink);
+  color: var(--on-highlight);
   font-size: var(--fs-small);
   font-weight: 600;
   line-height: 1;
-  box-shadow: 0 0 0 2px var(--white);
+  box-shadow: 0 0 0 2px var(--paper);
 }
 
 .tabbar--dark .tabbar__item {

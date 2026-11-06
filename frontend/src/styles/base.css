@@ -59,7 +59,7 @@ button {
 }
 
 a {
-  color: var(--acaps-dark);
+  color: var(--accent);
 }
 
 :focus-visible {
@@ -173,12 +173,12 @@ a {
 
 /* Primary actions are always solid */
 .btn-primary {
-  background: var(--acaps-dark);
+  background: var(--primary);
   color: var(--white);
   box-shadow: 0 6px 14px rgba(0, 75, 120, 0.28);
 }
 .btn-primary:disabled {
-  background: #6d8ea3;
+  background: var(--disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
@@ -193,7 +193,7 @@ a {
 .btn-soft[aria-pressed="true"],
 .btn-soft[aria-checked="true"] {
   box-shadow: var(--soft-pressed);
-  color: var(--acaps-dark);
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -219,7 +219,7 @@ a {
   padding: 0 4px;
   border: 0;
   background: none;
-  color: var(--acaps-dark);
+  color: var(--accent);
   font-size: var(--fs-small);
   font-weight: 500;
   text-decoration: underline;

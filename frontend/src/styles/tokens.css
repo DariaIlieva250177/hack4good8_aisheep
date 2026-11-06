@@ -16,6 +16,17 @@
   --desk: #cdd5db; /* page behind the phone frame on desktop */
   --bezel: #0e1a22;
 
+  /* Theme roles. --acaps-dark stays the brand constant; these switch with the theme. */
+  --accent: var(--acaps-dark); /* text and icons */
+  --primary: var(--acaps-dark); /* solid fills behind white text */
+  --paper: #ffffff;
+  --on-highlight: #000000;
+  --disabled: #6d8ea3;
+  --switch-border: #7b868e;
+  --level-high-text: #b8163c;
+  --image-blend: multiply;
+  --image-filter: none;
+
   /* Night (Ranking) text */
   --night-ink: #ffffff;
   --night-ink-2: #b7c6d1;
@@ -92,4 +103,34 @@
   --glass-bg: rgba(255, 255, 255, 0.96);
   --glass-dark-bg: rgba(0, 36, 60, 0.97);
   --glass-blur: none;
+}
+
+/* ---------- Dark theme ----------
+   Same roles, re-mapped. Ranking keeps its own night palette in both themes. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #eef3f6;
+  --ink-2: #a9b7c1;
+  --ground: #1c262e;
+  --line: #34424c;
+  --shadow-dark: #11181d;
+  --shadow-light: #283640;
+  --accent: #7fd3ea;
+  --primary: #0a5f8f;
+  --paper: #121b21;
+  --disabled: #3b5566;
+  --switch-border: #84939d;
+  --level-high-text: #ff9db1;
+  --highlight-12: rgba(216, 216, 0, 0.14);
+  --desk: #0a1217;
+  --bezel: #000000;
+  --glass-bg: rgba(28, 38, 46, 0.62);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.12);
+  /* Multiply would sink the illustrations into a dark card, so show them as lit panels. */
+  --image-blend: normal;
+  --image-filter: brightness(0.92) saturate(0.95);
+}
+
+:root[data-theme="dark"][data-mode="lite"] {
+  --glass-bg: rgba(28, 38, 46, 0.97);
 }

@@ -37,7 +37,7 @@
   display: block;
   block-size: 100%;
   inline-size: 0;
-  background: var(--acaps-dark);
+  background: var(--primary);
 }
 
 .intro__fill.is-done,
@@ -98,7 +98,7 @@
   font-weight: 500;
   line-height: 1.05;
   letter-spacing: -0.01em;
-  color: var(--acaps-dark);
+  color: var(--accent);
 }
 
 .intro__actions {
@@ -142,7 +142,7 @@
 }
 
 .login__title {
-  color: var(--acaps-dark);
+  color: var(--accent);
 }
 
 .login__eye {
@@ -157,7 +157,7 @@
 }
 
 .login__eye[aria-pressed="true"] {
-  color: var(--acaps-dark);
+  color: var(--accent);
 }
 
 .login__submit {

@@ -8,15 +8,18 @@ import { displayNameFor, getMe, setIdentity } from '../data/api';
 import { useQuery } from '../data/useQuery';
 import type { IdentityMode } from '../data/types';
 import { useMode, type LowDataSetting } from '../mode/ModeContext';
+import { useTheme, type ThemeSetting } from '../mode/ThemeContext';
 import { en } from '../i18n/en';
 import './Profile.css';
 
 const IDENTITIES: IdentityMode[] = ['name', 'pseudonym', 'anonymous'];
 const LOW_DATA: LowDataSetting[] = ['auto', 'on', 'off'];
+const THEMES: ThemeSetting[] = ['light', 'dark', 'system'];
 
 export function Profile() {
   const { data: me } = useQuery(getMe);
   const { mode, setting, setSetting } = useMode();
+  const theme = useTheme();
   const toast = useToast();
   const { hash } = useLocation();
   const privacyRef = useRef<HTMLHeadingElement>(null);
@@ -54,35 +57,26 @@ export function Profile() {
 
       <SettingsGroup title={en.profile.preferences}>
         <SettingsRow Icon={Info} label={en.profile.about} onClick={notYet} />
-        <SettingsRow Icon={Palette} label={en.profile.theme} value={en.profile.themeValue} onClick={notYet} />
-        <li className="settings-row settings-row--stacked">
-          <fieldset className="segmented-field">
-            <legend className="settings-row__label">
-              <Wifi size={20} aria-hidden="true" />
-              {en.profile.lowData}
-            </legend>
-            <div className="segmented">
-              {LOW_DATA.map((value) => (
-                <label key={value} className="segmented__option">
-                  <input
-                    type="radio"
-                    name="lowData"
-                    value={value}
-                    checked={setting === value}
-                    onChange={() => setSetting(value)}
-                  />
-                  <span className="segmented__face">
-                    {setting === value && <span className="you-dot" aria-hidden="true" />}
-                    {en.profile.lowDataOptions[value]}
-                  </span>
-                </label>
-              ))}
-            </div>
-            <p className="t-small t-muted">
-              {en.profile.lowDataHelp} {en.profile.lowDataNow(mode === 'lite')}.
-            </p>
-          </fieldset>
-        </li>
+        <SegmentedSetting
+          name="theme"
+          Icon={Palette}
+          label={en.profile.theme}
+          options={THEMES}
+          labels={en.profile.themeOptions}
+          value={theme.setting}
+          onChange={theme.setSetting}
+          help={en.profile.themeHelp}
+        />
+        <SegmentedSetting
+          name="lowData"
+          Icon={Wifi}
+          label={en.profile.lowData}
+          options={LOW_DATA}
+          labels={en.profile.lowDataOptions}
+          value={setting}
+          onChange={setSetting}
+          help={`${en.profile.lowDataHelp} ${en.profile.lowDataNow(mode === 'lite')}.`}
+        />
       </SettingsGroup>
 
       <section aria-labelledby="privacy-title" id="privacy" className="settings-group">
@@ -148,6 +142,42 @@ function SettingsRow({ Icon, label, value, onClick }: { Icon: LucideIcon; label:
         {value && <span className="t-small t-muted">{value}</span>}
         <ChevronRight className="settings-row__chevron" size={20} aria-hidden="true" />
       </button>
+    </li>
+  );
+}
+
+interface SegmentedSettingProps<T extends string> {
+  name: string;
+  Icon: LucideIcon;
+  label: string;
+  options: T[];
+  labels: Record<T, string>;
+  value: T;
+  onChange: (v: T) => void;
+  help: string;
+}
+
+function SegmentedSetting<T extends string>({ name, Icon, label, options, labels, value, onChange, help }: SegmentedSettingProps<T>) {
+  return (
+    <li className="settings-row settings-row--stacked">
+      <fieldset className="segmented-field">
+        <legend className="settings-row__label">
+          <Icon size={20} aria-hidden="true" />
+          {label}
+        </legend>
+        <div className="segmented">
+          {options.map((option) => (
+            <label key={option} className="segmented__option">
+              <input type="radio" name={name} value={option} checked={value === option} onChange={() => onChange(option)} />
+              <span className="segmented__face">
+                {value === option && <span className="you-dot" aria-hidden="true" />}
+                {labels[option]}
+              </span>
+            </label>
+          ))}
+        </div>
+        <p className="t-small t-muted">{help}</p>
+      </fieldset>
     </li>
   );
 }

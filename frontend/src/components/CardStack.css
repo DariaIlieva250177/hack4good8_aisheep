@@ -46,7 +46,7 @@
 }
 
 .card-stack__ghost-title {
-  color: var(--acaps-dark);
+  color: var(--accent);
 }
 
 .swipe-label {
@@ -57,7 +57,7 @@
   gap: 6px;
   padding: 8px 14px;
   border-radius: var(--radius-pill);
-  color: var(--acaps-dark);
+  color: var(--accent);
   font-size: var(--fs-small);
   font-weight: 600;
   pointer-events: none;

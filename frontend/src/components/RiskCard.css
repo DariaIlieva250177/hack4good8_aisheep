@@ -16,7 +16,7 @@
 }
 
 .risk-card__title {
-  color: var(--acaps-dark);
+  color: var(--accent);
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -43,7 +43,7 @@
 }
 
 .risk-card__actions .btn[aria-disabled="true"] {
-  background: #6d8ea3;
+  background: var(--disabled);
   box-shadow: none;
 }
 

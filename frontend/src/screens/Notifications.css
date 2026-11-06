@@ -34,7 +34,7 @@
   border-radius: 50%;
   background: var(--ground);
   box-shadow: var(--soft-raised);
-  color: var(--acaps-dark);
+  color: var(--accent);
 }
 
 .notif__text {

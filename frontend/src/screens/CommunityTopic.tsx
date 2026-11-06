@@ -93,7 +93,7 @@ export function CommunityTopic() {
           </>
         ) : (
           <div className="topic__locked soft-card">
-            <Lock size={24} color="var(--acaps-dark)" aria-hidden="true" />
+            <Lock size={24} color="var(--accent)" aria-hidden="true" />
             <p className="t-title">{en.topic.lockedTitle}</p>
             <p className="t-muted">{en.topic.locked(topic.othersCount)}</p>
           </div>

@@ -50,7 +50,7 @@
 
 /* Errors never use red: red means risk level. */
 .inset--invalid {
-  box-shadow: var(--soft-pressed), inset 0 0 0 2px var(--acaps-dark);
+  box-shadow: var(--soft-pressed), inset 0 0 0 2px var(--accent);
 }
 
 .field-error {
@@ -58,7 +58,7 @@
   align-items: center;
   gap: 6px;
   margin-block-start: 8px;
-  color: var(--acaps-dark);
+  color: var(--accent);
   font-weight: 500;
 }
 

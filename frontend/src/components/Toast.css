@@ -34,7 +34,7 @@
   padding-inline: 16px;
   border: 0;
   border-radius: var(--radius-control);
-  background: var(--acaps-dark);
+  background: var(--primary);
   color: var(--white);
   font-size: var(--fs-small);
   font-weight: 600;
