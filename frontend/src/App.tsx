@@ -4,6 +4,7 @@ import { ToastProvider } from './components/Toast';
 import { DuotoneFilters } from './components/RiskImage';
 import { AppShell } from './components/AppShell';
 import { Placeholder } from './screens/Placeholder';
+import { Login } from './screens/Login';
 
 export default function App() {
   return (
@@ -12,7 +13,7 @@ export default function App() {
         <DuotoneFilters />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Placeholder title="Log in" />} />
+            <Route path="/" element={<Login />} />
             <Route element={<AppShell />}>
               <Route path="/risks" element={<Placeholder title="Risks" />} />
               <Route path="/todo" element={<Placeholder title="To-do" />} />
