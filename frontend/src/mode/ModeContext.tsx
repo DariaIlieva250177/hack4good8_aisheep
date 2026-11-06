@@ -57,10 +57,13 @@ async function connectionAllowsRich(): Promise<boolean> {
   }
 }
 
+const TEXT_INPUTS = new Set(['text', 'search', 'email', 'url', 'password', 'tel', 'number']);
+
 function isTyping(): boolean {
   const el = document.activeElement as HTMLElement | null;
   if (!el) return false;
-  return el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable;
+  if (el instanceof HTMLInputElement) return TEXT_INPUTS.has(el.type);
+  return el.tagName === 'TEXTAREA' || el.isContentEditable;
 }
 
 /** Resolves once nobody is typing, so the switch never happens mid-sentence. */

@@ -67,6 +67,11 @@ a {
   outline-offset: 2px;
 }
 
+/* Headings that receive focus programmatically (skip targets) need no ring */
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 .sr-only {
   position: absolute;
   inline-size: 1px;

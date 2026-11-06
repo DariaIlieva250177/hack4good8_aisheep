@@ -6,6 +6,7 @@ import { AppShell } from './components/AppShell';
 import { Placeholder } from './screens/Placeholder';
 import { Login } from './screens/Login';
 import { Risks } from './screens/Risks';
+import { Profile } from './screens/Profile';
 
 export default function App() {
   return (
@@ -22,7 +23,7 @@ export default function App() {
               <Route path="/community" element={<Placeholder title="Community" />} />
               <Route path="/community/:riskId" element={<Placeholder title="Community topic" />} />
               <Route path="/ranking" element={<Placeholder title="Ranking" />} />
-              <Route path="/profile" element={<Placeholder title="Profile" />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/answer/:riskId" element={<Placeholder title="Answer detail" />} />
             </Route>
             <Route path="*" element={<Navigate to="/" replace />} />
