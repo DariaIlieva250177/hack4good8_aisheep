@@ -1,0 +1,9 @@
+.verdicts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.verdicts__btn {
+  padding-inline: 8px;
+}

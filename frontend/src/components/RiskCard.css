@@ -1,0 +1,71 @@
+.risk-card {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.risk-card__body {
+  display: grid;
+  gap: 10px;
+  padding: 0 20px 10px;
+}
+
+/* Lite mode has no image, so the body needs its own top padding */
+:root[data-mode="lite"] .risk-card__body {
+  padding-block-start: 20px;
+}
+
+.risk-card__title {
+  color: var(--acaps-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.risk-card__question {
+  margin-block-start: 2px;
+}
+
+.risk-card .verdicts {
+  margin-block-end: 2px;
+}
+
+.risk-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+
+.risk-card__actions .btn {
+  padding-inline: 16px;
+}
+
+.risk-card__actions .btn[aria-disabled="true"] {
+  background: #6d8ea3;
+  box-shadow: none;
+}
+
+.risk-card__count {
+  margin-inline-start: auto;
+}
+
+.identity-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-block-start: 2px;
+  border-block-start: 1px solid var(--line);
+  color: var(--ink-2);
+}
+
+.identity-footer__change {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  margin-inline-start: auto;
+  padding-inline: 4px;
+  font-weight: 500;
+  text-underline-offset: 3px;
+}

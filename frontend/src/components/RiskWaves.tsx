@@ -9,16 +9,16 @@ import './RiskWaves.css';
  */
 
 const RED = '184, 22, 60';
-const STRANDS = 7;
-const POINTS = 260;
-const THREADS = 5;
+const STRANDS = 6;
+const STEPS = 180; // points along each thread
+const SEGMENT = 6; // points per stroke, so alpha can vary along the thread
 const FRAME_MS = 1000 / 30;
 
 interface Strand {
   a1: number; a2: number; a3: number;
   f1: number; f2: number; f3: number;
   w1: number; w2: number; w3: number;
-  rot: number; spin: number; gap: number; squash: number;
+  rot: number; spin: number; gap: number;
 }
 
 function seeded(seed: number) {
@@ -29,58 +29,82 @@ function seeded(seed: number) {
   };
 }
 
-const rand = seeded(1043);
+const rand = seeded(1066);
 const STRAND_PARAMS: Strand[] = Array.from({ length: STRANDS }, () => ({
-  a1: 0.08 + rand() * 0.14,
-  a2: 0.05 + rand() * 0.1,
-  a3: 0.02 + rand() * 0.05,
+  a1: 0.08 + rand() * 0.12,
+  a2: 0.04 + rand() * 0.08,
+  a3: 0.02 + rand() * 0.04,
   f1: rand() * Math.PI * 2,
   f2: rand() * Math.PI * 2,
   f3: rand() * Math.PI * 2,
-  w1: 0.12 + rand() * 0.18,
-  w2: 0.08 + rand() * 0.15,
-  w3: 0.2 + rand() * 0.25,
+  w1: 0.1 + rand() * 0.16,
+  w2: 0.07 + rand() * 0.12,
+  w3: 0.15 + rand() * 0.2,
   rot: rand() * Math.PI * 2,
-  spin: (rand() - 0.5) * 0.06,
-  gap: 0.008 + rand() * 0.02,
-  squash: 0.82 + rand() * 0.2,
+  spin: (rand() - 0.5) * 0.05,
+  gap: 0.06 + rand() * 0.07,
 }));
 
-/** Fixed per-particle jitter so strands look grainy, not like lines. */
-const JITTER = Float32Array.from({ length: STRANDS * POINTS * THREADS * 2 }, () => rand() - 0.5);
+/** Fixed grain so particles shimmer around the threads instead of flickering. */
+const GRAIN = Float32Array.from({ length: 4096 }, () => rand() - 0.5);
 
 function drawFrame(ctx: CanvasRenderingContext2D, w: number, h: number, t: number, small: boolean) {
   ctx.clearRect(0, 0, w, h);
   const cx = w / 2;
-  const cy = h * 0.5;
-  const R = Math.min(w, h) * (small ? 0.34 : 0.36);
-  const dot = small ? 0.8 : 1.15;
-  const points = small ? 90 : POINTS;
-  const threads = small ? 2 : THREADS;
-  let j = 0;
+  const cy = h / 2;
+  const rx = small ? w * 0.36 : Math.min(w * 0.3, h * 0.62);
+  const ry = small ? h * 0.36 : h * 0.36;
+  const threads = small ? 3 : 12;
+  const steps = small ? 72 : STEPS;
+  ctx.lineWidth = small ? 0.7 : 0.6;
+  ctx.lineCap = 'round';
+  let g = 0;
 
   for (let s = 0; s < STRANDS; s++) {
     const p = STRAND_PARAMS[s];
     const rot = p.rot + t * p.spin;
-    for (let i = 0; i < points; i++) {
-      const th = (i / points) * Math.PI * 2;
-      const wave =
+    // Where a strand catches the light, its threads bunch into a bright ribbon.
+    const glowAt = (th: number) => {
+      const v = 0.5 + 0.5 * Math.sin(2 * th + p.f3 + t * 0.19 + s * 1.7);
+      return v * v * v;
+    };
+    const point = (th: number, offset: number): [number, number] => {
+      const glow = glowAt(th);
+      const r =
         1 +
         p.a1 * Math.sin(2 * th + p.f1 + t * p.w1) +
         p.a2 * Math.sin(3 * th + p.f2 - t * p.w2) +
-        p.a3 * Math.sin(5 * th + p.f3 + t * p.w3);
-      // Strands thicken and thin along their length, like silk catching light.
-      const glow = 0.5 + 0.5 * Math.sin(2 * th + p.f3 + t * 0.21 + s);
-      const alpha = 0.04 + 0.5 * glow * glow * glow;
-      const spread = p.gap * (0.4 + glow);
-      ctx.fillStyle = `rgba(${RED}, ${alpha.toFixed(3)})`;
-      for (let k = 0; k < threads; k++) {
-        const r = R * (wave + (k - threads / 2) * spread);
-        const jx = JITTER[j++ % JITTER.length] * (small ? 0.6 : 2.2);
-        const jy = JITTER[j++ % JITTER.length] * (small ? 0.6 : 2.2);
-        const x = cx + Math.cos(th + rot) * r + jx;
-        const y = cy + Math.sin(th + rot) * r * p.squash + jy;
-        ctx.fillRect(x, y, dot, dot);
+        p.a3 * Math.sin(5 * th + p.f3 + t * p.w3) +
+        offset * p.gap * (1.6 - 1.1 * glow);
+      const a = th + rot;
+      return [cx + Math.cos(a) * r * rx, cy + Math.sin(a) * r * ry];
+    };
+
+    for (let k = 0; k < threads; k++) {
+      const offset = k / (threads - 1 || 1) - 0.5;
+      for (let i = 0; i < steps; i += SEGMENT) {
+        const mid = ((i + SEGMENT / 2) / steps) * Math.PI * 2;
+        const alpha = 0.015 + 0.26 * glowAt(mid);
+        if (alpha < 0.03) continue;
+        ctx.strokeStyle = `rgba(${RED}, ${alpha.toFixed(3)})`;
+        ctx.beginPath();
+        for (let j = 0; j <= SEGMENT; j++) {
+          const [x, y] = point(((i + j) / steps) * Math.PI * 2, offset);
+          if (j === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+    }
+
+    // A dusting of particles drifting off each strand.
+    if (!small) {
+      for (let i = 0; i < 160; i++) {
+        const th = ((i + GRAIN[g++ & 4095] * 3) / 160) * Math.PI * 2;
+        const glow = glowAt(th);
+        const [x, y] = point(th, GRAIN[g++ & 4095] * 2.4);
+        ctx.fillStyle = `rgba(${RED}, ${(0.08 + 0.4 * glow).toFixed(3)})`;
+        ctx.fillRect(x + GRAIN[g++ & 4095] * 4, y + GRAIN[g++ & 4095] * 4, 1.2, 1.2);
       }
     }
   }

@@ -1,0 +1,83 @@
+/* The fanned back cards may poke out sideways; clip them at the screen edge
+   without turning the stack into a scroll container. */
+.card-stack {
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+  overflow-x: clip;
+}
+
+.card-stack__deck {
+  display: grid;
+  padding-block: 4px;
+}
+
+/* All cards share one grid cell, so the deck is as tall as the front card. */
+.card-stack__deck > * {
+  grid-area: 1 / 1;
+}
+
+.card-stack__front {
+  position: relative;
+  z-index: 2;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.card-stack__front:active {
+  cursor: grabbing;
+}
+
+.card-stack__ghost {
+  overflow: hidden;
+  transform-origin: 50% 100%;
+  box-shadow: 10px 10px 24px var(--shadow-dark), -10px -10px 24px var(--shadow-light);
+  scale: 0.96;
+}
+
+.card-stack__ghost-body {
+  display: grid;
+  gap: 12px;
+  padding: 4px 20px 20px;
+  opacity: 0.5;
+}
+
+:root[data-mode="lite"] .card-stack__ghost-body {
+  padding-block-start: 20px;
+}
+
+.card-stack__ghost-title {
+  color: var(--acaps-dark);
+}
+
+.swipe-label {
+  position: absolute;
+  inset-block-start: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  color: var(--acaps-dark);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.swipe-label--later {
+  inset-inline-start: 18px;
+}
+
+.swipe-label--skip {
+  inset-inline-end: 18px;
+}
+
+.card-stack__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-block-start: 16px;
+}
+
+.card-stack__buttons .btn {
+  min-inline-size: 120px;
+}

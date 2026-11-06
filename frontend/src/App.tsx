@@ -5,6 +5,7 @@ import { DuotoneFilters } from './components/RiskImage';
 import { AppShell } from './components/AppShell';
 import { Placeholder } from './screens/Placeholder';
 import { Login } from './screens/Login';
+import { Risks } from './screens/Risks';
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route element={<AppShell />}>
-              <Route path="/risks" element={<Placeholder title="Risks" />} />
+              <Route path="/risks" element={<Risks />} />
               <Route path="/todo" element={<Placeholder title="To-do" />} />
               <Route path="/alerts" element={<Placeholder title="Notifications" />} />
               <Route path="/community" element={<Placeholder title="Community" />} />
