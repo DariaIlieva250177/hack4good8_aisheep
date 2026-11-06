@@ -1,6 +1,6 @@
 .tabbar {
   position: fixed;
-  inset-inline: 12px;
+  inset-inline: 8px;
   inset-block-end: calc(10px + var(--safe-bottom));
   z-index: 40;
   max-inline-size: 460px;
@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   block-size: var(--tabbar-h);
-  padding-inline: 6px;
+  padding-inline: 2px;
 }
 
 .tabbar__item {
@@ -34,7 +34,8 @@
 .tabbar__label {
   font-size: var(--fs-small);
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .tabbar__item.active {

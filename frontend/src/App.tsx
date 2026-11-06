@@ -11,6 +11,7 @@ import { Todo } from './screens/Todo';
 import { AnswerDetail } from './screens/AnswerDetail';
 import { Community } from './screens/Community';
 import { CommunityTopic } from './screens/CommunityTopic';
+import { Ranking } from './screens/Ranking';
 
 export default function App() {
   return (
@@ -26,7 +27,7 @@ export default function App() {
               <Route path="/alerts" element={<Placeholder title="Notifications" />} />
               <Route path="/community" element={<Community />} />
               <Route path="/community/:riskId" element={<CommunityTopic />} />
-              <Route path="/ranking" element={<Placeholder title="Ranking" />} />
+              <Route path="/ranking" element={<Ranking />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/answer/:riskId" element={<AnswerDetail />} />
             </Route>

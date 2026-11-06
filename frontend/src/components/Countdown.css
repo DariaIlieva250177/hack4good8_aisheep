@@ -1,0 +1,25 @@
+.countdown__cells {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.countdown__cell {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding-block: 8px;
+  border-radius: var(--radius-control);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.countdown__value {
+  font-size: var(--fs-quote);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.countdown__unit {
+  font-size: var(--fs-small);
+  color: var(--night-ink-2);
+}

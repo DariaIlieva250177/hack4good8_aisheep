@@ -204,7 +204,7 @@ export const en = {
     statBaseline: (b: number) => `ACAPS baseline ${b.toFixed(2)}`,
     statBrierNote: 'Lower is better',
     statRounds: 'Rounds joined',
-    countryCount: (k: number) => `${k} contributions`,
+    countryCount: (k: number) => `${k} ${k === 1 ? 'contribution' : 'contributions'}`,
     synthetic: 'All values are synthetic examples.',
   },
 

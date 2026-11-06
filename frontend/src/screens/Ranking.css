@@ -1,0 +1,109 @@
+.ranking {
+  color: var(--night-ink);
+  background:
+    radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 78% 9%, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 64% 34%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 22% 52%, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 88% 61%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(120% 60% at 50% 0%, #0a3654 0%, var(--night) 60%);
+  background-color: var(--night);
+}
+
+:root[data-mode="lite"] .ranking {
+  background: var(--night);
+}
+
+.ranking__card {
+  display: grid;
+  gap: 6px;
+  margin-block-start: 8px;
+  padding: 20px;
+  border-radius: 28px;
+}
+
+.ranking__label {
+  font-weight: 500;
+  color: var(--night-ink-2);
+}
+
+.ranking__muted {
+  color: var(--night-ink-2);
+}
+
+.ranking__rank {
+  color: var(--night-ink);
+}
+
+.ranking__round {
+  margin-block: 14px 4px;
+}
+
+.ranking__section {
+  margin-block-start: 32px;
+}
+
+.ranking__heading {
+  margin-block-end: 14px;
+}
+
+.ranking__badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.ranking__badge {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 8px;
+  padding: 14px 8px;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.ranking__summary {
+  margin-block: 12px 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+:root[data-mode="lite"] .ranking__summary {
+  text-align: start;
+}
+
+.ranking__people {
+  display: grid;
+  gap: 4px;
+  padding: 18px 20px;
+  border-radius: 24px;
+}
+
+.ranking__people-value {
+  color: var(--white);
+}
+
+.ranking__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.ranking__stat {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 24px;
+}
+
+.ranking__stat-value {
+  font-size: var(--fs-quote);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.ranking__synthetic {
+  margin-block-start: 14px;
+}
