@@ -38,18 +38,18 @@ How Ground Truth stores ACAPS risks, experts and everything experts do in the ap
 
 - **Changing an opinion** is allowed **once**. The new stance and forecast are saved as version 2, and a "Changed opinion" comment appears in the same discussion.
 - **Community.** Everyone answers alone. An expert joins a risk's community after their first answer, even just agree or disagree, and only then sees comments and group numbers.
-- **When a risk ends.** There is no deadline for answers, because ACAPS wants all the information it can get while a risk is open. A risk closes when it happens or when its N months run out, which counts as did not happen. Then experts see their results.
-- **Points.** When ACAPS closes a risk that happened, it records the date it happened. Points use each expert's last answer from before that date. Answers after it still reach ACAPS but earn nothing, because by then anyone can read the news, and ACAPS may take time to close the risk.
+- **Two endings.** Each risk has a chat with a deadline set by ACAPS. When it passes, answers lock and experts see the group results. The risk itself ends later, when it happens or when its N months run out, which counts as did not happen. Then experts get an alert and see what happened and their points.
+- **Points.** When ACAPS closes a risk that happened, it records the date it happened. Points use each expert's last answer from before that date. If a risk happens while its chat is still open, later answers still reach ACAPS but earn nothing, because by then anyone can read the news.
 - **Urgency** sets the card colour and the order of the to-do list. Every risk is at least yellow; there is no green:
 
   | Urgency | Colour | When |
   |---|---|---|
-  | Very urgent | Red | High risk that is deteriorating, or ending within 2 days |
+  | Very urgent | Red | High risk that is deteriorating, or its chat closes within 2 days |
   | Urgent | Orange | High risk |
   | Watch | Yellow | Every other risk |
 
 - **Triggers come from ACAPS.** Every risk shows the triggers ACAPS already posted. Experts can suggest a missing one; it joins the list only after ACAPS accepts it, and the app never shows which expert suggested it.
-- **ACAPS opens each risk**, sets its horizon (N months) and can edit the forecast question.
+- **ACAPS opens each risk**, sets its chat deadline and its horizon (N months), and can edit the forecast question.
 
 ---
 
@@ -152,7 +152,7 @@ Fields: `expert_id`, `risk_id`, `display_name`, `valid_from`, `valid_to`. Names 
 ## 4. What ACAPS publishes
 
 ### `risk_windows`
-When a risk is open. Fields: `window_id`, `risk_id`, `opens`, `closes` (the end of its N months, sooner if it happens), `set_by`.
+When a risk's chat is open. Fields: `window_id`, `risk_id`, `opens`, `closes` (the deadline, when answers lock), `set_by`.
 
 ### `forecast_questions`
 | Field | Notes |
@@ -161,7 +161,7 @@ When a risk is open. Fields: `window_id`, `risk_id`, `opens`, `closes` (the end 
 | `question_text`, `original_text` | ACAPS can edit the question |
 | `horizon_months` | N, chosen by ACAPS |
 | `created_by`, `edited_by`, `edited_at` | |
-| `opens`, `resolves_on` | `resolves_on` is the end of the N months |
+| `opens`, `closes`, `resolves_on` | `closes` is the chat deadline, `resolves_on` is the end of the N months |
 | `happened_on` | the date it happened, entered by ACAPS when closing; empty if it did not. The export has no such date, so past risks use `resolves_on` |
 | `status`, `outcome` | `open` or `resolved`; outcome once resolved |
 | `is_backtest` | true for past risks with real outcomes, used to test scoring |
