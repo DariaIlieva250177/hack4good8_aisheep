@@ -242,6 +242,465 @@ export const ANALYSIS: Record<string, RiskAnalysis> = {
       }
     ]
   },
+  "R1044": {
+    "trend": "Deteriorated",
+    "priorityNeeds": [
+      "Livelihoods",
+      "Food security",
+      "Health"
+    ],
+    "rationale": [
+      "El Niño conditions are forecast to develop by July 2026 and strengthen through the second half of the year. The National Oceanic and Atmospheric Administration estimates a 61% probability of El Niño from May–July, rising to 87–92% between July 2026 and January 2027. The Intergovernmental Authority on Development Climate Prediction and Applications Centre forecasts below-normal June–September (JJAS) rainfall across western and northern Kenya alongside above-normal temperatures nationwide, closely resembling the 2023 El Niño, when below-normal JJAS rainfall affected western Kenya.",
+      "The forecast threatens Kenya's principal food-producing areas during a critical stage of the long rains season. Over 70% of the country's annual crop production depends on the long rains, which extend into August–September in the North Rift and western Kenya. These areas had already recorded below-average rainfall in April and early May despite favourable national rainfall totals. Combined with delayed fertiliser deliveries, below-average rainfall and above-average temperatures from June–September are likely to reduce yields of maize, beans, sorghum, and sweet potato, resulting in a below-average October–November harvest.",
+      "In northern and eastern pastoral areas, above-average temperatures during the June–September dry season are expected to accelerate the deterioration of rangeland and water resources. Recovery remains fragile after the 2020–2023 drought and the 2023–2024 floods, with depleted herd sizes, persistent livestock disease, and reduced vaccination programmes limiting resilience.",
+      "The deteriorating production outlook comes as maize and bean prices remain 6–21% and 8–17% above the five-year average, respectively, driven by depleted household stocks following the poor 2025 short rains, high transport costs, and strong market demand. High household debt further constrains purchasing power. A below-average harvest would tighten domestic food supplies, drive prices higher, and further reduce incomes and food access for farming and pastoral households."
+    ],
+    "update": {
+      "date": "29/09/2026",
+      "text": [
+        "El Niño has driven a dry spell that has cut Kenya's harvest and is now expected to bring above-average short rains and flooding, with Lamu county projected to reach Crisis (IPC Phase 3) and Dadaab camp Emergency (IPC Phase 4) between October–January. The dry spell caused a poor long rains harvest, with maize production estimated at 22–28% below the five-year average and losses of up to 43% anticipated in high potential North Rift counties including Trans Nzoia, Uasin Gishu, and Nakuru. The Ministry of Agriculture has acknowledged widespread crop failure in the North Rift, which produces over 60% of Kenya's maize. Wholesale maize prices in Nairobi are expected to remain 9–19% above the five-year average until January 2027, limiting food access for poor households. The October–December rains are expected to improve pastoral conditions, but in Dadaab flooding is likely to last for weeks, limiting humanitarian access and increasing waterborne disease. IPC 3 outcomes are expected to persist in Garissa, Mandera, Tana River, Wajir, and Turkana counties through January, where flooding is likely to damage transport infrastructure and displace households. A national assessment has identified 18 counties and 5,660 health facilities in areas at risk of flooding."
+      ]
+    },
+    "vulnerability": [
+      "Kenya's arid and semi-arid lands (ASALs), home to the majority of pastoral and agropastoral communities, are characterised by chronic food insecurity and structural dependence on livestock and rain-fed agriculture. The 2020–2023 La Niña drought and the 2023–2024 El Niño flooding have left household asset bases severely depleted, with herd sizes yet to recover and debt levels constraining investment in the current growing season. Crisis (IPC Phase 3) food insecurity levels have persisted across pastoral areas, with the situation not expected to improve before September 2026. The North Rift and western Kenya, the country’s principal maize- and bean-growing regions (with the planting season in March and harvest typically from October–November) have little buffer against a poor season, as a shortfall there reduces food availability nationally, not only locally.",
+      "Market conditions offer little buffer. Staple food prices remain above average, purchasing power is eroded by rising fuel and transport costs, and fertiliser shortages are already affecting input use ahead of the critical JJAS growing period. Reduced humanitarian funding has left many host community households without adequate support.",
+      "Over 720,000 refugees in Dadaab, Kakuma, and Kalobeyei settlements face IPC 3 conditions. While food assistance has partially mitigated the most severe outcomes, current ration levels remain insufficient to meet minimum food needs across all households, and the ability to respond to further deterioration is constrained."
+    ],
+    "expectedImpact": [
+      "Below-average JJAS precipitation and above-average temperatures would directly threaten the October–November harvest of maize, beans, sorghum, and sweet potato across the North Rift and western Kenya – crops that represent the primary source of domestic food production. Reduced yields would tighten household food stocks at a time when they are already depleted, drive staple prices higher in already-stressed markets, and erode incomes for farming households with limited capacity to cope. In pastoral areas, accelerated rangeland deterioration and reduced water availability from June onwards would increase livestock mortality and reduce milk output, deepening food insecurity across the ASALs. IPC 3 outcomes, already widespread, are likely to expand in geographic scope and severity, with Emergency (IPC Phase 4) a credible risk in the most exposed pastoral counties. Acute malnutrition among children and pregnant and lactating women – already above emergency thresholds in refugee camps – is likely to worsen across both pastoral and camp populations as food access declines.",
+      "Should El Niño enhance the October–December short rains as forecast precedent suggests, eastern and coastal Kenya face a contrasting but equally damaging set of impacts. Flooding would damage standing crops, destroy infrastructure, and disrupt market supply chains at a critical point in the post-harvest period. Displacement from flood-affected areas would increase pressure on host communities and services already under strain. During the October 2023 to January 2024 El Niño short rains, at least 178 people died, and thousands of households were displaced.",
+      "Across both hazards, the response capacity will be constrained. Humanitarian funding gaps, reduced food ration levels, and limited government reach into remote pastoral and flood-affected areas mean that rising needs are unlikely to be fully met. If both the JJAS drought and October–December flooding materialise, Kenya faces a sustained deterioration in humanitarian conditions through the end of 2026 and into early 2027."
+    ],
+    "sources": [
+      {
+        "label": "ICPAC 19/05/2026",
+        "url": "https://www.icpac.net/news/drier-than-usual-conditions-with-warmer-than-average-temperatures-expected-in-the-greater-horn-of-africa/"
+      },
+      {
+        "label": "GEOGLAM Crop Monitor 02/04/2026",
+        "url": "https://www.cropmonitor.org/crop-monitor-for-early-warning"
+      },
+      {
+        "label": "FEWS NET 27/05/2026",
+        "url": "https://fews.net/east-africa/kenya/key-message-update/may-2026-0"
+      },
+      {
+        "label": "FEWS NET 23/04/2026",
+        "url": "https://fews.net/east-africa/kenya/food-security-outlook-update/april-2026"
+      },
+      {
+        "label": "NDMA 14/04/2026",
+        "url": "https://ndma.go.ke/drought-situation-brief/"
+      },
+      {
+        "label": "IPC 16/03/2026",
+        "url": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159540/"
+      },
+      {
+        "label": "FEWS NET accessed 08/07/2026",
+        "url": "https://fews.net/sites/default/files/2024-07/KE-Seasonal-Calendar-202406.pdf"
+      },
+      {
+        "label": "USDA accessed 08/07/2026",
+        "url": "https://www.fas.usda.gov/data/production/ke"
+      },
+      {
+        "label": "FEWS NET accessed 29/09/2026",
+        "url": "https://fews.net/east-africa/kenya/food-security-outlook-update/august-2026"
+      },
+      {
+        "label": "FEWS NET 11/09/2026",
+        "url": "https://fews.net/east-africa/seasonal-monitor/september-2026"
+      },
+      {
+        "label": "The EastAfrican 15/08/2026",
+        "url": "https://www.theeastafrican.co.ke/tea/sustainability/climate/east-africa-braces-for-prolonged-food-crisis-5558506"
+      },
+      {
+        "label": "Milling Middle East & Africa 13/08/2026",
+        "url": "https://millingmea.com/kenya-anticipates-maize-deficit-of-nearly-486000-tonnes-by-late-september/"
+      }
+    ]
+  },
+  "R1046": {
+    "trend": "Deteriorated",
+    "priorityNeeds": [
+      "Food security",
+      "Nutrition",
+      "WASH"
+    ],
+    "rationale": [
+      "Current models indicate a very high probability for El Niño to develop by July 2026 and persist into early 2027. In Madagascar, El Niño typically drives precipitation and temperature anomalies, with dry conditions in southern parts of the country and heavy rainfall in the north and east. In 2015–2016 and 2023–2024, El Niño caused prolonged drought conditions and crop failure, resulting in increased food insecurity that particularly affected the country's south. Seasonal forecasts anticipate near-average precipitation in July–September and below-average precipitation across most of the country in October–December. The same forecasts indicate a very high probability of above-average temperatures across the entire country in July–December. Drier and hotter-than-average conditions may affect the start of the rainy season, which runs October–April and is essential for producing Madagascar's main staple cereals, such as maize and rice, harvested in April–June. This may lead to below-average yields, with severe consequences for the population's access to food in 2027, widening food consumption gaps and increasing malnutrition rates. Impacts may also extend to other staple crops, such as cassava, beans, and sweet potatoes, as well as to agricultural labour availability, which usually peaks between November–March. Limited rainfall and abnormally high temperatures may also reduce pasture availability, resulting in deteriorating livestock body conditions and increased morbidity and mortality. Dry conditions are also likely to affect access to water for domestic consumption, potentially leading to reliance on unsafe water sources and limiting hygiene and sanitation practices. These combined effects are expected to increase humanitarian needs, strain local coping mechanisms, and heighten dependence on external assistance, particularly among rural households already vulnerable to climate variability. The country shows a high pre-existing vulnerability to climatic shocks, including reliance on rainfed agriculture, limited water and sanitation infrastructure, and low coping capacity."
+    ],
+    "update": {
+      "date": "05/10/2026",
+      "text": [
+        "The risk has further increased in September 2026 as forecasts indicate a strong to very strong El Niño from October 2026 to February 2027, with below-average rainfall expected across parts of southern Madagascar (Androy, Anosy, and Atsimo-Andrefana regions) during the October–November start of the rainy season. Assessments indicate that the lean season has already started earlier than usual in the Grand South, with poor households exhausting food stocks in September following below-average 2025/26 harvests and increasingly relying on markets and negative coping strategies. Conditions are expected to deteriorate further from October, with around 3.7 million people (11% of the analysed population) projected to face Crisis (IPC Phase 3) or worse between October 2026 and February 2027, including nearly 426,000 in Emergency (IPC Phase 4). El Niño-related rainfall deficits could further reduce 2027 crop production and household incomes, particularly in the Grand South, increasing food insecurity and humanitarian needs through early 2027, though past El Niño events had limited effects on national paddy output."
+      ]
+    },
+    "vulnerability": [
+      "Madagascar faces high structural vulnerability, with extreme poverty estimated at around 65% in April 2026, limiting households' ability to absorb shocks. Livelihoods are largely dependent on rainfed agriculture, making them highly sensitive to climate variability. Recurrent climatic shocks continue to erode resilience, as demonstrated by the cyclones Fytia and Gezani in early 2026, which affected nearly 700,000 people, damaging homes, infrastructure, and livelihoods. Food security conditions remain fragile. During the February–April 2026 period, an estimated 1.8 million people were expected to face Crisis (IPC Phase 3) or worse outcomes, with limited access to food and income. In southwestern Madagascar, persistent rainfall shortages since the start of the rainy season in October 2025 have limited agricultural production. Field assessments conducted in early May 2026 confirmed maize and pulse yields below average for the typical May harvest period. Local markets also showed unusually low supplies of maize and cassava. Coping capacity is further constrained by worsening malnutrition levels, with around 558,000 children under five either affected or at risk of acute malnutrition between May 2025 and April 2026. Many households are already employing coping mechanisms with potentially harmful consequences, including reducing food intake, selling productive assets, or taking on debt. Repeated exposure to shocks, combined with limited access to services and weak infrastructure, continues to reduce households' ability to recover, increasing dependence on humanitarian assistance."
+    ],
+    "expectedImpact": [
+      "The effects of El Niño-induced drought are expected to result in deteriorating food security, increased malnutrition, and heightened humanitarian needs. In the south, rainfall deficits are likely to lead to the most severe impacts, as the region already experiences prolonged dry conditions and a poor 2025–2026 rainy season. Across the country, similarly poor conditions in 2026–2027 may lead to reduced agricultural production, depletion of household food stocks, and increased reliance on markets, where purchasing power remains constrained because of poverty and limited income opportunities. This is expected to widen food consumption gaps, particularly among rural households dependent on rainfed agriculture. El Niño is also expected to significantly affect WASH conditions and public health. In southern areas, water scarcity will likely reduce access to safe drinking water and hygiene services. This is critical given that only about 36% of the rural population has access to improved water sources, and only around 10% use basic sanitation facilities, leaving many communities highly exposed to water shortages and unsafe practices. In contrast, above-average rainfall and cyclones in the north and east during El Niño periods can lead to flooding, contaminating water sources and increasing the spread of waterborne and vector-borne diseases such as cholera and malaria. Poor WASH access already contributes significantly to child mortality and illness. Across affected areas, pre-existing vulnerabilities such as high poverty, limited coping capacity, and weak infrastructure are likely to amplify the impact of these shocks. Malnutrition risks are expected to increase, particularly among children under five, driven by reduced food availability and access and deteriorated access to water, sanitation, and hygiene. At the same time, repeated shocks are likely to further erode households' coping strategies, pushing them to adopt coping mechanisms with potentially harmful consequences, including reducing food intake and selling productive assets."
+    ],
+    "sources": [
+      {
+        "label": "Moov 03/06/2026",
+        "url": "https://www.moov.mg/actualite/nationale/116639-el-nino-est-de-retour-quel-impact-pour-madagascar#body2"
+      },
+      {
+        "label": "WMO 02/06/2026",
+        "url": "https://public.wmo.int/news/media-centre/wmo-prepare-el-nino"
+      },
+      {
+        "label": "NewsMada 08/06/2026",
+        "url": "https://newsmada.com/2026/06/03/el-nino-sinvite-en-hiver-madagascar-sous-la-menace-dune-nouvelle-secheresse/"
+      },
+      {
+        "label": "FEWS NET 05/06/2026",
+        "url": "https://reliefweb.int/report/madagascar/madagascar-key-message-update-severe-rainfall-deficits-reduce-agricultural-yields-southwestern-madagascar-may-september-2026"
+      },
+      {
+        "label": "FEWS NET accessed 12/06/2026",
+        "url": "https://fews.net/southern-africa/madagascar"
+      },
+      {
+        "label": "EU 08/06/2026",
+        "url": "https://joint-research-centre.ec.europa.eu/jrc-news-and-updates/agricultural-production-threatened-combination-el-nino-and-high-input-prices-2026-06-08_en"
+      },
+      {
+        "label": "UNRIC 21/04/2026",
+        "url": "https://unric.org/en/madagascar-one-of-the-countries-most-exposed-to-climate-extremes/"
+      },
+      {
+        "label": "UNDRR 12/06/2026",
+        "url": "https://www.preventionweb.net/resource/case-study/anticipatory-action-drought-southern-madagascar-calibrating-trigger-systems"
+      },
+      {
+        "label": "WMO accessed 15/06/2026",
+        "url": "https://wmolc.org/seasonPmmeUI/plot_PMME#"
+      },
+      {
+        "label": "WB accessed 12/06/2026",
+        "url": "https://thedocs.worldbank.org/en/doc/bae48ff2fefc5a869546775b3f010735-0500062021/related/mpo-mdg.pdf"
+      },
+      {
+        "label": "IPC 29/01/2026",
+        "url": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1161004/?iso3=MDG"
+      },
+      {
+        "label": "IPC 09/09/2025",
+        "url": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159705/?iso3=MDG"
+      }
+    ]
+  },
+  "R1042": {
+    "trend": "Deteriorated",
+    "priorityNeeds": [
+      "Protection",
+      "Food security",
+      "Health"
+    ],
+    "rationale": [
+      "Since late April 2026, the unprecedented operational coordination between Jama’at Nasr Al Islam wal Muslimin (JNIM) and the Front de libération de l’Azawad (FLA) has significantly increased pressure on Mali’s security apparatus and exposed vulnerabilities in state control across northern, central, and western regions. Over the next one to three months, three converging escalation dynamics will likely worsen humanitarian conditions significantly across Mali. The assassination of Defence Minister Gen. Sadio Camara on 25 April 2026 created a command vacuum in Mali's security apparatus leadership. As the junta’s chief military strategist and the primary architect of the partnership with Russia’s Africa Corps, his death is likely to severely hamper coordination of counter-offensive operations, make Malian-Russian tactical responses less cohesive, and embolden further advances by armed groups at a critical juncture of territorial contestation.",
+      "JNIM and the FLA are both targeting urban supply chains, favouring economic attrition strategies over military objectives. With the FLA explicitly signalling southward expansion following the capture of Kidal region, citing Gao and Tombouctou as its next targets, and JNIM threatening a full blockade of Bamako region along the Senegalese and Ivorian corridors, populations in major urban centres face mounting risks of acute fuel and food shortages. Critically low stocks in the capital mean any sustained suspension of truck traffic could rapidly disrupt electricity, healthcare, and water access for millions already living under severe humanitarian stress. Towns such as Bandiagara and Douentza are already becoming more isolated because of road insecurity and flight suspensions, significantly constraining humanitarian access and the movement of goods and people.",
+      "Escalating resource scarcity and growing disillusionment within the military following the Kidal withdrawal increase the likelihood of intra-junta fracture or countercoup in the coming weeks. Political instability at the centre would further constrain the junta's capacity to manage insurgent pressure, negotiate humanitarian access, and sustain basic service delivery, deepening civilian vulnerability across northern, central, and western Mali."
+    ],
+    "update": {
+      "date": "30/09/2026",
+      "text": [
+        "The risk continued to increase during the second half of September as JNIM sustained high-intensity operations in central Mali, further challenging state control and security along strategic corridors. Following its 10 September attack on the Dioura military camp, which killed more than 100 soldiers and resulted in more than 100 being captured, JNIM shelled the Sévaré air base for six consecutive nights between 14–19 September and attacked a forward operating base in Konna on 20 September. The attacks indicate JNIM's continued capacity to target major military positions and transport corridors in Mopti region, while supply routes to Bamako remain exposed to disruption by armed groups. Although no significant new joint operation by JNIM and the Azawad Liberation Front was identified after the previous update, the sustained pressure by JNIM, alongside the continued presence and coordination capacity of both groups in northern Mali, maintains the risk of further territorial and humanitarian deterioration. Continued insecurity is likely to constrain population movement, trade, and humanitarian access, particularly across central and northern Mali."
+      ]
+    },
+    "vulnerability": [
+      "Mali already faced severe humanitarian vulnerabilities before the April 2026 escalation. Persistent insecurity, repeated displacement, and limited state presence in northern and central regions have weakened access to healthcare, food, education, water, and protection services. According to OCHA, more than six million people were estimated to need humanitarian assistance in 2026, while insecurity and access constraints continue to limit humanitarian operations in several regions, particularly Gao, Kidal, Ménaka, Mopti, and parts of Tombouctou. Food insecurity and acute malnutrition remain elevated, especially in conflict-affected areas where population movement, market disruption, and loss of livelihoods reduce households’ coping capacities.",
+      "Since 2025, repeated attacks on transport corridors and fuel supply chains have increased the fragility of essential services and urban supply systems, including transportation and electricity production. Communities in blockaded or inaccessible areas have increasingly relied on potentially harmful coping strategies, including reducing food consumption, selling productive assets, and restricting movement. Humanitarian organisations continue to operate in Mali, but insecurity, bureaucratic constraints, and logistical disruptions limit response capacity and access to affected populations. The recent expansion of coordinated attacks towards strategic urban centres and transport routes will likely add further strain on already limited coping capacities and humanitarian response systems."
+    ],
+    "expectedImpact": [
+      "Continued conflict escalation is expected to significantly worsen humanitarian conditions across Mali over the next one to three months, compounding pre-existing vulnerabilities among an estimated 5.1 million people already needing assistance. Mali already hosts more than 414,000 IDPs, and the number is likely to surge as fighting intensifies in Gao and Tombouctou regions and spreads southward into Sikasso and Kayes regions. The conflict also threatens displacement of farming communities during the critical harvest season, which would amplify nationwide food insecurity risks. Mali's capacity to host refugees – including over 165,000 from Burkina Faso and Niger – will be further strained, placing additional pressure on already overstretched basic services in affected areas.",
+      "Attacks on transport corridors and supply routes may further disrupt fuel imports, commercial traffic, and market functionality, contributing to higher transportation and food prices and affecting the availability of essential goods and services. Continued insecurity along the Bamako–Kayes, Bamako–Ségou, and Bamako–Sikasso corridors could further affect the movement of fuel, food, and commercial goods into major urban centres. Additional pressure on electricity production and fuel supply systems could worsen existing disruptions to healthcare, water access, and telecommunications. Fuel shortages are already affecting ambulance referrals, emergency obstetric care, medical supply chains, and fuel-dependent health services in conflict-affected areas, particularly in northern and central Mali. If supply disruptions persist, urban populations in Bamako and secondary cities may experience prolonged electricity cuts, rising living costs, and reduced access to basic services.",
+      "Humanitarian responders are already facing significant operational constraints. Humanitarian flights have been repeatedly suspended, and WFP temporarily halted activities following the April attacks. Insecurity has made several destinations, including Ansongo, Douentza, Kidal, Niafunké, and Ménaka, partially or fully inaccessible. If attacks, blockades, and insecurity along key corridors persist, humanitarian access is likely to deteriorate further, delaying the delivery of assistance and reducing the reach of life-saving services.",
+      "Should political instability escalate into intra-junta fracture or a counter-coup, the collapse of security command structures would likely suspend humanitarian flights and road convoys entirely, cutting life-saving assistance to already inaccessible populations across northern and central Mali."
+    ],
+    "sources": [
+      {
+        "label": "RFI 12/05/2026",
+        "url": "https://www.rfi.fr/fr/afrique/20260512-mali-%C3%A0-bamako-sous-blocus-jihadiste-les-aliments-ne-manquent-pas-les-difficult%C3%A9s-non-plus"
+      },
+      {
+        "label": "RFI 23/05/2026",
+        "url": "https://www.rfi.fr/fr/afrique/20260523-mali-le-jnim-attaque-cinq-villages-pr%C3%A8s-de-bandiagara-faisant-une-vingtaine-de-morts"
+      },
+      {
+        "label": "FEWS NET 22/05/2026",
+        "url": "https://reliefweb.int/report/mali/mali-food-security-outlook-update-reduced-food-access-worsening-acute-food-insecurity-north-and-center-april-september-2026"
+      },
+      {
+        "label": "WFP 19/05/2026",
+        "url": "https://reliefweb.int/report/mali/wfp-mali-country-brief-may-2026"
+      },
+      {
+        "label": "RFI 27/04/2026",
+        "url": "https://www.rfi.fr/fr/afrique/20260427-attaques-au-mali-apr%C3%A8s-la-mort-du-ministre-de-la-d%C3%A9fense-les-populations-inqui%C3%A8tes-malgr%C3%A9-un-certain-calme"
+      },
+      {
+        "label": "ACLED 30/04/2026",
+        "url": "https://acleddata.com/expert-comment/heni-nsaibia-fall-kidal-turning-point-malis-conflict"
+      },
+      {
+        "label": "OCHA 08/04/2026",
+        "url": "https://reliefweb.int/report/mali/mali-bulletin-humanitaire-fevrier-mars-2026"
+      },
+      {
+        "label": "FEWS NET 15/04/2026",
+        "url": "https://reliefweb.int/report/mali/mali-key-message-update-persistent-insecurity-hindering-food-security-center-and-north-march-september-2026"
+      },
+      {
+        "label": "WeWorld 30/04/2026",
+        "url": "https://reliefweb.int/attachments/4aae42fc-2e51-487b-bff2-f923a8d1f7ca/Mali%20Flash%20Update%20%231%20-%20April%202026_WeWorld.pdf"
+      },
+      {
+        "label": "BBC 29/04/2026",
+        "url": "https://www.bbc.com/news/articles/cy818zdv831o"
+      },
+      {
+        "label": "Credendo 11/05/2026",
+        "url": "https://credendo.com/en/knowledge-hub/mali-coordinated-tuareg-rebel-and-jihadist-assaults-push-regime-brink-collapse"
+      },
+      {
+        "label": "OCHA 10/02/2026",
+        "url": "https://reliefweb.int/report/mali/mali-besoins-humanitaires-et-plan-de-reponse-2026"
+      }
+    ]
+  },
+  "R1037": {
+    "trend": "Deteriorated",
+    "priorityNeeds": [
+      "Food security",
+      "Displacement",
+      "Protection",
+      "Nutrition",
+      "WASH"
+    ],
+    "rationale": [
+      "The collapse of the 2018 revitalized peace agreement and the disbandment of the unity government have dramatically increased the risk of South Sudan sliding back into full-scale civil conflict. The March 2025 arrest of First Vice President Riek Machar of the Sudan People’s Liberation Movement-in-Opposition by President Salva Kiir has reignited ethnically charged fighting between Dinka and Nuer armed forces, with clashes already concentrated in Jonglei and Upper Nile states. Up to 300,000 newly displaced people add to the approximately two million already internally displaced and over ten million – two-thirds of the population – requiring some form of humanitarian assistance, including 7.5 million projected to face food insecurity during the April–July lean season. South Sudan has suffered from chronic violence since independence. The collapse of the peace framework ahead of elections, accompanied by the re-emergence of organised, ethnically mobilised armed groups, represents the risk of a return to full-scale civil war.",
+      "Several factors increase the likelihood of deterioration into civil war. The taking and retaking of Akobo signals an escalation beyond the fragmented, subnational violence that characterised the 2018–2024 period, with organised armed groups now contesting territory at a scale not seen since the first civil war. The mobilisation of Nuer armed groups, including the White Army, suggests this is a coordinated insurgency with the capacity to sustain prolonged fighting. Uganda's continued deployment of troops in support of Kiir's Government risks drawing the conflict into a broader regional confrontation, and spillover from Sudan and Ethiopia could further destabilise border areas. Over 1.36 million people have already arrived in South Sudan from Sudan since April 2023, with services in border areas stretched to breaking point; an additional 380,000 arrivals are projected by the end of 2026. The planned December 2026 elections, already twice postponed, will intensify political competition and may become a flashpoint for renewed violence, whether they proceed or are cancelled again."
+    ],
+    "update": {
+      "date": "29/09/2026",
+      "text": [
+        "The risk has intensified after President Kiir dissolved the transitional government on 22 September, three months before elections scheduled for 22 December. The decree removed all five Vice Presidents, including the suspended First Vice President Riek Machar, dissolved the national and state legislatures, and replaced ministers and governors with caretaker appointees, ending the power-sharing arrangement set up under the Revitalised Agreement on the Resolution of Conflict in South Sudan. It followed amendments to the National Elections Act, signed on 21 September, that allow Kiir to remain in office with full powers throughout the election period. Kiir had also dismissed the chair of the National Elections Commission on 15 September without giving a reason. The South Sudan Opposition Movements Alliance has rejected the caretaker administration as illegitimate and the elections as a sham, and warned on 28 September that the crisis could lead to further violence and insecurity across the country. The UN Commission on Human Rights in South Sudan, which had already warned in August that elections without safeguards and inclusive dialogue could fuel renewed conflict and atrocity crimes, said the window to prevent a return to 2013–2018 levels of violence and displacement is closing. Government and Sudan People's Liberation Army-in-Opposition forces continue to fight in Jonglei and Upper Nile states, a conflict that predates the election, and no escalation directly linked to the election has been reported so far. Any such escalation during the election period would add to displacement in areas where humanitarian access is already constrained. (AJ 23/09/2026, ABC News 23/09/2026; Radio Tamazuj 29/09/2026, UN News 20/08/2026, Amnesty International 22/09/2026, ICG accessed 29/09/2026)"
+      ]
+    },
+    "vulnerability": [
+      "South Sudan has experienced near-continuous conflict since independence in 2011, with the 2013–2018 civil war displacing nearly half the population and severely weakening governance structures. With the 2018 peace agreement now defunct, there is no functioning framework to contain further escalation. The economy has been in near-total collapse, with the GDP declining for five consecutive years, annual inflation reaching 183%, and the currency depreciating by 189% year-on-year in June 2025. By February 2025, nearly two million people were internally displaced, with an additional 300,000 displaced since the current crisis began. The 2026 Humanitarian Needs and Response Plan estimates ten million people require humanitarian assistance, while funding has dropped to its lowest level since 2011, compounded by US aid cuts. Famine has already been recorded in Luakpiny/Nasir and Fangak, with 2.3 million people in Emergency (IPC Phase 4) and 5.2 million in Crisis (IPC Phase 3) conditions. Aid weaponisation by both parties is an established pattern, with 28 health facilities in Jonglei alone looted or destroyed."
+    ],
+    "expectedImpact": [
+      "A return to full-scale civil war would rapidly overwhelm an already critically degraded humanitarian system. New displacement on the scale of the 2013–2018 civil war – when nearly half the population was uprooted – would exhaust regional absorption capacity, with Sudan at war and Ethiopia far from stable. As during the last civil war, secondary displacement flows towards North Africa and across the Mediterranean are likely. Famine risk, currently confined to Luakpiny/Nasir and Fangak, would spread rapidly as access collapses across conflict-affected areas. The established pattern of aid weaponisation would intensify; already, flight restrictions have suspended humanitarian flights to Akobo, Lankien, and Pieri, the bombing of the Médecins Sans Frontières Lankien hospital in February 2026 has left approximately 400,000 people without healthcare access, and aid workers have been forcibly evacuated from parts of Upper Nile state with 72 hours' notice – with government denial of access to opposition-held areas and systematic looting leaving the most vulnerable populations entirely unreachable. The already-underfunded humanitarian response would face collapse as needs outpace donor capacity, and the limited remaining health infrastructure – already severely degraded by looting and air strikes – would cease to function in the worst-affected areas."
+    ],
+    "sources": [
+      {
+        "label": "Crisis Group 25/03/2026",
+        "url": "https://www.crisisgroup.org/cmt/africa/south-sudan/halting-south-sudans-slide-war"
+      },
+      {
+        "label": "ISS Africa 30/03/2026",
+        "url": "https://issafrica.org/iss-today/race-against-time-to-stabilise-south-sudan-as-elections-loom"
+      },
+      {
+        "label": "OCHA 2026 HNRP, 12/02/2026",
+        "url": "https://www.unocha.org/publications/report/south-sudan/south-sudan-humanitarian-needs-and-response-plan-2026-january-2026"
+      },
+      {
+        "label": "OCHA 16/04/2026",
+        "url": "https://www.unocha.org/publications/report/south-sudan/south-sudan-humanitarian-update-1-17-april-2026"
+      },
+      {
+        "label": "MSF 30/01/2026",
+        "url": "https://www.msf.org/south-sudan-government-blocks-opposition-held-areas-humanitarian-access"
+      },
+      {
+        "label": "IPC 2026",
+        "url": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159789/?iso3=SSD"
+      },
+      {
+        "label": "World Bank March 2025",
+        "url": "https://www.worldbank.org/en/news/press-release/2025/03/13/world-banks-afe-south-sudan-economic-monitor-urges-swift-and-sustained-reforms"
+      },
+      {
+        "label": "The New Humanitarian 22/04/2026",
+        "url": "https://www.thenewhumanitarian.org/analysis/2026/04/22/civil-war-reignites-south-sudan-so-too-does-battle-over-aid"
+      },
+      {
+        "label": "AJ 23/09/2026",
+        "url": "https://www.aljazeera.com/news/2026/9/23/south-sudan-dissolves-government-ahead-of-first-ever-national-elections"
+      },
+      {
+        "label": "ABC News 23/09/2026",
+        "url": "https://abcnews.com/International/wireStory/south-sudan-president-dissolves-transitional-government-ahead-long-136675583"
+      },
+      {
+        "label": "Radio Tamazuj 29/09/2026",
+        "url": "https://www.radiotamazuj.org/en/news/article/ssoma-kiir-has-usurped-authority-calls-for-new-peace-process"
+      },
+      {
+        "label": "UN News 20/08/2026",
+        "url": "https://news.un.org/en/story/2026/08/1168173"
+      }
+    ]
+  },
+  "R1048": {
+    "trend": "Deteriorated",
+    "priorityNeeds": [
+      "WASH",
+      "Protection",
+      "Shelter"
+    ],
+    "rationale": [
+      "The RSF offensive launched in early 2026 against Sudanese Armed Forces (SAF) positions in Baw county opened a new front in Blue Nile state. This has significantly increased the likelihood of conflict spreading to previously unaffected areas to the north, particularly Ed Damazine, the state capital, as well as the strategic corridor leading to the Roseires Dam. By advancing in Blue Nile state, RSF seeks to strengthen its position to recapture and control central Sudan, later opening a route through Sennar state.",
+      "Following heavy territorial losses in 2025, including entire states in central Sudan, RSF has reconstituted its operational capacity through its alliance with Abdelaziz Adam al Hilu's Sudan People's Liberation Movement-North (SPLM-N/Al Hilu). Access to terrain under its control has provided RSF with defensive depth, cross-border supply lines, and logistical continuity. This enables it to sustain multifront operations and power its advance in Blue Nile, positioning the RSF for a prolonged and expanded offensive rather than a short-term tactical push and increasing the likelihood of escalation beyond the current front lines.",
+      "External facilitation further compounds these dynamics. SAF has repeatedly accused South Sudan and Ethiopia of enabling this mobilisation, with satellite imagery from February 2026 showing a logistics camp near the Ethiopian border in Benishangul Gumz despite official Ethiopian denial. If sustained, such external support would significantly raise the possibility of a scaled-up offensive by insulating RSF operations from battlefield setbacks"
+    ],
+    "update": {
+      "date": "13/09/2026",
+      "text": [
+        "The risk deteriorated in August 2026 as the Rapid Support Forces (RSF) and Sudan People’s Liberation Movement-North (SPLM-N) expanded their territorial control in Blue Nile. On 11 August, the alliance captured Geisan, followed by Al Kurmuk on 13 August, after the Sudanese Armed Forces withdrew from the town. The offensive triggered significant displacement; more than 5,000 people had reached Ed Damazine by 18 August, while IOM reported nearly 14,000 displaced from Geisan and Al Kurmuk throughout the month. By 28 August, RSF and SPLM-N had claimed control of Bakori and Surkum military bases, while satellite analysis identified around 100 additional light technical vehicles at an Ethiopian base near Assosa, indicating preparations for further advances towards Ed Damazine.."
+      ]
+    },
+    "vulnerability": [
+      "Blue Nile has limited capacity to absorb another escalation. Recent clashes in At Tadamon and Baw have already displaced large numbers of people into areas where shelter, safe water, sanitation, health, and protection services are under pressure. Ed Damazine and surrounding towns are hosting newly displaced people while also serving resident populations affected by inflation, insecurity, and reduced livelihoods. Newly displaced households, women, children, older people, and people with disabilities are likely to have weaker coping capacity because displacement disrupts income, social networks, and access to assistance. Ethnic diversity, including Ingessana, Berta, and Hamaj communities, increases sensitivity to resource competition and politicised narratives around population movements. Host communities may also face pressure as land, water, services, and livelihood opportunities become more constrained."
+    ],
+    "expectedImpact": [
+      "If fighting expands north, large-scale displacement is likely towards Ed Damazine, other urban centres in northern Blue Nile, and neighbouring states. Newly displaced households would likely arrive with limited assets, increasing demand for emergency shelter, NFIs, safe water, sanitation, health services, and protection support. Overcrowding in informal settlements and host communities would heighten the risk of disease outbreaks, particularly where water and sanitation infrastructure is already weak. Fighting in populated areas, including drone strikes or shelling, could damage health, water, power, and road infrastructure, further reducing service availability and humanitarian access. Protection risks would likely increase, including family separation, GBV, child protection violations, psychosocial distress, and targeted violence against communities perceived as aligned with armed or political actors. Competition over land, livelihoods, and basic services could also trigger or worsen intercommunal tensions, particularly if displacement is framed as altering local power dynamics."
+    ],
+    "sources": [
+      {
+        "label": "MEE 26/01/2026",
+        "url": "https://www.middleeasteye.net/news/sudans-rsf-launches-offensive-blue-nile-state"
+      },
+      {
+        "label": "ACLED 15/04/2025",
+        "url": "https://acleddata.com/report/two-years-war-sudan-how-saf-gaining-upper-hand"
+      },
+      {
+        "label": "ICG 07/04/2025",
+        "url": "https://www.crisisgroup.org/stm/africa/sudan/two-years-sudans-war-spreading"
+      },
+      {
+        "label": "ST 25/01/2026",
+        "url": "https://sudantribune.com/article/309824"
+      },
+      {
+        "label": "acleddata.com",
+        "url": "https://acleddata.com/report/blue-nile-peripheral-front-central-battleground-sudan-conflict"
+      },
+      {
+        "label": "aljazeera.com",
+        "url": "https://www.aljazeera.com/features/longform/2025/8/19/inside-the-nuba-mountains-and-the-alliance-reshaping-sudans-civil-war"
+      },
+      {
+        "label": "reuters.com",
+        "url": "https://www.reuters.com/investigations/ethiopia-builds-secret-camp-train-sudan-rsf-fighters-sources-say-2026-02-10/"
+      },
+      {
+        "label": "ST 05/02/2026",
+        "url": "https://sudantribune.com/article/310285"
+      },
+      {
+        "label": "WVI 05/02/2026",
+        "url": "https://www.wvi.org/stories/sudan/world-vision-supports-displaced-families-tadamon-locality"
+      },
+      {
+        "label": "Protection Cluster 03/04/2026",
+        "url": "https://reliefweb.int/report/sudan/protection-alert-blue-nile-state-sudan-2-april-2026"
+      },
+      {
+        "label": "Protection Cluster 02/04/2026",
+        "url": "https://reliefweb.int/report/sudan/sudan-protection-cluster-alert-blue-nile-2-april-2026"
+      },
+      {
+        "label": "IOM 28/10/2022",
+        "url": "https://reliefweb.int/report/sudan/iom-sudan-displacement-tracking-matrixdtm-sudan-ar-rusayris-blue-nile-update-8-28-october-2022"
+      }
+    ]
+  },
+  "R1049": {
+    "trend": "Deteriorated",
+    "priorityNeeds": [
+      "Food security",
+      "Livelihoods",
+      "Health",
+      "WASH"
+    ],
+    "rationale": [
+      "Since October 2025, RSF has mobilised troops near Al Obeid's borders, including deploying combat vehicles along the western side. The sustained mobilisation and positioning of these forces indicate preparation for a renewed offensive to reinstate a siege of the city. A previous siege of the city between May 2023 and February 2025 demonstrated RSF's operational ability to isolate Al Obeid for prolonged periods, resulting in a significant deterioration in humanitarian conditions, including severe food insecurity.",
+      "RSF has a strong strategic incentive to restore the siege because of Al Obeid's role as a key logistic and commercial hub linking western and southern Sudan to Khartoum and central Sudan. Control of the city would provide RSF with greater leverage over supply routes, trade flows, and access to corridors into SAF-controlled areas, particularly central Sudan. Al Obeid's role as a major crop and livestock market and a gate for Kordofan exports further increases its strategic and economic importance to RSF.",
+      "Despite recent SAF advancements and repositioning in North Kordofan, fluid conflict dynamics and continued shifts in areas of control between SAF and RSF increase the likelihood of renewed attempts to siege the city over the next six months. This likelihood is further reinforced by increasing logistical and technical support provided to RSF by the United Arab Emirates (UAE), which may improve the group's operational capacity to sustain offensive and siege tactics."
+    ],
+    "update": {
+      "date": "13/09/2026",
+      "text": [
+        "The risk deteriorated in August 2026 as attacks by the Rapid Support Forces (RSF) intensified around Al Obeid city, North Kordofan state. On 12 August, suspected RSF drones struck the city, killing two people and injuring others. From 14–15 August, RSF attacks on Um Arda locality, Tamid village, and Al Khor Al Abyad village, North Kordofan state, displaced 4,250 people; the attack on Um Arda alone killed 18 civilians and displaced more than 300 families towards Al Obeid. On 20 August, RSF attacks on Um Dareisa village and Al Shaqla village, North Kordofan state, killed six civilians and displaced more than 1,000 people towards Al Obeid city. These attacks increased pressure on the city and advanced the siege and displacement pathways of the risk.."
+      ]
+    },
+    "vulnerability": [
+      "Al Obeid is highly vulnerable because it already functions as a displacement hub and market centre for conflict-affected populations from South and West Kordofan. North Kordofan hosts more than 2.3 million displaced people, increasing pressure on shelter, services, markets, and host communities. The city already faces inflation in essential commodities, particularly food and fuel, because of disrupted and inconsistent supply chains. Household coping capacity is weak, especially among IDPs who have limited livelihood opportunities, limited savings, and high dependence on markets or assistance. Health capacity is also fragile: one of the few functioning public hospitals in the state is receiving patients from neighbouring conflict-affected areas while managing mass casualty incidents and outbreaks such as dengue fever and cholera. Renewed siege conditions would therefore affect populations already facing overlapping displacement, food insecurity, health, and access constraints."
+    ],
+    "expectedImpact": [
+      "A renewed RSF siege on Al Obeid could trigger large primary and secondary displacement, particularly among people already displaced from South and West Kordofan. Many households would likely move towards White Nile, especially Kosti, which remains linked by transport routes and has previously attracted people fleeing conflict in Kordofan. Movement restrictions, fear of ground assault, market disruption, and deteriorating living conditions would likely drive further departures. Inside Al Obeid, siege conditions would reduce access to food, fuel, medicines, markets, health services, and humanitarian assistance. Shortages and sharp price increases would weaken purchasing power and worsen food insecurity among residents, IDPs, and host communities. Because Al Obeid is a major agricultural and commercial market connecting Greater Darfur with eastern and northern Sudan, prolonged disruption could also affect wider trade flows and commodity availability across Kordofan and Darfur. Health impacts would include reduced medical supply delivery, strain on hospital capacity, and weaker outbreak response for cholera, dengue fever, and other diseases."
+    ],
+    "sources": [
+      {
+        "label": "UN 19/12/2025",
+        "url": "https://news.un.org/en/story/2025/12/1166633"
+      },
+      {
+        "label": "Darfur24 13/11/2025",
+        "url": "https://www.darfur24.com/en/2025/11/13/military-document-reveals-rsf-preparations-for-major-attack-on-el-obeid/"
+      },
+      {
+        "label": "YSPH HRL 16/01/2026",
+        "url": "https://files-profile.medicine.yale.edu/documents/8dce0cc5-35fb-4078-b2aa-748e51cc8e9d"
+      },
+      {
+        "label": "BBC 06/01/2026",
+        "url": "https://www.bbc.co.uk/news/articles/c74w54783zeo"
+      },
+      {
+        "label": "Sudan War Monitor 24/02/2025",
+        "url": "https://sudanwarmonitor.com/p/sudan-army-breaks-rsf-siege-of-el"
+      },
+      {
+        "label": "OHCHR 19/09/2025",
+        "url": "https://www.ohchr.org/en/documents/country-reports/human-rights-situation-sudan-1-january-30-june-2025"
+      },
+      {
+        "label": "MEE 24/02/2025",
+        "url": "https://www.middleeasteye.net/news/sudans-army-breaks-rsf-siege-strategic-city-el-obeid"
+      },
+      {
+        "label": "The National 09/12/2025",
+        "url": "https://www.thenationalnews.com/news/mena/2025/12/09/al-obeid-gripped-by-fear-as-sudans-army-and-rsf-square-off-for-fierce-battle/"
+      },
+      {
+        "label": "AJ 14/11/2025",
+        "url": "https://www.aljazeera.com/features/2025/11/14/will-sudans-rsf-turn-strategic-city-of-el-obeid-into-another-el-fasher"
+      },
+      {
+        "label": "TNH 29/04/2026",
+        "url": "https://www.thenewhumanitarian.org/analysis/2026/04/29/how-sudan-el-obeid-survives-drone-strikes-siege-warfare"
+      },
+      {
+        "label": "AJ 06/03/2026",
+        "url": "https://www.aljazeera.com/news/2026/3/6/sudanese-army-retakes-bara-secures-el-obeid-in-north-kordofan"
+      },
+      {
+        "label": "Le Monde 22/03/2026",
+        "url": "https://www.lemonde.fr/en/le-monde-africa/article/2026/03/22/the-uae-is-reorganizing-its-arms-supply-network-for-sudanese-paramilitaries_6751682_124.html"
+      }
+    ]
+  },
   "R1051": {
     "trend": "Deteriorated",
     "priorityNeeds": [
@@ -313,6 +772,80 @@ export const ANALYSIS: Record<string, RiskAnalysis> = {
       {
         "label": "Sudan Tribune 26/08/2026",
         "url": "https://sudantribune.com/article/317893"
+      }
+    ]
+  },
+  "R1053": {
+    "trend": "Deteriorated",
+    "priorityNeeds": [
+      "Livelihoods",
+      "Food security",
+      "Health",
+      "WASH"
+    ],
+    "rationale": [
+      "RSF tactics have increasingly shifted from ground offensives in SAF-controlled areas to long-range drone strikes. The May 2025 strikes on Port Sudan's fuel reservoirs demonstrated RSF's capacity to hit locations far from its main areas of control using long-range kamikaze drones. Port Sudan remains a strategic target because it continues to host key government, technical, and logistical functions, while the Port Sudan-Kassala-Gedaref corridor remains central to Sudan's economy and humanitarian response. Before the conflict, this corridor handled most international trade, and it continues to support imports, fuel supplies, and humanitarian cargo entering SAF-controlled areas. Targeting the corridor would allow RSF to undermine SAF supply chains and disrupt commercial and aid flows without needing to control territory in eastern Sudan. The likelihood of more frequent or damaging attacks would increase if RSF receives sustained external support, expands cross-border supply networks, or gains greater long-range drone capacity. Regional tensions around the Red Sea may further increase the corridor's strategic sensitivity."
+    ],
+    "update": {
+      "date": "13/09/2026",
+      "text": [
+        "The risk deteriorated in August 2026 as the Rapid Support Forces (RSF) resumed long-range drone attacks across areas held by the Sudanese Armed Forces (SAF), increasing the threat to infrastructure supporting eastern supply routes. On 12 August, suspected RSF drones targeted Ad Damar, Al Obeid, Atbara, Bahri, and Um Durman; SAF air defences intercepted several drones, but others struck a mosque and an electricity transformer in Bahri and targets in Al Obeid, killing two people. On 18 August, SAF reported intercepting two RSF FH-95 drones near Jargeira and Bara, while further attacks were reported around Bara, Gebrat Al Sheikh, and the export route towards Al Obeid. The widening geographic reach and repeated attacks indicate an increased likelihood of disruption to transport and supply flows, although Port Sudan itself was not struck.."
+      ]
+    },
+    "vulnerability": [
+      "Port Sudan and the eastern corridor have limited redundancy because alternative routes into SAF-controlled Sudan are constrained, less reliable, or operationally costly. The port is a major entry point for food, fuel, medical supplies, and humanitarian assistance, and disruptions could affect populations far beyond the city. Urban households and IDPs are especially vulnerable because they rely heavily on markets for food and other essentials. Humanitarian operations also depend on fuel, warehouses, roads, and dispatch capacity from Port Sudan to reach other parts of Sudan. Coping capacity is limited by already stretched supply chains, high transport costs, insecurity along inland routes, and dependence on fuel for power generation, water systems, cold chains, and health services. If attacks damage infrastructure or disrupt fuel availability, service providers and responders may have few rapid alternatives."
+    ],
+    "expectedImpact": [
+      "Repeated drone attacks on Port Sudan or the Port Sudan-Kassala-Gedaref corridor would likely disrupt trade and humanitarian supply flows into SAF-controlled areas. Damage to fuel depots, warehouses, port facilities, roads, or transport hubs could delay imports and onward dispatch, particularly if insecurity persists over several weeks. This would likely contribute to localised shortages and price increases for food, fuel, medicines, and other essential commodities, affecting urban populations, IDPs, and market-dependent households first. Fuel disruptions would have wider knock-on effects: humanitarian transport would slow, operational costs would rise, and the ability to move food, medical supplies, and relief items to field hubs would decline. Reduced fuel and power availability could also undermine WASH systems, water pumping, health facilities, cold chains, and disease response capacity. Although direct physical exposure may be concentrated around the corridor, the humanitarian consequences could extend across central and northern Sudan because of the corridor's central role in national supply chains."
+    ],
+    "sources": [
+      {
+        "label": "Reuters 12/09/2025",
+        "url": "https://www.reuters.com/investigations/how-sudans-rsf-used-drones-its-civil-war-2025-09-12/"
+      },
+      {
+        "label": "Milton et al. 09/11/2025",
+        "url": "https://ctc.westpoint.edu/sudans-long-range-drone-war/"
+      },
+      {
+        "label": "UN 18/01/2026",
+        "url": "https://news.un.org/en/story/2026/01/1166786"
+      },
+      {
+        "label": "EPC 08/09/2023",
+        "url": "https://epc.ae/en/details/scenario/port-sudan-the-economics-and-geopolitics-of-sudans-new-capital"
+      },
+      {
+        "label": "ACAPS 23/05/2025",
+        "url": "https://www.acaps.org/en/countries/archives/detail/sudan-risk-of-continued-drone-strikes-on-port-sudan"
+      },
+      {
+        "label": "Le Monde 22/03/2026",
+        "url": "https://www.lemonde.fr/en/le-monde-africa/article/2026/03/22/the-uae-is-reorganizing-its-arms-supply-network-for-sudanese-paramilitaries_6751682_124.html"
+      },
+      {
+        "label": "WHO 09/01/2026",
+        "url": "https://www.emro.who.int/media/news/who-delivers-21-trucks-of-medical-supplies-to-sudan.html"
+      },
+      {
+        "label": "Protection Cluster 13/01/2026",
+        "url": "https://reliefweb.int/report/sudan/protection-analysis-update-sudan-january-2026"
+      },
+      {
+        "label": "Insecurity Insight 12/01/2026",
+        "url": "https://insecurityinsight.org/wp-content/uploads/2026/01/Sudan-Access-Constraints-12-January-2026.pdf"
+      },
+      {
+        "label": "Logistics Cluster 11/02/2026",
+        "url": "https://logcluster.org/sites/default/files/public/2026-03/sudanlcconcept-operationsfeb2026_0.pdf"
+      },
+      {
+        "label": "BBC 10/05/2025",
+        "url": "https://www.bbc.com/news/articles/c3dkj1d032ko"
+      },
+      {
+        "label": "UN 07/05/2025",
+        "url": "https://news.un.org/en/story/2025/05/1163011"
       }
     ]
   },

@@ -91,6 +91,15 @@ export interface User {
   identity: IdentityMode;
 }
 
+/** A reply under an expert's answer in a community chat. */
+export interface AnswerComment {
+  id: string;
+  authorId: string;
+  displayName: string;
+  identity: IdentityMode;
+  text: string;
+}
+
 export interface Answer {
   id: string;
   riskId: string;
@@ -104,6 +113,10 @@ export interface Answer {
   text: string;
   sources: string[];
   isNew?: boolean;
+  likes?: number;
+  /** The current user liked this answer */
+  likedByMe?: boolean;
+  comments?: AnswerComment[];
 }
 
 export interface AnswerInput {
@@ -119,14 +132,19 @@ export interface Community {
   name: string;
   members: number;
   unread: number;
-  mine: boolean;
+  /** When the chat closes (ms since epoch); after that it's Expired and read-only */
+  endsAt: number;
+  /** Moderator's wrap-up, shown at the top of an expired chat (synthetic) */
+  summary?: string;
+  /** Latest message, shown as the preview line in the chat list (synthetic) */
+  lastMessage?: { author: string; text: string };
 }
 
 export interface Topic {
   risk: Risk;
   community: Community;
   mine: Answer | null;
-  /** Empty until the user has answered (Delphi independence) */
+  /** Empty until the user has answered (Delphi independence), unless exploring or expired */
   others: Answer[];
   othersCount: number;
 }

@@ -61,10 +61,26 @@ export const getRisk = (id: string) => wait(riskById(id) ?? null);
 
 export const getTodo = () => wait(byIds(state.todo));
 
+/**
+ * Community list, split by what the user has done with each risk:
+ * - 'mine': you answered it (from To-do), so its chat shows your answer
+ * - 'other': you skipped it, or it was never shown to you ("Explore")
+ * Risks still waiting in the card stack or To-do are left out entirely.
+ */
 export const getCommunities = () =>
-  wait(state.communities.map((c) => ({ community: { ...c }, risk: riskById(c.riskId)! })));
+  wait(
+    state.communities.flatMap((c) => {
+      if (state.stack.includes(c.riskId) || state.todo.includes(c.riskId)) return [];
+      const answered = state.answers.some((a) => a.riskId === c.riskId && a.authorId === state.me.id);
+      return [{ community: { ...c }, risk: riskById(c.riskId)!, section: answered ? ('mine' as const) : ('other' as const) }];
+    }),
+  );
 
-export async function getTopic(riskId: string): Promise<Topic | null> {
+/**
+ * A community chat. `explore`: read-only look at a topic you haven't answered;
+ * every answer, like and comment is visible, but nothing can be added.
+ */
+export async function getTopic(riskId: string, { explore = false } = {}): Promise<Topic | null> {
   const risk = riskById(riskId);
   const community = state.communities.find((c) => c.riskId === riskId);
   if (!risk || !community) return wait(null);
@@ -74,8 +90,9 @@ export async function getTopic(riskId: string): Promise<Topic | null> {
     risk,
     community,
     mine,
-    // Independence first: nothing about other answers leaves the server until you answer.
-    others: mine ? others : [],
+    // Independence first: nothing about other answers leaves the server until you
+    // answer, except in Explore (read-only) and once the chat has ended.
+    others: mine || explore || community.endsAt <= Date.now() ? others.map((a) => ({ ...a, comments: [...(a.comments ?? [])] })) : [],
     othersCount: others.length,
   });
 }
@@ -185,6 +202,36 @@ export async function markNotificationRead(id: string): Promise<AppNotification[
   if (n) n.unread = false;
   changed();
   return getNotifications();
+}
+
+/** Like or unlike an answer (only offered in your own communities). */
+export async function toggleLike(answerId: string): Promise<void> {
+  const a = state.answers.find((x) => x.id === answerId);
+  if (a) {
+    a.likedByMe = !a.likedByMe;
+    a.likes = Math.max(0, (a.likes ?? 0) + (a.likedByMe ? 1 : -1));
+    changed();
+  }
+  return wait(undefined);
+}
+
+/** Reply under an answer (only offered in your own communities). */
+export async function addComment(answerId: string, text: string): Promise<void> {
+  const a = state.answers.find((x) => x.id === answerId);
+  if (a && text.trim()) {
+    a.comments = [
+      ...(a.comments ?? []),
+      {
+        id: `${answerId}-c${Date.now()}`,
+        authorId: state.me.id,
+        displayName: displayNameFor(state.me),
+        identity: state.me.identity,
+        text: text.trim(),
+      },
+    ];
+    changed();
+  }
+  return wait(undefined);
 }
 
 export async function markCommunityRead(riskId: string): Promise<Community | null> {

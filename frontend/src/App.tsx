@@ -31,6 +31,7 @@ export default function App() {
                   <Route path="/alerts" element={<Notifications />} />
                   <Route path="/community" element={<Community />} />
                   <Route path="/community/:riskId" element={<CommunityTopic />} />
+                  <Route path="/community/:riskId/explore" element={<CommunityTopic explore />} />
                   <Route path="/ranking" element={<Ranking />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/answer/:riskId" element={<AnswerDetail />} />
