@@ -12,13 +12,24 @@
 
 ## Global Constraints
 
-- Work on a local branch, `valeri/points-and-data-fixes`. Nothing is pushed until Valeri asks.
+- Tasks 1-3 go on `daria/data-fixes` and Tasks 4-5 on `valeri/points-and-rank`. Nothing is pushed until its owner asks.
 - Every commit message ends with `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
 - `CONTEXT.md` stays uncommitted unless Valeri asks.
 - `data/synthetic/_simulation/expert_truth.csv` is for testing only. The app and `ranks.csv` never contain `sim_` values.
 - `app/data/expert_demo.json` names no expert other than the demo expert.
 - Experts never see a Brier number, and nothing compares experts with ACAPS.
 - The repo's Python files use CRLF line endings. Change them with an editor tool, not `sed`.
+
+## Who does what
+
+| Tasks | Owner | State |
+|---|---|---|
+| 1-3 (seed fix, category fix, demo expert rule) | Daria | Not started |
+| 4 (points) | Valeri | Done on `valeri/points-and-rank` |
+| 5 (one-command build) | Valeri | Steps 1-3 done. Steps 4-7 wait for Tasks 1-3 to be merged |
+| 6 (docs and team note) | Not decided | Do after Task 5 |
+
+Do not run `python src/build_demo_data.py` before Tasks 1-3 are in: it overwrites the data with an unfixed build. Both branches create `tests/conftest.py` with identical content, so that file does not conflict when they merge.
 
 ## Decisions
 
@@ -74,7 +85,7 @@
 cd /c/Users/bai4o/hack4good8_aisheep
 git fetch origin
 git status -sb
-git checkout -b valeri/points-and-data-fixes origin/main
+git checkout -b daria/data-fixes origin/main
 ```
 
 Expected: if `git fetch` brought in new commits, stop and show Valeri what Daria changed before going on.
@@ -474,7 +485,7 @@ EOF
 ### Task 4: Points, rank, card order and results
 
 **Files:**
-- Create: `src/points.py`, `tests/test_points.py`
+- Create: `src/points.py`, `tests/test_points.py`, `tests/conftest.py` (same content as in Task 1)
 
 **Interfaces:**
 - Consumes: `_short(text, max_chars)` from `src/synthetic_data.py`
@@ -749,8 +760,7 @@ EOF
 ### Task 5: One-command build and the new data
 
 **Files:**
-- Create: `src/build_demo_data.py`
-- Modify: `tests/test_build.py`
+- Create: `src/build_demo_data.py`, `tests/test_demo_data.py`
 - Regenerate: `data/synthetic/*.csv`, `app/data/expert_demo.json`
 - Create: `data/synthetic/ranks.csv`
 
@@ -760,7 +770,7 @@ EOF
 
 - [ ] **Step 1: Write the failing tests**
 
-Add to the imports of `tests/test_build.py`:
+Create `tests/test_demo_data.py`, separate from `tests/test_build.py` so the two branches do not conflict. Start it with these imports:
 
 ```python
 import json
@@ -934,7 +944,7 @@ Expected: `top 8 0.81, everyone 0.56`.
 - [ ] **Step 7: Commit**
 
 ```bash
-git add src/build_demo_data.py tests/test_build.py data/synthetic app/data/expert_demo.json
+git add data/synthetic app/data/expert_demo.json
 git commit -F - <<'EOF'
 Add one-command build and regenerate the data
 
