@@ -1,7 +1,8 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Trash2 } from 'lucide-react';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { Carousel } from '../components/Carousel';
 import { EmptyState } from '../components/EmptyState';
 import { getTodo, markTodoSeen, removeFromTodo, undoRemoveFromTodo } from '../data/api';
 import { useToast } from '../components/Toast';
@@ -38,7 +39,7 @@ export function Todo() {
                 <span className="todo__count">{en.todo.toAnswer(items.length)}</span>
               </h2>
               {/* Horizontal carousel that bleeds to the screen edges */}
-              <Carousel label={title}>
+              <Carousel label={title} className="todo__carousel">
                 {items.map((risk) => (
                   <TodoCard key={risk.id} risk={risk} />
                 ))}
@@ -47,84 +48,6 @@ export function Todo() {
           );
         })}
     </div>
-  );
-}
-
-/**
- * Horizontal scroller. Touch and trackpads scroll it natively; on desktop it
- * also scrolls with a mouse drag and the mouse wheel. A drag never opens a card.
- */
-function Carousel({ label, children }: { label: string; children: ReactNode }) {
-  const ref = useRef<HTMLUListElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    // Vertical wheel scrolls sideways until the row hits an end, then the page scrolls.
-    const onWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-      const max = el.scrollWidth - el.clientWidth;
-      if ((e.deltaY > 0 && el.scrollLeft >= max - 1) || (e.deltaY < 0 && el.scrollLeft <= 0)) return;
-      e.preventDefault();
-      el.scrollBy({ left: e.deltaY });
-    };
-
-    let startX = 0;
-    let startLeft = 0;
-    let dragging = false;
-    let moved = false;
-
-    const onDown = (e: PointerEvent) => {
-      if (e.pointerType !== 'mouse' || e.button !== 0) return;
-      dragging = true;
-      moved = false;
-      startX = e.clientX;
-      startLeft = el.scrollLeft;
-    };
-    const onMove = (e: PointerEvent) => {
-      if (!dragging) return;
-      const dx = e.clientX - startX;
-      if (!moved && Math.abs(dx) > 5) {
-        moved = true;
-        el.classList.add('is-dragging');
-        el.setPointerCapture(e.pointerId);
-      }
-      if (moved) el.scrollLeft = startLeft - dx;
-    };
-    const onUp = () => {
-      dragging = false;
-      el.classList.remove('is-dragging');
-    };
-    // Swallow the click that ends a drag so it doesn't open the card.
-    const onClick = (e: MouseEvent) => {
-      if (moved) {
-        e.preventDefault();
-        e.stopPropagation();
-        moved = false;
-      }
-    };
-
-    el.addEventListener('wheel', onWheel, { passive: false });
-    el.addEventListener('pointerdown', onDown);
-    el.addEventListener('pointermove', onMove);
-    el.addEventListener('pointerup', onUp);
-    el.addEventListener('pointercancel', onUp);
-    el.addEventListener('click', onClick, true);
-    return () => {
-      el.removeEventListener('wheel', onWheel);
-      el.removeEventListener('pointerdown', onDown);
-      el.removeEventListener('pointermove', onMove);
-      el.removeEventListener('pointerup', onUp);
-      el.removeEventListener('pointercancel', onUp);
-      el.removeEventListener('click', onClick, true);
-    };
-  }, []);
-
-  return (
-    <ul ref={ref} className="todo__carousel" aria-label={label}>
-      {children}
-    </ul>
   );
 }
 
@@ -154,7 +77,6 @@ function TodoCard({ risk }: { risk: Risk }) {
       <Link to={`/answer/${risk.id}`} draggable={false} className={`todo-card todo-card--${risk.level.toLowerCase()}`}>
         <span className="todo-card__top">
           <span className="todo-card__chip">{en.families[risk.family]}</span>
-          <span className="todo-card__id">{risk.id}</span>
         </span>
         <span className="todo-card__title">{risk.title}</span>
         <span className="todo-card__bottom">

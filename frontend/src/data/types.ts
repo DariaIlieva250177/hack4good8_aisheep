@@ -169,6 +169,10 @@ export interface CountryContribution {
   name: string;
   region: string;
   count: number;
+  /** ACAPS crises in this country the expert's input fed into (globe balloon) */
+  crises?: { title: string; exposure: string }[];
+  /** People living in the areas of those crises (filled in by the api) */
+  people?: { count: number; upTo: boolean };
 }
 
 export interface Ranking {
@@ -177,7 +181,17 @@ export interface Ranking {
   panel: string;
   round: number;
   roundEndsAt: string;
-  certificates: { id: string; label: string; shape: 'ring' | 'knot' | 'drop' }[];
+  /** When the annual awards are given (Ranking countdown) */
+  awardsAt: string;
+  certificates: {
+    id: string;
+    label: string;
+    shape: 'ring' | 'knot' | 'drop';
+    /** ISO date it was awarded; absent while still locked */
+    awarded?: string;
+    /** Progress line for a locked certificate */
+    progress?: string;
+  }[];
   countries: CountryContribution[];
   /** Risks the expert helped assess (for the exposure sum) */
   assessedRiskIds: string[];

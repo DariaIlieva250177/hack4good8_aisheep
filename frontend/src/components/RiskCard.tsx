@@ -89,7 +89,6 @@ export function RiskChips({ risk }: { risk: Risk }) {
       <AreaChip area={risk.area} />
       {risk.probability === 'Very High' && mode === 'lite' && <VeryHighBadge />}
       {risk.probability === 'Very High' && mode === 'rich' && <span className="sr-only">{en.veryHigh}</span>}
-      <span className="chip-row__id">{risk.id}</span>
     </div>
   );
 }

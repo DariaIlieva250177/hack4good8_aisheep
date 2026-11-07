@@ -1,0 +1,28 @@
+/* Horizontal snapping scroller with a hidden scrollbar (see Carousel.tsx). */
+.carousel {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+  /* Hidden scrollbar; the row still scrolls by touch, drag and wheel */
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* While dragging with a mouse: no snapping mid-drag, no text selection */
+.carousel.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.carousel.is-dragging a {
+  pointer-events: none;
+}

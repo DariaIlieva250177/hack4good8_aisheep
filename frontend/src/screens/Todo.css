@@ -23,34 +23,12 @@
 }
 
 /* Bleeds to the screen edges; snaps card by card */
+/* Bleeds to the screen edges (scrolling behaviour lives in Carousel.css) */
 .todo__carousel {
-  display: flex;
   gap: 12px;
   margin: 0 calc(-1 * var(--gutter));
   padding: 0 var(--gutter) 6px;
-  list-style: none;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
   scroll-padding-inline: var(--gutter);
-  overscroll-behavior-x: contain;
-  cursor: grab;
-  /* Hidden scrollbar; the row still scrolls by touch, drag and wheel */
-  scrollbar-width: none;
-}
-
-.todo__carousel::-webkit-scrollbar {
-  display: none;
-}
-
-/* While dragging with a mouse: no snapping mid-drag, no text selection */
-.todo__carousel.is-dragging {
-  cursor: grabbing;
-  scroll-snap-type: none;
-  user-select: none;
-}
-
-.todo__carousel.is-dragging a {
-  pointer-events: none;
 }
 
 .todo__item {
@@ -158,12 +136,6 @@
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
-}
-
-.todo-card__id {
-  font-size: 13px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
 }
 
 .todo-card__title {

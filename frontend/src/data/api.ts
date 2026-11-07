@@ -99,7 +99,15 @@ export async function getTopic(riskId: string, { explore = false } = {}): Promis
 
 export const getRanking = (): Promise<Ranking & { exposedPeople: number }> => {
   const exposedPeople = byIds(RANKING.assessedRiskIds).reduce((sum, r) => sum + exposureLowerBound(r.exposure), 0);
-  return wait({ ...RANKING, exposedPeople });
+  // Per country: people in the areas of its crises, from ACAPS exposure bands.
+  // "<20,000" style bands only give a ceiling, so those read "up to".
+  const countries = RANKING.countries.map((c) => {
+    const bands = c.crises ?? [];
+    const floor = bands.reduce((n, x) => n + (x.exposure.startsWith('<') ? 0 : exposureLowerBound(x.exposure)), 0);
+    const ceiling = bands.reduce((n, x) => n + exposureLowerBound(x.exposure), 0);
+    return { ...c, people: floor > 0 ? { count: floor, upTo: false } : { count: ceiling, upTo: true } };
+  });
+  return wait({ ...RANKING, countries, exposedPeople });
 };
 
 export const getNotifications = () => wait(state.notifications.map((n) => ({ ...n })));

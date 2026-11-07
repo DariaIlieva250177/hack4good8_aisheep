@@ -49,6 +49,7 @@ export const en = {
   veryHigh: 'Very high probability',
 
   common: {
+    close: 'Close',
     back: 'Back',
     openProfile: 'Open your profile',
     notInPrototype: 'Not available in this prototype yet.',
@@ -287,6 +288,28 @@ export const en = {
 
   ranking: {
     title: 'Ranking',
+    place: (r: number) =>
+      `${['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'][r - 1] ?? `${r}th`} place`,
+    medalLabel: (place: string) => `Rose gold medal for ${place.toLowerCase()}`,
+    of: 'of',
+    onPanel: (panel: string) => `on the ${panel} panel`,
+    live: 'Live',
+    unitsShort: ['DAYS', 'HOURS', 'MIN', 'SEC'],
+    awardsIn: 'Annual awards in',
+    awardsNote: 'The most accurate experts of the year are recognised at the annual awards.',
+    helped: (crisis: string, people: string, upTo: boolean) =>
+      `Your input helped to prevent “${crisis}” and helped ${upTo ? 'up to' : 'over'} ${people} people living in this area.`,
+    helpedGeneric: (country: string) => `Your input helped ACAPS follow the situation in ${country}.`,
+    moreCrises: (n: number) => `+ ${n} more ${n === 1 ? 'crisis' : 'crises'} you helped assess here`,
+    zoomIn: 'Zoom in on the globe',
+    zoomOut: 'Zoom out',
+    org: 'ACAPS Community',
+    viewAll: 'View all',
+    showLess: 'Show less',
+    locked: 'Locked',
+    awardedOn: (date: string) => `Awarded ${date}`,
+    showCert: (i: number, n: number) => `Show certificate ${i} of ${n}`,
+    contributionsSub: 'The places your answers helped',
     yourRanking: 'Your ranking',
     rankOf: (r: number, of: number, panel: string) => `#${r} of ${of} on the ${panel} panel`,
     rankNote: 'Ranked by the accuracy of your resolved forecasts.',

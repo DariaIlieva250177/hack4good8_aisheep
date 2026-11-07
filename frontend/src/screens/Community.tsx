@@ -167,7 +167,7 @@ function ChatRow({ item: { community, risk }, status, now }: { item: Item; statu
           <span className="chat-row__meta">
             <LevelTag risk={risk} />
             <span className="chat-row__meta-text">
-              {risk.id}, {en.community.members(community.members)}
+              {en.community.members(community.members)}
             </span>
             <StatusChip community={community} status={status} now={now} />
           </span>
@@ -188,7 +188,7 @@ function ExploreRow({ item: { community, risk }, status, now }: { item: Item; st
         <span className="chat-row__meta">
           <LevelTag risk={risk} />
           <span className="chat-row__meta-text">
-            {risk.id}, {en.community.members(community.members)}
+            {en.community.members(community.members)}
           </span>
         </span>
         <span className="chat-row__meta">

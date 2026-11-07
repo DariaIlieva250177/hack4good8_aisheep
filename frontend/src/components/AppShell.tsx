@@ -6,7 +6,8 @@ import { scrollToTop } from './Device';
 /** Layout for every signed-in screen: content plus the floating tab bar. */
 export function AppShell() {
   const { pathname, hash } = useLocation();
-  const dark = pathname.startsWith('/ranking');
+  // No screen uses the night background any more (Ranking is pearl now).
+  const dark = false;
 
   useEffect(() => {
     document.body.classList.toggle('night', dark);

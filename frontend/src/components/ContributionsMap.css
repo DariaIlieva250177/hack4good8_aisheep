@@ -1,14 +1,65 @@
 .contrib-map {
+  position: relative;
   display: grid;
   place-items: center;
   padding-block: 8px;
+}
+
+/* Pearl: a full-width rectangle reaching the phone edges; the zoomed globe
+   is only cut off there */
+.contrib-map.contrib-map--pearl {
+  display: block;
+  margin-inline: calc(-1 * var(--gutter));
+  padding-block: 0;
+}
+
+/* Two classes so this beats the generic square ".contrib-map canvas" below */
+.contrib-map.contrib-map--pearl canvas {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: none;
+  block-size: 340px;
+  aspect-ratio: auto;
+}
+
+/* Zoom buttons, bottom-right of the globe */
+.contrib-map__zoom {
+  position: absolute;
+  inset-inline-end: var(--gutter);
+  inset-block-end: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.contrib-map__zoom button {
+  display: grid;
+  place-items: center;
+  inline-size: 40px;
+  block-size: 40px;
+  border: 1px solid rgba(1, 150, 186, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #00648a;
+  box-shadow: 0 4px 12px rgba(1, 90, 125, 0.15);
+  cursor: pointer;
+}
+
+.contrib-map__zoom button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.contrib-map__zoom button:focus-visible {
+  outline: 3px solid #0196ba;
+  outline-offset: 2px;
 }
 
 .contrib-map canvas {
   inline-size: min(100%, 320px);
   block-size: auto;
   aspect-ratio: 1;
-  touch-action: pan-y;
+  /* Pinch and drag belong to the globe, not the page */
+  touch-action: none;
   cursor: grab;
 }
 
@@ -35,4 +86,98 @@
 
 .contrib-list__count {
   color: var(--night-ink-2);
+}
+
+.contrib-list--pearl {
+  border: 1px solid #ebd3d0;
+  background: rgba(255, 255, 255, 0.82);
+  color: #2a2426;
+}
+
+.contrib-list--pearl li + li {
+  border-block-start-color: #ebd3d0;
+}
+
+.contrib-list--pearl .contrib-list__count {
+  color: #6b5e60;
+}
+
+/* ---------- Balloon over a tapped dot ---------- */
+.globe-balloon {
+  --tip-x: 0px;
+  position: absolute;
+  z-index: 2;
+  inline-size: min(240px, calc(100% - 24px));
+  padding: 12px 34px 12px 14px;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #14202b;
+  box-shadow: 0 12px 28px rgba(1, 60, 90, 0.25), 0 0 0 1px rgba(1, 150, 186, 0.25);
+  transform: translate(-50%, -100%);
+  visibility: hidden;
+  animation: globe-balloon-in 0.2s ease-out;
+}
+
+/* Little tail pointing at the dot */
+.globe-balloon::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: calc(50% + var(--tip-x));
+  translate: -50% 0;
+  border: 8px solid transparent;
+  border-block-start-color: #ffffff;
+}
+
+@keyframes globe-balloon-in {
+  from {
+    opacity: 0;
+    margin-block-start: 6px;
+  }
+}
+
+.globe-balloon__close {
+  position: absolute;
+  inset-block-start: 6px;
+  inset-inline-end: 6px;
+  display: grid;
+  place-items: center;
+  inline-size: 28px;
+  block-size: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: #52606b;
+  cursor: pointer;
+}
+
+.globe-balloon__close:focus-visible {
+  outline: 2px solid #0196ba;
+}
+
+.globe-balloon__place {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #00648a;
+}
+
+.globe-balloon__text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.globe-balloon__more {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #52606b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe-balloon {
+    animation: none;
+  }
 }
