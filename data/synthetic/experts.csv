@@ -1,87 +1,87 @@
 expert_id,status,anonymity_level,education_level,education_field,application_comment,registered_at,reviewed_at,reviewed_by,language
-E001,approved,verified_deleted,Diploma,Security studies,I coordinate field programmes in South Sudan and track cross-border insecurity risks for my organisation.,2026-06-17,2026-06-22,M03,English
-E002,approved,verified_anonymous,MSc,Security studies,Researcher focusing on cross-border insecurity; much of my fieldwork has been in South Sudan.,2026-10-02,2026-10-05,M03,English
-E003,approved,verified_anonymous,MA,Migration studies,I lead a local organisation in Niger and see early signs of displacement problems first-hand.,2025-12-30,2026-01-09,M01,French
-E004,approved,known_to_acaps,MSc,Migration studies,Researcher focusing on displacement; much of my fieldwork has been in Niger.,2026-07-29,2026-08-03,M01,French
-E005,approved,verified_anonymous,PhD,Civil engineering,I have worked on infrastructure failure in Mali for several years and follow local reporting closely.,2026-06-05,2026-06-06,M03,English
-E006,approved,known_to_acaps,MSc,Civil engineering,I have worked on infrastructure failure in Mali for several years and follow local reporting closely.,2026-04-11,2026-04-19,M01,French
-E007,approved,verified_deleted,PhD,Security studies,I coordinate field programmes in Chad and track cross-border insecurity risks for my organisation.,2026-02-08,2026-02-16,M03,Arabic
-E008,approved,verified_deleted,BSc,Security studies,I have worked on cross-border insecurity in Chad for several years and follow local reporting closely.,2025-12-06,2025-12-14,M01,French
-E009,approved,known_to_acaps,MSc,Hydrology,I lead a local organisation in Kenya and see early signs of flood problems first-hand.,2026-07-05,2026-07-14,M01,English
-E010,approved,verified_deleted,MSc,Hydrology,I lead a local organisation in Kenya and see early signs of flood problems first-hand.,2026-05-20,2026-05-29,M03,English
-E011,approved,verified_deleted,BSc,Hydrology,I coordinate field programmes in Ethiopia and track flood risks for my organisation.,2025-12-11,2025-12-19,M01,French
-E012,approved,verified_anonymous,MSc,Hydrology,I coordinate field programmes in Ethiopia and track flood risks for my organisation.,2026-05-03,2026-05-13,M03,Arabic
-E013,approved,known_to_acaps,PhD,Hydrology,I lead a local organisation in Madagascar and see early signs of flood problems first-hand.,2025-12-25,2025-12-29,M01,English
-E014,approved,known_to_acaps,PhD,Hydrology,I coordinate field programmes in Madagascar and track flood risks for my organisation.,2026-04-20,2026-04-22,M01,French
-E015,approved,verified_deleted,BA,Hydrology,I coordinate field programmes in Mozambique and track flood risks for my organisation.,2026-08-02,2026-08-09,M03,English
-E016,approved,known_to_acaps,Diploma,Hydrology,Researcher focusing on flood; much of my fieldwork has been in Mozambique.,2026-01-06,2026-01-13,M03,English
-E017,approved,known_to_acaps,MSc,Civil engineering,I have worked on infrastructure failure in Sudan for several years and follow local reporting closely.,2026-07-07,2026-07-13,M03,English
-E018,approved,verified_deleted,MA,Civil engineering,Researcher focusing on infrastructure failure; much of my fieldwork has been in Sudan.,2026-05-17,2026-05-24,M03,English
-E019,approved,known_to_acaps,MSc,Civil engineering,Researcher focusing on infrastructure failure; much of my fieldwork has been in Sudan.,2026-02-04,2026-02-10,M01,English
-E020,approved,known_to_acaps,MSc,Civil engineering,I lead a local organisation in Sudan and see early signs of infrastructure failure problems first-hand.,2025-11-10,2025-11-18,M03,French
-E021,approved,verified_deleted,MSc,Security studies,I have worked on cross-border insecurity in Sudan for several years and follow local reporting closely.,2026-06-03,2026-06-04,M03,Arabic
-E022,approved,verified_deleted,MA,Security studies,Researcher focusing on cross-border insecurity; much of my fieldwork has been in Sudan.,2026-09-25,2026-09-28,M01,French
-E023,approved,known_to_acaps,BSc,Civil engineering,I have worked on infrastructure failure in Sudan for several years and follow local reporting closely.,2025-12-04,2025-12-13,M03,Spanish
-E024,approved,verified_deleted,BSc,Civil engineering,I coordinate field programmes in Sudan and track infrastructure failure risks for my organisation.,2026-05-23,2026-05-28,M01,English
-E025,approved,verified_anonymous,MSc,Civil engineering,Researcher focusing on infrastructure failure; much of my fieldwork has been in Sudan.,2026-09-20,2026-09-23,M03,French
-E026,approved,verified_anonymous,PhD,Civil engineering,I coordinate field programmes in Sudan and track infrastructure failure risks for my organisation.,2026-06-29,2026-07-05,M03,English
-E027,approved,known_to_acaps,BSc,Security studies,Researcher focusing on cross-border insecurity; much of my fieldwork has been in Sudan.,2025-11-19,2025-11-21,M03,English
-E028,approved,verified_deleted,BSc,Security studies,I lead a local organisation in Sudan and see early signs of cross-border insecurity problems first-hand.,2026-04-23,2026-05-03,M01,English
-E029,approved,verified_anonymous,Diploma,Security studies,I lead a local organisation in Sudan and see early signs of cross-border insecurity problems first-hand.,2026-08-16,2026-08-20,M03,English
-E030,approved,verified_anonymous,BSc,Security studies,I coordinate field programmes in Sudan and track cross-border insecurity risks for my organisation.,2026-07-13,2026-07-19,M03,English
-E031,approved,known_to_acaps,MA,Hydrology,I lead a local organisation in Philippines and see early signs of flood problems first-hand.,2026-05-29,2026-06-08,M01,Arabic
-E032,approved,verified_deleted,MSc,Hydrology,I lead a local organisation in Philippines and see early signs of flood problems first-hand.,2025-11-30,2025-12-02,M03,Spanish
-E033,approved,verified_deleted,MA,Political science,Researcher focusing on political crisis; much of my fieldwork has been in Colombia.,2026-08-21,2026-08-26,M01,Arabic
-E034,approved,verified_deleted,MSc,Political science,I coordinate field programmes in Colombia and track political crisis risks for my organisation.,2026-07-12,2026-07-20,M01,Arabic
-E035,approved,verified_deleted,BSc,Political science,I have worked on political crisis in Palestine for several years and follow local reporting closely.,2026-01-24,2026-01-30,M01,Spanish
-E036,approved,known_to_acaps,PhD,Political science,I coordinate field programmes in Palestine and track political crisis risks for my organisation.,2026-05-18,2026-05-27,M03,English
-E037,approved,verified_deleted,MA,Security studies,I lead a local organisation in Afghanistan and see early signs of cross-border insecurity problems first-hand.,2026-05-13,2026-05-17,M01,English
-E038,approved,verified_deleted,Diploma,Security studies,I lead a local organisation in Afghanistan and see early signs of cross-border insecurity problems first-hand.,2026-08-22,2026-08-27,M03,English
-E039,approved,known_to_acaps,MSc,Security studies,I coordinate field programmes in Yemen and track cross-border insecurity risks for my organisation.,2026-04-07,2026-04-15,M01,French
-E040,approved,known_to_acaps,Diploma,Security studies,I coordinate field programmes in Yemen and track cross-border insecurity risks for my organisation.,2026-04-11,2026-04-20,M01,Spanish
-E041,approved,known_to_acaps,BA,Security studies,I have worked on cross-border insecurity in Chad for several years and follow local reporting closely.,2025-12-22,2025-12-23,M01,English
-E042,approved,verified_deleted,MA,Security studies,I lead a local organisation in Chad and see early signs of cross-border insecurity problems first-hand.,2026-09-10,2026-09-20,M03,French
-E043,approved,verified_deleted,MSc,Security studies,I coordinate field programmes in Afghanistan and track cross-border insecurity risks for my organisation.,2026-07-01,2026-07-10,M01,Arabic
-E044,approved,known_to_acaps,MSc,Security studies,Researcher focusing on cross-border insecurity; much of my fieldwork has been in Afghanistan.,2025-12-18,2025-12-19,M03,English
-E045,approved,verified_deleted,PhD,Political science,I have worked on political crisis in Syria for several years and follow local reporting closely.,2026-07-16,2026-07-23,M03,English
-E046,approved,verified_deleted,BSc,Political science,I coordinate field programmes in Syria and track political crisis risks for my organisation.,2026-06-23,2026-06-25,M03,English
-E047,approved,verified_anonymous,PhD,Security studies,I coordinate field programmes in Myanmar and track cross-border insecurity risks for my organisation.,2026-07-13,2026-07-16,M03,English
-E048,approved,verified_deleted,PhD,Security studies,I lead a local organisation in Myanmar and see early signs of cross-border insecurity problems first-hand.,2026-01-11,2026-01-12,M03,Spanish
-E049,approved,verified_deleted,MSc,Hydrology,Researcher focusing on flood; much of my fieldwork has been in Indonesia.,2025-12-11,2025-12-21,M01,English
-E050,approved,verified_anonymous,MSc,Hydrology,I coordinate field programmes in Indonesia and track flood risks for my organisation.,2026-07-11,2026-07-20,M01,English
-E051,approved,verified_deleted,PhD,Security studies,I have worked on cross-border insecurity in Mozambique for several years and follow local reporting closely.,2026-08-28,2026-09-05,M03,Spanish
-E052,approved,known_to_acaps,MA,Security studies,I coordinate field programmes in Mozambique and track cross-border insecurity risks for my organisation.,2026-04-16,2026-04-18,M01,English
-E053,approved,verified_anonymous,MSc,Civil engineering,I lead a local organisation in Palestine and see early signs of infrastructure failure problems first-hand.,2026-04-12,2026-04-21,M03,English
-E054,approved,verified_anonymous,MA,Civil engineering,I lead a local organisation in Palestine and see early signs of infrastructure failure problems first-hand.,2025-12-19,2025-12-27,M03,Spanish
-E055,approved,verified_anonymous,BA,Political science,Researcher focusing on political crisis; much of my fieldwork has been in Niger.,2026-04-07,2026-04-13,M01,English
-E056,approved,known_to_acaps,BSc,Political science,I coordinate field programmes in Niger and track political crisis risks for my organisation.,2026-03-23,2026-03-26,M01,English
-E057,approved,verified_deleted,Diploma,Security studies,Researcher focusing on cross-border insecurity; much of my fieldwork has been in Chad.,2026-02-08,2026-02-15,M03,English
-E058,approved,verified_anonymous,MA,Security studies,I have worked on cross-border insecurity in Chad for several years and follow local reporting closely.,2026-06-29,2026-07-08,M01,English
-E059,approved,verified_anonymous,PhD,Conflict studies,I have worked on armed conflict in Chad for several years and follow local reporting closely.,2026-04-16,2026-04-23,M01,French
-E060,approved,verified_anonymous,MSc,Conflict studies,I lead a local organisation in Chad and see early signs of armed conflict problems first-hand.,2025-12-22,2025-12-29,M01,English
-E061,approved,known_to_acaps,MSc,Migration studies,I have worked on displacement in Chad for several years and follow local reporting closely.,2026-07-02,2026-07-11,M01,French
-E062,approved,verified_deleted,Diploma,Security studies,I have worked on cross-border insecurity in Palestine for several years and follow local reporting closely.,2025-11-23,2025-11-27,M03,French
-E063,approved,verified_deleted,MSc,Conflict studies,I lead a local organisation in Mozambique and see early signs of armed conflict problems first-hand.,2026-04-01,2026-04-05,M03,French
-E064,approved,verified_anonymous,MSc,Civil engineering,I have worked on infrastructure failure in Rwanda for several years and follow local reporting closely.,2026-02-17,2026-02-21,M03,Spanish
-E065,approved,known_to_acaps,MSc,Political science,I lead a local organisation in Sudan and see early signs of political crisis problems first-hand.,2026-08-27,2026-09-01,M01,English
-E066,approved,verified_anonymous,BSc,Economics,Researcher focusing on economic crisis / prices; much of my fieldwork has been in Cameroon.,2025-12-20,2025-12-26,M01,French
-E067,approved,known_to_acaps,BSc,Political science,I have worked on political crisis in Uganda for several years and follow local reporting closely.,2026-09-01,2026-09-02,M01,English
-E068,approved,verified_deleted,MSc,Conflict studies,I lead a local organisation in Chad and see early signs of armed conflict problems first-hand.,2026-03-22,2026-03-24,M03,French
-E069,approved,known_to_acaps,BA,Economics,I have worked on economic crisis / prices in Mozambique for several years and follow local reporting closely.,2026-03-19,2026-03-26,M01,English
-E070,approved,verified_anonymous,Diploma,Humanitarian studies,Researcher focusing on aid and funding cuts; much of my fieldwork has been in Peru.,2026-03-13,2026-03-19,M03,French
-E071,approved,verified_anonymous,PhD,Civil engineering,I have worked on infrastructure failure in Iran for several years and follow local reporting closely.,2026-01-25,2026-01-30,M01,Arabic
-E072,approved,verified_deleted,BSc,Conflict studies,I lead a local organisation in Madagascar and see early signs of armed conflict problems first-hand.,2026-09-25,2026-10-05,M03,Arabic
-E073,approved,verified_deleted,BSc,Economics,I coordinate field programmes in Mozambique and track economic crisis / prices risks for my organisation.,2026-07-31,2026-08-08,M01,English
-E074,pending,verified_anonymous,BA,Migration studies,Researcher focusing on displacement; much of my fieldwork has been in Iraq.,2026-10-30,,,Spanish
-E075,approved,verified_deleted,BSc,Political science,Researcher focusing on political crisis; much of my fieldwork has been in Syria.,2026-02-18,2026-02-28,M03,Spanish
-E076,approved,verified_deleted,MA,Political science,I lead a local organisation in Mozambique and see early signs of political crisis problems first-hand.,2026-02-10,2026-02-17,M03,English
-E077,approved,verified_anonymous,PhD,Economics,I lead a local organisation in Niger and see early signs of economic crisis / prices problems first-hand.,2026-04-17,2026-04-20,M01,English
-E078,approved,known_to_acaps,BSc,Economics,I coordinate field programmes in Niger and track economic crisis / prices risks for my organisation.,2026-03-05,2026-03-07,M01,Spanish
-E079,approved,verified_anonymous,MSc,Security studies,Researcher focusing on cross-border insecurity; much of my fieldwork has been in Sudan.,2026-04-02,2026-04-06,M03,English
-E080,rejected,verified_anonymous,MSc,Migration studies,I coordinate field programmes in Tanzania and track displacement risks for my organisation.,2025-12-09,2025-12-14,M03,French
-E081,pending,verified_deleted,MA,Agronomy,I have worked on food insecurity in Mali for several years and follow local reporting closely.,2026-10-30,,,English
-E082,pending,verified_deleted,MSc,Climate science,I have worked on drought in South Sudan for several years and follow local reporting closely.,2026-11-04,,,French
-E083,pending,verified_deleted,MA,Meteorology,I have worked on cyclone / storm in Niger for several years and follow local reporting closely.,2026-10-31,,,English
-E084,pending,verified_anonymous,PhD,Meteorology,I lead a local organisation in Nigeria and see early signs of cyclone / storm problems first-hand.,2026-10-30,,,French
-E085,rejected,known_to_acaps,BA,Meteorology,I coordinate field programmes in Afghanistan and track cyclone / storm risks for my organisation.,2026-07-19,2026-07-20,M03,French
-E086,rejected,verified_anonymous,BSc,Humanitarian studies,I coordinate field programmes in Sudan and track aid and funding cuts risks for my organisation.,2026-03-31,2026-04-04,M03,Arabic
+E001,approved,known_to_acaps,MSc,Conflict studies,I have worked on armed conflict in South Sudan for several years and follow local reporting closely.,2026-06-30,2026-07-03,M03,English
+E002,approved,verified_deleted,BSc,Conflict studies,I coordinate field programmes in South Sudan and track armed conflict risks for my organisation.,2026-02-06,2026-02-11,M01,English
+E003,approved,verified_anonymous,PhD,Conflict studies,I have worked on armed conflict in Niger for several years and follow local reporting closely.,2026-06-27,2026-06-29,M01,English
+E004,approved,verified_anonymous,BSc,Conflict studies,I coordinate field programmes in Niger and track armed conflict risks for my organisation.,2026-04-08,2026-04-16,M01,French
+E005,approved,verified_anonymous,MSc,Conflict studies,I have worked on armed conflict in Mali for several years and follow local reporting closely.,2026-09-12,2026-09-17,M01,English
+E006,approved,known_to_acaps,MSc,Conflict studies,I coordinate field programmes in Mali and track armed conflict risks for my organisation.,2026-06-17,2026-06-24,M01,English
+E007,approved,known_to_acaps,Diploma,Security studies,I coordinate field programmes in Chad and track cross-border insecurity risks for my organisation.,2026-10-05,2026-10-15,M03,French
+E008,approved,verified_deleted,Diploma,Security studies,I have worked on cross-border insecurity in Chad for several years and follow local reporting closely.,2026-03-13,2026-03-16,M03,English
+E009,approved,verified_anonymous,BA,Climate science,I coordinate field programmes in Kenya and track drought risks for my organisation.,2026-02-07,2026-02-09,M03,English
+E010,approved,verified_deleted,PhD,Climate science,I lead a local organisation in Kenya and see early signs of drought problems first-hand.,2026-04-25,2026-05-02,M03,English
+E011,approved,known_to_acaps,MSc,Climate science,Researcher focusing on drought; much of my fieldwork has been in Ethiopia.,2026-06-07,2026-06-15,M03,English
+E012,approved,verified_deleted,BSc,Climate science,I have worked on drought in Ethiopia for several years and follow local reporting closely.,2026-01-28,2026-02-07,M03,English
+E013,approved,known_to_acaps,MSc,Climate science,I lead a local organisation in Madagascar and see early signs of drought problems first-hand.,2026-07-02,2026-07-03,M03,English
+E014,approved,verified_anonymous,BA,Climate science,Researcher focusing on drought; much of my fieldwork has been in Madagascar.,2026-03-25,2026-03-26,M01,English
+E015,approved,verified_anonymous,PhD,Climate science,I coordinate field programmes in Mozambique and track drought risks for my organisation.,2026-03-31,2026-04-05,M03,Arabic
+E016,approved,verified_anonymous,BSc,Climate science,I lead a local organisation in Mozambique and see early signs of drought problems first-hand.,2026-06-13,2026-06-19,M03,Spanish
+E017,approved,verified_anonymous,BSc,Conflict studies,I lead a local organisation in Sudan and see early signs of armed conflict problems first-hand.,2026-01-01,2026-01-10,M01,English
+E018,approved,verified_anonymous,MSc,Conflict studies,Researcher focusing on armed conflict; much of my fieldwork has been in Sudan.,2026-07-06,2026-07-07,M03,Spanish
+E019,approved,known_to_acaps,BA,Conflict studies,Researcher focusing on armed conflict; much of my fieldwork has been in Sudan.,2026-03-07,2026-03-15,M01,French
+E020,approved,verified_deleted,Diploma,Conflict studies,Researcher focusing on armed conflict; much of my fieldwork has been in Sudan.,2026-09-10,2026-09-16,M01,English
+E021,approved,verified_anonymous,MA,Economics,I have worked on economic crisis / prices in Sudan for several years and follow local reporting closely.,2025-12-28,2025-12-29,M03,English
+E022,approved,verified_deleted,PhD,Economics,Researcher focusing on economic crisis / prices; much of my fieldwork has been in Sudan.,2025-11-11,2025-11-14,M03,French
+E023,approved,verified_anonymous,MSc,Conflict studies,I lead a local organisation in Sudan and see early signs of armed conflict problems first-hand.,2026-02-15,2026-02-21,M03,English
+E024,approved,verified_anonymous,MSc,Conflict studies,I lead a local organisation in Sudan and see early signs of armed conflict problems first-hand.,2026-03-24,2026-04-02,M01,Arabic
+E025,approved,verified_anonymous,BA,Conflict studies,I have worked on armed conflict in Sudan for several years and follow local reporting closely.,2026-07-11,2026-07-13,M03,French
+E026,approved,verified_deleted,BSc,Conflict studies,I lead a local organisation in Sudan and see early signs of armed conflict problems first-hand.,2026-09-05,2026-09-06,M03,English
+E027,approved,verified_deleted,Diploma,Civil engineering,I lead a local organisation in Sudan and see early signs of infrastructure failure problems first-hand.,2026-05-01,2026-05-09,M01,English
+E028,approved,verified_anonymous,PhD,Civil engineering,I lead a local organisation in Sudan and see early signs of infrastructure failure problems first-hand.,2026-01-09,2026-01-12,M03,English
+E029,approved,verified_anonymous,BA,Migration studies,I have worked on displacement in Sudan for several years and follow local reporting closely.,2026-03-30,2026-04-09,M01,French
+E030,approved,verified_deleted,PhD,Migration studies,I lead a local organisation in Sudan and see early signs of displacement problems first-hand.,2026-05-01,2026-05-08,M03,English
+E031,approved,verified_deleted,PhD,Climate science,Researcher focusing on drought; much of my fieldwork has been in Philippines.,2026-08-09,2026-08-17,M03,Spanish
+E032,approved,known_to_acaps,Diploma,Climate science,Researcher focusing on drought; much of my fieldwork has been in Philippines.,2026-04-04,2026-04-13,M01,English
+E033,approved,verified_anonymous,MA,Conflict studies,I coordinate field programmes in Colombia and track armed conflict risks for my organisation.,2026-06-29,2026-07-08,M01,Spanish
+E034,approved,verified_anonymous,MSc,Conflict studies,I lead a local organisation in Colombia and see early signs of armed conflict problems first-hand.,2026-08-04,2026-08-11,M01,English
+E035,approved,verified_deleted,PhD,Conflict studies,I have worked on armed conflict in Palestine for several years and follow local reporting closely.,2026-03-01,2026-03-10,M03,English
+E036,approved,verified_deleted,MSc,Conflict studies,Researcher focusing on armed conflict; much of my fieldwork has been in Palestine.,2025-11-26,2025-12-02,M03,English
+E037,approved,verified_anonymous,MSc,Security studies,I coordinate field programmes in Afghanistan and track cross-border insecurity risks for my organisation.,2026-09-17,2026-09-27,M01,English
+E038,approved,known_to_acaps,BSc,Security studies,Researcher focusing on cross-border insecurity; much of my fieldwork has been in Afghanistan.,2025-12-26,2025-12-27,M01,Spanish
+E039,approved,known_to_acaps,MSc,Security studies,Researcher focusing on cross-border insecurity; much of my fieldwork has been in Yemen.,2026-02-25,2026-03-02,M01,Arabic
+E040,approved,verified_deleted,BA,Security studies,I coordinate field programmes in Yemen and track cross-border insecurity risks for my organisation.,2026-04-20,2026-04-21,M03,English
+E041,approved,verified_anonymous,Diploma,Conflict studies,I have worked on armed conflict in Chad for several years and follow local reporting closely.,2026-08-22,2026-08-23,M01,Spanish
+E042,approved,known_to_acaps,MSc,Conflict studies,I coordinate field programmes in Chad and track armed conflict risks for my organisation.,2026-05-19,2026-05-25,M03,French
+E043,approved,verified_deleted,PhD,Conflict studies,I have worked on armed conflict in Afghanistan for several years and follow local reporting closely.,2026-07-20,2026-07-26,M03,Spanish
+E044,approved,verified_anonymous,Diploma,Conflict studies,I have worked on armed conflict in Afghanistan for several years and follow local reporting closely.,2026-01-26,2026-01-29,M03,English
+E045,approved,verified_deleted,BSc,Conflict studies,I coordinate field programmes in Syria and track armed conflict risks for my organisation.,2026-10-01,2026-10-10,M03,English
+E046,approved,known_to_acaps,MA,Conflict studies,I coordinate field programmes in Syria and track armed conflict risks for my organisation.,2026-06-24,2026-06-25,M03,Spanish
+E047,approved,verified_deleted,PhD,Conflict studies,I have worked on armed conflict in Myanmar for several years and follow local reporting closely.,2026-08-27,2026-08-29,M03,French
+E048,approved,known_to_acaps,MSc,Conflict studies,I have worked on armed conflict in Myanmar for several years and follow local reporting closely.,2026-05-01,2026-05-09,M03,French
+E049,approved,verified_deleted,BSc,Migration studies,I coordinate field programmes in Indonesia and track displacement risks for my organisation.,2026-01-27,2026-01-29,M03,English
+E050,approved,verified_deleted,BSc,Public health,I lead a local organisation in Indonesia and see early signs of disease outbreak problems first-hand.,2026-01-06,2026-01-16,M03,English
+E051,approved,verified_anonymous,MSc,Conflict studies,I have worked on armed conflict in Mozambique for several years and follow local reporting closely.,2026-09-11,2026-09-17,M01,English
+E052,approved,verified_anonymous,BA,Conflict studies,I coordinate field programmes in Mozambique and track armed conflict risks for my organisation.,2025-12-27,2026-01-06,M01,English
+E053,approved,verified_anonymous,MSc,Migration studies,I have worked on displacement in Palestine for several years and follow local reporting closely.,2026-09-20,2026-09-28,M03,French
+E054,approved,known_to_acaps,MA,Migration studies,Researcher focusing on displacement; much of my fieldwork has been in Palestine.,2026-07-10,2026-07-17,M03,Spanish
+E055,approved,known_to_acaps,MSc,Conflict studies,I lead a local organisation in Niger and see early signs of armed conflict problems first-hand.,2026-05-20,2026-05-27,M01,English
+E056,approved,verified_deleted,PhD,Conflict studies,I coordinate field programmes in Niger and track armed conflict risks for my organisation.,2026-02-26,2026-03-03,M03,English
+E057,approved,verified_deleted,PhD,Security studies,I lead a local organisation in Chad and see early signs of cross-border insecurity problems first-hand.,2026-08-22,2026-08-26,M01,English
+E058,approved,verified_deleted,MSc,Security studies,I have worked on cross-border insecurity in Chad for several years and follow local reporting closely.,2026-09-17,2026-09-19,M01,Spanish
+E059,approved,known_to_acaps,BA,Conflict studies,I have worked on armed conflict in Chad for several years and follow local reporting closely.,2026-10-05,2026-10-06,M03,Arabic
+E060,approved,verified_deleted,PhD,Conflict studies,I lead a local organisation in Chad and see early signs of armed conflict problems first-hand.,2026-07-15,2026-07-17,M01,English
+E061,approved,known_to_acaps,BSc,Migration studies,I have worked on displacement in Chad for several years and follow local reporting closely.,2026-04-07,2026-04-16,M01,Arabic
+E062,approved,known_to_acaps,MSc,Political science,Researcher focusing on political crisis; much of my fieldwork has been in Mozambique.,2026-01-03,2026-01-10,M03,Arabic
+E063,approved,known_to_acaps,Diploma,Public health,I have worked on disease outbreak in Sudan for several years and follow local reporting closely.,2026-05-10,2026-05-15,M01,English
+E064,pending,known_to_acaps,BSc,Conflict studies,I have worked on armed conflict in Philippines for several years and follow local reporting closely.,2026-11-03,,,English
+E065,approved,verified_deleted,BSc,Migration studies,I have worked on displacement in Sudan for several years and follow local reporting closely.,2025-12-02,2025-12-04,M01,French
+E066,approved,verified_deleted,MSc,Climate science,I lead a local organisation in Sri Lanka and see early signs of drought problems first-hand.,2026-01-11,2026-01-20,M01,English
+E067,approved,known_to_acaps,MSc,Conflict studies,I coordinate field programmes in Palestine and track armed conflict risks for my organisation.,2026-05-21,2026-05-24,M01,English
+E068,approved,verified_anonymous,Diploma,Climate science,Researcher focusing on drought; much of my fieldwork has been in Sudan.,2026-03-03,2026-03-09,M03,Spanish
+E069,approved,verified_anonymous,MA,Economics,I have worked on economic crisis / prices in Afghanistan for several years and follow local reporting closely.,2025-12-10,2025-12-20,M03,English
+E070,rejected,verified_deleted,PhD,Security studies,I lead a local organisation in Chad and see early signs of cross-border insecurity problems first-hand.,2026-04-21,2026-04-22,M03,English
+E071,approved,known_to_acaps,PhD,Conflict studies,I have worked on armed conflict in Yemen for several years and follow local reporting closely.,2026-07-09,2026-07-18,M03,English
+E072,approved,known_to_acaps,Diploma,Conflict studies,I coordinate field programmes in Myanmar and track armed conflict risks for my organisation.,2026-03-25,2026-04-04,M03,Arabic
+E073,approved,verified_deleted,PhD,Political science,I have worked on political crisis in Afghanistan for several years and follow local reporting closely.,2026-09-16,2026-09-19,M01,French
+E074,approved,verified_deleted,MA,Migration studies,Researcher focusing on displacement; much of my fieldwork has been in Kenya.,2025-12-18,2025-12-28,M01,Spanish
+E075,approved,known_to_acaps,MSc,Conflict studies,I have worked on armed conflict in Kenya for several years and follow local reporting closely.,2026-04-04,2026-04-05,M01,Spanish
+E076,approved,known_to_acaps,BSc,Conflict studies,I lead a local organisation in South Sudan and see early signs of armed conflict problems first-hand.,2026-06-15,2026-06-22,M03,English
+E077,pending,known_to_acaps,BSc,Migration studies,Researcher focusing on displacement; much of my fieldwork has been in Mozambique.,2026-11-03,,,English
+E078,rejected,verified_deleted,PhD,Migration studies,I coordinate field programmes in Nigeria and track displacement risks for my organisation.,2026-06-08,2026-06-09,M01,French
+E079,approved,verified_deleted,PhD,Economics,Researcher focusing on economic crisis / prices; much of my fieldwork has been in Peru.,2026-04-24,2026-04-30,M01,French
+E080,approved,verified_anonymous,MSc,Political science,I coordinate field programmes in Sudan and track political crisis risks for my organisation.,2026-08-13,2026-08-15,M03,English
+E081,pending,verified_anonymous,PhD,Hydrology,I coordinate field programmes in Ethiopia and track flood risks for my organisation.,2026-10-30,,,Arabic
+E082,pending,verified_deleted,PhD,Public health,I lead a local organisation in Niger and see early signs of disease outbreak problems first-hand.,2026-11-02,,,Arabic
+E083,pending,verified_anonymous,BSc,Public health,I have worked on disease outbreak in Nigeria for several years and follow local reporting closely.,2026-10-28,,,Arabic
+E084,pending,known_to_acaps,BSc,Public health,I lead a local organisation in Afghanistan and see early signs of disease outbreak problems first-hand.,2026-11-05,,,English
+E085,rejected,known_to_acaps,MSc,Public health,I lead a local organisation in Sudan and see early signs of disease outbreak problems first-hand.,2026-03-08,2026-03-18,M01,French
+E086,rejected,verified_anonymous,BSc,Climate science,I have worked on drought in Philippines for several years and follow local reporting closely.,2025-12-31,2026-01-05,M01,English
