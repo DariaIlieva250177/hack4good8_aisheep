@@ -777,6 +777,22 @@ def mark_hidden_names(stances, comments, forecasts, questions):
     return comments, forecasts
 
 
+def apply_written_comments(comments, sources, path):
+    """Swaps the demo risk's simulated comments for hand-written ones, which stay synthetic.
+
+    The simulation only has 26 stock sentences, and an expert reading the demo risk would notice.
+    A source's text follows the comment it is attached to.
+    """
+    written = pd.read_csv(path, encoding="utf-8").set_index("comment_id")["text"]
+    comments = comments.assign(text=comments["comment_id"].map(written).fillna(comments["text"]))
+    attached = comments[comments["comment_id"].isin(written.index)].dropna(subset=["source_id"])
+    text_of = attached.set_index("source_id")["text"]
+    new_text = sources["source_id"].map(text_of)
+    sources = sources.assign(ai_summary_draft=new_text.fillna(sources["ai_summary_draft"]),
+                             final_text=new_text.fillna(sources["final_text"]))
+    return comments, sources
+
+
 def add_changed_forecasts(forecasts, stances, questions, cfg):
     """An expert who changes their opinion also moves their forecast one step the same way."""
     forecasts = forecasts.assign(version=1, previous_forecast_id=None)
@@ -887,6 +903,7 @@ def build_all(export_path, cfg=CONFIG):
         triggers = pd.concat([triggers, new_t], ignore_index=True)
 
     display_names = build_display_names(stances, comments, windows, rng)
+    comments, sources = apply_written_comments(comments, sources, Path(export_path).parent / "r1043_comments.csv")
 
     # a separate generator, so these tables cannot shift any value simulated above
     screen_rng = np.random.default_rng(cfg["seed"] + 1)

@@ -268,6 +268,41 @@ def test_people_in_areas_counts_each_risk_once():
     assert summary["people_in_areas"] == 520000
 
 
+# hand-written demo comments
+WRITTEN = pd.read_csv(EXPORT.parent / "r1043_comments.csv").set_index("comment_id").text
+
+
+def demo_comments(tables):
+    return tables["comments"].query("risk_id == 'R1043'").set_index("comment_id")
+
+
+def test_every_comment_on_the_demo_risk_is_hand_written(tables):
+    comments = demo_comments(tables)
+    assert set(comments.index) == set(WRITTEN.index)
+    assert (comments.text == WRITTEN.reindex(comments.index)).all()
+
+
+def test_the_written_comments_are_all_different(tables):
+    assert demo_comments(tables).text.is_unique
+
+
+def test_comments_on_other_risks_keep_their_simulated_text(tables):
+    others = tables["comments"].query("risk_id != 'R1043'")
+    assert not set(others.text) & set(WRITTEN)
+
+
+def test_a_source_carries_the_same_text_as_its_comment(tables):
+    comments = demo_comments(tables).dropna(subset=["source_id"])
+    sources = tables["sources"].set_index("source_id")
+    assert len(comments) > 0
+    assert (sources.loc[comments.source_id, "final_text"].values == comments.text.values).all()
+
+
+def test_the_app_shows_the_written_comments(bundle):
+    shown = {c["comment_id"]: c["text"] for c in bundle["details"]["R1043"]["community"]["comments"]}
+    assert shown == WRITTEN.to_dict()
+
+
 # the app file
 def test_the_ranking_screen_gets_country_and_domain_ranks(bundle):
     groups = {g["name"]: g for g in bundle["expert"]["rank"]["groups"]}
