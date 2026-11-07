@@ -32,6 +32,13 @@ export type ImageCategory =
   | 'infrastructure'
   | 'aid';
 
+/** An ACAPS trigger: an event that would make the risk more likely. */
+export interface Trigger {
+  id: string;
+  title: string;
+  description: string;
+}
+
 export interface Risk {
   id: string;
   title: string;
@@ -51,9 +58,14 @@ export interface Risk {
   /** Experts on the panel who answered this round */
   answered: number;
   panelSize: number;
+  /** ACAPS triggers, shown on the back of the card */
+  triggers?: Trigger[];
 }
 
 export type Verdict = 'yes' | 'partly' | 'no';
+
+/** Five-point forecast scale: 1 strongly disagree … 5 strongly agree. */
+export type Likelihood = 1 | 2 | 3 | 4 | 5;
 
 export type IdentityMode = 'name' | 'pseudonym' | 'anonymous';
 
@@ -74,6 +86,8 @@ export interface Answer {
   displayName: string;
   identity: IdentityMode;
   verdict: Verdict;
+  /** Forecast, 1 (strongly disagree) to 5 (strongly agree) that the risk happens */
+  forecast?: Likelihood;
   text: string;
   sources: string[];
   isNew?: boolean;
@@ -82,6 +96,7 @@ export interface Answer {
 export interface AnswerInput {
   riskId: string;
   verdict: Verdict | null;
+  forecast?: Likelihood | null;
   text: string;
   sources: string[];
 }

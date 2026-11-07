@@ -150,6 +150,7 @@ export async function submitAnswer(input: AnswerInput): Promise<Answer> {
     displayName: displayNameFor(state.me),
     identity: state.me.identity,
     verdict: input.verdict ?? existing?.verdict ?? 'partly',
+    forecast: input.forecast ?? existing?.forecast,
     text: input.text.trim() || existing?.text || '',
     sources: input.sources.length ? input.sources : existing?.sources ?? [],
   };

@@ -2,13 +2,14 @@ import { useLayoutEffect, useRef, useState, type FormEvent } from 'react';
 import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AlertCircle, Plus, X } from 'lucide-react';
 import { ScreenHeader } from '../components/ScreenHeader';
-import { RiskHeader } from '../components/RiskHeader';
+import { RiskCard } from '../components/RiskCard';
+import { LikelihoodSlider } from '../components/LikelihoodSlider';
 import { VerdictButtons } from '../components/VerdictButtons';
 import { useToast } from '../components/Toast';
 import { GlassButton } from '../components/glass/GlassButton';
 import { displayNameFor, getMe, getRisk, submitAnswer } from '../data/api';
 import { useQuery } from '../data/useQuery';
-import type { Verdict } from '../data/types';
+import type { Likelihood, Verdict } from '../data/types';
 import { en } from '../i18n/en';
 import './AnswerDetail.css';
 
@@ -36,6 +37,8 @@ export function AnswerDetail() {
   const { data: me } = useQuery(getMe);
 
   const [verdict, setVerdict] = useState<Verdict | null>((location.state as { verdict?: Verdict } | null)?.verdict ?? null);
+  const [forecast, setForecast] = useState<Likelihood | null>(null);
+  const [flipped, setFlipped] = useState(false);
   const [text, setText] = useState('');
   const [sources, setSources] = useState<Source[]>([]);
   const [tried, setTried] = useState(false);
@@ -65,7 +68,7 @@ export function AnswerDetail() {
 
   const filledSources = sources.filter((s) => s.url.trim());
   const invalid = filledSources.filter((s) => !isValidUrl(s.url));
-  const empty = !verdict && !text.trim();
+  const empty = !verdict && forecast === null && !text.trim();
 
   const addSource = () => {
     const key = nextKey.current++;
@@ -79,7 +82,7 @@ export function AnswerDetail() {
     setSources((list) => list.map((s) => ({ ...s, touched: true })));
     if (empty || invalid.length) return;
     setSending(true);
-    await submitAnswer({ riskId: risk.id, verdict, text, sources: filledSources.map((s) => s.url.trim()) });
+    await submitAnswer({ riskId: risk.id, verdict, forecast, text, sources: filledSources.map((s) => s.url.trim()) });
     toast({ message: en.answer.sent });
     navigate('/risks');
   };
@@ -87,10 +90,39 @@ export function AnswerDetail() {
   return (
     <div className="screen answer">
       <ScreenHeader title={en.answer.title} back />
-      <RiskHeader risk={risk} questionId="answer-question" />
+      {/* Same card as the Risks tab; tap to see the triggers on the back */}
+      <div
+        className="answer__card"
+        role="button"
+        tabIndex={0}
+        aria-pressed={flipped}
+        onClick={() => setFlipped((f) => !f)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setFlipped((f) => !f);
+          }
+        }}
+      >
+        <RiskCard risk={risk} flipped={flipped} />
+      </div>
 
       <form className="answer__form" onSubmit={submit} noValidate>
-        <VerdictButtons value={verdict} onChange={setVerdict} labelledBy="answer-question" />
+        <div>
+          <p id="answer-question" className="answer__label t-title">
+            {en.answer.agreeQuestion}
+          </p>
+          <VerdictButtons
+            value={verdict}
+            onChange={setVerdict}
+            labelledBy="answer-question"
+            options={['yes', 'no']}
+            labels={{ yes: en.answer.agree, no: en.answer.disagree }}
+            shine={false}
+          />
+        </div>
+
+        <LikelihoodSlider value={forecast} onChange={setForecast} />
 
         <div>
           <label htmlFor="answer-text" className="answer__label t-title">

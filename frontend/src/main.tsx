@@ -9,3 +9,6 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 );
+
+// Fade out the loading splash (index.html) once the first frame has painted.
+requestAnimationFrame(() => (window as Window & { acapsSplash?: { hide: () => void } }).acapsSplash?.hide());

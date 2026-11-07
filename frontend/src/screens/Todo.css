@@ -1,46 +1,162 @@
 .todo__group {
-  margin-block-start: 20px;
+  margin-block-start: 22px;
 }
 
 .todo__group + .todo__group {
-  margin-block-start: 32px;
+  margin-block-start: 30px;
 }
 
-/* Group headers use the risk ramp, never yellow (yellow means "new") */
-.todo__pill {
+.todo__heading {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: baseline;
   gap: 10px;
-  min-block-size: 48px;
-  margin-block-end: 16px;
-  border-radius: var(--radius-pill);
-  font-size: var(--fs-title);
-  font-weight: 500;
-}
-
-.todo__pill--high {
-  background: var(--level-high);
-  color: var(--level-high-ink);
-}
-.todo__pill--medium {
-  /* Same yellow-orange and white text as the Medium risk card */
-  background: #f2a33a;
-  color: #ffffff;
-}
-.todo__pill--low {
-  background: var(--level-low);
-  color: var(--level-low-ink);
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .todo__count {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+/* Bleeds to the screen edges; snaps card by card */
+.todo__carousel {
+  display: flex;
+  gap: 12px;
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 0 var(--gutter) 6px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  overscroll-behavior-x: contain;
+  cursor: grab;
+  /* Hidden scrollbar; the row still scrolls by touch, drag and wheel */
+  scrollbar-width: none;
+}
+
+.todo__carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* While dragging with a mouse: no snapping mid-drag, no text selection */
+.todo__carousel.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.todo__carousel.is-dragging a {
+  pointer-events: none;
+}
+
+.todo__item {
+  flex: 0 0 min(76%, 260px);
+  scroll-snap-align: start;
+}
+
+/* ---------- Card: same colour blocks as the Risks cards ---------- */
+.todo-card {
+  -webkit-user-drag: none;
+  --card-bg: #b5123a;
+  --card-ink: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  block-size: 100%;
+  min-block-size: 250px;
+  padding: 16px 18px 18px;
+  border-radius: 28px;
+  background: var(--card-bg);
+  color: var(--card-ink);
+  text-decoration: none;
+  transition: transform 0.15s;
+}
+
+.todo-card:active {
+  transform: scale(0.98);
+}
+
+.todo-card:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.todo-card--medium {
+  --card-bg: #f2a33a;
+  --card-ink: #2a1606;
+}
+
+.todo-card--low {
+  --card-bg: #e8d6a0;
+  --card-ink: #1f1a0a;
+}
+
+.todo-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.todo-card__chip {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 26px;
+  padding-inline: 10px;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.todo-card__id {
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.todo-card__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.todo-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-block-start: auto;
+}
+
+.todo-card__area {
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Round arrow button: ink-coloured disc, arrow in the card colour */
+.todo-card__go {
   display: grid;
   place-items: center;
-  min-inline-size: 28px;
-  block-size: 28px;
-  padding-inline: 6px;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.24);
-  font-size: var(--fs-small);
-  font-weight: 600;
+  flex: none;
+  inline-size: 42px;
+  block-size: 42px;
+  border-radius: 50%;
+  background: var(--card-ink);
+  color: var(--card-bg);
 }

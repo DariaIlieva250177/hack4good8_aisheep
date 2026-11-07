@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Avatar } from './Avatar';
+import { Logo } from './Logo';
 import { GlassButton } from './glass/GlassButton';
 import { displayNameFor, getMe } from '../data/api';
 import { useQuery } from '../data/useQuery';
@@ -14,9 +15,11 @@ interface ScreenHeaderProps {
   back?: boolean;
   avatar?: boolean;
   tone?: 'light' | 'dark';
+  /** 'large': big bold title on the left, avatar on the right (To-do) */
+  variant?: 'default' | 'large';
 }
 
-export function ScreenHeader({ title, showTitle = true, back = false, avatar = true, tone = 'light' }: ScreenHeaderProps) {
+export function ScreenHeader({ title, showTitle = true, back = false, avatar = true, tone = 'light', variant = 'default' }: ScreenHeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { data: me } = useQuery(getMe);
@@ -28,12 +31,14 @@ export function ScreenHeader({ title, showTitle = true, back = false, avatar = t
   };
 
   return (
-    <header className={`screen-header screen-header--${tone}`}>
-      <div className="screen-header__side">
-        {back && (
-          <GlassButton icon className="screen-header__back" onClick={goBack} aria-label={en.common.back}>
+    <header className={`screen-header screen-header--${tone} screen-header--${variant}`}>
+      <div className="screen-header__side screen-header__side--start">
+        {back ? (
+          <GlassButton icon shine={false} className="screen-header__back" onClick={goBack} aria-label={en.common.back}>
             <ArrowLeft size={22} aria-hidden="true" />
           </GlassButton>
+        ) : (
+          <Logo className="screen-header__logo" />
         )}
       </div>
       <h1 className={showTitle ? 'screen-header__title' : 'sr-only'}>{title}</h1>

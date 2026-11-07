@@ -1,3 +1,17 @@
+.answer__card {
+  border-radius: var(--radius-card);
+  cursor: pointer;
+}
+
+.answer__card:focus-visible {
+  outline: var(--focus);
+  outline-offset: 3px;
+}
+
+.answer__card .risk-flip__face {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
 .answer__form {
   display: grid;
   gap: 24px;

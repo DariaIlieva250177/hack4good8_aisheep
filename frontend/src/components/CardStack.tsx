@@ -24,6 +24,8 @@ const SWIPE_VELOCITY = 600;
 export function CardStack({ risks, onLater, onSkip, counter }: CardStackProps) {
   const { reducedMotion } = useMode();
   const [exit, setExit] = useState<Exit>('later');
+  // Which card is turned over; a new front card always starts face up.
+  const [flippedId, setFlippedId] = useState<string | null>(null);
   const [front, ...rest] = risks;
   const behind = rest.slice(0, 2);
 
@@ -48,8 +50,10 @@ export function CardStack({ risks, onLater, onSkip, counter }: CardStackProps) {
               key={front.id}
               reducedMotion={reducedMotion}
               onSwipe={(dir) => act(dir === 1 ? 'later' : 'skip', front)}
+              flipped={flippedId === front.id}
+              onFlip={() => setFlippedId((id) => (id === front.id ? null : front.id))}
             >
-              <RiskCard risk={front} counter={counter} />
+              <RiskCard risk={front} counter={counter} flipped={flippedId === front.id} />
             </SwipeCard>
           )}
         </AnimatePresence>
@@ -84,10 +88,14 @@ function SwipeCard({
   children,
   onSwipe,
   reducedMotion,
+  flipped,
+  onFlip,
 }: {
   children: React.ReactNode;
   onSwipe: (dir: 1 | -1) => void;
   reducedMotion: boolean;
+  flipped: boolean;
+  onFlip: () => void;
 }) {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-240, 240], [-10, 10]);
@@ -109,6 +117,17 @@ function SwipeCard({
       dragElastic={0.9}
       dragMomentum={false}
       onDragEnd={onDragEnd}
+      // onTap only fires when the pointer didn't travel, so a swipe never flips.
+      onTap={onFlip}
+      role="button"
+      tabIndex={0}
+      aria-pressed={flipped}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onFlip();
+        }
+      }}
       variants={exitVariants}
       initial={reducedMotion ? false : 'enter'}
       animate="center"

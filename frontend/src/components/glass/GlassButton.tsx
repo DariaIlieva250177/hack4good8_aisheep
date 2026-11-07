@@ -40,18 +40,28 @@ interface GlassButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'soft' | 'primary';
   pill?: boolean;
   icon?: boolean;
+  /** false: plain glass button without the moving edge light */
+  shine?: boolean;
 }
 
 /**
  * Every button in the app: a real <button> with SpecularButton's light running
  * along its edge and following the pointer. Lite mode keeps a plain button.
  */
-export function GlassButton({ variant = 'soft', pill = false, icon = false, className = '', children, ...rest }: GlassButtonProps) {
+export function GlassButton({
+  variant = 'soft',
+  pill = false,
+  icon = false,
+  shine = true,
+  className = '',
+  children,
+  ...rest
+}: GlassButtonProps) {
   const { mode } = useMode();
   const { theme } = useTheme();
   const classes = ['btn', `btn-${variant}`, pill && 'btn-pill', icon && 'btn-icon', className].filter(Boolean).join(' ');
 
-  if (mode === 'lite') {
+  if (mode === 'lite' || !shine) {
     return (
       <button type="button" {...rest} className={classes}>
         {children}

@@ -134,3 +134,105 @@
   outline: 2px solid var(--card-ink);
   outline-offset: 2px;
 }
+
+/* ---------- Flip ----------
+   Tap the card to turn it over. The front sets the height; the back sits on
+   top of it, turned away. */
+.risk-flip {
+  perspective: 1400px;
+}
+
+.risk-flip__inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+
+.risk-flip.is-flipped .risk-flip__inner {
+  transform: rotateY(180deg);
+}
+
+.risk-flip__face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.risk-flip__back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 18px 16px;
+  overflow: hidden;
+  /* A shade darker than the front so the two sides read differently */
+  background: color-mix(in srgb, var(--card-bg) 82%, #000);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .risk-flip__inner {
+    transition: none;
+  }
+}
+
+.risk-card__hint {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.risk-flip__back .risk-card__hint {
+  margin-block-start: auto;
+  padding-block-start: 4px;
+}
+
+.risk-card__back-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.risk-card__back-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.risk-card__back-count {
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.risk-card__back-intro {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.risk-card__triggers {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: trigger;
+}
+
+.risk-card__trigger {
+  padding: 10px 12px;
+  border: 1.5px solid color-mix(in srgb, currentColor 40%, transparent);
+  border-radius: 18px;
+  counter-increment: trigger;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.risk-card__trigger::before {
+  content: counter(trigger) ". ";
+}

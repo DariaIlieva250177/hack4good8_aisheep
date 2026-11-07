@@ -49,7 +49,7 @@
 }
 
 /* Drop shadow from the front card onto the ones behind */
-.card-stack__front > .risk-card {
+.card-stack__front .risk-flip__face {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 

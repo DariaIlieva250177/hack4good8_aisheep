@@ -1,0 +1,19 @@
+.logo {
+  --logo-ink: var(--ink);
+  --logo-teal: #0196ba;
+  display: block;
+  block-size: auto;
+  overflow: visible;
+}
+
+:root[data-theme="dark"] .logo {
+  --logo-teal: #1aa8cc;
+}
+
+.logo__ink {
+  fill: var(--logo-ink);
+}
+
+.logo__teal {
+  fill: var(--logo-teal);
+}
