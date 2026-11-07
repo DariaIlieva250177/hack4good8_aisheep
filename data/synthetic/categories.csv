@@ -1,0 +1,16 @@
+category_id,name,image_description,file_name
+0,Fallback (no match),An empty block of sandy terrain with a faint path across it,cat-default
+1,Cross-border insecurity,A closed boom barrier across an empty sandy road,cat-border
+2,Armed conflict,A low wall of sandbags beside a dirt track,cat-conflict
+3,Displacement,Three plain tents close together on dry ground,cat-displacement
+4,Political crisis,An empty ballot box on a small table,cat-political
+5,Economic crisis / prices,A market balance scale with one empty pan,cat-economic
+6,Food insecurity,"A half-empty grain sack, slightly slumped",cat-food
+7,Disease outbreak,A closed medical cool box,cat-health
+8,Flood,A small house with water up to its windows,cat-flood
+9,Drought,Cracked dry soil with one dead stalk,cat-drought
+10,Cyclone / storm,A palm tree bent hard by wind on a coastal block,cat-storm
+11,Earthquake / landslide,A block split by a deep fissure,cat-earthquake
+12,Locusts / crop pests,A single locust on a millet head,cat-pests
+13,Infrastructure failure,A cracked concrete dam wall with a thin stream,cat-infrastructure
+14,Aid and funding cuts,An empty warehouse pallet with loose straps,cat-funding

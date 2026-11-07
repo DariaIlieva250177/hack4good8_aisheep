@@ -1,0 +1,12 @@
+suggestion_id,expert_id,type,risk_id,country,category_id,title,description,created_at,status,reviewed_by,reviewed_at
+SG001,E001,missing_trigger,R1038,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-13,accepted,M03,2026-10-15
+SG002,E013,missing_trigger,R1044,,9,Late onset of the rainy season,Synthetic suggestion for the demo.,2026-11-03,new,,
+SG003,E014,missing_trigger,R1067,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-24,accepted,M03,2026-10-26
+SG004,E024,new_risk,,Sudan,2,Emerging armed conflict risk,Synthetic suggestion for the demo.,2026-10-29,rejected,M02,2026-10-31
+SG005,E058,missing_trigger,R1065,,1,Closure of a main border crossing,Synthetic suggestion for the demo.,2026-11-02,accepted,M03,2026-11-04
+SG006,E060,missing_trigger,R1068,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-11-05,new,,
+SG007,E062,missing_trigger,R1074,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-27,rejected,M03,2026-10-29
+SG008,E069,new_risk,,Afghanistan,5,Emerging economic crisis / prices risk,Synthetic suggestion for the demo.,2026-10-26,accepted,M03,2026-10-28
+SG009,E071,new_risk,,Yemen,2,Emerging armed conflict risk,Synthetic suggestion for the demo.,2026-10-29,accepted,M03,2026-10-31
+SG010,E073,missing_trigger,R1074,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-18,accepted,M03,2026-10-20
+SG011,E079,missing_trigger,R1051,,5,Sharp rise in staple prices,Synthetic suggestion for the demo.,2026-11-03,new,,
