@@ -24,12 +24,13 @@
 
 | Tasks | Owner | State |
 |---|---|---|
-| 1-3 (seed fix, category fix, demo expert rule) | Daria | Not started |
+| 1-2 (seed fix, category fix) | Daria | Merged |
+| 3 (demo expert rule) | Daria | Not merged. It blocks Task 5, Steps 4-7 |
 | 4 (points) | Valeri | Done on `valeri/points-and-rank` |
-| 5 (one-command build) | Valeri | Steps 1-3 done. Steps 4-7 wait for Tasks 1-3 to be merged |
+| 5 (one-command build) | Valeri | Steps 1-3 done. Steps 4-7 wait for Task 3 to be merged |
 | 6 (docs and team note) | Not decided | Do after Task 5 |
 
-Do not run `python src/build_demo_data.py` before Tasks 1-3 are in: it overwrites the data with an unfixed build. Both branches create `tests/conftest.py` with identical content, so that file does not conflict when they merge.
+`python src/build_demo_data.py` stops with an error until Task 3 is in, so it cannot overwrite the data early. The code shown in Tasks 4 and 5 below is the first version. The rank changed after review, so `src/points.py` and `src/build_demo_data.py` are the current versions. Both branches create `tests/conftest.py` with identical content, so that file does not conflict when they merge.
 
 ## Decisions
 
@@ -38,10 +39,10 @@ Do not run `python src/build_demo_data.py` before Tasks 1-3 are in: it overwrite
 | Rank purpose | Demo only, not a full algorithm |
 | Points | Very likely / Very unlikely +3 right, -7 wrong. Likely / Unlikely +2 right, -3 wrong. Even chance 0. Don't know not scored |
 | "Right" | Both directions: Unlikely on something that did not happen earns the same as Likely on something that did |
-| Rank | Total points, every approved expert, no minimum |
+| Rank | Average points per scored forecast. Experts under 5 scored forecasts have no position yet |
 | Outcomes | ACAPS records each outcome once and points are calculated. The demo uses the outcomes already in the export |
 | Good comment | A moderator marks it "spot on" for +5, more than any right forecast. The demo has one hand-written example, labelled as an example, which counts in the total |
-| `expert.rank` | `{"points": n, "position": n, "out_of": n, "calls": n, "correct": n}` |
+| `expert.rank` | `{"points": n, "average_points": n, "position": n or null, "out_of": n, "forecasts": n, "calls": n, "correct": n}` |
 | Results | A `results` list in `expert_demo.json`. The screen is optional and is Diana's |
 | Card order | Urgency, then own country + domain, then own country, then domain |
 | Matching | Country and/or domain, using all of a risk's categories |
@@ -873,8 +874,8 @@ APP_FILE = ROOT / "app" / "data" / "expert_demo.json"
 # Hand-written and synthetic: past risks have no comments, so this one shows how a comment that
 # named the real reason earns the spot-on bonus. The app labels it as an example.
 SPOT_ON_EXAMPLE = {
-    "risk_id": "R1056",
-    "text": "Tensions inside the camps could turn into clashes soon, but I don't expect that to cut aid access.",
+    "risk_id": "R1026",
+    "text": "Egypt will feel this through food and fertiliser prices and the currency, even if Red Sea shipping holds up.",
 }
 
 
@@ -917,7 +918,7 @@ if __name__ == "__main__":
 Run: `python -m pytest tests -q`
 Expected: 42 passed.
 
-If the only failure is "has no scored forecast on R1056", the category labels were edited and the demo expert changed. Pick a resolved risk that expert forecast correctly, in one of their own countries, and rewrite `SPOT_ON_EXAMPLE` to fit what ACAPS recorded.
+If the only failure is "has no scored forecast on R1026", the category labels were edited again and the demo expert's forecasts changed. Pick a resolved risk that expert forecast correctly, and rewrite `SPOT_ON_EXAMPLE` to fit what ACAPS recorded.
 
 - [ ] **Step 5: Regenerate the data**
 
@@ -926,9 +927,9 @@ Run: `python src/build_demo_data.py`
 Expected, with the labels in Task 2 unchanged:
 
 ```
-Demo expert: E041 {'points': 45, 'position': 14, 'out_of': 76, 'calls': 20, 'correct': 19}
+Demo expert: E041 {'points': 17, 'average_points': 0.61, 'position': 54, 'out_of': 67, 'forecasts': 28, 'calls': 19, 'correct': 13}
 Deck: ['R1043', 'R1066', 'R1062', 'R1038', 'R1069', ...]
-Results: 31
+Results: 28
 ```
 
 - [ ] **Step 6: Check the pitch number**
@@ -939,7 +940,7 @@ Run:
 python -c "import pandas as pd; r=pd.read_csv('data/synthetic/ranks.csv'); t=pd.read_csv('data/synthetic/_simulation/expert_truth.csv').set_index('expert_id'); print('top 8 %.2f, everyone %.2f' % (t.loc[r.head(8).expert_id].sim_skill.mean(), t.loc[r.expert_id].sim_skill.mean()))"
 ```
 
-Expected: `top 8 0.81, everyone 0.56`.
+The command above averages over every expert in `ranks.csv`. For the pitch number, compare the top 8 with the 67 experts who have a position. Expected: `top 8 0.78, ranked experts 0.56`.
 
 - [ ] **Step 7: Commit**
 
@@ -1019,7 +1020,7 @@ Add this section directly before `## 6. Simulation only`:
 
 ```markdown
 ### `ranks`
-Every approved expert's total points. Fields: `expert_id`, `points`, `position`, `forecast_points`, `bonus_points`, `forecasts`, `calls`, `correct`. Built by `src/build_demo_data.py`, not the notebook. Each expert sees only their own row, as `expert.rank` in the app file.
+Every approved expert's points. Position goes by average points per scored forecast, and experts under 5 scored forecasts have no position yet. Fields: `expert_id`, `points`, `average_points`, `position`, `forecast_points`, `bonus_points`, `forecasts`, `calls`, `correct`. Built by `src/build_demo_data.py`, not the notebook. Each expert sees only their own row, as `expert.rank` in the app file.
 
 ```
 
