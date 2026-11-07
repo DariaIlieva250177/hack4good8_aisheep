@@ -42,11 +42,17 @@ def test_community_names_come_from_the_country_and_category(tables):
     assert risks.community_name.notna().all()
 
 
-# one end date
-def test_an_open_risk_ends_when_its_months_run_out(tables):
+# chat deadline and risk end
+def test_a_chat_closes_on_or_before_the_risk_ends(tables):
     questions = tables["forecast_questions"].query("not is_backtest").set_index("risk_id")
     windows = tables["risk_windows"].set_index("risk_id")
-    assert (windows.closes == questions.resolves_on.reindex(windows.index)).all()
+    assert (windows.closes <= questions.resolves_on.reindex(windows.index)).all()
+
+
+def test_the_question_and_the_chat_share_one_deadline(tables):
+    questions = tables["forecast_questions"].query("not is_backtest").set_index("risk_id")
+    windows = tables["risk_windows"].set_index("risk_id")
+    assert (windows.closes == questions.closes.reindex(windows.index)).all()
 
 
 def test_the_demo_risk_ends_after_two_months(tables):
@@ -55,8 +61,14 @@ def test_the_demo_risk_ends_after_two_months(tables):
     assert question.resolves_on == pd.Timestamp("2027-01-01")
 
 
-def test_questions_have_no_separate_closing_date(tables):
-    assert "closes" not in tables["forecast_questions"].columns
+def test_the_demo_chat_closes_in_nine_days(tables):
+    assert tables["risk_windows"].set_index("risk_id").loc["R1043", "closes"] == pd.Timestamp("2026-11-15")
+
+
+def test_the_app_gets_the_deadline_and_the_end_date(bundle):
+    forecast = bundle["details"]["R1043"]["forecast"]
+    assert (forecast["closes"], forecast["resolves_on"]) == ("2026-11-15", "2027-01-01")
+    assert bundle["deck"][0]["days_left"] == 9
 
 
 def test_no_open_risk_has_ended_already(tables):

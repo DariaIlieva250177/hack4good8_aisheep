@@ -464,12 +464,12 @@ def expert_matches(experts, ecountries, edomains, risk_countries, risk_categorie
 
 
 # ======================================================================= 4. answering windows and questions
-def _draw_old_closing_date(rng, opens, today):
-    """The simulation used to invent a closing date here. Drawing the same numbers keeps every later
-    simulated value unchanged, now that a risk simply ends when its months run out."""
+def _chat_deadline(rng, opens, today):
+    """When a risk's chat closes and answers lock. ACAPS sets this; the export has none, so it is simulated."""
     closes = opens + timedelta(days=int(rng.integers(10, 36)))
     if closes <= today:
-        rng.integers(1, 15)
+        closes = today + timedelta(days=int(rng.integers(1, 15)))
+    return closes
 
 
 def build_windows_and_questions(risks, cfg, rng):
@@ -479,14 +479,15 @@ def build_windows_and_questions(risks, cfg, rng):
         rid = r["risk_id"]
         if r["status"] == "Active":
             if rid == cfg["demo_risk"]:
-                opens = today - timedelta(days=5)
+                opens, closes = today - timedelta(days=5), today + timedelta(days=9)
             else:
                 opens = today - timedelta(days=int(rng.integers(1, 22)))
-                _draw_old_closing_date(rng, opens, today)
+                closes = _chat_deadline(rng, opens, today)
             set_by = rng.choice(["M02", "M03"])
             n = cfg["default_horizon_months"] if rng.random() < 0.7 else int(rng.choice([1, 3, 4, 6]))
             ends = opens + pd.DateOffset(months=n)
-            windows.append({"window_id": f"W-{rid}", "risk_id": rid, "opens": opens, "closes": ends,
+            closes = min(closes, ends)  # a chat cannot outlive its risk
+            windows.append({"window_id": f"W-{rid}", "risk_id": rid, "opens": opens, "closes": closes,
                             "set_by": set_by})
             original = f"Do you think this will happen in the next {n} months?"
             edited = rng.random() < 0.2
@@ -496,7 +497,8 @@ def build_windows_and_questions(risks, cfg, rng):
                 "original_text": original, "horizon_months": n,
                 "created_by": "M02", "edited_by": "M03" if edited else None,
                 "edited_at": opens + timedelta(days=1) if edited else None,
-                "opens": opens, "resolves_on": ends, "happened_on": None, "status": "open", "outcome": None,
+                "opens": opens, "closes": closes, "resolves_on": ends, "happened_on": None,
+                "status": "open", "outcome": None,
                 "is_backtest": False,
             })
         elif pd.notna(r["outcome"]):
@@ -508,7 +510,8 @@ def build_windows_and_questions(risks, cfg, rng):
                 "question_text": "Do you think this will happen?", "original_text": "Do you think this will happen?",
                 "horizon_months": 6, "created_by": "M02", "edited_by": None, "edited_at": None,
                 # the export has no date for when a risk happened, so past risks use their end date
-                "opens": opens, "resolves_on": ended, "happened_on": ended if r["outcome"] == 1 else None,
+                "opens": opens, "closes": opens + timedelta(days=14), "resolves_on": ended,
+                "happened_on": ended if r["outcome"] == 1 else None,
                 "status": "resolved", "outcome": int(r["outcome"]), "is_backtest": True,
             })
     windows = pd.DataFrame(windows)
@@ -1144,7 +1147,8 @@ def expert_demo_bundle(tables, truth, cfg=CONFIG):
                           "posted_by": "ACAPS" if t["source"] == "acaps" else "Suggested by an expert, added by ACAPS"}
                          for _, t in trig.iterrows()],
             "forecast": {"question_id": q.loc[rid, "question_id"], "text": q.loc[rid, "question_text"],
-                         "horizon_months": q.loc[rid, "horizon_months"], "closes": q.loc[rid, "resolves_on"],
+                         "horizon_months": q.loc[rid, "horizon_months"], "closes": q.loc[rid, "closes"],
+                         "resolves_on": q.loc[rid, "resolves_on"],
                          "options": LEVELS + ["dont_know"]},
             "community": community(rid),
         }
