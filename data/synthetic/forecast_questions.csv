@@ -1,133 +1,133 @@
-question_id,risk_id,question_text,original_text,horizon_months,created_by,edited_by,edited_at,opens,closes,resolves_on,status,outcome,is_backtest
-QH-R0353,R0353,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-23,2025-12-07,2026-05-23,resolved,0.0,True
-QH-R0990,R0990,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-16,2026-03-30,2026-09-16,resolved,1.0,True
-QH-R1015,R1015,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-27,2026-01-10,2026-06-27,resolved,1.0,True
-Q-R1062,R1062,Do you think this will happen in the next 1 months?,Do you think this will happen in the next 1 months?,1,M02,,,2026-10-17,2026-11-11,2026-11-17,open,,False
-Q-R1067,R1067,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-23,2026-11-21,2026-12-23,open,,False
-QH-R1056,R1056,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-23,2026-06-06,2026-11-05,resolved,1.0,True
-QH-R0371,R0371,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-01,2026-04-15,2026-10-01,resolved,0.0,True
-QH-R1020,R1020,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-18,2026-07-02,2026-11-05,resolved,0.0,True
-QH-R1039,R1039,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-19,2026-05-03,2026-10-19,resolved,1.0,True
-QH-R0510,R0510,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-30,2026-05-14,2026-10-30,resolved,1.0,True
-QH-R0094,R0094,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-30,2026-06-13,2026-11-05,resolved,0.0,True
-QH-R0116,R0116,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-06,2026-02-20,2026-08-06,resolved,0.0,True
-Q-R1043,R1043,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-11-01,2026-11-15,2027-01-01,open,,False
-Q-R1066,R1066,Will this situation get worse in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,M03,2026-11-06,2026-11-05,2026-11-18,2027-01-05,open,,False
-QH-R0369,R0369,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-15,2025-12-29,2026-06-15,resolved,1.0,True
-QH-R1013,R1013,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-22,2026-05-06,2026-10-22,resolved,0.0,True
-QH-R1019,R1019,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-07,2026-02-21,2026-08-07,resolved,1.0,True
-Q-R1059,R1059,Will this situation get worse in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,M03,2026-10-17,2026-10-16,2026-11-17,2026-12-16,open,,False
-QH-R1023,R1023,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-27,2026-07-11,2026-11-05,resolved,1.0,True
-QH-R0529,R0529,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-04,2026-08-18,2026-11-05,resolved,1.0,True
-QH-R0462,R0462,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-24,2026-09-07,2026-11-05,resolved,1.0,True
-QH-R0463,R0463,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-09,2026-06-23,2026-11-05,resolved,1.0,True
-QH-R0552,R0552,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-17,2026-01-31,2026-07-17,resolved,0.0,True
-QH-R0365,R0365,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-15,2026-07-29,2026-11-05,resolved,1.0,True
-QH-R0553,R0553,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-09,2025-11-23,2026-05-09,resolved,1.0,True
-QH-R1026,R1026,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-17,2026-07-01,2026-11-05,resolved,1.0,True
-QH-R0522,R0522,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-25,2026-09-08,2026-11-05,resolved,1.0,True
-Q-R1045,R1045,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-29,2026-11-27,2026-12-29,open,,False
-QH-R0105,R0105,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-17,2026-08-31,2026-11-05,resolved,0.0,True
-QH-R0349,R0349,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-23,2026-01-06,2026-06-23,resolved,1.0,True
-QH-R1018,R1018,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-21,2026-06-04,2026-11-05,resolved,1.0,True
-QH-R1040,R1040,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-20,2026-04-03,2026-09-20,resolved,1.0,True
-Q-R1071,R1071,Will this situation get worse in the next 6 months?,Do you think this will happen in the next 6 months?,6,M02,M03,2026-11-06,2026-11-05,2026-11-22,2027-05-05,open,,False
-QH-R1008,R1008,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-21,2026-07-05,2026-11-05,resolved,1.0,True
-QH-R1030,R1030,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-06,2026-04-20,2026-10-06,resolved,1.0,True
-QH-R0030,R0030,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-01,2026-08-15,2026-11-05,resolved,0.0,True
-QH-R1029,R1029,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-11,2026-05-25,2026-11-05,resolved,0.0,True
-QH-R0996,R0996,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-22,2026-04-05,2026-09-22,resolved,0.0,True
-QH-R0345,R0345,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-04,2026-03-18,2026-09-04,resolved,1.0,True
-QH-R0305,R0305,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-09,2026-03-23,2026-09-09,resolved,0.0,True
-QH-R0998,R0998,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-02,2026-07-16,2026-11-05,resolved,1.0,True
-Q-R1044,R1044,Do you think this will happen in the next 3 months?,Do you think this will happen in the next 3 months?,3,M02,,,2026-10-20,2026-11-16,2027-01-20,open,,False
-QH-R0031,R0031,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-04,2026-01-18,2026-07-04,resolved,0.0,True
-QH-R0274,R0274,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-30,2026-04-13,2026-09-30,resolved,0.0,True
-QH-R0960,R0960,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-21,2026-04-04,2026-09-21,resolved,1.0,True
-QH-R0985,R0985,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-22,2026-02-05,2026-07-22,resolved,0.0,True
-QH-R1027,R1027,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-08,2026-06-22,2026-11-05,resolved,1.0,True
-QH-R1034,R1034,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-14,2025-12-28,2026-06-14,resolved,0.0,True
-QH-R0970,R0970,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-30,2026-06-13,2026-11-05,resolved,0.0,True
-QH-R0976,R0976,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-28,2026-04-11,2026-09-28,resolved,0.0,True
-QH-R0995,R0995,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-26,2025-12-10,2026-05-26,resolved,0.0,True
-QH-R1028,R1028,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-26,2026-04-09,2026-09-26,resolved,0.0,True
-Q-R1046,R1046,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-22,2026-11-24,2026-12-22,open,,False
-QH-R0033,R0033,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-30,2025-12-14,2026-05-30,resolved,1.0,True
-QH-R0089,R0089,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-11,2026-04-25,2026-10-11,resolved,0.0,True
-QH-R0242,R0242,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-24,2026-06-07,2026-11-05,resolved,0.0,True
-QH-R0301,R0301,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-06,2026-08-20,2026-11-05,resolved,1.0,True
-QH-R1014,R1014,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-11,2026-05-25,2026-11-05,resolved,1.0,True
-Q-R1042,R1042,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-11-01,2026-12-06,2027-01-01,open,,False
-QH-R1005,R1005,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-17,2026-01-31,2026-07-17,resolved,0.0,True
-QH-R0296,R0296,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-01,2026-08-15,2026-11-05,resolved,0.0,True
-QH-R0952,R0952,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-08,2026-08-22,2026-11-05,resolved,1.0,True
-QH-R0335,R0335,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-09,2026-07-23,2026-11-05,resolved,0.0,True
-QH-R0977,R0977,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-21,2026-02-04,2026-07-21,resolved,1.0,True
-QH-R1017,R1017,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-16,2026-01-30,2026-07-16,resolved,1.0,True
-Q-R1047,R1047,Do you think this will happen in the next 1 months?,Do you think this will happen in the next 1 months?,1,M02,,,2026-10-19,2026-11-09,2026-11-19,open,,False
-Q-R1072,R1072,Do you think this will happen in the next 1 months?,Do you think this will happen in the next 1 months?,1,M02,,,2026-11-04,2026-12-05,2026-12-04,open,,False
-QH-R0134,R0134,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-28,2026-01-11,2026-06-28,resolved,0.0,True
-QH-R0961,R0961,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-12,2025-12-26,2026-06-12,resolved,1.0,True
-QH-R1012,R1012,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-12,2026-03-26,2026-09-12,resolved,1.0,True
-Q-R1069,R1069,Do you think this will happen in the next 4 months?,Do you think this will happen in the next 4 months?,4,M02,,,2026-10-27,2026-11-14,2027-02-27,open,,False
-QH-R0387,R0387,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-11,2026-07-25,2026-11-05,resolved,0.0,True
-Q-R1038,R1038,Will this situation get worse in the next 3 months?,Do you think this will happen in the next 3 months?,3,M02,M03,2026-10-24,2026-10-23,2026-11-12,2027-01-23,open,,False
-Q-R1074,R1074,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-16,2026-11-09,2026-12-16,open,,False
-QH-R0978,R0978,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-26,2026-04-09,2026-09-26,resolved,1.0,True
-QH-R1021,R1021,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-21,2026-09-04,2026-11-05,resolved,1.0,True
-QH-R1041,R1041,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-23,2026-09-06,2026-11-05,resolved,0.0,True
-Q-R1061,R1061,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-26,2026-11-15,2026-12-26,open,,False
-Q-R1073,R1073,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-24,2026-11-19,2026-12-24,open,,False
-QH-R0546,R0546,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-06,2026-01-20,2026-07-06,resolved,0.0,True
-QH-R0957,R0957,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-28,2026-03-14,2026-08-28,resolved,0.0,True
-QH-R0492,R0492,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-22,2025-12-06,2026-05-22,resolved,0.0,True
-QH-R0303,R0303,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-27,2026-04-10,2026-09-27,resolved,1.0,True
-QH-R0542,R0542,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-31,2026-09-14,2026-11-05,resolved,0.0,True
-QH-R1016,R1016,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-06,2026-03-20,2026-09-06,resolved,1.0,True
-Q-R1058,R1058,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-20,2026-11-08,2026-12-20,open,,False
-QH-R0190,R0190,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-22,2026-04-05,2026-09-22,resolved,1.0,True
-QH-R1007,R1007,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-12,2026-02-26,2026-08-12,resolved,1.0,True
-QH-R1009,R1009,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-29,2026-06-12,2026-11-05,resolved,1.0,True
-QH-R1033,R1033,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-11,2026-08-25,2026-11-05,resolved,1.0,True
-Q-R1037,R1037,Do you think this will happen in the next 1 months?,Do you think this will happen in the next 1 months?,1,M02,,,2026-10-28,2026-11-22,2026-11-28,open,,False
-QH-R0332,R0332,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-14,2026-05-28,2026-11-05,resolved,1.0,True
-QH-R0002,R0002,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-10,2026-03-24,2026-09-10,resolved,1.0,True
-QH-R0018,R0018,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-17,2025-12-01,2026-05-17,resolved,1.0,True
-QH-R0120,R0120,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-11,2026-03-25,2026-09-11,resolved,1.0,True
-QH-R0073,R0073,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-09,2026-06-23,2026-11-05,resolved,1.0,True
-QH-R0248,R0248,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-27,2026-06-10,2026-11-05,resolved,1.0,True
-QH-R0200,R0200,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-28,2026-02-11,2026-07-28,resolved,1.0,True
-Q-R1048,R1048,Do you think this will happen in the next 3 months?,Do you think this will happen in the next 3 months?,3,M02,,,2026-10-27,2026-11-27,2027-01-27,open,,False
-Q-R1049,R1049,Will this situation get worse in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,M03,2026-10-27,2026-10-26,2026-11-13,2026-12-26,open,,False
-Q-R1051,R1051,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-11-02,2026-11-21,2027-01-02,open,,False
-Q-R1052,R1052,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-17,2026-11-20,2026-12-17,open,,False
-Q-R1053,R1053,Will this situation get worse in the next 6 months?,Do you think this will happen in the next 6 months?,6,M02,M03,2026-10-20,2026-10-19,2026-11-07,2027-04-19,open,,False
-Q-R1054,R1054,Will this situation get worse in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,M03,2026-10-18,2026-10-17,2026-11-11,2026-12-17,open,,False
-Q-R1055,R1055,Do you think this will happen in the next 4 months?,Do you think this will happen in the next 4 months?,4,M02,,,2026-10-16,2026-11-20,2027-02-16,open,,False
-QH-R0357,R0357,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-01,2026-04-15,2026-10-01,resolved,0.0,True
-QH-R0367,R0367,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-23,2026-03-09,2026-08-23,resolved,0.0,True
-QH-R0999,R0999,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-05,2026-07-19,2026-11-05,resolved,0.0,True
-QH-R1000,R1000,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-22,2026-02-05,2026-07-22,resolved,1.0,True
-QH-R1001,R1001,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-31,2026-01-14,2026-06-30,resolved,1.0,True
-QH-R1002,R1002,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-12,2026-02-26,2026-08-12,resolved,0.0,True
-QH-R1003,R1003,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-08,2026-04-22,2026-10-08,resolved,1.0,True
-QH-R1004,R1004,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-09,2026-07-23,2026-11-05,resolved,0.0,True
-Q-R1068,R1068,Do you think this will happen in the next 3 months?,Do you think this will happen in the next 3 months?,3,M02,,,2026-11-05,2026-12-01,2027-02-05,open,,False
-QH-R0107,R0107,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-28,2026-01-11,2026-06-28,resolved,0.0,True
-QH-R0982,R0982,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-23,2026-01-06,2026-06-23,resolved,1.0,True
-QH-R0549,R0549,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-22,2026-09-05,2026-11-05,resolved,1.0,True
-QH-R0078,R0078,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-08,2026-03-22,2026-09-08,resolved,0.0,True
-QH-R0254,R0254,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-24,2025-12-08,2026-05-24,resolved,1.0,True
-QH-R0108,R0108,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-18,2026-03-04,2026-08-18,resolved,1.0,True
-QH-R0215,R0215,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-25,2025-12-09,2026-05-25,resolved,0.0,True
-QH-R1022,R1022,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-21,2026-09-04,2026-11-05,resolved,0.0,True
-QH-R0954,R0954,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-29,2026-04-12,2026-09-29,resolved,1.0,True
-QH-R0993,R0993,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-12,2026-01-26,2026-07-12,resolved,1.0,True
-QH-R1011,R1011,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-23,2026-03-09,2026-08-23,resolved,1.0,True
-QH-R0007,R0007,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-12,2025-12-26,2026-06-12,resolved,1.0,True
-QH-R0525,R0525,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-19,2026-05-03,2026-10-19,resolved,0.0,True
-QH-R1025,R1025,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-11,2026-02-25,2026-08-11,resolved,0.0,True
-Q-R1065,R1065,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-28,2026-11-29,2026-12-28,open,,False
-QH-R0106,R0106,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-02,2026-06-16,2026-11-05,resolved,1.0,True
-QH-R0090,R0090,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-25,2026-01-08,2026-06-25,resolved,1.0,True
-QH-R0512,R0512,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-20,2026-06-03,2026-11-05,resolved,1.0,True
+question_id,risk_id,question_text,original_text,horizon_months,created_by,edited_by,edited_at,opens,resolves_on,happened_on,status,outcome,is_backtest
+QH-R0353,R0353,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-23,2026-05-23,,resolved,0.0,True
+QH-R0990,R0990,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-16,2026-09-16,2026-09-16,resolved,1.0,True
+QH-R1015,R1015,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-27,2026-06-27,2026-06-27,resolved,1.0,True
+Q-R1062,R1062,Do you think this will happen in the next 1 months?,Do you think this will happen in the next 1 months?,1,M02,,,2026-10-17,2026-11-17,,open,,False
+Q-R1067,R1067,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-23,2026-12-23,,open,,False
+QH-R1056,R1056,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-23,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0371,R0371,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-01,2026-10-01,,resolved,0.0,True
+QH-R1020,R1020,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-18,2026-11-05,,resolved,0.0,True
+QH-R1039,R1039,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-19,2026-10-19,2026-10-19,resolved,1.0,True
+QH-R0510,R0510,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-30,2026-10-30,2026-10-30,resolved,1.0,True
+QH-R0094,R0094,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-30,2026-11-05,,resolved,0.0,True
+QH-R0116,R0116,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-06,2026-08-06,,resolved,0.0,True
+Q-R1043,R1043,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-11-01,2027-01-01,,open,,False
+Q-R1066,R1066,Will this situation get worse in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,M03,2026-11-06,2026-11-05,2027-01-05,,open,,False
+QH-R0369,R0369,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-15,2026-06-15,2026-06-15,resolved,1.0,True
+QH-R1013,R1013,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-22,2026-10-22,,resolved,0.0,True
+QH-R1019,R1019,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-07,2026-08-07,2026-08-07,resolved,1.0,True
+Q-R1059,R1059,Will this situation get worse in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,M03,2026-10-17,2026-10-16,2026-12-16,,open,,False
+QH-R1023,R1023,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-27,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0529,R0529,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-04,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0462,R0462,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-24,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0463,R0463,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-09,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0552,R0552,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-17,2026-07-17,,resolved,0.0,True
+QH-R0365,R0365,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-15,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0553,R0553,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-09,2026-05-09,2026-05-09,resolved,1.0,True
+QH-R1026,R1026,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-17,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0522,R0522,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-25,2026-11-05,2026-11-05,resolved,1.0,True
+Q-R1045,R1045,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-29,2026-12-29,,open,,False
+QH-R0105,R0105,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-17,2026-11-05,,resolved,0.0,True
+QH-R0349,R0349,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-23,2026-06-23,2026-06-23,resolved,1.0,True
+QH-R1018,R1018,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-21,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R1040,R1040,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-20,2026-09-20,2026-09-20,resolved,1.0,True
+Q-R1071,R1071,Will this situation get worse in the next 6 months?,Do you think this will happen in the next 6 months?,6,M02,M03,2026-11-06,2026-11-05,2027-05-05,,open,,False
+QH-R1008,R1008,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-21,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R1030,R1030,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-06,2026-10-06,2026-10-06,resolved,1.0,True
+QH-R0030,R0030,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-01,2026-11-05,,resolved,0.0,True
+QH-R1029,R1029,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-11,2026-11-05,,resolved,0.0,True
+QH-R0996,R0996,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-22,2026-09-22,,resolved,0.0,True
+QH-R0345,R0345,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-04,2026-09-04,2026-09-04,resolved,1.0,True
+QH-R0305,R0305,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-09,2026-09-09,,resolved,0.0,True
+QH-R0998,R0998,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-02,2026-11-05,2026-11-05,resolved,1.0,True
+Q-R1044,R1044,Do you think this will happen in the next 3 months?,Do you think this will happen in the next 3 months?,3,M02,,,2026-10-20,2027-01-20,,open,,False
+QH-R0031,R0031,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-04,2026-07-04,,resolved,0.0,True
+QH-R0274,R0274,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-30,2026-09-30,,resolved,0.0,True
+QH-R0960,R0960,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-21,2026-09-21,2026-09-21,resolved,1.0,True
+QH-R0985,R0985,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-22,2026-07-22,,resolved,0.0,True
+QH-R1027,R1027,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-08,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R1034,R1034,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-14,2026-06-14,,resolved,0.0,True
+QH-R0970,R0970,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-30,2026-11-05,,resolved,0.0,True
+QH-R0976,R0976,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-28,2026-09-28,,resolved,0.0,True
+QH-R0995,R0995,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-26,2026-05-26,,resolved,0.0,True
+QH-R1028,R1028,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-26,2026-09-26,,resolved,0.0,True
+Q-R1046,R1046,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-22,2026-12-22,,open,,False
+QH-R0033,R0033,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-30,2026-05-30,2026-05-30,resolved,1.0,True
+QH-R0089,R0089,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-11,2026-10-11,,resolved,0.0,True
+QH-R0242,R0242,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-24,2026-11-05,,resolved,0.0,True
+QH-R0301,R0301,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-06,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R1014,R1014,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-11,2026-11-05,2026-11-05,resolved,1.0,True
+Q-R1042,R1042,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-11-01,2027-01-01,,open,,False
+QH-R1005,R1005,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-17,2026-07-17,,resolved,0.0,True
+QH-R0296,R0296,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-01,2026-11-05,,resolved,0.0,True
+QH-R0952,R0952,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-08,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0335,R0335,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-09,2026-11-05,,resolved,0.0,True
+QH-R0977,R0977,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-21,2026-07-21,2026-07-21,resolved,1.0,True
+QH-R1017,R1017,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-16,2026-07-16,2026-07-16,resolved,1.0,True
+Q-R1047,R1047,Do you think this will happen in the next 1 months?,Do you think this will happen in the next 1 months?,1,M02,,,2026-10-19,2026-11-19,,open,,False
+Q-R1072,R1072,Do you think this will happen in the next 1 months?,Do you think this will happen in the next 1 months?,1,M02,,,2026-11-04,2026-12-04,,open,,False
+QH-R0134,R0134,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-28,2026-06-28,,resolved,0.0,True
+QH-R0961,R0961,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-12,2026-06-12,2026-06-12,resolved,1.0,True
+QH-R1012,R1012,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-12,2026-09-12,2026-09-12,resolved,1.0,True
+Q-R1069,R1069,Do you think this will happen in the next 4 months?,Do you think this will happen in the next 4 months?,4,M02,,,2026-10-27,2027-02-27,,open,,False
+QH-R0387,R0387,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-11,2026-11-05,,resolved,0.0,True
+Q-R1038,R1038,Will this situation get worse in the next 3 months?,Do you think this will happen in the next 3 months?,3,M02,M03,2026-10-24,2026-10-23,2027-01-23,,open,,False
+Q-R1074,R1074,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-16,2026-12-16,,open,,False
+QH-R0978,R0978,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-26,2026-09-26,2026-09-26,resolved,1.0,True
+QH-R1021,R1021,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-21,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R1041,R1041,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-23,2026-11-05,,resolved,0.0,True
+Q-R1061,R1061,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-26,2026-12-26,,open,,False
+Q-R1073,R1073,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-24,2026-12-24,,open,,False
+QH-R0546,R0546,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-06,2026-07-06,,resolved,0.0,True
+QH-R0957,R0957,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-28,2026-08-28,,resolved,0.0,True
+QH-R0492,R0492,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-22,2026-05-22,,resolved,0.0,True
+QH-R0303,R0303,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-27,2026-09-27,2026-09-27,resolved,1.0,True
+QH-R0542,R0542,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-31,2026-11-05,,resolved,0.0,True
+QH-R1016,R1016,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-06,2026-09-06,2026-09-06,resolved,1.0,True
+Q-R1058,R1058,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-20,2026-12-20,,open,,False
+QH-R0190,R0190,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-22,2026-09-22,2026-09-22,resolved,1.0,True
+QH-R1007,R1007,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-12,2026-08-12,2026-08-12,resolved,1.0,True
+QH-R1009,R1009,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-29,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R1033,R1033,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-11,2026-11-05,2026-11-05,resolved,1.0,True
+Q-R1037,R1037,Do you think this will happen in the next 1 months?,Do you think this will happen in the next 1 months?,1,M02,,,2026-10-28,2026-11-28,,open,,False
+QH-R0332,R0332,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-14,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0002,R0002,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-10,2026-09-10,2026-09-10,resolved,1.0,True
+QH-R0018,R0018,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-17,2026-05-17,2026-05-17,resolved,1.0,True
+QH-R0120,R0120,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-11,2026-09-11,2026-09-11,resolved,1.0,True
+QH-R0073,R0073,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-09,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0248,R0248,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-27,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0200,R0200,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-28,2026-07-28,2026-07-28,resolved,1.0,True
+Q-R1048,R1048,Do you think this will happen in the next 3 months?,Do you think this will happen in the next 3 months?,3,M02,,,2026-10-27,2027-01-27,,open,,False
+Q-R1049,R1049,Will this situation get worse in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,M03,2026-10-27,2026-10-26,2026-12-26,,open,,False
+Q-R1051,R1051,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-11-02,2027-01-02,,open,,False
+Q-R1052,R1052,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-17,2026-12-17,,open,,False
+Q-R1053,R1053,Will this situation get worse in the next 6 months?,Do you think this will happen in the next 6 months?,6,M02,M03,2026-10-20,2026-10-19,2027-04-19,,open,,False
+Q-R1054,R1054,Will this situation get worse in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,M03,2026-10-18,2026-10-17,2026-12-17,,open,,False
+Q-R1055,R1055,Do you think this will happen in the next 4 months?,Do you think this will happen in the next 4 months?,4,M02,,,2026-10-16,2027-02-16,,open,,False
+QH-R0357,R0357,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-01,2026-10-01,,resolved,0.0,True
+QH-R0367,R0367,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-23,2026-08-23,,resolved,0.0,True
+QH-R0999,R0999,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-05,2026-11-05,,resolved,0.0,True
+QH-R1000,R1000,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-22,2026-07-22,2026-07-22,resolved,1.0,True
+QH-R1001,R1001,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-31,2026-06-30,2026-06-30,resolved,1.0,True
+QH-R1002,R1002,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-12,2026-08-12,,resolved,0.0,True
+QH-R1003,R1003,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-08,2026-10-08,2026-10-08,resolved,1.0,True
+QH-R1004,R1004,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-07-09,2026-11-05,,resolved,0.0,True
+Q-R1068,R1068,Do you think this will happen in the next 3 months?,Do you think this will happen in the next 3 months?,3,M02,,,2026-11-05,2027-02-05,,open,,False
+QH-R0107,R0107,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-28,2026-06-28,,resolved,0.0,True
+QH-R0982,R0982,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-23,2026-06-23,2026-06-23,resolved,1.0,True
+QH-R0549,R0549,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-22,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0078,R0078,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-08,2026-09-08,,resolved,0.0,True
+QH-R0254,R0254,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-24,2026-05-24,2026-05-24,resolved,1.0,True
+QH-R0108,R0108,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-18,2026-08-18,2026-08-18,resolved,1.0,True
+QH-R0215,R0215,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-11-25,2026-05-25,,resolved,0.0,True
+QH-R1022,R1022,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-08-21,2026-11-05,,resolved,0.0,True
+QH-R0954,R0954,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-03-29,2026-09-29,2026-09-29,resolved,1.0,True
+QH-R0993,R0993,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-01-12,2026-07-12,2026-07-12,resolved,1.0,True
+QH-R1011,R1011,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-23,2026-08-23,2026-08-23,resolved,1.0,True
+QH-R0007,R0007,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-12,2026-06-12,2026-06-12,resolved,1.0,True
+QH-R0525,R0525,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-04-19,2026-10-19,,resolved,0.0,True
+QH-R1025,R1025,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-02-11,2026-08-11,,resolved,0.0,True
+Q-R1065,R1065,Do you think this will happen in the next 2 months?,Do you think this will happen in the next 2 months?,2,M02,,,2026-10-28,2026-12-28,,open,,False
+QH-R0106,R0106,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-06-02,2026-11-05,2026-11-05,resolved,1.0,True
+QH-R0090,R0090,Do you think this will happen?,Do you think this will happen?,6,M02,,,2025-12-25,2026-06-25,2026-06-25,resolved,1.0,True
+QH-R0512,R0512,Do you think this will happen?,Do you think this will happen?,6,M02,,,2026-05-20,2026-11-05,2026-11-05,resolved,1.0,True

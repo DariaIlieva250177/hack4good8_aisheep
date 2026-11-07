@@ -1,0 +1,1583 @@
+expert_id,country,region,votes,comments,sources,forecasts,total
+E001,Afghanistan,South Asia,1,0,0,2,3
+E001,Colombia,Latin America and Caribbean,1,0,0,1,2
+E001,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E001,Egypt,North Africa,0,0,0,1,1
+E001,Iran,Middle East,0,0,0,1,1
+E001,Ivory Coast,West Africa,0,0,0,1,1
+E001,Kenya,East Africa,0,0,0,1,1
+E001,Lebanon,Middle East,0,0,0,1,1
+E001,Libya,North Africa,0,0,0,2,2
+E001,Mali,West Africa,1,0,0,2,3
+E001,Mauritania,West Africa,0,0,0,1,1
+E001,Mozambique,Southern Africa,1,0,0,1,2
+E001,Myanmar,Asia Pacific,1,0,0,3,4
+E001,Niger,West Africa,2,0,0,0,2
+E001,Palestine,Middle East,1,1,0,2,4
+E001,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E001,Philippines,Asia Pacific,0,0,0,1,1
+E001,Somalia,East Africa,0,0,0,1,1
+E001,South Sudan,East Africa,1,1,1,1,4
+E001,Sudan,East Africa,3,3,0,3,9
+E001,Syria,Middle East,1,0,0,5,6
+E001,Tanzania,East Africa,0,0,0,1,1
+E001,Turkey,Middle East,0,0,0,1,1
+E001,Ukraine,Europe,0,0,0,1,1
+E001,Yemen,Middle East,1,0,0,2,3
+E002,Afghanistan,South Asia,0,0,0,1,1
+E002,Colombia,Latin America and Caribbean,1,0,0,1,2
+E002,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E002,Egypt,North Africa,0,0,0,1,1
+E002,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E002,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E002,Honduras,Latin America and Caribbean,0,0,0,1,1
+E002,Iran,Middle East,0,0,0,1,1
+E002,Kenya,East Africa,0,0,0,1,1
+E002,Mali,West Africa,1,1,1,1,4
+E002,Myanmar,Asia Pacific,1,0,0,2,3
+E002,Niger,West Africa,1,0,0,1,2
+E002,Palestine,Middle East,1,0,0,2,3
+E002,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E002,Philippines,Asia Pacific,0,0,0,1,1
+E002,Rwanda,East Africa,0,0,0,1,1
+E002,Somalia,East Africa,0,0,0,1,1
+E002,Sudan,East Africa,2,2,0,3,7
+E002,Syria,Middle East,0,0,0,4,4
+E002,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E002,Yemen,Middle East,0,0,0,1,1
+E003,Afghanistan,South Asia,2,0,0,2,4
+E003,Algeria,North Africa,0,0,0,1,1
+E003,Chad,Central Africa,1,1,0,1,3
+E003,Colombia,Latin America and Caribbean,0,0,0,2,2
+E003,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E003,Egypt,North Africa,0,0,0,1,1
+E003,Iran,Middle East,0,0,0,1,1
+E003,Iraq,Middle East,0,0,0,1,1
+E003,Lebanon,Middle East,0,0,0,1,1
+E003,Libya,North Africa,0,0,0,2,2
+E003,Mali,West Africa,1,1,0,1,3
+E003,Myanmar,Asia Pacific,0,0,0,2,2
+E003,Nepal,South Asia,0,0,0,1,1
+E003,Philippines,Asia Pacific,0,0,0,1,1
+E003,Somalia,East Africa,0,0,0,1,1
+E003,South Sudan,East Africa,1,0,0,1,2
+E003,Sudan,East Africa,1,0,0,2,3
+E003,Syria,Middle East,0,0,0,2,2
+E003,Uganda,East Africa,0,0,0,1,1
+E004,Afghanistan,South Asia,0,0,0,1,1
+E004,Algeria,North Africa,0,0,0,1,1
+E004,Bangladesh,South Asia,0,0,0,1,1
+E004,Cameroon,Central Africa,1,1,0,0,2
+E004,Chad,Central Africa,1,1,0,0,2
+E004,Colombia,Latin America and Caribbean,1,1,0,3,5
+E004,Democratic Republic of the Congo,Central Africa,0,0,0,4,4
+E004,Egypt,North Africa,0,0,0,1,1
+E004,Haiti,Latin America and Caribbean,0,0,0,2,2
+E004,Ivory Coast,West Africa,0,0,0,1,1
+E004,Kenya,East Africa,0,0,0,1,1
+E004,Lebanon,Middle East,0,0,0,2,2
+E004,Libya,North Africa,0,0,0,1,1
+E004,Madagascar,Southern Africa,1,0,0,0,1
+E004,Mali,West Africa,1,0,0,1,2
+E004,Mauritania,West Africa,0,0,0,1,1
+E004,Myanmar,Asia Pacific,1,1,1,4,7
+E004,Niger,West Africa,2,1,0,1,4
+E004,Nigeria,West Africa,1,1,0,0,2
+E004,Palestine,Middle East,1,0,0,2,3
+E004,Philippines,Asia Pacific,0,0,0,1,1
+E004,Rwanda,East Africa,0,0,0,1,1
+E004,Somalia,East Africa,0,0,0,2,2
+E004,Sudan,East Africa,2,1,0,4,7
+E004,Syria,Middle East,1,0,0,4,5
+E004,Uganda,East Africa,0,0,0,1,1
+E004,Ukraine,Europe,0,0,0,1,1
+E004,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E004,Yemen,Middle East,0,0,0,1,1
+E005,Afghanistan,South Asia,2,0,0,2,4
+E005,Algeria,North Africa,0,0,0,1,1
+E005,Benin,West Africa,0,0,0,1,1
+E005,Cameroon,Central Africa,1,1,0,1,3
+E005,Chad,Central Africa,1,1,0,1,3
+E005,Colombia,Latin America and Caribbean,1,0,0,0,1
+E005,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E005,Egypt,North Africa,0,0,0,2,2
+E005,Ghana,West Africa,0,0,0,1,1
+E005,Iran,Middle East,0,0,0,1,1
+E005,Iraq,Middle East,0,0,0,2,2
+E005,Ivory Coast,West Africa,0,0,0,2,2
+E005,Kenya,East Africa,1,0,0,1,2
+E005,Lebanon,Middle East,0,0,0,3,3
+E005,Libya,North Africa,0,0,0,1,1
+E005,Morocco,North Africa,0,0,0,1,1
+E005,Mozambique,Southern Africa,2,1,0,2,5
+E005,Myanmar,Asia Pacific,0,0,0,3,3
+E005,Niger,West Africa,2,1,0,3,6
+E005,Nigeria,West Africa,1,1,0,2,4
+E005,Palestine,Middle East,1,1,1,2,5
+E005,Philippines,Asia Pacific,0,0,0,1,1
+E005,Somalia,East Africa,0,0,0,2,2
+E005,Sudan,East Africa,5,2,0,5,12
+E005,Syria,Middle East,1,0,0,1,2
+E005,Togo,West Africa,0,0,0,1,1
+E005,Ukraine,Europe,0,0,0,1,1
+E005,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E005,Yemen,Middle East,1,0,0,2,3
+E006,Afghanistan,South Asia,2,0,0,3,5
+E006,Bangladesh,South Asia,0,0,0,1,1
+E006,Cameroon,Central Africa,1,0,0,2,3
+E006,Chad,Central Africa,2,0,0,2,4
+E006,Colombia,Latin America and Caribbean,1,0,0,3,4
+E006,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E006,Ethiopia,East Africa,0,0,0,1,1
+E006,Iraq,Middle East,0,0,0,2,2
+E006,Ivory Coast,West Africa,0,0,0,1,1
+E006,Kenya,East Africa,0,0,0,1,1
+E006,Lebanon,Middle East,0,0,0,2,2
+E006,Libya,North Africa,0,0,0,2,2
+E006,Mali,West Africa,1,0,0,4,5
+E006,Mozambique,Southern Africa,1,0,0,0,1
+E006,Myanmar,Asia Pacific,1,0,0,4,5
+E006,Nepal,South Asia,0,0,0,1,1
+E006,Niger,West Africa,3,1,0,4,8
+E006,Nigeria,West Africa,1,0,0,2,3
+E006,Palestine,Middle East,1,1,0,2,4
+E006,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E006,Philippines,Asia Pacific,0,0,0,1,1
+E006,Rwanda,East Africa,0,0,0,1,1
+E006,Somalia,East Africa,0,0,0,1,1
+E006,Sudan,East Africa,4,1,0,3,8
+E006,Syria,Middle East,1,0,0,4,5
+E006,Tanzania,East Africa,0,0,0,1,1
+E006,Turkey,Middle East,0,0,0,1,1
+E006,Ukraine,Europe,0,0,0,1,1
+E006,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E006,Yemen,Middle East,1,0,0,3,4
+E007,Lebanon,Middle East,0,0,0,1,1
+E007,Mexico,Latin America and Caribbean,0,0,0,1,1
+E008,Chad,Central Africa,1,0,0,1,2
+E008,Lebanon,Middle East,0,0,0,1,1
+E008,Sudan,East Africa,1,0,0,1,2
+E008,Ukraine,Europe,0,0,0,1,1
+E008,Yemen,Middle East,1,1,1,0,3
+E009,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E009,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E009,Honduras,Latin America and Caribbean,0,0,0,1,1
+E009,Kenya,East Africa,1,1,0,1,3
+E009,Madagascar,Southern Africa,1,0,0,1,2
+E009,Mongolia,Asia Pacific,0,0,0,1,1
+E009,Morocco,North Africa,0,0,0,1,1
+E009,Philippines,Asia Pacific,1,0,0,0,1
+E009,Somalia,East Africa,0,0,0,1,1
+E009,Timor Leste,Asia Pacific,0,0,0,1,1
+E009,Zimbabwe,Southern Africa,0,0,0,1,1
+E010,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E010,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E010,Honduras,Latin America and Caribbean,0,0,0,1,1
+E010,Kenya,East Africa,0,0,0,1,1
+E010,Madagascar,Southern Africa,1,1,0,1,3
+E010,Morocco,North Africa,0,0,0,1,1
+E010,Philippines,Asia Pacific,1,1,0,0,2
+E010,Somalia,East Africa,0,0,0,1,1
+E010,Timor Leste,Asia Pacific,0,0,0,1,1
+E011,Afghanistan,South Asia,0,0,0,1,1
+E011,Ethiopia,East Africa,1,0,0,1,2
+E011,Kenya,East Africa,1,0,0,1,2
+E011,Madagascar,Southern Africa,1,0,0,1,2
+E011,Morocco,North Africa,0,0,0,1,1
+E011,Mozambique,Southern Africa,1,1,1,0,3
+E011,Philippines,Asia Pacific,1,1,0,1,3
+E012,Afghanistan,South Asia,0,0,0,1,1
+E012,Ethiopia,East Africa,0,0,0,1,1
+E012,Kenya,East Africa,1,0,0,1,2
+E012,Madagascar,Southern Africa,1,1,1,1,4
+E012,Mongolia,Asia Pacific,0,0,0,1,1
+E012,Morocco,North Africa,0,0,0,1,1
+E012,Mozambique,Southern Africa,1,0,0,0,1
+E012,Timor Leste,Asia Pacific,0,0,0,1,1
+E012,Tunisia,North Africa,0,0,0,1,1
+E013,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E013,Ethiopia,East Africa,1,0,0,1,2
+E013,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E013,Honduras,Latin America and Caribbean,0,0,0,1,1
+E013,Madagascar,Southern Africa,1,0,0,0,1
+E013,Mongolia,Asia Pacific,0,0,0,1,1
+E013,Morocco,North Africa,0,0,0,1,1
+E013,Somalia,East Africa,0,0,0,1,1
+E013,Timor Leste,Asia Pacific,0,0,0,1,1
+E013,Zimbabwe,Southern Africa,0,0,0,1,1
+E014,Afghanistan,South Asia,2,1,0,1,4
+E014,Algeria,North Africa,0,0,0,1,1
+E014,Chad,Central Africa,1,0,0,1,2
+E014,Colombia,Latin America and Caribbean,1,1,1,2,5
+E014,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E014,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E014,Ethiopia,East Africa,0,0,0,1,1
+E014,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E014,Honduras,Latin America and Caribbean,0,0,0,1,1
+E014,Iraq,Middle East,0,0,0,1,1
+E014,Kenya,East Africa,0,0,0,1,1
+E014,Lebanon,Middle East,0,0,0,2,2
+E014,Libya,North Africa,0,0,0,1,1
+E014,Mali,West Africa,1,0,0,2,3
+E014,Morocco,North Africa,0,0,0,1,1
+E014,Mozambique,Southern Africa,0,0,0,1,1
+E014,Myanmar,Asia Pacific,0,0,0,1,1
+E014,Niger,West Africa,1,1,0,0,2
+E014,Palestine,Middle East,0,0,0,1,1
+E014,Philippines,Asia Pacific,1,1,0,1,3
+E014,Rwanda,East Africa,0,0,0,1,1
+E014,Somalia,East Africa,0,0,0,1,1
+E014,South Sudan,East Africa,1,0,0,0,1
+E014,Sudan,East Africa,0,0,0,1,1
+E014,Syria,Middle East,1,0,0,3,4
+E014,Timor Leste,Asia Pacific,0,0,0,1,1
+E014,Turkey,Middle East,0,0,0,1,1
+E014,Uganda,East Africa,0,0,0,1,1
+E014,Ukraine,Europe,0,0,0,1,1
+E014,Yemen,Middle East,0,0,0,2,2
+E015,Madagascar,Southern Africa,1,1,1,1,4
+E015,Morocco,North Africa,0,0,0,1,1
+E015,Mozambique,Southern Africa,0,0,0,1,1
+E015,Philippines,Asia Pacific,1,0,0,1,2
+E016,Afghanistan,South Asia,0,0,0,1,1
+E016,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E016,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E016,Honduras,Latin America and Caribbean,0,0,0,1,1
+E016,Kenya,East Africa,1,0,0,0,1
+E016,Mongolia,Asia Pacific,0,0,0,1,1
+E016,Mozambique,Southern Africa,2,0,0,3,5
+E016,Philippines,Asia Pacific,1,0,0,1,2
+E016,Timor Leste,Asia Pacific,0,0,0,1,1
+E016,Zimbabwe,Southern Africa,0,0,0,1,1
+E017,Afghanistan,South Asia,2,0,0,2,4
+E017,Algeria,North Africa,0,0,0,1,1
+E017,Bangladesh,South Asia,0,0,0,1,1
+E017,Cameroon,Central Africa,0,0,0,1,1
+E017,Chad,Central Africa,1,0,0,0,1
+E017,Colombia,Latin America and Caribbean,1,1,1,3,6
+E017,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E017,Iran,Middle East,0,0,0,1,1
+E017,Iraq,Middle East,0,0,0,1,1
+E017,Ivory Coast,West Africa,0,0,0,1,1
+E017,Lebanon,Middle East,0,0,0,1,1
+E017,Libya,North Africa,0,0,0,1,1
+E017,Mali,West Africa,1,1,0,1,3
+E017,Mauritania,West Africa,0,0,0,1,1
+E017,Mozambique,Southern Africa,1,0,0,1,2
+E017,Niger,West Africa,1,0,0,0,1
+E017,Somalia,East Africa,0,0,0,3,3
+E017,South Sudan,East Africa,1,0,0,0,1
+E017,Sudan,East Africa,7,0,0,7,14
+E017,Syria,Middle East,0,0,0,2,2
+E017,Uganda,East Africa,0,0,0,1,1
+E017,Yemen,Middle East,0,0,0,1,1
+E018,Afghanistan,South Asia,1,1,0,1,3
+E018,Cameroon,Central Africa,1,0,0,1,2
+E018,Chad,Central Africa,2,0,0,2,4
+E018,Colombia,Latin America and Caribbean,0,0,0,1,1
+E018,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E018,Ethiopia,East Africa,0,0,0,1,1
+E018,Ivory Coast,West Africa,0,0,0,1,1
+E018,Kenya,East Africa,0,0,0,1,1
+E018,Lebanon,Middle East,0,0,0,3,3
+E018,Libya,North Africa,0,0,0,3,3
+E018,Mali,West Africa,1,1,0,2,4
+E018,Mozambique,Southern Africa,1,0,0,1,2
+E018,Myanmar,Asia Pacific,1,1,0,0,2
+E018,Niger,West Africa,2,0,0,2,4
+E018,Nigeria,West Africa,1,0,0,1,2
+E018,Palestine,Middle East,2,1,0,3,6
+E018,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E018,Philippines,Asia Pacific,0,0,0,1,1
+E018,Somalia,East Africa,0,0,0,1,1
+E018,South Sudan,East Africa,1,1,1,1,4
+E018,Sudan,East Africa,3,0,0,3,6
+E018,Syria,Middle East,1,0,0,6,7
+E018,Uganda,East Africa,0,0,0,1,1
+E018,Ukraine,Europe,0,0,0,2,2
+E018,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E018,Yemen,Middle East,1,0,0,3,4
+E019,Afghanistan,South Asia,1,1,0,1,3
+E019,Cameroon,Central Africa,1,0,0,1,2
+E019,Chad,Central Africa,1,0,0,1,2
+E019,Colombia,Latin America and Caribbean,0,0,0,1,1
+E019,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E019,Ethiopia,East Africa,0,0,0,1,1
+E019,Iraq,Middle East,0,0,0,1,1
+E019,Ivory Coast,West Africa,0,0,0,1,1
+E019,Lebanon,Middle East,0,0,0,2,2
+E019,Libya,North Africa,0,0,0,2,2
+E019,Mali,West Africa,0,0,0,1,1
+E019,Myanmar,Asia Pacific,0,0,0,1,1
+E019,Niger,West Africa,3,0,0,4,7
+E019,Nigeria,West Africa,1,0,0,2,3
+E019,Palestine,Middle East,1,1,1,0,3
+E019,Philippines,Asia Pacific,0,0,0,2,2
+E019,Sudan,East Africa,1,0,0,3,4
+E019,Syria,Middle East,0,0,0,3,3
+E019,Uganda,East Africa,0,0,0,1,1
+E019,Yemen,Middle East,0,0,0,1,1
+E020,Afghanistan,South Asia,2,0,0,3,5
+E020,Bangladesh,South Asia,0,0,0,1,1
+E020,Benin,West Africa,0,0,0,1,1
+E020,Cameroon,Central Africa,1,0,0,1,2
+E020,Chad,Central Africa,2,1,0,2,5
+E020,Colombia,Latin America and Caribbean,1,0,0,3,4
+E020,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E020,Egypt,North Africa,0,0,0,2,2
+E020,Ghana,West Africa,0,0,0,1,1
+E020,Iraq,Middle East,0,0,0,1,1
+E020,Ivory Coast,West Africa,0,0,0,1,1
+E020,Kenya,East Africa,0,0,0,1,1
+E020,Lebanon,Middle East,0,0,0,2,2
+E020,Libya,North Africa,0,0,0,1,1
+E020,Mali,West Africa,1,0,0,0,1
+E020,Mozambique,Southern Africa,1,0,0,1,2
+E020,Myanmar,Asia Pacific,0,0,0,1,1
+E020,Nepal,South Asia,0,0,0,1,1
+E020,Niger,West Africa,3,0,0,3,6
+E020,Nigeria,West Africa,1,0,0,1,2
+E020,Palestine,Middle East,1,0,0,3,4
+E020,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E020,Philippines,Asia Pacific,0,0,0,1,1
+E020,Sudan,East Africa,7,3,0,7,17
+E020,Syria,Middle East,1,1,0,5,7
+E020,Tanzania,East Africa,0,0,0,2,2
+E020,Togo,West Africa,0,0,0,1,1
+E020,Turkey,Middle East,0,0,0,1,1
+E020,Uganda,East Africa,0,0,0,1,1
+E020,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E020,Yemen,Middle East,1,0,0,3,4
+E020,Zimbabwe,Southern Africa,0,0,0,1,1
+E021,Afghanistan,South Asia,0,0,0,2,2
+E021,Bangladesh,South Asia,0,0,0,1,1
+E021,Benin,West Africa,0,0,0,1,1
+E021,Central African Republic,Central Africa,0,0,0,1,1
+E021,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E021,Egypt,North Africa,0,0,0,2,2
+E021,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E021,Ghana,West Africa,0,0,0,1,1
+E021,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E021,Haiti,Latin America and Caribbean,0,0,0,1,1
+E021,Honduras,Latin America and Caribbean,0,0,0,1,1
+E021,Iraq,Middle East,0,0,0,1,1
+E021,Ivory Coast,West Africa,0,0,0,1,1
+E021,Kenya,East Africa,1,0,0,1,2
+E021,Lebanon,Middle East,0,0,0,1,1
+E021,Madagascar,Southern Africa,1,0,0,1,2
+E021,Mali,West Africa,0,0,0,1,1
+E021,Mongolia,Asia Pacific,0,0,0,1,1
+E021,Morocco,North Africa,0,0,0,1,1
+E021,Mozambique,Southern Africa,1,1,0,1,3
+E021,Palestine,Middle East,0,0,0,1,1
+E021,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E021,Sudan,East Africa,5,1,0,7,13
+E021,Syria,Middle East,0,0,0,3,3
+E021,Timor Leste,Asia Pacific,0,0,0,1,1
+E021,Togo,West Africa,0,0,0,1,1
+E021,Ukraine,Europe,0,0,0,1,1
+E021,Yemen,Middle East,0,0,0,1,1
+E021,Zimbabwe,Southern Africa,0,0,0,1,1
+E022,Chad,Central Africa,1,0,0,1,2
+E022,Haiti,Latin America and Caribbean,0,0,0,1,1
+E022,Lebanon,Middle East,0,0,0,1,1
+E022,Morocco,North Africa,0,0,0,1,1
+E022,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E022,Peru,Latin America and Caribbean,0,0,0,1,1
+E022,Sri Lanka,South Asia,0,0,0,1,1
+E022,Sudan,East Africa,5,3,0,7,15
+E022,Syria,Middle East,0,0,0,2,2
+E022,Timor Leste,Asia Pacific,0,0,0,1,1
+E022,Zimbabwe,Southern Africa,0,0,0,1,1
+E023,Afghanistan,South Asia,0,0,0,1,1
+E023,Cameroon,Central Africa,1,0,0,1,2
+E023,Chad,Central Africa,1,0,0,1,2
+E023,Colombia,Latin America and Caribbean,1,0,0,2,3
+E023,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E023,Ethiopia,East Africa,0,0,0,1,1
+E023,Iran,Middle East,0,0,0,1,1
+E023,Ivory Coast,West Africa,0,0,0,1,1
+E023,Lebanon,Middle East,0,0,0,1,1
+E023,Libya,North Africa,0,0,0,1,1
+E023,Mali,West Africa,1,1,0,1,3
+E023,Mauritania,West Africa,0,0,0,1,1
+E023,Mozambique,Southern Africa,1,0,0,0,1
+E023,Myanmar,Asia Pacific,1,1,0,3,5
+E023,Niger,West Africa,3,0,0,3,6
+E023,Nigeria,West Africa,1,0,0,2,3
+E023,Palestine,Middle East,0,0,0,1,1
+E023,Philippines,Asia Pacific,0,0,0,1,1
+E023,Rwanda,East Africa,0,0,0,1,1
+E023,South Sudan,East Africa,1,0,0,1,2
+E023,Sudan,East Africa,6,3,0,6,15
+E023,Syria,Middle East,0,0,0,4,4
+E023,Tanzania,East Africa,0,0,0,1,1
+E023,Uganda,East Africa,0,0,0,1,1
+E023,Ukraine,Europe,0,0,0,1,1
+E023,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E023,Yemen,Middle East,0,0,0,2,2
+E024,Afghanistan,South Asia,1,1,0,1,3
+E024,Bangladesh,South Asia,0,0,0,1,1
+E024,Cameroon,Central Africa,1,1,0,1,3
+E024,Chad,Central Africa,1,1,0,1,3
+E024,Colombia,Latin America and Caribbean,1,1,0,2,4
+E024,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E024,Egypt,North Africa,0,0,0,1,1
+E024,Iraq,Middle East,0,0,0,2,2
+E024,Ivory Coast,West Africa,0,0,0,1,1
+E024,Kenya,East Africa,0,0,0,1,1
+E024,Lebanon,Middle East,0,0,0,2,2
+E024,Libya,North Africa,0,0,0,2,2
+E024,Mali,West Africa,1,0,0,2,3
+E024,Mozambique,Southern Africa,1,1,0,1,3
+E024,Myanmar,Asia Pacific,1,0,0,1,2
+E024,Nepal,South Asia,0,0,0,1,1
+E024,Niger,West Africa,3,1,0,2,6
+E024,Nigeria,West Africa,1,1,0,2,4
+E024,Palestine,Middle East,0,0,0,1,1
+E024,Philippines,Asia Pacific,0,0,0,1,1
+E024,Somalia,East Africa,0,0,0,2,2
+E024,South Sudan,East Africa,1,1,0,1,3
+E024,Sri Lanka,South Asia,0,0,0,1,1
+E024,Sudan,East Africa,5,3,0,2,10
+E024,Syria,Middle East,1,0,0,5,6
+E024,Ukraine,Europe,0,0,0,1,1
+E024,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E024,Yemen,Middle East,0,0,0,1,1
+E024,Zimbabwe,Southern Africa,0,0,0,1,1
+E025,Afghanistan,South Asia,1,0,0,0,1
+E025,Cameroon,Central Africa,1,0,0,1,2
+E025,Chad,Central Africa,1,0,0,1,2
+E025,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E025,Haiti,Latin America and Caribbean,0,0,0,1,1
+E025,Iraq,Middle East,0,0,0,1,1
+E025,Ivory Coast,West Africa,0,0,0,1,1
+E025,Lebanon,Middle East,0,0,0,1,1
+E025,Mali,West Africa,0,0,0,1,1
+E025,Mauritania,West Africa,0,0,0,1,1
+E025,Myanmar,Asia Pacific,0,0,0,1,1
+E025,Niger,West Africa,3,1,0,3,7
+E025,Nigeria,West Africa,1,0,0,2,3
+E025,Palestine,Middle East,1,0,0,1,2
+E025,Philippines,Asia Pacific,0,0,0,1,1
+E025,Rwanda,East Africa,0,0,0,1,1
+E025,Somalia,East Africa,0,0,0,1,1
+E025,South Sudan,East Africa,1,0,0,1,2
+E025,Sudan,East Africa,6,4,1,5,16
+E025,Syria,Middle East,1,0,0,2,3
+E025,Uganda,East Africa,0,0,0,1,1
+E025,Ukraine,Europe,0,0,0,1,1
+E025,Yemen,Middle East,1,0,0,1,2
+E026,Afghanistan,South Asia,1,0,0,0,1
+E026,Algeria,North Africa,0,0,0,1,1
+E026,Benin,West Africa,0,0,0,1,1
+E026,Colombia,Latin America and Caribbean,0,0,0,1,1
+E026,Cuba,Latin America and Caribbean,0,0,0,1,1
+E026,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E026,Egypt,North Africa,0,0,0,2,2
+E026,Ethiopia,East Africa,0,0,0,1,1
+E026,Ghana,West Africa,0,0,0,1,1
+E026,Haiti,Latin America and Caribbean,0,0,0,1,1
+E026,Iran,Middle East,0,0,0,1,1
+E026,Iraq,Middle East,0,0,0,2,2
+E026,Ivory Coast,West Africa,0,0,0,2,2
+E026,Kenya,East Africa,0,0,0,1,1
+E026,Lebanon,Middle East,0,0,0,2,2
+E026,Libya,North Africa,0,0,0,3,3
+E026,Mali,West Africa,1,0,0,2,3
+E026,Mauritania,West Africa,0,0,0,1,1
+E026,Mozambique,Southern Africa,1,0,0,1,2
+E026,Myanmar,Asia Pacific,1,0,0,4,5
+E026,Niger,West Africa,2,0,0,2,4
+E026,Palestine,Middle East,1,1,0,3,5
+E026,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E026,Philippines,Asia Pacific,0,0,0,2,2
+E026,Rwanda,East Africa,0,0,0,1,1
+E026,Somalia,East Africa,0,0,0,3,3
+E026,South Sudan,East Africa,1,0,0,1,2
+E026,Sudan,East Africa,6,3,1,8,18
+E026,Syria,Middle East,0,0,0,3,3
+E026,Tanzania,East Africa,0,0,0,1,1
+E026,Togo,West Africa,0,0,0,1,1
+E026,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E026,Yemen,Middle East,0,0,0,1,1
+E027,Afghanistan,South Asia,0,0,0,1,1
+E027,Cuba,Latin America and Caribbean,0,0,0,1,1
+E027,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E027,Ethiopia,East Africa,1,0,0,1,2
+E027,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E027,Honduras,Latin America and Caribbean,0,0,0,1,1
+E027,Kenya,East Africa,1,0,0,1,2
+E027,Madagascar,Southern Africa,1,0,0,1,2
+E027,Mongolia,Asia Pacific,0,0,0,1,1
+E027,Morocco,North Africa,0,0,0,1,1
+E027,Mozambique,Southern Africa,1,0,0,1,2
+E027,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E027,Philippines,Asia Pacific,1,0,0,1,2
+E027,Sudan,East Africa,5,1,0,6,12
+E027,Syria,Middle East,0,0,0,1,1
+E027,Tanzania,East Africa,0,0,0,1,1
+E027,Ukraine,Europe,0,0,0,1,1
+E027,Yemen,Middle East,0,0,0,1,1
+E027,Zimbabwe,Southern Africa,0,0,0,1,1
+E028,Cuba,Latin America and Caribbean,0,0,0,1,1
+E028,Ethiopia,East Africa,0,0,0,1,1
+E028,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E028,Sudan,East Africa,2,0,0,6,8
+E028,Ukraine,Europe,0,0,0,1,1
+E028,Yemen,Middle East,0,0,0,1,1
+E029,Algeria,North Africa,0,0,0,1,1
+E029,Cameroon,Central Africa,1,0,0,2,3
+E029,Chad,Central Africa,1,0,0,1,2
+E029,Colombia,Latin America and Caribbean,1,0,0,4,5
+E029,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E029,Iran,Middle East,0,0,0,1,1
+E029,Lebanon,Middle East,0,0,0,3,3
+E029,Libya,North Africa,0,0,0,1,1
+E029,Mali,West Africa,0,0,0,1,1
+E029,Mozambique,Southern Africa,1,1,1,1,4
+E029,Myanmar,Asia Pacific,1,0,0,1,2
+E029,Nepal,South Asia,0,0,0,1,1
+E029,Niger,West Africa,2,0,0,2,4
+E029,Nigeria,West Africa,1,0,0,2,3
+E029,Palestine,Middle East,2,0,0,1,3
+E029,Philippines,Asia Pacific,0,0,0,1,1
+E029,Rwanda,East Africa,0,0,0,1,1
+E029,Somalia,East Africa,0,0,0,1,1
+E029,South Sudan,East Africa,1,0,0,1,2
+E029,Sudan,East Africa,6,4,0,9,19
+E029,Syria,Middle East,0,0,0,3,3
+E029,Uganda,East Africa,0,0,0,1,1
+E029,Yemen,Middle East,0,0,0,1,1
+E030,Benin,West Africa,0,0,0,1,1
+E030,Cameroon,Central Africa,1,0,0,1,2
+E030,Chad,Central Africa,2,0,0,2,4
+E030,Colombia,Latin America and Caribbean,1,0,0,2,3
+E030,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E030,Ghana,West Africa,0,0,0,1,1
+E030,Iran,Middle East,0,0,0,1,1
+E030,Ivory Coast,West Africa,0,0,0,1,1
+E030,Kenya,East Africa,0,0,0,1,1
+E030,Lebanon,Middle East,0,0,0,1,1
+E030,Libya,North Africa,0,0,0,1,1
+E030,Mali,West Africa,1,0,0,1,2
+E030,Mozambique,Southern Africa,1,0,0,2,3
+E030,Nepal,South Asia,0,0,0,1,1
+E030,Niger,West Africa,2,1,0,2,5
+E030,Nigeria,West Africa,1,0,0,2,3
+E030,Palestine,Middle East,1,0,0,1,2
+E030,Philippines,Asia Pacific,0,0,0,1,1
+E030,Rwanda,East Africa,0,0,0,1,1
+E030,Somalia,East Africa,0,0,0,2,2
+E030,Sudan,East Africa,4,3,2,4,13
+E030,Syria,Middle East,1,1,0,4,6
+E030,Togo,West Africa,0,0,0,1,1
+E030,Uganda,East Africa,0,0,0,1,1
+E031,Afghanistan,South Asia,0,0,0,1,1
+E031,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E031,Ethiopia,East Africa,1,0,0,0,1
+E031,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E031,Honduras,Latin America and Caribbean,0,0,0,1,1
+E031,Madagascar,Southern Africa,1,0,0,0,1
+E031,Morocco,North Africa,0,0,0,1,1
+E031,Mozambique,Southern Africa,1,0,0,1,2
+E031,Somalia,East Africa,0,0,0,1,1
+E032,Afghanistan,South Asia,0,0,0,1,1
+E032,Algeria,North Africa,0,0,0,1,1
+E032,Benin,West Africa,0,0,0,1,1
+E032,Cameroon,Central Africa,1,0,0,2,3
+E032,Chad,Central Africa,2,0,0,1,3
+E032,Colombia,Latin America and Caribbean,1,1,0,1,3
+E032,Democratic Republic of the Congo,Central Africa,0,0,0,5,5
+E032,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E032,Ethiopia,East Africa,0,0,0,1,1
+E032,Ghana,West Africa,0,0,0,1,1
+E032,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E032,Honduras,Latin America and Caribbean,0,0,0,1,1
+E032,Iran,Middle East,0,0,0,1,1
+E032,Iraq,Middle East,0,0,0,1,1
+E032,Ivory Coast,West Africa,0,0,0,1,1
+E032,Kenya,East Africa,1,1,1,2,5
+E032,Lebanon,Middle East,0,0,0,3,3
+E032,Libya,North Africa,0,0,0,1,1
+E032,Madagascar,Southern Africa,1,0,0,0,1
+E032,Mali,West Africa,0,0,0,2,2
+E032,Mongolia,Asia Pacific,0,0,0,1,1
+E032,Mozambique,Southern Africa,1,0,0,2,3
+E032,Nepal,South Asia,0,0,0,1,1
+E032,Niger,West Africa,2,0,0,3,5
+E032,Nigeria,West Africa,1,0,0,2,3
+E032,Palestine,Middle East,2,0,0,2,4
+E032,Philippines,Asia Pacific,1,0,0,3,4
+E032,Rwanda,East Africa,0,0,0,1,1
+E032,Somalia,East Africa,0,0,0,2,2
+E032,South Sudan,East Africa,1,0,0,1,2
+E032,Sudan,East Africa,3,1,0,3,7
+E032,Syria,Middle East,1,0,0,6,7
+E032,Timor Leste,Asia Pacific,0,0,0,1,1
+E032,Togo,West Africa,0,0,0,1,1
+E032,Tunisia,North Africa,0,0,0,1,1
+E032,Yemen,Middle East,1,0,0,2,3
+E032,Zimbabwe,Southern Africa,0,0,0,1,1
+E033,Afghanistan,South Asia,2,1,0,2,5
+E033,Bangladesh,South Asia,0,0,0,1,1
+E033,Cameroon,Central Africa,0,0,0,1,1
+E033,Chad,Central Africa,1,1,1,1,4
+E033,Colombia,Latin America and Caribbean,0,0,0,1,1
+E033,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E033,Ethiopia,East Africa,0,0,0,1,1
+E033,Haiti,Latin America and Caribbean,0,0,0,1,1
+E033,Iraq,Middle East,0,0,0,1,1
+E033,Kenya,East Africa,0,0,0,1,1
+E033,Libya,North Africa,0,0,0,1,1
+E033,Mali,West Africa,1,1,0,1,3
+E033,Mozambique,Southern Africa,1,0,0,1,2
+E033,Myanmar,Asia Pacific,0,0,0,1,1
+E033,Nepal,South Asia,0,0,0,1,1
+E033,Niger,West Africa,1,0,0,1,2
+E033,Rwanda,East Africa,0,0,0,1,1
+E033,Somalia,East Africa,0,0,0,2,2
+E033,South Sudan,East Africa,1,0,0,1,2
+E033,Sudan,East Africa,3,0,0,3,6
+E033,Syria,Middle East,0,0,0,2,2
+E033,Turkey,Middle East,0,0,0,1,1
+E033,Yemen,Middle East,0,0,0,2,2
+E034,Afghanistan,South Asia,1,0,0,2,3
+E034,Algeria,North Africa,0,0,0,1,1
+E034,Cameroon,Central Africa,1,1,0,1,3
+E034,Chad,Central Africa,1,1,0,1,3
+E034,Colombia,Latin America and Caribbean,0,0,0,2,2
+E034,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E034,Egypt,North Africa,0,0,0,2,2
+E034,Haiti,Latin America and Caribbean,0,0,0,1,1
+E034,Ivory Coast,West Africa,0,0,0,1,1
+E034,Lebanon,Middle East,0,0,0,2,2
+E034,Libya,North Africa,0,0,0,1,1
+E034,Mali,West Africa,0,0,0,1,1
+E034,Niger,West Africa,3,2,0,4,9
+E034,Nigeria,West Africa,1,1,0,2,4
+E034,Palestine,Middle East,1,1,0,2,4
+E034,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E034,Philippines,Asia Pacific,0,0,0,2,2
+E034,South Sudan,East Africa,1,1,0,1,3
+E034,Sudan,East Africa,4,2,1,5,12
+E034,Syria,Middle East,0,0,0,3,3
+E034,Tanzania,East Africa,0,0,0,1,1
+E034,Turkey,Middle East,0,0,0,1,1
+E034,Uganda,East Africa,0,0,0,1,1
+E034,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E034,Yemen,Middle East,0,0,0,2,2
+E035,Afghanistan,South Asia,2,0,0,2,4
+E035,Algeria,North Africa,0,0,0,1,1
+E035,Bangladesh,South Asia,0,0,0,1,1
+E035,Cameroon,Central Africa,1,1,1,2,5
+E035,Chad,Central Africa,2,2,1,1,6
+E035,Colombia,Latin America and Caribbean,1,0,0,1,2
+E035,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E035,Egypt,North Africa,0,0,0,1,1
+E035,Ethiopia,East Africa,0,0,0,1,1
+E035,Iraq,Middle East,0,0,0,1,1
+E035,Ivory Coast,West Africa,0,0,0,1,1
+E035,Kenya,East Africa,0,0,0,1,1
+E035,Lebanon,Middle East,0,0,0,4,4
+E035,Libya,North Africa,0,0,0,3,3
+E035,Mali,West Africa,0,0,0,2,2
+E035,Mauritania,West Africa,0,0,0,1,1
+E035,Morocco,North Africa,0,0,0,1,1
+E035,Myanmar,Asia Pacific,0,0,0,1,1
+E035,Niger,West Africa,3,1,1,3,8
+E035,Nigeria,West Africa,1,1,1,1,4
+E035,Panama,Latin America and Caribbean,0,0,0,1,1
+E035,Peru,Latin America and Caribbean,0,0,0,1,1
+E035,Philippines,Asia Pacific,0,0,0,1,1
+E035,Rwanda,East Africa,0,0,0,1,1
+E035,Somalia,East Africa,0,0,0,2,2
+E035,Sri Lanka,South Asia,0,0,0,1,1
+E035,Sudan,East Africa,5,1,0,7,13
+E035,Syria,Middle East,0,0,0,2,2
+E035,Tanzania,East Africa,0,0,0,1,1
+E035,Turkey,Middle East,0,0,0,1,1
+E035,Yemen,Middle East,1,1,0,3,5
+E035,Zimbabwe,Southern Africa,0,0,0,2,2
+E036,Afghanistan,South Asia,1,1,0,1,3
+E036,Cameroon,Central Africa,1,0,0,2,3
+E036,Chad,Central Africa,1,0,0,1,2
+E036,Colombia,Latin America and Caribbean,1,0,0,3,4
+E036,Ethiopia,East Africa,0,0,0,1,1
+E036,Haiti,Latin America and Caribbean,0,0,0,2,2
+E036,Iran,Middle East,0,0,0,1,1
+E036,Iraq,Middle East,0,0,0,1,1
+E036,Kenya,East Africa,0,0,0,1,1
+E036,Libya,North Africa,0,0,0,2,2
+E036,Mali,West Africa,1,0,0,1,2
+E036,Mauritania,West Africa,0,0,0,1,1
+E036,Mexico,Latin America and Caribbean,0,0,0,1,1
+E036,Mozambique,Southern Africa,1,0,0,1,2
+E036,Myanmar,Asia Pacific,1,0,0,4,5
+E036,Niger,West Africa,2,1,0,2,5
+E036,Nigeria,West Africa,1,0,0,1,2
+E036,Palestine,Middle East,2,0,0,1,3
+E036,Philippines,Asia Pacific,0,0,0,1,1
+E036,Sudan,East Africa,4,2,0,5,11
+E036,Syria,Middle East,1,0,0,5,6
+E036,Tanzania,East Africa,0,0,0,1,1
+E036,Turkey,Middle East,0,0,0,1,1
+E036,Uganda,East Africa,0,0,0,1,1
+E036,Ukraine,Europe,0,0,0,2,2
+E036,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E036,Yemen,Middle East,1,0,0,2,3
+E037,Afghanistan,South Asia,2,0,0,2,4
+E037,Chad,Central Africa,1,0,0,0,1
+E037,Syria,Middle East,0,0,0,1,1
+E037,Ukraine,Europe,0,0,0,1,1
+E037,Yemen,Middle East,1,0,0,0,1
+E038,Afghanistan,South Asia,1,1,1,3,6
+E038,Cameroon,Central Africa,1,0,0,1,2
+E038,Chad,Central Africa,2,1,0,1,4
+E038,Lebanon,Middle East,0,0,0,1,1
+E038,Mexico,Latin America and Caribbean,0,0,0,1,1
+E038,Niger,West Africa,1,0,0,1,2
+E038,Nigeria,West Africa,1,0,0,1,2
+E038,Sudan,East Africa,1,1,0,1,3
+E038,Syria,Middle East,0,0,0,1,1
+E038,Ukraine,Europe,0,0,0,1,1
+E038,Yemen,Middle East,1,1,0,1,3
+E039,Chad,Central Africa,1,0,0,1,2
+E039,Lebanon,Middle East,0,0,0,1,1
+E039,Yemen,Middle East,0,0,0,1,1
+E040,Afghanistan,South Asia,1,1,0,0,2
+E040,Cameroon,Central Africa,1,1,0,1,3
+E040,Chad,Central Africa,1,1,0,1,3
+E040,Ethiopia,East Africa,0,0,0,1,1
+E040,Lebanon,Middle East,0,0,0,1,1
+E040,Mexico,Latin America and Caribbean,0,0,0,1,1
+E040,Niger,West Africa,1,1,0,1,3
+E040,Nigeria,West Africa,1,1,0,1,3
+E040,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E040,Sudan,East Africa,2,0,0,0,2
+E040,Tanzania,East Africa,0,0,0,1,1
+E040,Ukraine,Europe,0,0,0,1,1
+E040,Yemen,Middle East,1,1,0,0,2
+E041,Afghanistan,South Asia,0,0,0,1,1
+E041,Benin,West Africa,0,0,0,1,1
+E041,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E041,Egypt,North Africa,0,0,0,2,2
+E041,Ghana,West Africa,0,0,0,1,1
+E041,Iran,Middle East,0,0,0,1,1
+E041,Ivory Coast,West Africa,0,0,0,2,2
+E041,Kenya,East Africa,0,0,0,1,1
+E041,Lebanon,Middle East,0,0,0,2,2
+E041,Libya,North Africa,0,0,0,2,2
+E041,Mauritania,West Africa,0,0,0,1,1
+E041,Myanmar,Asia Pacific,0,0,0,1,1
+E041,Nepal,South Asia,0,0,0,1,1
+E041,Palestine,Middle East,0,0,0,1,1
+E041,Philippines,Asia Pacific,0,0,0,2,2
+E041,Rwanda,East Africa,0,0,0,1,1
+E041,Somalia,East Africa,0,0,0,2,2
+E041,Sudan,East Africa,0,0,0,1,1
+E041,Syria,Middle East,0,0,0,2,2
+E041,Tanzania,East Africa,0,0,0,2,2
+E041,Togo,West Africa,0,0,0,1,1
+E041,Uganda,East Africa,0,0,0,1,1
+E041,Yemen,Middle East,0,0,0,1,1
+E042,Afghanistan,South Asia,1,0,0,1,2
+E042,Algeria,North Africa,0,0,0,1,1
+E042,Cameroon,Central Africa,1,0,0,1,2
+E042,Chad,Central Africa,1,0,0,0,1
+E042,Colombia,Latin America and Caribbean,0,0,0,1,1
+E042,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E042,Haiti,Latin America and Caribbean,0,0,0,1,1
+E042,Iraq,Middle East,0,0,0,2,2
+E042,Ivory Coast,West Africa,0,0,0,1,1
+E042,Kenya,East Africa,0,0,0,1,1
+E042,Lebanon,Middle East,0,0,0,3,3
+E042,Libya,North Africa,0,0,0,2,2
+E042,Mali,West Africa,1,0,0,1,2
+E042,Mozambique,Southern Africa,1,0,0,1,2
+E042,Myanmar,Asia Pacific,1,0,0,2,3
+E042,Niger,West Africa,3,2,0,2,7
+E042,Nigeria,West Africa,1,0,0,1,2
+E042,Palestine,Middle East,1,1,1,0,3
+E042,Philippines,Asia Pacific,0,0,0,2,2
+E042,Rwanda,East Africa,0,0,0,1,1
+E042,Somalia,East Africa,0,0,0,1,1
+E042,South Sudan,East Africa,1,0,0,1,2
+E042,Sudan,East Africa,5,2,0,4,11
+E042,Syria,Middle East,1,0,0,4,5
+E042,Turkey,Middle East,0,0,0,1,1
+E042,Uganda,East Africa,0,0,0,1,1
+E042,Ukraine,Europe,0,0,0,1,1
+E042,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E042,Yemen,Middle East,1,0,0,2,3
+E043,Cameroon,Central Africa,1,0,0,0,1
+E043,Chad,Central Africa,2,0,0,1,3
+E043,Colombia,Latin America and Caribbean,1,0,0,3,4
+E043,Cuba,Latin America and Caribbean,0,0,0,1,1
+E043,Democratic Republic of the Congo,Central Africa,0,0,0,4,4
+E043,Haiti,Latin America and Caribbean,0,0,0,1,1
+E043,Iran,Middle East,0,0,0,1,1
+E043,Iraq,Middle East,0,0,0,1,1
+E043,Ivory Coast,West Africa,0,0,0,1,1
+E043,Kenya,East Africa,0,0,0,1,1
+E043,Lebanon,Middle East,0,0,0,1,1
+E043,Libya,North Africa,0,0,0,2,2
+E043,Mali,West Africa,0,0,0,1,1
+E043,Mauritania,West Africa,0,0,0,1,1
+E043,Mexico,Latin America and Caribbean,0,0,0,1,1
+E043,Mozambique,Southern Africa,1,0,0,1,2
+E043,Myanmar,Asia Pacific,0,0,0,1,1
+E043,Nepal,South Asia,0,0,0,1,1
+E043,Niger,West Africa,2,0,0,2,4
+E043,Nigeria,West Africa,1,0,0,1,2
+E043,Palestine,Middle East,1,0,0,1,2
+E043,Rwanda,East Africa,0,0,0,1,1
+E043,Somalia,East Africa,0,0,0,1,1
+E043,South Sudan,East Africa,1,0,0,1,2
+E043,Sudan,East Africa,3,2,1,5,11
+E043,Syria,Middle East,0,0,0,1,1
+E043,Uganda,East Africa,0,0,0,1,1
+E043,Yemen,Middle East,0,0,0,2,2
+E044,Afghanistan,South Asia,2,0,0,4,6
+E044,Algeria,North Africa,0,0,0,1,1
+E044,Bangladesh,South Asia,0,0,0,2,2
+E044,Benin,West Africa,0,0,0,1,1
+E044,Cameroon,Central Africa,1,1,0,1,3
+E044,Chad,Central Africa,2,2,0,1,5
+E044,Colombia,Latin America and Caribbean,1,0,0,4,5
+E044,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E044,Egypt,North Africa,0,0,0,1,1
+E044,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E044,Ethiopia,East Africa,1,0,0,1,2
+E044,Ghana,West Africa,0,0,0,1,1
+E044,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E044,Haiti,Latin America and Caribbean,0,0,0,2,2
+E044,Honduras,Latin America and Caribbean,0,0,0,1,1
+E044,Iran,Middle East,0,0,0,1,1
+E044,Iraq,Middle East,0,0,0,1,1
+E044,Ivory Coast,West Africa,0,0,0,1,1
+E044,Kenya,East Africa,1,0,0,0,1
+E044,Libya,North Africa,0,0,0,1,1
+E044,Mali,West Africa,1,0,0,1,2
+E044,Morocco,North Africa,0,0,0,1,1
+E044,Mozambique,Southern Africa,1,0,0,2,3
+E044,Myanmar,Asia Pacific,0,0,0,2,2
+E044,Nepal,South Asia,0,0,0,1,1
+E044,Niger,West Africa,3,3,1,2,9
+E044,Nigeria,West Africa,1,1,0,1,3
+E044,Palestine,Middle East,1,0,0,3,4
+E044,Philippines,Asia Pacific,1,0,0,3,4
+E044,Somalia,East Africa,0,0,0,3,3
+E044,South Sudan,East Africa,1,0,0,0,1
+E044,Sudan,East Africa,2,0,0,3,5
+E044,Syria,Middle East,0,0,0,1,1
+E044,Tanzania,East Africa,0,0,0,2,2
+E044,Togo,West Africa,0,0,0,1,1
+E044,Turkey,Middle East,0,0,0,1,1
+E044,Ukraine,Europe,0,0,0,1,1
+E044,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E044,Yemen,Middle East,1,0,0,3,4
+E044,Zimbabwe,Southern Africa,0,0,0,1,1
+E045,Afghanistan,South Asia,1,1,0,1,3
+E045,Chad,Central Africa,1,1,0,1,3
+E045,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E045,Ethiopia,East Africa,0,0,0,1,1
+E045,Haiti,Latin America and Caribbean,0,0,0,1,1
+E045,Lebanon,Middle East,0,0,0,1,1
+E045,Libya,North Africa,0,0,0,2,2
+E045,Mali,West Africa,1,0,0,0,1
+E045,Morocco,North Africa,0,0,0,1,1
+E045,Myanmar,Asia Pacific,1,0,0,2,3
+E045,Nepal,South Asia,0,0,0,1,1
+E045,Niger,West Africa,1,0,0,2,3
+E045,Nigeria,West Africa,0,0,0,1,1
+E045,Palestine,Middle East,1,1,0,2,4
+E045,Peru,Latin America and Caribbean,0,0,0,1,1
+E045,Philippines,Asia Pacific,0,0,0,2,2
+E045,Sudan,East Africa,1,1,0,2,4
+E045,Syria,Middle East,0,0,0,3,3
+E045,Ukraine,Europe,0,0,0,2,2
+E045,Yemen,Middle East,1,0,0,2,3
+E046,Afghanistan,South Asia,2,1,1,2,6
+E046,Bangladesh,South Asia,0,0,0,1,1
+E046,Benin,West Africa,0,0,0,1,1
+E046,Cameroon,Central Africa,1,0,0,2,3
+E046,Chad,Central Africa,2,0,0,2,4
+E046,Colombia,Latin America and Caribbean,1,0,0,3,4
+E046,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E046,Egypt,North Africa,0,0,0,1,1
+E046,Ethiopia,East Africa,0,0,0,1,1
+E046,Ghana,West Africa,0,0,0,1,1
+E046,Haiti,Latin America and Caribbean,0,0,0,1,1
+E046,Iraq,Middle East,0,0,0,1,1
+E046,Ivory Coast,West Africa,0,0,0,1,1
+E046,Kenya,East Africa,0,0,0,1,1
+E046,Lebanon,Middle East,0,0,0,2,2
+E046,Libya,North Africa,0,0,0,3,3
+E046,Mali,West Africa,1,0,0,1,2
+E046,Mexico,Latin America and Caribbean,0,0,0,1,1
+E046,Myanmar,Asia Pacific,0,0,0,1,1
+E046,Niger,West Africa,3,2,2,3,10
+E046,Nigeria,West Africa,1,0,0,2,3
+E046,Palestine,Middle East,1,0,0,1,2
+E046,Philippines,Asia Pacific,0,0,0,2,2
+E046,Somalia,East Africa,0,0,0,1,1
+E046,Sudan,East Africa,4,1,0,3,8
+E046,Syria,Middle East,1,0,0,7,8
+E046,Tanzania,East Africa,0,0,0,1,1
+E046,Togo,West Africa,0,0,0,1,1
+E046,Turkey,Middle East,0,0,0,1,1
+E046,Ukraine,Europe,0,0,0,1,1
+E046,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E046,Yemen,Middle East,1,0,0,3,4
+E047,Afghanistan,South Asia,2,0,0,3,5
+E047,Algeria,North Africa,0,0,0,1,1
+E047,Benin,West Africa,0,0,0,1,1
+E047,Colombia,Latin America and Caribbean,1,0,0,2,3
+E047,Democratic Republic of the Congo,Central Africa,0,0,0,4,4
+E047,Egypt,North Africa,0,0,0,1,1
+E047,Ghana,West Africa,0,0,0,1,1
+E047,Iran,Middle East,0,0,0,1,1
+E047,Iraq,Middle East,0,0,0,1,1
+E047,Ivory Coast,West Africa,0,0,0,2,2
+E047,Kenya,East Africa,0,0,0,1,1
+E047,Libya,North Africa,0,0,0,2,2
+E047,Mali,West Africa,1,1,0,2,4
+E047,Mauritania,West Africa,0,0,0,1,1
+E047,Mozambique,Southern Africa,1,0,0,0,1
+E047,Myanmar,Asia Pacific,0,0,0,2,2
+E047,Nepal,South Asia,0,0,0,1,1
+E047,Niger,West Africa,1,1,1,2,5
+E047,Nigeria,West Africa,0,0,0,1,1
+E047,Palestine,Middle East,0,0,0,1,1
+E047,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E047,Philippines,Asia Pacific,0,0,0,2,2
+E047,Rwanda,East Africa,0,0,0,1,1
+E047,Somalia,East Africa,0,0,0,3,3
+E047,South Sudan,East Africa,1,0,0,1,2
+E047,Sudan,East Africa,3,1,1,3,8
+E047,Syria,Middle East,0,0,0,4,4
+E047,Togo,West Africa,0,0,0,1,1
+E047,Turkey,Middle East,0,0,0,1,1
+E047,Uganda,East Africa,0,0,0,1,1
+E047,Ukraine,Europe,0,0,0,1,1
+E047,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E048,Afghanistan,South Asia,1,1,1,1,4
+E048,Bangladesh,South Asia,0,0,0,1,1
+E048,Benin,West Africa,0,0,0,1,1
+E048,Central African Republic,Central Africa,0,0,0,1,1
+E048,Colombia,Latin America and Caribbean,1,0,0,3,4
+E048,Cuba,Latin America and Caribbean,0,0,0,1,1
+E048,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E048,Egypt,North Africa,0,0,0,2,2
+E048,El Salvador,Latin America and Caribbean,0,0,0,1,1
+E048,Ethiopia,East Africa,0,0,0,1,1
+E048,Ghana,West Africa,0,0,0,1,1
+E048,Guatemala,Latin America and Caribbean,0,0,0,1,1
+E048,Haiti,Latin America and Caribbean,0,0,0,3,3
+E048,Honduras,Latin America and Caribbean,0,0,0,1,1
+E048,Iran,Middle East,0,0,0,2,2
+E048,Ivory Coast,West Africa,0,0,0,2,2
+E048,Lebanon,Middle East,0,0,0,3,3
+E048,Libya,North Africa,0,0,0,2,2
+E048,Madagascar,Southern Africa,1,1,0,1,3
+E048,Mali,West Africa,1,1,0,2,4
+E048,Morocco,North Africa,0,0,0,1,1
+E048,Mozambique,Southern Africa,1,0,0,1,2
+E048,Myanmar,Asia Pacific,1,1,1,4,7
+E048,Niger,West Africa,1,0,0,1,2
+E048,Palestine,Middle East,1,1,0,1,3
+E048,Philippines,Asia Pacific,0,0,0,2,2
+E048,Rwanda,East Africa,0,0,0,1,1
+E048,Somalia,East Africa,0,0,0,1,1
+E048,South Sudan,East Africa,1,1,0,1,3
+E048,Sudan,East Africa,5,0,0,5,10
+E048,Syria,Middle East,1,0,0,5,6
+E048,Tanzania,East Africa,0,0,0,2,2
+E048,Togo,West Africa,0,0,0,1,1
+E048,Turkey,Middle East,0,0,0,1,1
+E048,Uganda,East Africa,0,0,0,1,1
+E048,Yemen,Middle East,1,0,0,1,2
+E048,Zimbabwe,Southern Africa,0,0,0,1,1
+E049,Algeria,North Africa,0,0,0,1,1
+E049,Benin,West Africa,0,0,0,1,1
+E049,Cameroon,Central Africa,1,0,0,1,2
+E049,Chad,Central Africa,1,0,0,0,1
+E049,Colombia,Latin America and Caribbean,0,0,0,1,1
+E049,Democratic Republic of the Congo,Central Africa,0,0,0,4,4
+E049,Ethiopia,East Africa,0,0,0,1,1
+E049,Ghana,West Africa,0,0,0,1,1
+E049,Indonesia,Asia Pacific,1,0,0,1,2
+E049,Ivory Coast,West Africa,0,0,0,1,1
+E049,Kenya,East Africa,0,0,0,1,1
+E049,Lebanon,Middle East,0,0,0,4,4
+E049,Mali,West Africa,1,0,0,1,2
+E049,Myanmar,Asia Pacific,1,0,0,1,2
+E049,Nepal,South Asia,0,0,0,1,1
+E049,Niger,West Africa,3,1,0,2,6
+E049,Nigeria,West Africa,1,0,0,1,2
+E049,Palestine,Middle East,2,0,0,2,4
+E049,Philippines,Asia Pacific,0,0,0,1,1
+E049,Rwanda,East Africa,0,0,0,1,1
+E049,Somalia,East Africa,0,0,0,1,1
+E049,South Sudan,East Africa,1,1,0,1,3
+E049,Sudan,East Africa,2,1,0,3,6
+E049,Syria,Middle East,1,0,0,3,4
+E049,Togo,West Africa,0,0,0,1,1
+E049,Yemen,Middle East,1,1,0,2,4
+E050,Colombia,Latin America and Caribbean,0,0,0,1,1
+E050,Haiti,Latin America and Caribbean,0,0,0,1,1
+E050,Indonesia,Asia Pacific,1,0,0,1,2
+E050,Tanzania,East Africa,0,0,0,1,1
+E050,Uganda,East Africa,0,0,0,1,1
+E050,Yemen,Middle East,0,0,0,1,1
+E051,Afghanistan,South Asia,1,0,0,2,3
+E051,Cameroon,Central Africa,0,0,0,1,1
+E051,Colombia,Latin America and Caribbean,0,0,0,2,2
+E051,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E051,Haiti,Latin America and Caribbean,0,0,0,2,2
+E051,Iraq,Middle East,0,0,0,1,1
+E051,Ivory Coast,West Africa,0,0,0,1,1
+E051,Kenya,East Africa,0,0,0,1,1
+E051,Lebanon,Middle East,0,0,0,2,2
+E051,Libya,North Africa,0,0,0,1,1
+E051,Mali,West Africa,1,1,0,1,3
+E051,Mauritania,West Africa,0,0,0,1,1
+E051,Mongolia,Asia Pacific,0,0,0,1,1
+E051,Mozambique,Southern Africa,2,1,1,3,7
+E051,Myanmar,Asia Pacific,0,0,0,3,3
+E051,Niger,West Africa,1,0,0,2,3
+E051,Nigeria,West Africa,0,0,0,1,1
+E051,Palestine,Middle East,0,0,0,1,1
+E051,Philippines,Asia Pacific,0,0,0,1,1
+E051,Somalia,East Africa,0,0,0,2,2
+E051,Sudan,East Africa,1,1,1,2,5
+E051,Syria,Middle East,1,0,0,3,4
+E051,Tanzania,East Africa,0,0,0,1,1
+E051,Turkey,Middle East,0,0,0,1,1
+E051,Yemen,Middle East,1,1,1,1,4
+E052,Bangladesh,South Asia,0,0,0,2,2
+E052,Burundi,East Africa,0,0,0,1,1
+E052,Cameroon,Central Africa,1,0,0,1,2
+E052,Chad,Central Africa,1,0,0,0,1
+E052,Colombia,Latin America and Caribbean,0,0,0,1,1
+E052,Cuba,Latin America and Caribbean,0,0,0,1,1
+E052,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E052,Egypt,North Africa,0,0,0,1,1
+E052,Ethiopia,East Africa,0,0,0,1,1
+E052,Mauritania,West Africa,0,0,0,1,1
+E052,Myanmar,Asia Pacific,1,1,1,1,4
+E052,Niger,West Africa,1,0,0,0,1
+E052,Nigeria,West Africa,1,0,0,0,1
+E052,Sri Lanka,South Asia,0,0,0,1,1
+E052,Sudan,East Africa,2,0,0,5,7
+E052,Syria,Middle East,0,0,0,1,1
+E052,Ukraine,Europe,0,0,0,1,1
+E052,Yemen,Middle East,1,0,0,2,3
+E052,Zimbabwe,Southern Africa,0,0,0,1,1
+E053,Cameroon,Central Africa,1,1,0,0,2
+E053,Chad,Central Africa,2,1,0,1,4
+E053,Colombia,Latin America and Caribbean,1,0,0,3,4
+E053,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E053,Ethiopia,East Africa,0,0,0,1,1
+E053,Iran,Middle East,0,0,0,1,1
+E053,Kenya,East Africa,0,0,0,1,1
+E053,Lebanon,Middle East,0,0,0,1,1
+E053,Libya,North Africa,0,0,0,1,1
+E053,Mali,West Africa,1,0,0,2,3
+E053,Mozambique,Southern Africa,1,1,0,1,3
+E053,Myanmar,Asia Pacific,1,1,0,1,3
+E053,Nepal,South Asia,0,0,0,1,1
+E053,Niger,West Africa,2,1,0,1,4
+E053,Nigeria,West Africa,1,1,0,0,2
+E053,Palestine,Middle East,2,1,1,2,6
+E053,Rwanda,East Africa,0,0,0,1,1
+E053,South Sudan,East Africa,1,0,0,0,1
+E053,Sudan,East Africa,1,1,0,1,3
+E053,Syria,Middle East,0,0,0,3,3
+E053,Tunisia,North Africa,0,0,0,1,1
+E053,Uganda,East Africa,0,0,0,1,1
+E053,Yemen,Middle East,1,0,0,0,1
+E054,Algeria,North Africa,0,0,0,1,1
+E054,Benin,West Africa,0,0,0,1,1
+E054,Cameroon,Central Africa,1,1,1,2,5
+E054,Chad,Central Africa,1,1,1,1,4
+E054,Democratic Republic of the Congo,Central Africa,0,0,0,4,4
+E054,Ghana,West Africa,0,0,0,1,1
+E054,Iran,Middle East,0,0,0,1,1
+E054,Ivory Coast,West Africa,0,0,0,1,1
+E054,Lebanon,Middle East,0,0,0,2,2
+E054,Libya,North Africa,0,0,0,1,1
+E054,Mali,West Africa,0,0,0,1,1
+E054,Mozambique,Southern Africa,1,0,0,1,2
+E054,Myanmar,Asia Pacific,1,0,0,1,2
+E054,Nepal,South Asia,0,0,0,1,1
+E054,Niger,West Africa,3,1,1,3,8
+E054,Nigeria,West Africa,1,1,1,2,5
+E054,Palestine,Middle East,1,1,1,0,3
+E054,Philippines,Asia Pacific,0,0,0,2,2
+E054,Rwanda,East Africa,0,0,0,1,1
+E054,Somalia,East Africa,0,0,0,1,1
+E054,South Sudan,East Africa,1,1,0,0,2
+E054,Sudan,East Africa,2,0,0,3,5
+E054,Syria,Middle East,1,0,0,3,4
+E054,Togo,West Africa,0,0,0,1,1
+E054,Yemen,Middle East,1,0,0,1,2
+E055,Afghanistan,South Asia,2,1,0,2,5
+E055,Bangladesh,South Asia,0,0,0,1,1
+E055,Benin,West Africa,0,0,0,1,1
+E055,Cameroon,Central Africa,0,0,0,1,1
+E055,Chad,Central Africa,1,0,0,1,2
+E055,Colombia,Latin America and Caribbean,1,0,0,2,3
+E055,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E055,Egypt,North Africa,0,0,0,2,2
+E055,Ghana,West Africa,0,0,0,1,1
+E055,Iran,Middle East,0,0,0,1,1
+E055,Iraq,Middle East,0,0,0,2,2
+E055,Ivory Coast,West Africa,0,0,0,2,2
+E055,Lebanon,Middle East,0,0,0,1,1
+E055,Libya,North Africa,0,0,0,1,1
+E055,Mauritania,West Africa,0,0,0,1,1
+E055,Myanmar,Asia Pacific,1,0,0,3,4
+E055,Nepal,South Asia,0,0,0,1,1
+E055,Palestine,Middle East,1,0,0,1,2
+E055,Philippines,Asia Pacific,0,0,0,1,1
+E055,Rwanda,East Africa,0,0,0,1,1
+E055,Somalia,East Africa,0,0,0,3,3
+E055,South Sudan,East Africa,1,0,0,1,2
+E055,Sudan,East Africa,3,1,0,5,9
+E055,Syria,Middle East,0,0,0,5,5
+E055,Togo,West Africa,0,0,0,1,1
+E055,Turkey,Middle East,0,0,0,1,1
+E055,Ukraine,Europe,0,0,0,1,1
+E055,Yemen,Middle East,0,0,0,2,2
+E056,Afghanistan,South Asia,0,0,0,1,1
+E056,Bangladesh,South Asia,0,0,0,1,1
+E056,Cameroon,Central Africa,1,0,0,1,2
+E056,Chad,Central Africa,1,0,0,1,2
+E056,Colombia,Latin America and Caribbean,0,0,0,2,2
+E056,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E056,Egypt,North Africa,0,0,0,1,1
+E056,Haiti,Latin America and Caribbean,0,0,0,1,1
+E056,Ivory Coast,West Africa,0,0,0,1,1
+E056,Lebanon,Middle East,0,0,0,1,1
+E056,Libya,North Africa,0,0,0,1,1
+E056,Mali,West Africa,0,0,0,1,1
+E056,Mauritania,West Africa,0,0,0,1,1
+E056,Mozambique,Southern Africa,1,1,0,1,3
+E056,Myanmar,Asia Pacific,1,0,0,1,2
+E056,Nepal,South Asia,0,0,0,1,1
+E056,Niger,West Africa,3,1,0,3,7
+E056,Nigeria,West Africa,1,0,0,2,3
+E056,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E056,Philippines,Asia Pacific,0,0,0,2,2
+E056,Rwanda,East Africa,0,0,0,1,1
+E056,Somalia,East Africa,0,0,0,2,2
+E056,South Sudan,East Africa,1,0,0,1,2
+E056,Sudan,East Africa,4,1,0,6,11
+E056,Syria,Middle East,0,0,0,2,2
+E056,Turkey,Middle East,0,0,0,1,1
+E056,Uganda,East Africa,0,0,0,1,1
+E056,Yemen,Middle East,0,0,0,1,1
+E056,Zimbabwe,Southern Africa,0,0,0,1,1
+E057,Afghanistan,South Asia,1,0,0,0,1
+E057,Cameroon,Central Africa,1,1,0,1,3
+E057,Chad,Central Africa,2,1,0,1,4
+E057,Lebanon,Middle East,0,0,0,1,1
+E057,Niger,West Africa,1,1,0,1,3
+E057,Nigeria,West Africa,1,1,0,1,3
+E057,Sudan,East Africa,1,0,0,1,2
+E057,Syria,Middle East,0,0,0,1,1
+E058,Afghanistan,South Asia,1,0,0,0,1
+E058,Cameroon,Central Africa,1,1,1,1,4
+E058,Chad,Central Africa,2,1,1,2,6
+E058,Niger,West Africa,1,1,1,1,4
+E058,Nigeria,West Africa,1,1,1,1,4
+E058,Syria,Middle East,0,0,0,1,1
+E059,Afghanistan,South Asia,1,1,1,2,5
+E059,Bangladesh,South Asia,0,0,0,1,1
+E059,Chad,Central Africa,1,0,0,0,1
+E059,Colombia,Latin America and Caribbean,0,0,0,1,1
+E059,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E059,Egypt,North Africa,0,0,0,1,1
+E059,Iran,Middle East,0,0,0,1,1
+E059,Lebanon,Middle East,0,0,0,3,3
+E059,Libya,North Africa,0,0,0,1,1
+E059,Mali,West Africa,1,0,0,2,3
+E059,Mozambique,Southern Africa,1,0,0,0,1
+E059,Myanmar,Asia Pacific,0,0,0,1,1
+E059,Niger,West Africa,1,1,0,2,4
+E059,Nigeria,West Africa,0,0,0,1,1
+E059,Somalia,East Africa,0,0,0,2,2
+E059,Sudan,East Africa,2,1,0,3,6
+E059,Syria,Middle East,0,0,0,1,1
+E059,Turkey,Middle East,0,0,0,1,1
+E059,Ukraine,Europe,0,0,0,1,1
+E059,Yemen,Middle East,1,0,0,2,3
+E060,Afghanistan,South Asia,1,0,0,0,1
+E060,Algeria,North Africa,0,0,0,1,1
+E060,Bangladesh,South Asia,0,0,0,1,1
+E060,Benin,West Africa,0,0,0,1,1
+E060,Chad,Central Africa,1,0,0,1,2
+E060,Colombia,Latin America and Caribbean,0,0,0,2,2
+E060,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E060,Ghana,West Africa,0,0,0,1,1
+E060,Haiti,Latin America and Caribbean,0,0,0,1,1
+E060,Iran,Middle East,0,0,0,1,1
+E060,Ivory Coast,West Africa,0,0,0,2,2
+E060,Kenya,East Africa,0,0,0,1,1
+E060,Lebanon,Middle East,0,0,0,3,3
+E060,Libya,North Africa,0,0,0,1,1
+E060,Mali,West Africa,1,1,0,0,2
+E060,Mauritania,West Africa,0,0,0,1,1
+E060,Myanmar,Asia Pacific,0,0,0,1,1
+E060,Nepal,South Asia,0,0,0,1,1
+E060,Niger,West Africa,2,1,0,2,5
+E060,Nigeria,West Africa,0,0,0,1,1
+E060,Palestine,Middle East,1,0,0,1,2
+E060,Philippines,Asia Pacific,0,0,0,1,1
+E060,Somalia,East Africa,0,0,0,2,2
+E060,Sudan,East Africa,3,1,1,4,9
+E060,Syria,Middle East,0,0,0,3,3
+E060,Tanzania,East Africa,0,0,0,1,1
+E060,Togo,West Africa,0,0,0,1,1
+E060,Yemen,Middle East,0,0,0,3,3
+E061,Algeria,North Africa,0,0,0,1,1
+E061,Bangladesh,South Asia,0,0,0,1,1
+E061,Benin,West Africa,0,0,0,1,1
+E061,Cameroon,Central Africa,0,0,0,1,1
+E061,Chad,Central Africa,1,1,0,1,3
+E061,Colombia,Latin America and Caribbean,1,0,0,2,3
+E061,Democratic Republic of the Congo,Central Africa,0,0,0,4,4
+E061,Ethiopia,East Africa,0,0,0,1,1
+E061,Ghana,West Africa,0,0,0,1,1
+E061,Iran,Middle East,0,0,0,1,1
+E061,Ivory Coast,West Africa,0,0,0,1,1
+E061,Lebanon,Middle East,0,0,0,1,1
+E061,Mali,West Africa,0,0,0,2,2
+E061,Mongolia,Asia Pacific,0,0,0,1,1
+E061,Mozambique,Southern Africa,2,2,0,2,6
+E061,Nepal,South Asia,0,0,0,1,1
+E061,Niger,West Africa,2,1,0,1,4
+E061,Palestine,Middle East,1,0,0,1,2
+E061,Philippines,Asia Pacific,0,0,0,2,2
+E061,Rwanda,East Africa,0,0,0,1,1
+E061,South Sudan,East Africa,1,0,0,1,2
+E061,Sudan,East Africa,3,2,0,4,9
+E061,Syria,Middle East,0,0,0,4,4
+E061,Togo,West Africa,0,0,0,1,1
+E061,Uganda,East Africa,0,0,0,1,1
+E061,Yemen,Middle East,1,0,0,1,2
+E062,Algeria,North Africa,0,0,0,1,1
+E062,Bangladesh,South Asia,0,0,0,1,1
+E062,Colombia,Latin America and Caribbean,1,1,0,0,2
+E062,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E062,Haiti,Latin America and Caribbean,0,0,0,1,1
+E062,Lebanon,Middle East,0,0,0,2,2
+E062,Mali,West Africa,0,0,0,1,1
+E062,Mozambique,Southern Africa,2,1,1,2,6
+E062,Myanmar,Asia Pacific,0,0,0,2,2
+E062,Nepal,South Asia,0,0,0,1,1
+E062,Niger,West Africa,1,1,0,0,2
+E062,Palestine,Middle East,1,0,0,1,2
+E062,Panama,Latin America and Caribbean,0,0,0,1,1
+E062,Somalia,East Africa,0,0,0,1,1
+E062,Sudan,East Africa,1,0,0,1,2
+E062,Syria,Middle East,0,0,0,3,3
+E062,Turkey,Middle East,0,0,0,1,1
+E062,Uganda,East Africa,0,0,0,2,2
+E062,Ukraine,Europe,0,0,0,1,1
+E063,Afghanistan,South Asia,0,0,0,1,1
+E063,Colombia,Latin America and Caribbean,0,0,0,1,1
+E063,Ethiopia,East Africa,1,0,0,1,2
+E063,Haiti,Latin America and Caribbean,0,0,0,1,1
+E063,Kenya,East Africa,1,1,0,0,2
+E063,Sudan,East Africa,3,2,1,6,12
+E063,Yemen,Middle East,0,0,0,1,1
+E065,Algeria,North Africa,0,0,0,1,1
+E065,Benin,West Africa,0,0,0,1,1
+E065,Cameroon,Central Africa,1,1,1,0,3
+E065,Chad,Central Africa,2,2,2,1,7
+E065,Colombia,Latin America and Caribbean,1,0,0,2,3
+E065,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E065,Ethiopia,East Africa,0,0,0,1,1
+E065,Ghana,West Africa,0,0,0,1,1
+E065,Ivory Coast,West Africa,0,0,0,1,1
+E065,Kenya,East Africa,0,0,0,1,1
+E065,Lebanon,Middle East,0,0,0,1,1
+E065,Libya,North Africa,0,0,0,2,2
+E065,Mali,West Africa,0,0,0,2,2
+E065,Mozambique,Southern Africa,1,0,0,2,3
+E065,Myanmar,Asia Pacific,1,1,0,0,2
+E065,Niger,West Africa,2,1,1,1,5
+E065,Nigeria,West Africa,1,1,1,0,3
+E065,Palestine,Middle East,0,0,0,1,1
+E065,Philippines,Asia Pacific,0,0,0,2,2
+E065,Rwanda,East Africa,0,0,0,1,1
+E065,Somalia,East Africa,0,0,0,2,2
+E065,South Sudan,East Africa,1,0,0,1,2
+E065,Sudan,East Africa,6,4,0,6,16
+E065,Syria,Middle East,0,0,0,4,4
+E065,Togo,West Africa,0,0,0,1,1
+E065,Tunisia,North Africa,0,0,0,1,1
+E065,Uganda,East Africa,0,0,0,1,1
+E065,Yemen,Middle East,1,0,0,2,3
+E066,Afghanistan,South Asia,0,0,0,1,1
+E066,Algeria,North Africa,0,0,0,1,1
+E066,Benin,West Africa,0,0,0,1,1
+E066,Cameroon,Central Africa,0,0,0,1,1
+E066,Colombia,Latin America and Caribbean,1,0,0,2,3
+E066,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E066,Ethiopia,East Africa,0,0,0,1,1
+E066,Ghana,West Africa,0,0,0,1,1
+E066,Ivory Coast,West Africa,0,0,0,1,1
+E066,Kenya,East Africa,1,0,0,1,2
+E066,Lebanon,Middle East,0,0,0,2,2
+E066,Madagascar,Southern Africa,1,1,0,0,2
+E066,Mali,West Africa,0,0,0,1,1
+E066,Mongolia,Asia Pacific,0,0,0,1,1
+E066,Mozambique,Southern Africa,2,0,0,2,4
+E066,Niger,West Africa,2,0,0,1,3
+E066,Palestine,Middle East,1,0,0,1,2
+E066,Philippines,Asia Pacific,0,0,0,2,2
+E066,Rwanda,East Africa,0,0,0,1,1
+E066,Somalia,East Africa,0,0,0,1,1
+E066,South Sudan,East Africa,1,0,0,1,2
+E066,Sudan,East Africa,3,2,1,3,9
+E066,Tanzania,East Africa,0,0,0,1,1
+E066,Togo,West Africa,0,0,0,1,1
+E066,Tunisia,North Africa,0,0,0,1,1
+E067,Afghanistan,South Asia,2,0,0,1,3
+E067,Algeria,North Africa,0,0,0,1,1
+E067,Cameroon,Central Africa,1,0,0,0,1
+E067,Chad,Central Africa,1,0,0,0,1
+E067,Colombia,Latin America and Caribbean,1,0,0,0,1
+E067,Democratic Republic of the Congo,Central Africa,0,0,0,2,2
+E067,Egypt,North Africa,0,0,0,1,1
+E067,Haiti,Latin America and Caribbean,0,0,0,1,1
+E067,Iraq,Middle East,0,0,0,1,1
+E067,Ivory Coast,West Africa,0,0,0,1,1
+E067,Lebanon,Middle East,0,0,0,1,1
+E067,Libya,North Africa,0,0,0,1,1
+E067,Mauritania,West Africa,0,0,0,1,1
+E067,Nepal,South Asia,0,0,0,1,1
+E067,Niger,West Africa,1,0,0,0,1
+E067,Nigeria,West Africa,1,0,0,0,1
+E067,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E067,Philippines,Asia Pacific,0,0,0,1,1
+E067,Rwanda,East Africa,0,0,0,1,1
+E067,Sudan,East Africa,3,1,1,2,7
+E067,Syria,Middle East,0,0,0,3,3
+E067,Tanzania,East Africa,0,0,0,1,1
+E067,Turkey,Middle East,0,0,0,1,1
+E067,Uganda,East Africa,0,0,0,1,1
+E067,Yemen,Middle East,0,0,0,1,1
+E068,Morocco,North Africa,0,0,0,1,1
+E068,Mozambique,Southern Africa,1,0,0,1,2
+E068,Philippines,Asia Pacific,1,1,1,1,4
+E068,Sudan,East Africa,4,0,0,7,11
+E068,Timor Leste,Asia Pacific,0,0,0,1,1
+E069,Afghanistan,South Asia,0,0,0,2,2
+E069,Bangladesh,South Asia,0,0,0,1,1
+E069,Colombia,Latin America and Caribbean,0,0,0,1,1
+E069,Cuba,Latin America and Caribbean,0,0,0,1,1
+E069,Haiti,Latin America and Caribbean,0,0,0,2,2
+E069,Lebanon,Middle East,0,0,0,2,2
+E069,Libya,North Africa,0,0,0,1,1
+E069,Mozambique,Southern Africa,1,0,0,1,2
+E069,Panama,Latin America and Caribbean,0,0,0,1,1
+E069,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E069,Philippines,Asia Pacific,0,0,0,1,1
+E069,Sri Lanka,South Asia,0,0,0,1,1
+E069,Sudan,East Africa,1,1,1,1,4
+E069,Tanzania,East Africa,0,0,0,1,1
+E069,Timor Leste,Asia Pacific,0,0,0,1,1
+E069,Ukraine,Europe,0,0,0,1,1
+E069,Zimbabwe,Southern Africa,0,0,0,2,2
+E071,Algeria,North Africa,0,0,0,1,1
+E071,Bangladesh,South Asia,0,0,0,1,1
+E071,Cameroon,Central Africa,1,0,0,2,3
+E071,Chad,Central Africa,1,0,0,1,2
+E071,Colombia,Latin America and Caribbean,1,0,0,3,4
+E071,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E071,Ivory Coast,West Africa,0,0,0,1,1
+E071,Lebanon,Middle East,0,0,0,1,1
+E071,Libya,North Africa,0,0,0,1,1
+E071,Mali,West Africa,1,0,0,1,2
+E071,Mauritania,West Africa,0,0,0,1,1
+E071,Myanmar,Asia Pacific,0,0,0,2,2
+E071,Nepal,South Asia,0,0,0,1,1
+E071,Niger,West Africa,2,1,0,3,6
+E071,Nigeria,West Africa,1,0,0,2,3
+E071,Palestine,Middle East,0,0,0,1,1
+E071,Philippines,Asia Pacific,0,0,0,1,1
+E071,Somalia,East Africa,0,0,0,2,2
+E071,Sudan,East Africa,1,0,0,2,3
+E071,Syria,Middle East,0,0,0,2,2
+E071,Uganda,East Africa,0,0,0,1,1
+E071,Ukraine,Europe,0,0,0,1,1
+E072,Afghanistan,South Asia,0,0,0,1,1
+E072,Chad,Central Africa,1,0,0,0,1
+E072,Cuba,Latin America and Caribbean,0,0,0,1,1
+E072,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E072,Ethiopia,East Africa,0,0,0,1,1
+E072,Ivory Coast,West Africa,0,0,0,1,1
+E072,Kenya,East Africa,0,0,0,1,1
+E072,Libya,North Africa,0,0,0,1,1
+E072,Mali,West Africa,1,0,0,1,2
+E072,Mozambique,Southern Africa,1,0,0,1,2
+E072,Myanmar,Asia Pacific,1,1,0,3,5
+E072,Niger,West Africa,2,0,0,1,3
+E072,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E072,Philippines,Asia Pacific,0,0,0,2,2
+E072,Rwanda,East Africa,0,0,0,1,1
+E072,South Sudan,East Africa,1,0,0,1,2
+E072,Sudan,East Africa,3,0,0,5,8
+E072,Syria,Middle East,0,0,0,1,1
+E072,Uganda,East Africa,0,0,0,1,1
+E072,Yemen,Middle East,1,1,1,1,4
+E073,Afghanistan,South Asia,2,0,0,4,6
+E073,Algeria,North Africa,0,0,0,1,1
+E073,Benin,West Africa,0,0,0,1,1
+E073,Colombia,Latin America and Caribbean,0,0,0,1,1
+E073,Democratic Republic of the Congo,Central Africa,0,0,0,3,3
+E073,Egypt,North Africa,0,0,0,2,2
+E073,Ethiopia,East Africa,0,0,0,1,1
+E073,Ghana,West Africa,0,0,0,1,1
+E073,Iraq,Middle East,0,0,0,2,2
+E073,Ivory Coast,West Africa,0,0,0,1,1
+E073,Kenya,East Africa,0,0,0,1,1
+E073,Lebanon,Middle East,0,0,0,2,2
+E073,Libya,North Africa,0,0,0,1,1
+E073,Mali,West Africa,1,0,0,3,4
+E073,Mauritania,West Africa,0,0,0,1,1
+E073,Mozambique,Southern Africa,1,0,0,2,3
+E073,Myanmar,Asia Pacific,0,0,0,3,3
+E073,Niger,West Africa,2,0,0,2,4
+E073,Nigeria,West Africa,0,0,0,1,1
+E073,Palestine,Middle East,2,0,0,2,4
+E073,Panama,Latin America and Caribbean,0,0,0,1,1
+E073,Rwanda,East Africa,0,0,0,1,1
+E073,Somalia,East Africa,0,0,0,2,2
+E073,South Sudan,East Africa,1,0,0,1,2
+E073,Sudan,East Africa,5,2,1,8,16
+E073,Syria,Middle East,1,0,0,5,6
+E073,Togo,West Africa,0,0,0,1,1
+E073,Turkey,Middle East,0,0,0,1,1
+E073,Yemen,Middle East,1,1,1,4,7
+E074,Benin,West Africa,0,0,0,1,1
+E074,Burundi,East Africa,0,0,0,1,1
+E074,Cameroon,Central Africa,1,0,0,2,3
+E074,Chad,Central Africa,1,0,0,1,2
+E074,Cuba,Latin America and Caribbean,0,0,0,1,1
+E074,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E074,Ethiopia,East Africa,0,0,0,1,1
+E074,Ghana,West Africa,0,0,0,1,1
+E074,Iran,Middle East,0,0,0,1,1
+E074,Ivory Coast,West Africa,0,0,0,1,1
+E074,Kenya,East Africa,1,1,0,1,3
+E074,Lebanon,Middle East,0,0,0,1,1
+E074,Libya,North Africa,0,0,0,1,1
+E074,Morocco,North Africa,0,0,0,1,1
+E074,Myanmar,Asia Pacific,1,0,0,1,2
+E074,Nepal,South Asia,0,0,0,1,1
+E074,Niger,West Africa,2,1,0,2,5
+E074,Nigeria,West Africa,1,0,0,2,3
+E074,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E074,Philippines,Asia Pacific,0,0,0,1,1
+E074,Sudan,East Africa,2,1,1,3,7
+E074,Syria,Middle East,1,0,0,4,5
+E074,Tanzania,East Africa,0,0,0,1,1
+E074,Timor Leste,Asia Pacific,0,0,0,1,1
+E074,Togo,West Africa,0,0,0,1,1
+E074,Uganda,East Africa,0,0,0,1,1
+E074,Ukraine,Europe,0,0,0,1,1
+E074,Yemen,Middle East,0,0,0,1,1
+E075,Afghanistan,South Asia,2,1,0,2,5
+E075,Algeria,North Africa,0,0,0,1,1
+E075,Benin,West Africa,0,0,0,1,1
+E075,Cameroon,Central Africa,1,0,0,2,3
+E075,Chad,Central Africa,1,0,0,1,2
+E075,Colombia,Latin America and Caribbean,1,0,0,3,4
+E075,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E075,Egypt,North Africa,0,0,0,1,1
+E075,Ghana,West Africa,0,0,0,1,1
+E075,Iran,Middle East,0,0,0,1,1
+E075,Iraq,Middle East,0,0,0,1,1
+E075,Ivory Coast,West Africa,0,0,0,2,2
+E075,Kenya,East Africa,0,0,0,1,1
+E075,Lebanon,Middle East,0,0,0,3,3
+E075,Libya,North Africa,0,0,0,2,2
+E075,Mali,West Africa,1,0,0,1,2
+E075,Mauritania,West Africa,0,0,0,1,1
+E075,Mozambique,Southern Africa,1,0,0,0,1
+E075,Myanmar,Asia Pacific,1,1,0,4,6
+E075,Nepal,South Asia,0,0,0,1,1
+E075,Niger,West Africa,3,0,0,3,6
+E075,Nigeria,West Africa,1,0,0,2,3
+E075,Palestine,Middle East,0,0,0,1,1
+E075,Philippines,Asia Pacific,0,0,0,1,1
+E075,Somalia,East Africa,0,0,0,1,1
+E075,Sudan,East Africa,3,2,0,4,9
+E075,Syria,Middle East,1,0,0,2,3
+E075,Tanzania,East Africa,0,0,0,1,1
+E075,Togo,West Africa,0,0,0,1,1
+E075,Turkey,Middle East,0,0,0,1,1
+E075,Uganda,East Africa,0,0,0,1,1
+E075,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E075,Yemen,Middle East,0,0,0,1,1
+E076,Afghanistan,South Asia,2,0,0,0,2
+E076,Algeria,North Africa,0,0,0,1,1
+E076,Bangladesh,South Asia,0,0,0,2,2
+E076,Benin,West Africa,0,0,0,1,1
+E076,Cameroon,Central Africa,0,0,0,1,1
+E076,Colombia,Latin America and Caribbean,1,0,0,3,4
+E076,Democratic Republic of the Congo,Central Africa,0,0,0,4,4
+E076,Egypt,North Africa,0,0,0,1,1
+E076,Ghana,West Africa,0,0,0,1,1
+E076,Haiti,Latin America and Caribbean,0,0,0,1,1
+E076,Iraq,Middle East,0,0,0,2,2
+E076,Ivory Coast,West Africa,0,0,0,2,2
+E076,Libya,North Africa,0,0,0,1,1
+E076,Mongolia,Asia Pacific,0,0,0,1,1
+E076,Mozambique,Southern Africa,2,1,1,2,6
+E076,Myanmar,Asia Pacific,0,0,0,2,2
+E076,Niger,West Africa,2,2,0,2,6
+E076,Palestine,Middle East,0,0,0,1,1
+E076,Philippines,Asia Pacific,0,0,0,1,1
+E076,Rwanda,East Africa,0,0,0,1,1
+E076,Somalia,East Africa,0,0,0,2,2
+E076,South Sudan,East Africa,1,0,0,1,2
+E076,Sudan,East Africa,4,1,0,6,11
+E076,Syria,Middle East,1,0,0,4,5
+E076,Tanzania,East Africa,0,0,0,1,1
+E076,Togo,West Africa,0,0,0,1,1
+E076,Turkey,Middle East,0,0,0,1,1
+E076,Uganda,East Africa,0,0,0,1,1
+E076,Venezuela,Latin America and Caribbean,0,0,0,1,1
+E076,Yemen,Middle East,0,0,0,1,1
+E079,Burundi,East Africa,0,0,0,1,1
+E079,Egypt,North Africa,0,0,0,1,1
+E079,Ivory Coast,West Africa,0,0,0,1,1
+E079,Lebanon,Middle East,0,0,0,1,1
+E079,Libya,North Africa,0,0,0,1,1
+E079,Mali,West Africa,0,0,0,1,1
+E079,Morocco,North Africa,0,0,0,1,1
+E079,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E079,Peru,Latin America and Caribbean,0,0,0,1,1
+E079,Sudan,East Africa,2,0,0,3,5
+E080,Algeria,North Africa,0,0,0,1,1
+E080,Democratic Republic of the Congo,Central Africa,0,0,0,1,1
+E080,Haiti,Latin America and Caribbean,0,0,0,1,1
+E080,Ivory Coast,West Africa,0,0,0,1,1
+E080,Lebanon,Middle East,0,0,0,1,1
+E080,Mali,West Africa,0,0,0,2,2
+E080,Mozambique,Southern Africa,0,0,0,1,1
+E080,Nepal,South Asia,0,0,0,1,1
+E080,Palestine,Middle East,2,2,0,2,6
+E080,Papua New Guinea,Asia Pacific,0,0,0,1,1
+E080,Peru,Latin America and Caribbean,0,0,0,1,1
+E080,Somalia,East Africa,0,0,0,3,3
+E080,Sudan,East Africa,7,2,0,9,18
+E080,Syria,Middle East,0,0,0,2,2
+E080,Uganda,East Africa,0,0,0,1,1

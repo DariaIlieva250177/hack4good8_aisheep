@@ -50,7 +50,7 @@
 <body>
 <main>
   <h1>Ground Truth data model</h1>
-  <p class="lead">All 25 tables the synthetic-data notebook builds, and how they connect. Risks, countries, triggers and outcomes are real ACAPS data; everything about experts is synthetic. Each box shows the main fields; every field is described in <code>docs/data_model.md</code>.</p>
+  <p class="lead">All 31 tables the data build makes, and how they connect. Risks, countries, triggers and outcomes are real ACAPS data; everything about experts is synthetic. Each box shows the main fields; every field is described in <code>docs/data_model.md</code>.</p>
 
   <ul class="legend" aria-label="Table groups">
     <li><span class="swatch" data-group="acaps"></span>ACAPS data (real)</li>
@@ -88,8 +88,6 @@
       <tbody>
         <tr><td><code>discussion_threads</code>, <code>private_messages</code></td><td>Public threads and private discussions between two experts</td></tr>
         <tr><td><code>notification_tokens</code>, <code>notification_addresses</code></td><td>Alerts for anonymous experts, stored apart from answers</td></tr>
-        <tr><td><code>ranks</code>, <code>rank_history</code></td><td>Output of the ranking algorithm; each expert sees only their own rank</td></tr>
-        <tr><td><code>certificates</code></td><td>Recognition, with verification codes for anonymous experts</td></tr>
         <tr><td><code>client_requests</code></td><td>Expert panel analysis on request</td></tr>
         <tr><td><code>moderation_log</code></td><td>Every approval, denial and edit by ACAPS staff</td></tr>
       </tbody>
@@ -113,7 +111,7 @@ const TABLE_GROUP = {
   experts:'people', expert_identity:'people', expert_countries:'people', expert_domains:'people',
   application_documents:'people', anonymity_history:'people', moderators:'people',
   expert_risk_matches:'match', display_names:'match',
-  risk_windows:'publish', forecast_questions:'publish',
+  risk_windows:'publish', forecast_questions:'publish', countries:'publish', notifications:'publish', discussion_reads:'publish', ranks:'publish', group_ranks:'publish', contributions:'publish',
   card_swipes:'activity', todo_items:'activity', stances:'activity', comments:'activity', sources:'activity',
   comment_likes:'activity', forecasts:'activity', suggestions:'activity', discussion_views:'activity',
 };
@@ -138,6 +136,13 @@ const definition = `erDiagram
   experts ||--o{ display_names : "one name per risk"
   risks ||--o{ display_names : "names in"
   moderators ||--o{ risk_windows : sets
+  countries ||--o{ contributions : "counted in"
+  experts ||--o{ notifications : receives
+  risks ||--o{ notifications : about
+  experts ||--o{ discussion_reads : opens
+  experts ||--|| ranks : has
+  experts ||--o{ group_ranks : has
+  experts ||--o{ contributions : makes
   risks ||--o| risk_windows : "open during"
   risks ||--o{ forecast_questions : asks
   experts ||--o{ card_swipes : swipes
@@ -177,6 +182,12 @@ const definition = `erDiagram
     int category_id FK
     string urgency
     string urgency_colour
+    string community_name
+  }
+  countries {
+    string country PK
+    string iso_numeric
+    string region
   }
   risk_countries {
     string risk_id FK
@@ -263,9 +274,43 @@ const definition = `erDiagram
     string risk_id FK
     string question_text
     int horizon_months
+    date resolves_on
+    date happened_on
     string status
     int outcome
     bool is_backtest
+  }
+  notifications {
+    string notification_id PK
+    string expert_id FK
+    string kind
+    string risk_id FK
+    date created_at
+    date read_at
+  }
+  discussion_reads {
+    string expert_id FK
+    string risk_id FK
+    date last_read_at
+  }
+  ranks {
+    string expert_id FK
+    int points
+    float average_points
+    int position
+  }
+  group_ranks {
+    string expert_id FK
+    string group_type
+    string group
+    int position
+    int out_of
+  }
+  contributions {
+    string expert_id FK
+    string country FK
+    string region
+    int total
   }
   card_swipes {
     string swipe_id PK
@@ -320,6 +365,8 @@ const definition = `erDiagram
     string answer_level
     float probability
     float match_weight
+    int version
+    string previous_forecast_id
     bool name_hidden_from_acaps
   }
   suggestions {

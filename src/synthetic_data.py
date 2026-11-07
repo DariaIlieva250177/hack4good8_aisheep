@@ -152,6 +152,11 @@ def load_category_overrides(path):
     return {r["risk_id"]: [ids[name.strip()] for name in r["categories"].split(";")] for _, r in table.iterrows()}
 
 
+def load_countries(path):
+    """Every country with its map code and region. Codes stay text so 004 keeps its zeros."""
+    return pd.read_csv(path, dtype=str)
+
+
 def level_probabilities(scheme):
     """five-level answer -> probability, using the same bands as the ACAPS mapping."""
     vals = list(PROB_SCHEMES[scheme].values())  # very low ... very high
@@ -459,6 +464,14 @@ def expert_matches(experts, ecountries, edomains, risk_countries, risk_categorie
 
 
 # ======================================================================= 4. answering windows and questions
+def _draw_old_closing_date(rng, opens, today):
+    """The simulation used to invent a closing date here. Drawing the same numbers keeps every later
+    simulated value unchanged, now that a risk simply ends when its months run out."""
+    closes = opens + timedelta(days=int(rng.integers(10, 36)))
+    if closes <= today:
+        rng.integers(1, 15)
+
+
 def build_windows_and_questions(risks, cfg, rng):
     today = _ts(cfg["today"])
     windows, questions = [], []
@@ -466,15 +479,15 @@ def build_windows_and_questions(risks, cfg, rng):
         rid = r["risk_id"]
         if r["status"] == "Active":
             if rid == cfg["demo_risk"]:
-                opens, closes = today - timedelta(days=5), today + timedelta(days=9)
+                opens = today - timedelta(days=5)
             else:
                 opens = today - timedelta(days=int(rng.integers(1, 22)))
-                closes = opens + timedelta(days=int(rng.integers(10, 36)))
-                if closes <= today:
-                    closes = today + timedelta(days=int(rng.integers(1, 15)))
-            windows.append({"window_id": f"W-{rid}", "risk_id": rid, "opens": opens, "closes": closes,
-                            "set_by": rng.choice(["M02", "M03"])})
+                _draw_old_closing_date(rng, opens, today)
+            set_by = rng.choice(["M02", "M03"])
             n = cfg["default_horizon_months"] if rng.random() < 0.7 else int(rng.choice([1, 3, 4, 6]))
+            ends = opens + pd.DateOffset(months=n)
+            windows.append({"window_id": f"W-{rid}", "risk_id": rid, "opens": opens, "closes": ends,
+                            "set_by": set_by})
             original = f"Do you think this will happen in the next {n} months?"
             edited = rng.random() < 0.2
             questions.append({
@@ -483,19 +496,19 @@ def build_windows_and_questions(risks, cfg, rng):
                 "original_text": original, "horizon_months": n,
                 "created_by": "M02", "edited_by": "M03" if edited else None,
                 "edited_at": opens + timedelta(days=1) if edited else None,
-                "opens": opens, "closes": closes,
-                "resolves_on": opens + pd.DateOffset(months=n), "status": "open", "outcome": None,
+                "opens": opens, "resolves_on": ends, "happened_on": None, "status": "open", "outcome": None,
                 "is_backtest": False,
             })
         elif pd.notna(r["outcome"]):
             # past risks with a known outcome, used to test scoring and ranks
             opens = today - timedelta(days=int(rng.integers(60, 366)))
+            ended = min(opens + pd.DateOffset(months=6), today - timedelta(days=1))
             questions.append({
                 "question_id": f"QH-{rid}", "risk_id": rid,
                 "question_text": "Do you think this will happen?", "original_text": "Do you think this will happen?",
                 "horizon_months": 6, "created_by": "M02", "edited_by": None, "edited_at": None,
-                "opens": opens, "closes": opens + timedelta(days=14),
-                "resolves_on": min(opens + pd.DateOffset(months=6), today - timedelta(days=1)),
+                # the export has no date for when a risk happened, so past risks use their end date
+                "opens": opens, "resolves_on": ended, "happened_on": ended if r["outcome"] == 1 else None,
                 "status": "resolved", "outcome": int(r["outcome"]), "is_backtest": True,
             })
     windows = pd.DataFrame(windows)
@@ -507,7 +520,10 @@ def build_windows_and_questions(risks, cfg, rng):
     for i, c in enumerate(["urgency_colour", "urgency_hex", "urgency_label", "urgency_score"]):
         risks[c] = [URGENCY.get(u, none)[i] if isinstance(u, str) else None for u in risks["urgency"]]
     risks = risks.drop(columns=["closes"])
-    return risks, windows, pd.DataFrame(questions)
+    risks["community_name"] = risks["country"] + ": " + risks["category"]
+    questions = pd.DataFrame(questions)
+    questions["happened_on"] = pd.to_datetime(questions["happened_on"])
+    return risks, windows, questions
 
 
 # ======================================================================= 5. expert activity
@@ -761,6 +777,64 @@ def mark_hidden_names(stances, comments, forecasts, questions):
     return comments, forecasts
 
 
+def add_changed_forecasts(forecasts, stances, questions, cfg):
+    """An expert who changes their opinion also moves their forecast one step the same way."""
+    forecasts = forecasts.assign(version=1, previous_forecast_id=None)
+    level_p = level_probabilities(cfg["prob_scheme"])
+    question_of = questions.set_index("risk_id")["question_id"]
+    first = {(f["expert_id"], f["question_id"]): f for _, f in forecasts.iterrows()}
+    rows = []
+    for _, s in stances[stances["changed_opinion"]].iterrows():
+        old = first.get((s["expert_id"], question_of[s["risk_id"]]))
+        if old is None or old["answer_level"] not in LEVELS:
+            continue
+        step = LEVELS.index(old["answer_level"]) + (1 if s["stance"] == "agree" else -1)
+        if not 0 <= step < len(LEVELS):
+            continue
+        rows.append({**old.to_dict(), "forecast_id": f"F{len(forecasts) + len(rows) + 1:05d}",
+                     "answer_level": LEVELS[step], "probability": level_p[LEVELS[step]],
+                     "submitted_at": max(old["submitted_at"], s["given_at"]),
+                     "version": 2, "previous_forecast_id": old["forecast_id"]})
+    return pd.concat([forecasts, pd.DataFrame(rows)], ignore_index=True)
+
+
+def build_notifications(matches, stances, comments, forecasts, questions, windows, cfg, rng):
+    """The alerts each expert has received. Private message alerts will come with private chat."""
+    today = _ts(cfg["today"])
+    rows = []
+    fresh = windows[windows["opens"] >= today - timedelta(days=NEW_RISK_DAYS)]
+    for _, m in matches.merge(fresh, on="risk_id").iterrows():
+        rows.append(("new_risk", m["expert_id"], m["risk_id"], m["opens"]))
+    for (eid, rid), joined in stances.groupby(["expert_id", "risk_id"])["given_at"].min().items():
+        later = comments[(comments["risk_id"] == rid) & (comments["expert_id"] != eid)
+                         & (comments["posted_at"] > joined)]
+        if len(later):
+            rows.append(("reply", eid, rid, later["posted_at"].max()))
+    past = questions[questions["is_backtest"]].set_index("question_id")
+    answered = forecasts[forecasts["question_id"].isin(past.index) & forecasts["answer_level"].isin(LEVELS)]
+    for _, f in answered.iterrows():
+        q = past.loc[f["question_id"]]
+        rows.append(("result", f["expert_id"], q["risk_id"], q["resolves_on"]))
+    table = pd.DataFrame(rows, columns=["kind", "expert_id", "risk_id", "created_at"])
+    table = table.sort_values(["created_at", "expert_id", "kind", "risk_id"], ignore_index=True)
+
+    def read_on(created):
+        recent = (today - created).days <= UNREAD_DAYS
+        return None if recent and rng.random() < 0.5 else _rand_date(rng, created, today)
+
+    table["read_at"] = pd.to_datetime([read_on(c) for c in table["created_at"]])
+    table.insert(0, "notification_id", [f"N{i + 1:05d}" for i in range(len(table))])
+    return table[["notification_id", "expert_id", "kind", "risk_id", "created_at", "read_at"]]
+
+
+def build_discussion_reads(stances, cfg, rng):
+    """When each expert last opened a discussion they joined, which sets their unread count."""
+    today = _ts(cfg["today"])
+    joined = stances.groupby(["expert_id", "risk_id"])["given_at"].min().reset_index()
+    joined["last_read_at"] = [_rand_date(rng, when, today) for when in joined["given_at"]]
+    return joined[["expert_id", "risk_id", "last_read_at"]]
+
+
 # ======================================================================= build everything
 def build_all(export_path, cfg=CONFIG):
     rng = np.random.default_rng(cfg["seed"])
@@ -798,6 +872,7 @@ def build_all(export_path, cfg=CONFIG):
     hist_forecasts = build_backtest_forecasts(risks, matches, questions, truth, cfg, rng)
     forecasts = pd.concat([act_forecasts, hist_forecasts], ignore_index=True)
     forecasts.insert(0, "forecast_id", [f"F{i + 1:05d}" for i in range(len(forecasts))])
+    forecasts = add_changed_forecasts(forecasts, stances, questions, cfg)
     comments, forecasts = mark_hidden_names(stances, comments, forecasts, questions)
     suggestions = build_suggestions(risks, matches, experts, ecountries, edomains, truth, cfg, rng, triggers)
 
@@ -813,8 +888,14 @@ def build_all(export_path, cfg=CONFIG):
 
     display_names = build_display_names(stances, comments, windows, rng)
 
+    # a separate generator, so these tables cannot shift any value simulated above
+    screen_rng = np.random.default_rng(cfg["seed"] + 1)
+    notifications = build_notifications(matches, stances, comments, forecasts, questions, windows, cfg, screen_rng)
+    discussion_reads = build_discussion_reads(stances, cfg, screen_rng)
+
     tables = {
-        "categories": categories, "risks": risks, "risk_countries": risk_countries,
+        "categories": categories, "countries": load_countries(Path(export_path).parent / "country_regions.csv"),
+        "risks": risks, "risk_countries": risk_countries,
         "risk_categories": risk_categories, "triggers": triggers,
         "experts": experts, "expert_identity": identity, "expert_countries": ecountries,
         "expert_domains": edomains, "application_documents": docs, "anonymity_history": anon_hist,
@@ -823,6 +904,7 @@ def build_all(export_path, cfg=CONFIG):
         "card_swipes": swipes, "todo_items": todos, "stances": stances, "comments": comments,
         "sources": sources, "comment_likes": likes, "forecasts": forecasts,
         "suggestions": suggestions, "discussion_views": views,
+        "notifications": notifications, "discussion_reads": discussion_reads,
     }
     truth = truth.reset_index().merge(recovery_codes, on="expert_id", how="left")
     truth["is_demo_expert"] = truth["expert_id"] == cfg["_demo_expert"]
@@ -832,6 +914,12 @@ def build_all(export_path, cfg=CONFIG):
 # ======================================================================= checks and saving
 FOREIGN_KEYS = [
     ("risk_countries", "risk_id", "risks", "risk_id"),
+    ("risk_countries", "country", "countries", "country"),
+    ("expert_countries", "country", "countries", "country"),
+    ("notifications", "expert_id", "experts", "expert_id"),
+    ("notifications", "risk_id", "risks", "risk_id"),
+    ("discussion_reads", "expert_id", "experts", "expert_id"),
+    ("discussion_reads", "risk_id", "risks", "risk_id"),
     ("risk_categories", "risk_id", "risks", "risk_id"),
     ("risk_categories", "category_id", "categories", "category_id"),
     ("triggers", "risk_id", "risks", "risk_id"),
@@ -883,6 +971,9 @@ def validate(tables):
     st = tables["stances"]
     if len(st) and (st.groupby(["expert_id", "risk_id"])["version"].max() > 2).any():
         problems.append("an expert changed an opinion more than once")
+    fc = tables["forecasts"]
+    if len(fc) and (fc.groupby(["expert_id", "question_id"])["version"].max() > 2).any():
+        problems.append("an expert changed a forecast more than once")
     dn = tables["display_names"]
     if len(dn) and dn.duplicated(["risk_id", "display_name"]).any():
         problems.append("two experts share a display name on the same risk")
@@ -948,6 +1039,8 @@ def _clean(obj):
 
 
 MIN_COUNTRY_ANSWERS = 3
+NEW_RISK_DAYS = 7
+UNREAD_DAYS = 14
 
 
 def group_answer(latest, min_country=MIN_COUNTRY_ANSWERS):
@@ -988,6 +1081,8 @@ def expert_demo_bundle(tables, truth, cfg=CONFIG):
     names = T["display_names"].set_index(["expert_id", "risk_id"])["display_name"]
     likes = T["comment_likes"].groupby("comment_id").size()
     src = T["sources"].set_index("source_id") if len(T["sources"]) else pd.DataFrame()
+    reads = T["discussion_reads"]
+    last_read = reads[reads["expert_id"] == eid].set_index("risk_id")["last_read_at"]
 
     def community(rid, limit=None):
         st = T["stances"][T["stances"]["risk_id"] == rid]
@@ -1003,7 +1098,10 @@ def expert_demo_bundle(tables, truth, cfg=CONFIG):
                           "kind": "Changed opinion" if c["kind"] == "changed_opinion" else "Answer",
                           "text": c["text"], "likes": int(likes.get(c["comment_id"], 0)),
                           "source": s, "posted_at": c["posted_at"]})
-        return {**group_answer(latest), "comments": items[:limit] if limit else items}
+        others = cm[cm["expert_id"] != eid]
+        unread = int((others["posted_at"] > last_read[rid]).sum()) if rid in last_read.index else len(others)
+        return {**group_answer(latest), "name": risks.loc[rid, "community_name"], "unread": unread,
+                "comments": items[:limit] if limit else items}
 
     deck = []
     for rid, m in eligible.iterrows():
@@ -1013,7 +1111,7 @@ def expert_demo_bundle(tables, truth, cfg=CONFIG):
                      "urgency": r["urgency"], "colour": r["urgency_colour"], "colour_hex": r["urgency_hex"],
                      "label": r["urgency_label"], "urgency_score": r["urgency_score"],
                      "closes": w["closes"], "days_left": int((w["closes"] - today).days),
-                     "match_type": m["match_type"]})
+                     "match_type": m["match_type"], "community_name": r["community_name"]})
     deck.sort(key=lambda c: (-(c["urgency_score"] or 0), c["days_left"]))
 
     details = {}
@@ -1029,7 +1127,7 @@ def expert_demo_bundle(tables, truth, cfg=CONFIG):
                           "posted_by": "ACAPS" if t["source"] == "acaps" else "Suggested by an expert, added by ACAPS"}
                          for _, t in trig.iterrows()],
             "forecast": {"question_id": q.loc[rid, "question_id"], "text": q.loc[rid, "question_text"],
-                         "horizon_months": q.loc[rid, "horizon_months"], "closes": q.loc[rid, "closes"],
+                         "horizon_months": q.loc[rid, "horizon_months"], "closes": q.loc[rid, "resolves_on"],
                          "options": LEVELS + ["dont_know"]},
             "community": community(rid),
         }

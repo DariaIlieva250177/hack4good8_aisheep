@@ -1,0 +1,59 @@
+country,iso_numeric,region
+Afghanistan,004,South Asia
+Algeria,012,North Africa
+Bangladesh,050,South Asia
+Benin,204,West Africa
+Burundi,108,East Africa
+Cameroon,120,Central Africa
+Central African Republic,140,Central Africa
+Chad,148,Central Africa
+Colombia,170,Latin America and Caribbean
+Congo,178,Central Africa
+Cuba,192,Latin America and Caribbean
+Democratic Republic of the Congo,180,Central Africa
+Egypt,818,North Africa
+El Salvador,222,Latin America and Caribbean
+Ethiopia,231,East Africa
+Ghana,288,West Africa
+Guatemala,320,Latin America and Caribbean
+Haiti,332,Latin America and Caribbean
+Honduras,340,Latin America and Caribbean
+Indonesia,360,Asia Pacific
+Iran,364,Middle East
+Iraq,368,Middle East
+Ivory Coast,384,West Africa
+Kenya,404,East Africa
+Lebanon,422,Middle East
+Libya,434,North Africa
+Madagascar,450,Southern Africa
+Mali,466,West Africa
+Mauritania,478,West Africa
+Mexico,484,Latin America and Caribbean
+Mongolia,496,Asia Pacific
+Morocco,504,North Africa
+Mozambique,508,Southern Africa
+Myanmar,104,Asia Pacific
+Nepal,524,South Asia
+Niger,562,West Africa
+Nigeria,566,West Africa
+Palestine,275,Middle East
+Panama,591,Latin America and Caribbean
+Papua New Guinea,598,Asia Pacific
+Peru,604,Latin America and Caribbean
+Philippines,608,Asia Pacific
+Rwanda,646,East Africa
+Somalia,706,East Africa
+South Sudan,728,East Africa
+Sri Lanka,144,South Asia
+Sudan,729,East Africa
+Syria,760,Middle East
+Tanzania,834,East Africa
+Timor Leste,626,Asia Pacific
+Togo,768,West Africa
+Tunisia,788,North Africa
+Turkey,792,Middle East
+Uganda,800,East Africa
+Ukraine,804,Europe
+Venezuela,862,Latin America and Caribbean
+Yemen,887,Middle East
+Zimbabwe,716,Southern Africa
