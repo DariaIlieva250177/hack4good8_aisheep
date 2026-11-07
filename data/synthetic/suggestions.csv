@@ -1,17 +1,12 @@
 suggestion_id,expert_id,type,risk_id,country,category_id,title,description,created_at,status,reviewed_by,reviewed_at
-SG001,E003,missing_trigger,R1042,,13,Damage to the main water supply,Synthetic suggestion for the demo.,2026-10-27,new,,
-SG002,E015,new_risk,,Mozambique,8,Emerging flood risk,Synthetic suggestion for the demo.,2026-10-25,rejected,M02,2026-10-27
-SG003,E036,missing_trigger,R1062,,1,Closure of a main border crossing,Synthetic suggestion for the demo.,2026-10-26,new,,
-SG004,E037,missing_trigger,R1069,,1,Closure of a main border crossing,Synthetic suggestion for the demo.,2026-11-02,accepted,M02,2026-11-04
-SG005,E046,missing_trigger,R1058,,8,River levels above seasonal average,Synthetic suggestion for the demo.,2026-10-31,new,,
-SG006,E049,new_risk,,Indonesia,8,Emerging flood risk,Synthetic suggestion for the demo.,2026-10-30,new,,
-SG007,E051,missing_trigger,R1067,,1,Closure of a main border crossing,Synthetic suggestion for the demo.,2026-10-22,accepted,M02,2026-10-24
-SG008,E055,new_risk,,Niger,4,Emerging political crisis risk,Synthetic suggestion for the demo.,2026-10-16,accepted,M03,2026-10-18
-SG009,E058,new_risk,,Chad,1,Emerging cross-border insecurity risk,Synthetic suggestion for the demo.,2026-10-24,rejected,M03,2026-10-26
-SG010,E059,new_risk,,Chad,2,Emerging armed conflict risk,Synthetic suggestion for the demo.,2026-11-02,rejected,M03,2026-11-04
-SG011,E060,new_risk,,Chad,2,Emerging armed conflict risk,Synthetic suggestion for the demo.,2026-10-21,accepted,M02,2026-10-23
-SG012,E064,new_risk,,Rwanda,13,Emerging infrastructure failure risk,Synthetic suggestion for the demo.,2026-11-02,accepted,M03,2026-11-04
-SG013,E065,new_risk,,Sudan,4,Emerging political crisis risk,Synthetic suggestion for the demo.,2026-11-01,rejected,M03,2026-11-03
-SG014,E071,new_risk,,Iran,13,Emerging infrastructure failure risk,Synthetic suggestion for the demo.,2026-10-19,accepted,M03,2026-10-21
-SG015,E073,new_risk,,Mozambique,5,Emerging economic crisis / prices risk,Synthetic suggestion for the demo.,2026-10-22,rejected,M02,2026-10-24
-SG016,E076,missing_trigger,R1061,,4,Postponed elections,Synthetic suggestion for the demo.,2026-10-21,accepted,M03,2026-10-23
+SG001,E001,missing_trigger,R1038,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-13,accepted,M03,2026-10-15
+SG002,E013,missing_trigger,R1044,,9,Late onset of the rainy season,Synthetic suggestion for the demo.,2026-11-03,new,,
+SG003,E014,missing_trigger,R1067,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-24,accepted,M03,2026-10-26
+SG004,E024,new_risk,,Sudan,2,Emerging armed conflict risk,Synthetic suggestion for the demo.,2026-10-29,rejected,M02,2026-10-31
+SG005,E058,missing_trigger,R1065,,1,Closure of a main border crossing,Synthetic suggestion for the demo.,2026-11-02,accepted,M03,2026-11-04
+SG006,E060,missing_trigger,R1068,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-11-05,new,,
+SG007,E062,missing_trigger,R1074,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-27,rejected,M03,2026-10-29
+SG008,E069,new_risk,,Afghanistan,5,Emerging economic crisis / prices risk,Synthetic suggestion for the demo.,2026-10-26,accepted,M03,2026-10-28
+SG009,E071,new_risk,,Yemen,2,Emerging armed conflict risk,Synthetic suggestion for the demo.,2026-10-29,accepted,M03,2026-10-31
+SG010,E073,missing_trigger,R1074,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-18,accepted,M03,2026-10-20
+SG011,E079,missing_trigger,R1051,,5,Sharp rise in staple prices,Synthetic suggestion for the demo.,2026-11-03,new,,
