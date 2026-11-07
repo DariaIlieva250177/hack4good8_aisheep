@@ -59,6 +59,23 @@ def test_the_app_file_shows_no_other_expert(built):
     assert ids == {bundle["expert"]["expert_id"]}
 
 
+def test_the_demo_risk_shows_the_weighted_total_and_the_country_line(built):
+    group = built[3]["details"]["R1043"]["community"]
+    assert 0 <= group["weighted_agree"] <= 100
+    assert group["country_answers"] >= 3
+    assert group["country_agree"] <= group["country_answers"] <= group["answers"]
+
+
+def test_a_hidden_name_still_counts_in_the_group_answer(built):
+    tables, _, _, bundle = built
+    stances = tables["stances"]
+    hidden = stances[stances.name_hidden_from_acaps & stances.risk_id.isin(bundle["details"])]
+    assert len(hidden) > 0
+    for risk_id in hidden.risk_id.unique():
+        answers = stances[stances.risk_id == risk_id].expert_id.nunique()
+        assert bundle["details"][risk_id]["community"]["answers"] == answers
+
+
 def test_active_risks_use_the_checked_categories(built):
     risks = built[0]["risks"].set_index("risk_id")
     assert risks.loc["R1054", "category"] == "Infrastructure failure"

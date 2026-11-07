@@ -578,7 +578,7 @@ def build_activity(risks, matches, windows, questions, experts, cfg, rng, truth)
             stances.append({"stance_id": sid, "expert_id": eid, "risk_id": rid, "stance": value,
                             "version": version, "changed_opinion": version == 2,
                             "previous_stance_id": prev, "given_at": when,
-                            "hidden_from_acaps": bool(level_of[eid] == "known_to_acaps" and rng.random() < 0.1),
+                            "name_hidden_from_acaps": bool(level_of[eid] == "known_to_acaps" and rng.random() < 0.1),
                             "match_type": m["match_type"], "match_weight": m["match_weight"]})
             return sid
 
@@ -748,13 +748,16 @@ def build_display_names(stances, comments, windows, rng):
     return pd.DataFrame(rows)
 
 
-def mark_hidden_answers(stances, comments, forecasts, questions):
-    """An answer hidden from ACAPS also hides the expert's comments and forecast on that risk."""
-    hidden = stances[stances["hidden_from_acaps"]]
+def mark_hidden_names(stances, comments, forecasts, questions):
+    """A name hidden on a risk stays hidden on that expert's comments and forecast there.
+
+    ACAPS still gets every answer: only the name is hidden.
+    """
+    hidden = stances[stances["name_hidden_from_acaps"]]
     hidden = set(zip(hidden["expert_id"], hidden["risk_id"]))
     risk_of = questions.set_index("question_id")["risk_id"]
-    comments = comments.assign(hidden_from_acaps=[pair in hidden for pair in zip(comments["expert_id"], comments["risk_id"])])
-    forecasts = forecasts.assign(hidden_from_acaps=[(e, risk_of[q]) in hidden for e, q in zip(forecasts["expert_id"], forecasts["question_id"])])
+    comments = comments.assign(name_hidden_from_acaps=[pair in hidden for pair in zip(comments["expert_id"], comments["risk_id"])])
+    forecasts = forecasts.assign(name_hidden_from_acaps=[(e, risk_of[q]) in hidden for e, q in zip(forecasts["expert_id"], forecasts["question_id"])])
     return comments, forecasts
 
 
@@ -795,7 +798,7 @@ def build_all(export_path, cfg=CONFIG):
     hist_forecasts = build_backtest_forecasts(risks, matches, questions, truth, cfg, rng)
     forecasts = pd.concat([act_forecasts, hist_forecasts], ignore_index=True)
     forecasts.insert(0, "forecast_id", [f"F{i + 1:05d}" for i in range(len(forecasts))])
-    comments, forecasts = mark_hidden_answers(stances, comments, forecasts, questions)
+    comments, forecasts = mark_hidden_names(stances, comments, forecasts, questions)
     suggestions = build_suggestions(risks, matches, experts, ecountries, edomains, truth, cfg, rng, triggers)
 
     # accepted missing triggers join the trigger list (the loop back to ACAPS)
@@ -944,6 +947,30 @@ def _clean(obj):
     return _iso(obj)
 
 
+MIN_COUNTRY_ANSWERS = 3
+
+
+def group_answer(latest, min_country=MIN_COUNTRY_ANSWERS):
+    """The group numbers on a card, from each expert's latest stance on one risk.
+
+    weighted_agree is the agree share in percent, with each vote counted by its match weight, so a
+    vote from an expert matched on country and domain counts for more than a domain-only vote.
+    The country line is empty under min_country answers: in a smaller group it could show how one
+    person voted.
+    """
+    agreed = latest["stance"] == "agree"
+    from_country = latest["match_type"] != "domain_only"
+    enough_from_country = from_country.sum() >= min_country
+    total_weight = latest["match_weight"].sum()
+    agree_weight = latest.loc[agreed, "match_weight"].sum()
+    return {"answers": int(len(latest)),
+            "agree": int(agreed.sum()),
+            "disagree": int((latest["stance"] == "disagree").sum()),
+            "weighted_agree": int(round(100 * agree_weight / total_weight)) if total_weight else None,
+            "country_answers": int(from_country.sum()) if enough_from_country else None,
+            "country_agree": int((agreed & from_country).sum()) if enough_from_country else None}
+
+
 def expert_demo_bundle(tables, truth, cfg=CONFIG):
     """Everything the expert screens need for the demo expert: deck, details, communities, read-only."""
     today = _ts(cfg["today"])
@@ -976,10 +1003,7 @@ def expert_demo_bundle(tables, truth, cfg=CONFIG):
                           "kind": "Changed opinion" if c["kind"] == "changed_opinion" else "Answer",
                           "text": c["text"], "likes": int(likes.get(c["comment_id"], 0)),
                           "source": s, "posted_at": c["posted_at"]})
-        return {"answers": int(len(latest)),
-                "agree": int((latest["stance"] == "agree").sum()),
-                "disagree": int((latest["stance"] == "disagree").sum()),
-                "comments": items[:limit] if limit else items}
+        return {**group_answer(latest), "comments": items[:limit] if limit else items}
 
     deck = []
     for rid, m in eligible.iterrows():

@@ -15,10 +15,11 @@ How Ground Truth stores ACAPS risks, experts and everything experts do in the ap
   | Country only | 0.6 |
   | Domain only | 0.4 |
 
-  The weights are a starting point for the ranking algorithm.
+  The weights set how much a vote counts in the weighted total on each card, so a vote from an expert matched on country and domain counts for more than a domain-only vote. They do not change the rank. They are a starting assumption for ACAPS to test in the pilot.
+- **Group answers on a card.** Each card shows the plain counts, the weighted total, and a separate line for experts matched on the risk's country. That line stays empty under 3 answers, because in a smaller group it could show how one person voted.
 - **Approval** happens per country and per domain. The moderator can deny any of them.
 - **Anonymity.** The expert chooses the level at registration and can change it in settings:
-  - **known to ACAPS:** personal data kept; single answers can be hidden from ACAPS.
+  - **known to ACAPS:** personal data kept; the expert can hide their name from ACAPS on a single answer. ACAPS still sees and uses the answer, just not who gave it.
   - **verified anonymous:** personal data kept in `expert_identity` and never shown in the app. It shares an `expert_id` with the expert's answers, so this rests on who at ACAPS can open that table.
   - **verified, then deleted:** personal data, documents, the application comment and education are needed for approval, then deleted.
 
@@ -173,7 +174,7 @@ Fields: `expert_id`, `risk_id`, `added_at`, `status` (`open` or `done`), `comple
 | `stance` | `agree` or `disagree` |
 | `version`, `changed_opinion`, `previous_stance_id` | version 2 = the one allowed change |
 | `given_at` | |
-| `hidden_from_acaps` | per-answer anonymity |
+| `name_hidden_from_acaps` | per-answer anonymity: ACAPS sees the answer but not who gave it |
 | `match_type`, `match_weight` | how well the expert matches this risk |
 
 ### `comments`
@@ -185,7 +186,7 @@ Fields: `expert_id`, `risk_id`, `added_at`, `status` (`open` or `done`), `comple
 | `source_id`, `ai_draft_used` | when the comment started from an AI summary of a source |
 | `reply_to` | for threaded discussion later |
 | `posted_at` | |
-| `hidden_from_acaps` | true when the expert hid their answer on this risk |
+| `name_hidden_from_acaps` | true when the expert hid their name on this risk |
 
 ### `sources`
 | Field | Notes |
@@ -207,7 +208,7 @@ Fields: `comment_id`, `expert_id`, `liked_at`. Only members of that risk's commu
 | `probability` | from the answer level (0.1 to 0.9); empty for don't know |
 | `match_type`, `match_weight` | |
 | `submitted_at` | |
-| `hidden_from_acaps` | true when the expert hid their answer on this risk |
+| `name_hidden_from_acaps` | true when the expert hid their name on this risk |
 
 ### `suggestions`
 | Field | Notes |
@@ -236,7 +237,7 @@ The hidden skill, bias, noise, activity and comment quality of each synthetic ex
 | Data | The expert | Other experts | ACAPS moderator | Public |
 |---|---|---|---|---|
 | `expert_identity` | own | never | only if personal data is kept | never |
-| Stances, comments, forecasts | own | in the risk's community, under that risk's display name | yes, unless hidden from ACAPS | never |
+| Stances, comments, forecasts | own | in the risk's community, under that risk's display name | yes, without the name if the expert hid it | never |
 | Rank | **own only** | never | yes | never |
 | Swipes, to-do items | own | never | skip counts per risk only | never |
 | Discussions outside own countries and domains | read only | | yes | never |

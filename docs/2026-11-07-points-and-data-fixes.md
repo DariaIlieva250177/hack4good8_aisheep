@@ -43,6 +43,7 @@
 | Outcomes | ACAPS records each outcome once and points are calculated. The demo uses the outcomes already in the export |
 | Good comment | A moderator marks it "spot on" for +5, more than any right forecast. The demo has one hand-written example, labelled as an example, which counts in the total |
 | `expert.rank` | `{"points": n, "average_points": n, "position": n or null, "out_of": n, "forecasts": n, "calls": n, "correct": n}` |
+| Group answers | `community` in `details` and `read_only` also has `weighted_agree` (percent, votes counted by match weight), `country_answers` and `country_agree` (experts matched on the country, both null under 3 answers). Show the country line as counts, such as "2 of 4" |
 | Results | A `results` list in `expert_demo.json`. The screen is optional and is Diana's |
 | Card order | Urgency, then own country + domain, then own country, then domain |
 | Matching | Country and/or domain, using all of a risk's categories |
@@ -1078,4 +1079,4 @@ EOF
 
 Give Valeri this note to send, and ask Valeri whether to push the branch:
 
-> The data has changed. The demo expert is now E041 (Chad and Algeria, Armed conflict and Infrastructure failure), not E007, and all synthetic tables have new values. `expert.rank` is now `{"points", "position", "out_of", "calls", "correct"}`, `results` is a new list, and the deck opens on R1043. To regenerate, run `python src/build_demo_data.py`, not notebook 05's save cell. Don't run notebook 03: it overwrites `experts.csv` with the old format.
+> The data has changed. The demo expert is now E041 (Chad and Algeria, Armed conflict and Infrastructure failure), not E007, and all synthetic tables have new values. `expert.rank` is now `{"points", "average_points", "position", "out_of", "forecasts", "calls", "correct"}` and `position` can be null, `results` is a new list, `community` has `weighted_agree`, `country_answers` and `country_agree`, and the deck opens on R1043. To regenerate, run `python src/build_demo_data.py`, not notebook 05's save cell. Don't run notebook 03: it overwrites `experts.csv` with the old format.
