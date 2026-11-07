@@ -1,0 +1,56 @@
+.device {
+  --screen-h: 100dvh;
+  position: relative;
+  block-size: var(--screen-h);
+  overflow: hidden;
+  background: var(--app-bg);
+  background-color: var(--ground);
+  /* Makes the frame the containing block for position: fixed children */
+  transform: translateZ(0);
+}
+
+.device__screen {
+  block-size: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+body.night .device {
+  background: var(--night);
+}
+
+/* Desktop and tablet browsers: show the app in a phone-sized frame. */
+@media (min-width: 600px) and (min-height: 640px) {
+  html,
+  body,
+  body.night,
+  html:has(body.night) {
+    background: var(--desk);
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-block-size: 100dvh;
+    padding-block: 24px;
+  }
+
+  .device {
+    --screen-h: min(844px, calc(100dvh - 48px));
+    inline-size: 390px;
+    border-radius: 48px;
+    box-shadow:
+      0 0 0 10px var(--bezel),
+      0 0 0 11px rgba(255, 255, 255, 0.12),
+      0 40px 90px rgba(0, 20, 34, 0.35);
+  }
+
+  .device__screen {
+    scrollbar-width: none;
+  }
+
+  .device__screen::-webkit-scrollbar {
+    display: none;
+  }
+}

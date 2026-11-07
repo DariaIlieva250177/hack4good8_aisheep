@@ -1,0 +1,136 @@
+/*
+ * Colour-block risk card. The level sets the card colour (--card-bg) and the
+ * text colour on it (--card-ink); everything inside draws in --card-ink.
+ */
+.risk-card {
+  --card-bg: var(--level-high);
+  --card-ink: #ffffff;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--card-bg);
+  color: var(--card-ink);
+  box-shadow: 0 18px 44px var(--glass-drop);
+  user-select: none;
+}
+
+.risk-card--high {
+  --card-bg: #b5123a;
+  --card-ink: #ffffff;
+}
+.risk-card--medium {
+  --card-bg: #f2a33a;
+  --card-ink: #ffffff;
+}
+.risk-card--low {
+  --card-bg: #e8d6a0;
+  --card-ink: #ffffff;
+}
+
+.risk-card__media {
+  position: relative;
+}
+
+.risk-card__media .risk-image--card {
+  aspect-ratio: 16 / 10;
+}
+
+/* Black tint over the picture: darkest at the top, fading out downwards. */
+.risk-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 45%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Keep the badge above the tint */
+.risk-card__badge {
+  z-index: 1;
+}
+
+.risk-card__counter {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 14px;
+  inset-inline-end: 16px;
+  padding: 6px 2px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+:root[data-mode="lite"] .risk-card__counter {
+  inset-block-start: 18px;
+  inset-inline-end: 20px;
+  color: var(--card-ink);
+}
+
+:root[data-mode="lite"] .risk-card__media::after {
+  display: none;
+}
+
+.risk-card__badge {
+  position: absolute;
+  inset-block-start: 14px;
+  inset-inline-start: 14px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--card-bg);
+  color: var(--card-ink);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Lite mode has no image: the badge sits in the flow at the top. */
+:root[data-mode="lite"] .risk-card__media {
+  padding: 18px 20px 0;
+}
+:root[data-mode="lite"] .risk-card__badge {
+  position: static;
+  display: inline-block;
+  padding: 0;
+}
+
+.risk-card__body {
+  display: grid;
+  gap: 14px;
+  padding: 18px 20px 22px;
+}
+
+.risk-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.risk-card__chip {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 26px;
+  padding-inline: 10px;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.risk-card__title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  /* Show the whole title: the card grows to fit it */
+  overflow-wrap: break-word;
+}
+
+.risk-card :focus-visible {
+  outline: 2px solid var(--card-ink);
+  outline-offset: 2px;
+}

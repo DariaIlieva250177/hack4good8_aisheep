@@ -1,0 +1,81 @@
+.answer__form {
+  display: grid;
+  gap: 24px;
+  margin-block-start: 28px;
+}
+
+.answer__label {
+  display: block;
+  margin-block-end: 12px;
+  padding: 0;
+}
+
+.answer__textarea {
+  align-items: flex-start;
+  padding-block: 14px;
+}
+
+.answer__textarea textarea {
+  min-block-size: 112px;
+  resize: none;
+  overflow: hidden;
+  line-height: 1.45;
+}
+
+.answer__sources {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+.answer__sources ul:not(:empty) {
+  margin-block-end: 8px;
+}
+
+.answer__add {
+  inline-size: fit-content;
+}
+
+.answer__remove {
+  display: grid;
+  place-items: center;
+  inline-size: 44px;
+  block-size: 44px;
+  margin-inline-end: -12px;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+}
+
+/* Errors never use red: red means risk level. */
+.inset--invalid {
+  box-shadow: var(--soft-pressed), inset 0 0 0 2px var(--accent);
+}
+
+.field-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-block-start: 8px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.field-error--reserved {
+  min-block-size: 20px;
+  margin-block-start: 6px;
+}
+
+.answer__sources .stack-md > * + * {
+  margin-block-start: 8px;
+}
+
+.answer__submit {
+  inline-size: 100%;
+}
+
+.answer__note {
+  margin-block-start: -12px;
+  text-align: center;
+}

@@ -1,0 +1,46 @@
+.todo__group {
+  margin-block-start: 20px;
+}
+
+.todo__group + .todo__group {
+  margin-block-start: 32px;
+}
+
+/* Group headers use the risk ramp, never yellow (yellow means "new") */
+.todo__pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-block-size: 48px;
+  margin-block-end: 16px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-title);
+  font-weight: 500;
+}
+
+.todo__pill--high {
+  background: var(--level-high);
+  color: var(--level-high-ink);
+}
+.todo__pill--medium {
+  /* Same yellow-orange and white text as the Medium risk card */
+  background: #f2a33a;
+  color: #ffffff;
+}
+.todo__pill--low {
+  background: var(--level-low);
+  color: var(--level-low-ink);
+}
+
+.todo__count {
+  display: grid;
+  place-items: center;
+  min-inline-size: 28px;
+  block-size: 28px;
+  padding-inline: 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.24);
+  font-size: var(--fs-small);
+  font-weight: 600;
+}

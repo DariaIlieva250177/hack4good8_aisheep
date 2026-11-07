@@ -1,0 +1,11 @@
+.empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 48px 12px;
+  text-align: center;
+}
+
+.empty-state p {
+  max-inline-size: 30ch;
+}

@@ -1,0 +1,61 @@
+.verdicts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.verdicts__btn {
+  padding-inline: 8px;
+}
+
+.verdicts--outline {
+  gap: 10px;
+}
+
+.verdicts__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-block-size: 46px;
+  padding-inline: 8px;
+  border: 1.5px solid color-mix(in srgb, currentColor 75%, transparent);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--fs-ui);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.verdicts__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+/* White disc with the glyph cut out in the card colour */
+.verdicts__icon--disc {
+  inline-size: 22px;
+  block-size: 22px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.verdicts__icon--disc svg {
+  color: var(--card-bg, #000);
+}
+
+@media (hover: hover) {
+  .verdicts__pill:hover {
+    background: color-mix(in srgb, currentColor 10%, transparent);
+  }
+}
+
+/* Chosen: a lighter wash of white with a soft lift, glyph stays visible */
+.verdicts__pill[aria-pressed="true"] {
+  border-color: color-mix(in srgb, currentColor 35%, transparent);
+  background: color-mix(in srgb, currentColor 24%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, currentColor 35%, transparent), 0 4px 12px rgba(0, 0, 0, 0.18);
+}

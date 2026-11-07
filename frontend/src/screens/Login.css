@@ -1,0 +1,179 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  min-block-size: var(--screen-h, 100dvh);
+  padding-inline: var(--gutter);
+  padding-block: calc(env(safe-area-inset-top, 0px) + 16px) 16px;
+  overflow: hidden;
+}
+
+/* ---------- Intro stories ---------- */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 18px;
+  padding: 18px 20px 20px;
+  overflow: hidden;
+  transform-origin: 50% 100%;
+}
+
+.intro__progress {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 6px;
+}
+
+.intro__bar {
+  block-size: 4px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: var(--line);
+}
+
+.intro__fill {
+  display: block;
+  block-size: 100%;
+  inline-size: 0;
+  background: var(--primary);
+}
+
+.intro__fill.is-done,
+.intro__fill.is-still.is-active {
+  inline-size: 100%;
+}
+
+.intro__fill.is-active:not(.is-still) {
+  animation: story-fill linear forwards;
+}
+
+@keyframes story-fill {
+  to {
+    inline-size: 100%;
+  }
+}
+
+.intro__media {
+  position: relative;
+  display: grid;
+  flex: 1;
+  min-block-size: 200px;
+  margin-inline: -20px;
+}
+
+.intro__image {
+  grid-area: 1 / 1;
+  display: grid;
+  align-items: center;
+}
+
+.intro__tap {
+  position: absolute;
+  inset-block: 0;
+  inline-size: 50%;
+  border: 0;
+  background: none;
+}
+
+.intro__tap--prev {
+  inset-inline-start: 0;
+}
+
+.intro__tap--next {
+  inset-inline-end: 0;
+}
+
+.intro__tap:disabled {
+  cursor: default;
+}
+
+.intro__text {
+  display: grid;
+  gap: 10px;
+}
+
+.intro__title {
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+
+.intro__actions {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+}
+
+.intro__start {
+  inline-size: 100%;
+}
+
+/* ---------- Log in ---------- */
+
+.login__stage {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.login__hero {
+  display: grid;
+  place-items: center;
+  block-size: 130px;
+}
+
+.login__hero svg {
+  block-size: 130px;
+  inline-size: auto;
+}
+
+.login__card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 16px;
+  inline-size: 100%;
+  max-inline-size: 400px;
+  padding: 24px 22px 14px;
+}
+
+.login__title {
+  color: var(--accent);
+}
+
+.login__eye {
+  display: grid;
+  place-items: center;
+  inline-size: 44px;
+  block-size: 44px;
+  margin-inline-end: -12px;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+}
+
+.login__eye[aria-pressed="true"] {
+  color: var(--accent);
+}
+
+.login__submit {
+  inline-size: 100%;
+  margin-block-start: 6px;
+}
+
+.login__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.login__wheel {
+  inline-size: 100%;
+  margin-block-start: auto;
+  padding-block-start: 12px;
+}

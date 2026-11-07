@@ -1,0 +1,26 @@
+.community__section {
+  margin-block-start: 16px;
+}
+
+.community__section + .community__section {
+  margin-block-start: 32px;
+}
+
+.community__title {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 48px;
+  margin-block-end: 16px;
+  padding-inline: 20px;
+  border-radius: var(--radius-control);
+  background: var(--control);
+  box-shadow: var(--soft-raised);
+  font-size: var(--fs-title);
+  font-weight: 500;
+}
+
+.community__members {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}

@@ -1,0 +1,43 @@
+.screen-header {
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  align-items: center;
+  min-block-size: 56px;
+  /* Keep the profile and back buttons clear of the phone's rounded corners */
+  padding-block: calc(env(safe-area-inset-top, 0px) + 20px) 4px;
+  padding-inline: 8px;
+}
+
+.screen-header__side {
+  display: flex;
+}
+
+.screen-header__side--end {
+  grid-column: 3;
+  justify-content: flex-end;
+}
+
+.screen-header__title {
+  font-size: var(--fs-title);
+  font-weight: 500;
+  text-align: center;
+}
+
+.screen-header--dark .screen-header__title {
+  color: var(--night-ink);
+}
+
+.screen-header--dark .avatar-button {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  border: var(--glass-dark-border);
+}
+
+.screen-header--dark .avatar--you {
+  box-shadow: 0 0 0 2px var(--night), 0 0 0 4px var(--acaps-blue);
+}
+
+/* Arrow points the other way in right-to-left layouts */
+:dir(rtl) .screen-header__back svg {
+  transform: scaleX(-1);
+}

@@ -1,0 +1,124 @@
+/* The fanned back cards may poke out sideways; clip them at the screen edge
+   without turning the stack into a scroll container. */
+.card-stack {
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+  overflow-x: clip;
+}
+
+.card-stack__deck {
+  display: grid;
+  padding-block: 4px;
+}
+
+/* All cards share one grid cell, so the deck is as tall as the front card. */
+.card-stack__deck > * {
+  grid-area: 1 / 1;
+}
+
+.card-stack__front {
+  position: relative;
+  /* Lets the swipe labels find the bottom of the 16:10 image */
+  container-type: inline-size;
+  z-index: 2;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.card-stack__front:active {
+  cursor: grabbing;
+}
+
+.card-stack__ghost {
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--card-bg);
+  transform-origin: 50% 100%;
+  box-shadow: 10px 10px 24px var(--shadow-dark), -10px -10px 24px var(--shadow-light);
+  scale: 0.96;
+  position: relative;
+}
+
+/* Shade the back cards so the front one stands out */
+.card-stack__ghost::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+/* Drop shadow from the front card onto the ones behind */
+.card-stack__front > .risk-card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-stack__ghost-body {
+  display: grid;
+  gap: 12px;
+  padding: 4px 20px 20px;
+  /* Keeps the ghost as tall as a card, but its text would show through the glass */
+  visibility: hidden;
+}
+
+:root[data-mode="lite"] .card-stack__ghost-body {
+  padding-block-start: 20px;
+}
+
+.card-stack__ghost-title {
+  color: var(--accent);
+}
+
+.swipe-label {
+  position: absolute;
+  /* Bottom edge of the card image (16:10), less a small gap */
+  inset-block-start: calc(100cqi * 10 / 16 - 14px);
+  translate: 0 -100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  color: var(--accent);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  pointer-events: none;
+}
+
+:root[data-mode="lite"] .swipe-label {
+  inset-block-start: 18px;
+  translate: none;
+}
+
+.swipe-label--later {
+  inset-inline-start: 18px;
+}
+
+.swipe-label--skip {
+  inset-inline-end: 18px;
+}
+
+.card-stack__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-block-start: 16px;
+}
+
+.card-stack__buttons {
+  gap: 32px;
+}
+
+.card-stack__link {
+  min-block-size: 44px;
+  padding-inline: 8px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
