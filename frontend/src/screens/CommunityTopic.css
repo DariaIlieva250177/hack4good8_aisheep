@@ -319,7 +319,7 @@
   color: var(--ink-2);
 }
 
-/* Agree / Partly / Disagree bars */
+/* Agree / Disagree bars */
 .result-bars {
   display: grid;
   gap: 8px;
@@ -352,10 +352,6 @@
   block-size: 100%;
   border-radius: 999px;
   background: var(--acaps-blue);
-}
-
-.result-bars__row--partly .result-bars__fill {
-  background: color-mix(in srgb, var(--acaps-blue) 55%, transparent);
 }
 
 .result-bars__row--no .result-bars__fill {

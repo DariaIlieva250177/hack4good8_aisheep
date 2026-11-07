@@ -42,9 +42,8 @@ export const en = {
   } satisfies Record<ImageCategory, string>,
 
   verdicts: {
-    yes: 'Yes',
-    partly: 'Partly',
-    no: 'No',
+    yes: 'Agree',
+    no: 'Disagree',
   } satisfies Record<Verdict, string>,
 
   veryHigh: 'Very high probability',
@@ -89,7 +88,7 @@ export const en = {
       },
       {
         title: 'Tell us if it holds',
-        body: 'Yes, partly or no. A few minutes at a time, whenever you have them.',
+        body: 'Agree or disagree. A few minutes at a time, whenever you have them.',
       },
       {
         title: 'Your name, your choice',
@@ -115,7 +114,7 @@ export const en = {
     triggersIntro: 'Events that would make this risk more likely:',
     triggersFor: (title: string) => `Triggers for: ${title}`,
     noTriggers: 'No triggers recorded for this risk yet.',
-    chooseFirst: 'Choose Yes, Partly or No first.',
+    chooseFirst: 'Choose Agree or Disagree first.',
   },
 
   risks: {
@@ -170,6 +169,8 @@ export const en = {
     moderate: 'Moderate',
     low: 'Low',
     toAnswer: (n: number) => `${n} to answer`,
+    removed: 'Removed from To-do.',
+    removeLabel: (title: string) => `Remove from To-do: ${title}`,
     emptyTitle: 'Nothing saved for later',
     emptyBody: 'Swipe a risk card right, or tap Later, to keep it here.',
   },
@@ -256,7 +257,6 @@ export const en = {
     locked: (c: number) =>
       `Answer first to see how ${c} others answered. This keeps everyone’s view independent.`,
     newSinceLast: 'New since last round',
-    summary: (y: number, p: number, no: number) => `${y} yes, ${p} partly, ${no} no`,
     anonymous: 'Anonymous expert',
     you: 'You',
     exploreNote: 'You’re exploring this topic. You can read every answer with its likes and comments, but you can’t answer, like or comment here.',
@@ -276,7 +276,6 @@ export const en = {
     finalResults: 'Final results',
     agreeWithAcaps: 'Do experts agree with the ACAPS analysis?',
     resultAgree: 'Agree',
-    resultPartly: 'Partly',
     resultDisagree: 'Disagree',
     ofExperts: (n: number, total: number) => `${n} of ${total} experts`,
     panelForecast: 'Panel forecast:',

@@ -1,9 +1,10 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Trash2 } from 'lucide-react';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { EmptyState } from '../components/EmptyState';
-import { getTodo, markTodoSeen } from '../data/api';
+import { getTodo, markTodoSeen, removeFromTodo, undoRemoveFromTodo } from '../data/api';
+import { useToast } from '../components/Toast';
 import { useQuery } from '../data/useQuery';
 import type { Risk, RiskLevel } from '../data/types';
 import { en } from '../i18n/en';
@@ -128,8 +129,28 @@ function Carousel({ label, children }: { label: string; children: ReactNode }) {
 }
 
 function TodoCard({ risk }: { risk: Risk }) {
+  const toast = useToast();
+
+  const remove = async () => {
+    const index = await removeFromTodo(risk.id);
+    toast({
+      message: en.todo.removed,
+      action: { label: en.risks.undo, onClick: () => undoRemoveFromTodo(risk.id, index) },
+      duration: 5000,
+    });
+  };
+
   return (
     <li className="todo__item">
+      {/* Outside the link: a button can't sit inside another interactive element */}
+      <button
+        type="button"
+        className={`todo-card__trash todo-card__trash--${risk.level.toLowerCase()}`}
+        aria-label={en.todo.removeLabel(risk.title)}
+        onClick={remove}
+      >
+        <Trash2 size={18} aria-hidden="true" />
+      </button>
       <Link to={`/answer/${risk.id}`} draggable={false} className={`todo-card todo-card--${risk.level.toLowerCase()}`}>
         <span className="todo-card__top">
           <span className="todo-card__chip">{en.families[risk.family]}</span>

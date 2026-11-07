@@ -54,8 +54,51 @@
 }
 
 .todo__item {
+  position: relative;
   flex: 0 0 min(76%, 260px);
   scroll-snap-align: start;
+}
+
+/* Trash: top-right corner of the card, in the card's text colour */
+.todo-card__trash {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 12px;
+  inset-inline-end: 12px;
+  display: grid;
+  place-items: center;
+  inline-size: 36px;
+  block-size: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.15s;
+}
+
+.todo-card__trash--medium,
+.todo-card__trash--low {
+  background: rgba(0, 0, 0, 0.1);
+  color: #2a1606;
+}
+
+.todo-card__trash:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.todo-card__trash--medium:hover,
+.todo-card__trash--low:hover {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.todo-card__trash:active {
+  transform: scale(0.92);
+}
+
+.todo-card__trash:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
 }
 
 /* ---------- Card: same colour blocks as the Risks cards ---------- */
@@ -100,6 +143,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  /* Room for the trash button in the corner */
+  padding-inline-end: 42px;
 }
 
 .todo-card__chip {

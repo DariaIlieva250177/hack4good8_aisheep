@@ -152,6 +152,20 @@ export async function skipRisk(riskId: string): Promise<number> {
   return wait(index);
 }
 
+/** Trash a card from To-do. Returns its position so Undo can put it back. */
+export async function removeFromTodo(riskId: string): Promise<number> {
+  const index = state.todo.indexOf(riskId);
+  state.todo = state.todo.filter((id) => id !== riskId);
+  changed();
+  return wait(index);
+}
+
+export async function undoRemoveFromTodo(riskId: string, index: number): Promise<void> {
+  if (!state.todo.includes(riskId)) state.todo.splice(Math.max(0, index), 0, riskId);
+  changed();
+  return wait(undefined);
+}
+
 export async function undoSkip(riskId: string, index: number): Promise<void> {
   if (!state.stack.includes(riskId)) state.stack.splice(Math.max(0, index), 0, riskId);
   changed();
@@ -166,7 +180,7 @@ export async function submitAnswer(input: AnswerInput): Promise<Answer> {
     authorId: state.me.id,
     displayName: displayNameFor(state.me),
     identity: state.me.identity,
-    verdict: input.verdict ?? existing?.verdict ?? 'partly',
+    verdict: input.verdict ?? existing?.verdict ?? null,
     forecast: input.forecast ?? existing?.forecast,
     text: input.text.trim() || existing?.text || '',
     sources: input.sources.length ? input.sources : existing?.sources ?? [],

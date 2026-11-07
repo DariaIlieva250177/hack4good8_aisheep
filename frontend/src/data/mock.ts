@@ -255,29 +255,29 @@ type Seed = Omit<Answer, 'id' | 'riskId'>;
 const ANSWERS: Record<string, Seed[]> = {
   R1043: [
     { authorId: 'u-heron', displayName: 'Heron', identity: 'pseudonym', verdict: 'yes', text: 'Matches partner reports from the border: new arrivals every week and more incidents on the roads.', sources: [], isNew: true },
-    { authorId: 'u-nadia', displayName: 'Nadia', identity: 'name', verdict: 'partly', text: 'Right for Ouaddaï, less so further south. Sila has been quieter since the rains.', sources: [] },
+    { authorId: 'u-nadia', displayName: 'Nadia', identity: 'name', verdict: 'yes', text: 'Right for Ouaddaï, less so further south. Sila has been quieter since the rains.', sources: [] },
     { authorId: 'u-a1', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'yes', text: 'Armed groups cross more often. Protection needs are rising faster than the response.', sources: [], isNew: true },
-    { authorId: 'u-ibis', displayName: 'Ibis', identity: 'pseudonym', verdict: 'partly', text: 'The picture is right, but the exposure looks high for the next three months.', sources: [] },
+    { authorId: 'u-ibis', displayName: 'Ibis', identity: 'pseudonym', verdict: 'no', text: 'The picture is right, but the exposure looks high for the next three months.', sources: [] },
     { authorId: 'u-marabou', displayName: 'Marabou', identity: 'pseudonym', verdict: 'yes', text: 'Sites near the border are over capacity. I would raise the impact.', sources: [] },
   ],
   R1066: [
     { authorId: 'u-weaver', displayName: 'Weaver', identity: 'pseudonym', verdict: 'yes', text: 'Attacks on the islands have picked up again. Access by boat is now very limited.', sources: [], isNew: true },
     { authorId: 'u-a2', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'yes', text: 'Displacement towards the towns is visible. Host communities are stretched.', sources: [] },
-    { authorId: 'u-tomas', displayName: 'Tomas', identity: 'name', verdict: 'partly', text: 'True for the Nigerian side. On the Cameroon side it feels stable for now.', sources: [] },
+    { authorId: 'u-tomas', displayName: 'Tomas', identity: 'name', verdict: 'yes', text: 'True for the Nigerian side. On the Cameroon side it feels stable for now.', sources: [] },
     { authorId: 'u-heron', displayName: 'Heron', identity: 'pseudonym', verdict: 'yes', text: 'Agree. Road escorts are back on two main routes.', sources: [] },
   ],
   R1055: [
     { authorId: 'u-sunbird', displayName: 'Sunbird', identity: 'pseudonym', verdict: 'yes', text: 'Returns are real, but many people move back and forth across the border.', sources: [] },
-    { authorId: 'u-a3', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'partly', text: 'Needs are high, but “mass” may overstate it outside El Geneina.', sources: [] },
+    { authorId: 'u-a3', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'no', text: 'Needs are high, but “mass” may overstate it outside El Geneina.', sources: [] },
     { authorId: 'u-ibis', displayName: 'Ibis', identity: 'pseudonym', verdict: 'yes', text: 'Water and shelter are the first gaps people mention.', sources: [] },
   ],
   R1051: [
     { authorId: 'u-plover', displayName: 'Plover', identity: 'pseudonym', verdict: 'yes', text: 'Prices of staples in local markets have roughly doubled since the routes closed.', sources: [] },
-    { authorId: 'u-a4', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'partly', text: 'Some informal trade still gets through, so the gap is uneven.', sources: [] },
+    { authorId: 'u-a4', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'yes', text: 'Some informal trade still gets through, so the gap is uneven.', sources: [] },
     { authorId: 'u-nadia', displayName: 'Nadia', identity: 'name', verdict: 'yes', text: 'Traders report fewer trucks and higher fees at checkpoints.', sources: [] },
   ],
   R1054: [
-    { authorId: 'u-bustard', displayName: 'Bustard', identity: 'pseudonym', verdict: 'partly', text: 'Repairs were faster than expected last time. Hospitals run on generators meanwhile.', sources: [] },
+    { authorId: 'u-bustard', displayName: 'Bustard', identity: 'pseudonym', verdict: 'no', text: 'Repairs were faster than expected last time. Hospitals run on generators meanwhile.', sources: [] },
     { authorId: 'u-a5', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'no', text: 'I don’t see signs of new attacks on the dam itself.', sources: [] },
   ],
   // Kestrel (you) already answered these two, so they sit in Your communities.
@@ -295,7 +295,7 @@ const ANSWERS: Record<string, Seed[]> = {
     { authorId: 'u-tomas', displayName: 'Tomas', identity: 'name', verdict: 'yes', text: 'Access to Ménaka and Gao by road is very limited.', sources: [] },
   ],
   R1044: [
-    { authorId: 'u-hornbill', displayName: 'Hornbill', identity: 'pseudonym', verdict: 'partly', text: 'The forecast is right for the east, but the highlands may get average rains.', sources: [] },
+    { authorId: 'u-hornbill', displayName: 'Hornbill', identity: 'pseudonym', verdict: 'yes', text: 'The forecast is right for the east, but the highlands may get average rains.', sources: [] },
     { authorId: 'u-weaver', displayName: 'Weaver', identity: 'pseudonym', verdict: 'yes', text: 'Marsabit and Turkana already report poor pasture. Livestock prices are dropping.', sources: [] },
   ],
   // Ended chats: full correspondence for the summary and final results.
@@ -303,24 +303,24 @@ const ANSWERS: Record<string, Seed[]> = {
     { authorId: 'u-kestrel', displayName: 'Kestrel', identity: 'pseudonym', verdict: 'yes', forecast: 4, text: 'Clashes in Upper Nile have spread to Jonglei. Partners have pulled staff out of two counties.', sources: [] },
     { authorId: 'u-heron', displayName: 'Heron', identity: 'pseudonym', verdict: 'yes', forecast: 5, text: 'Renk is receiving new arrivals daily. Health facilities in Nasir have closed.', sources: [] },
     { authorId: 'u-nadia', displayName: 'Nadia', identity: 'name', verdict: 'yes', forecast: 4, text: 'The ceasefire talks stalled again. Both sides are recruiting.', sources: [] },
-    { authorId: 'u-a9', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'partly', forecast: 3, text: 'Full civil war is not certain, but localised fighting will keep growing.', sources: [] },
+    { authorId: 'u-a9', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'no', forecast: 3, text: 'Full civil war is not certain, but localised fighting will keep growing.', sources: [] },
     { authorId: 'u-marabou', displayName: 'Marabou', identity: 'pseudonym', verdict: 'yes', forecast: 4, text: 'River transport on the Nile is disrupted, so food prices in Malakal are rising.', sources: [] },
   ],
   R1053: [
-    { authorId: 'u-kestrel', displayName: 'Kestrel', identity: 'pseudonym', verdict: 'partly', forecast: 3, text: 'Port Sudan is still working, but insurance costs for ships have gone up a lot.', sources: [] },
+    { authorId: 'u-kestrel', displayName: 'Kestrel', identity: 'pseudonym', verdict: 'yes', forecast: 3, text: 'Port Sudan is still working, but insurance costs for ships have gone up a lot.', sources: [] },
     { authorId: 'u-bustard', displayName: 'Bustard', identity: 'pseudonym', verdict: 'no', forecast: 2, text: 'No strike on the port since May. Air defences seem to be holding.', sources: [] },
-    { authorId: 'u-ibis', displayName: 'Ibis', identity: 'pseudonym', verdict: 'partly', forecast: 3, text: 'Aid flights were diverted twice last month. Delays, not a full stop.', sources: [] },
+    { authorId: 'u-ibis', displayName: 'Ibis', identity: 'pseudonym', verdict: 'yes', forecast: 3, text: 'Aid flights were diverted twice last month. Delays, not a full stop.', sources: [] },
     { authorId: 'u-a10', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'no', forecast: 2, text: 'Trade volumes are back to normal in the last two weeks.', sources: [] },
   ],
   R1046: [
     { authorId: 'u-hornbill', displayName: 'Hornbill', identity: 'pseudonym', verdict: 'yes', forecast: 4, text: 'The south was already dry this year. Another poor season would hit the Grand Sud hard.', sources: [] },
     { authorId: 'u-weaver', displayName: 'Weaver', identity: 'pseudonym', verdict: 'yes', forecast: 4, text: 'Seed stocks are low in Androy and Anosy.', sources: [] },
-    { authorId: 'u-a11', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'partly', forecast: 3, text: 'Too early to be sure: El Niño effects on Madagascar vary a lot.', sources: [] },
+    { authorId: 'u-a11', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'no', forecast: 3, text: 'Too early to be sure: El Niño effects on Madagascar vary a lot.', sources: [] },
   ],
   R1045: [
     { authorId: 'u-hornbill', displayName: 'Hornbill', identity: 'pseudonym', verdict: 'yes', text: 'Planting is already late in parts of Amhara and Tigray.', sources: [] },
     { authorId: 'u-a6', displayName: 'Anonymous expert', identity: 'anonymous', verdict: 'yes', text: 'Seasonal outlooks agree on below-average rains in the north.', sources: [] },
-    { authorId: 'u-weaver', displayName: 'Weaver', identity: 'pseudonym', verdict: 'partly', text: 'The south and west look closer to normal.', sources: [] },
+    { authorId: 'u-weaver', displayName: 'Weaver', identity: 'pseudonym', verdict: 'yes', text: 'The south and west look closer to normal.', sources: [] },
     { authorId: 'u-tomas', displayName: 'Tomas', identity: 'name', verdict: 'yes', text: 'Pastoral areas are reporting early livestock movement.', sources: [] },
   ],
 };
@@ -364,7 +364,7 @@ export function seedAnswers(): Answer[] {
         // Stable made-up like counts, so the demo looks the same every load
         likes: (a.text.length * 7 + i * 3) % 9,
         // Seeds without a forecast get one in line with their verdict
-        forecast: a.forecast ?? (a.verdict === 'yes' ? 4 : a.verdict === 'no' ? 2 : 3),
+        forecast: a.forecast ?? (a.verdict === 'yes' ? 4 : 2),
         comments: (COMMENTS[id] ?? []).map((c, j) => ({ ...c, id: `${id}-c${j}` })),
       };
     }),

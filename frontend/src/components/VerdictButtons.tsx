@@ -1,15 +1,14 @@
 import type { Verdict } from '../data/types';
 import { en } from '../i18n/en';
-import { Check, EqualApproximately, X, type LucideIcon } from 'lucide-react';
+import { Check, X, type LucideIcon } from 'lucide-react';
 import { GlassButton } from './glass/GlassButton';
 import './VerdictButtons.css';
 
-const VERDICTS: Verdict[] = ['yes', 'partly', 'no'];
+const VERDICTS: Verdict[] = ['yes', 'no'];
 
-/** Yes and No sit in a solid white disc; Partly is a bare glyph. */
+/** Agree and Disagree glyphs sit in a solid disc. */
 const ICONS: Record<Verdict, { Icon: LucideIcon; disc: boolean }> = {
   yes: { Icon: Check, disc: true },
-  partly: { Icon: EqualApproximately, disc: false },
   no: { Icon: X, disc: true },
 };
 
@@ -19,9 +18,9 @@ interface VerdictButtonsProps {
   labelledBy?: string;
   /** 'outline': plain pills in the surrounding text colour (colour-block cards) */
   variant?: 'glass' | 'outline';
-  /** Which verdicts to offer (default Yes, Partly, No) */
+  /** Which verdicts to offer (default Agree, Disagree) */
   options?: Verdict[];
-  /** Label overrides, e.g. { yes: 'Agree', no: 'Disagree' } */
+  /** Label overrides */
   labels?: Partial<Record<Verdict, string>>;
   /** false: no moving edge light on the glass buttons */
   shine?: boolean;

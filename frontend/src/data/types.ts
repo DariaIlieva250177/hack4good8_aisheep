@@ -75,7 +75,8 @@ export interface Risk {
   analysis?: RiskAnalysis;
 }
 
-export type Verdict = 'yes' | 'partly' | 'no';
+/** Agree ('yes') or disagree ('no') with the ACAPS statement. */
+export type Verdict = 'yes' | 'no';
 
 /** Five-point forecast scale: 1 very unlikely … 5 very likely. */
 export type Likelihood = 1 | 2 | 3 | 4 | 5;
@@ -107,7 +108,8 @@ export interface Answer {
   /** Already resolved against the author's identity choice */
   displayName: string;
   identity: IdentityMode;
-  verdict: Verdict;
+  /** Null when the expert only gave a forecast or a written answer */
+  verdict: Verdict | null;
   /** Forecast that the risk happens, 1 (very unlikely) to 5 (very likely) */
   forecast?: Likelihood;
   text: string;

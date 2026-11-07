@@ -2,7 +2,7 @@ import { useEffect, useState, type FormEvent } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { Eye, Heart, Lock, MessageCircle, Send, Timer } from 'lucide-react';
 import { ScreenHeader } from '../components/ScreenHeader';
-import { RiskHeader } from '../components/RiskHeader';
+import { FlipRiskCard } from '../components/FlipRiskCard';
 import { VerdictButtons } from '../components/VerdictButtons';
 import { Avatar } from '../components/Avatar';
 import { useToast } from '../components/Toast';
@@ -53,16 +53,11 @@ export function CommunityTopic({ explore = false }: { explore?: boolean }) {
     setSending(false);
   };
 
-  const counts = topic.others.reduce((acc, a) => ({ ...acc, [a.verdict]: acc[a.verdict] + 1 }), {
-    yes: 0,
-    partly: 0,
-    no: 0,
-  } as Record<Verdict, number>);
-
+  // No vote tally while the chat is open: verdicts stay hidden until it closes.
   return (
     <div className="screen topic">
       <ScreenHeader title={topic.community.name} back />
-      <RiskHeader risk={topic.risk} questionId="topic-question" />
+      <FlipRiskCard risk={topic.risk} />
 
       <p className="topic__closes">
         <Timer size={16} aria-hidden="true" />
@@ -86,6 +81,9 @@ export function CommunityTopic({ explore = false }: { explore?: boolean }) {
             <AnswerItem answer={topic.mine} you />
           ) : (
             <form className="topic__form soft-card" onSubmit={send}>
+              <p id="topic-question" className="field-label">
+                {en.answer.agreeQuestion}
+              </p>
               <VerdictButtons value={verdict} onChange={setVerdict} labelledBy="topic-question" />
               <label className="field-label" htmlFor="topic-note">
                 {en.topic.optionalNote}
@@ -107,7 +105,6 @@ export function CommunityTopic({ explore = false }: { explore?: boolean }) {
         </h2>
         {answered || explore ? (
           <>
-            <p className="t-small t-muted topic__summary">{en.topic.summary(counts.yes, counts.partly, counts.no)}</p>
             <ul className="topic__answers">
               {topic.others.map((a) => (
                 <li key={a.id}>
@@ -128,7 +125,21 @@ export function CommunityTopic({ explore = false }: { explore?: boolean }) {
   );
 }
 
-function AnswerItem({ answer, you = false, readOnly = false }: { answer: Answer; you?: boolean; readOnly?: boolean }) {
+/**
+ * One expert's answer. `showVerdict`: the Agree / Disagree tag is only
+ * revealed once the chat has closed (your own answer always shows yours).
+ */
+function AnswerItem({
+  answer,
+  you = false,
+  readOnly = false,
+  showVerdict = false,
+}: {
+  answer: Answer;
+  you?: boolean;
+  readOnly?: boolean;
+  showVerdict?: boolean;
+}) {
   return (
     <article className={`answer-item soft-card${answer.isNew ? ' answer-item--new' : ''}`}>
       <header className="answer-item__head">
@@ -140,7 +151,9 @@ function AnswerItem({ answer, you = false, readOnly = false }: { answer: Answer;
           </p>
           {answer.isNew && <span className="answer-item__new t-small">{en.topic.newSinceLast}</span>}
         </div>
-        <span className={`verdict-tag verdict-tag--${answer.verdict}`}>{en.verdicts[answer.verdict]}</span>
+        {(showVerdict || you) && answer.verdict && (
+          <span className={`verdict-tag verdict-tag--${answer.verdict}`}>{en.verdicts[answer.verdict]}</span>
+        )}
       </header>
       {answer.text && <blockquote className="answer-item__quote expert t-quote">{answer.text}</blockquote>}
       {answer.sources.length > 0 && (
@@ -247,11 +260,12 @@ function ExpiredTopic({ topic }: { topic: Topic }) {
   const all = [...(topic.mine ? [topic.mine] : []), ...topic.others];
   const comments = all.reduce((n, a) => n + (a.comments?.length ?? 0), 0);
   const likes = all.reduce((n, a) => n + (a.likes ?? 0), 0);
-  const counts = all.reduce((acc, a) => ({ ...acc, [a.verdict]: acc[a.verdict] + 1 }), {
-    yes: 0,
-    partly: 0,
-    no: 0,
-  } as Record<Verdict, number>);
+  const counts: Record<Verdict, number> = {
+    yes: all.filter((a) => a.verdict === 'yes').length,
+    no: all.filter((a) => a.verdict === 'no').length,
+  };
+  // Percentages are out of the experts who voted (some gave only a forecast or text)
+  const voted = counts.yes + counts.no;
   const forecasts = all.map((a) => a.forecast).filter((f): f is NonNullable<typeof f> => f != null);
   const avg = forecasts.length ? forecasts.reduce((x, y) => x + y, 0) / forecasts.length : null;
   const byStep = [1, 2, 3, 4, 5].map((s) => forecasts.filter((f) => f === s).length);
@@ -261,9 +275,9 @@ function ExpiredTopic({ topic }: { topic: Topic }) {
 
   const total = all.length;
   const consensus =
-    pct(counts.yes, total) >= 60
+    pct(counts.yes, voted) >= 60
       ? t.consensusAgree
-      : pct(counts.no, total) >= 60
+      : pct(counts.no, voted) >= 60
         ? t.consensusDisagree
         : t.consensusSplit;
   const ended = new Date(topic.community.endsAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
@@ -271,7 +285,7 @@ function ExpiredTopic({ topic }: { topic: Topic }) {
   return (
     <div className="screen topic topic--ended">
       <ScreenHeader title={topic.community.name} back />
-      <RiskHeader risk={topic.risk} />
+      <FlipRiskCard risk={topic.risk} />
 
       <p className="topic__explore-note" role="note">
         <Lock size={20} aria-hidden="true" />
@@ -327,17 +341,16 @@ function ExpiredTopic({ topic }: { topic: Topic }) {
             {(
               [
                 ['yes', t.resultAgree],
-                ['partly', t.resultPartly],
                 ['no', t.resultDisagree],
               ] as const
             ).map(([v, label]) => (
               <li key={v} className={`result-bars__row result-bars__row--${v}`}>
                 <span className="result-bars__label">{label}</span>
                 <span className="result-bars__track" aria-hidden="true">
-                  <span className="result-bars__fill" style={{ inlineSize: `${pct(counts[v], total)}%` }} />
+                  <span className="result-bars__fill" style={{ inlineSize: `${pct(counts[v], voted)}%` }} />
                 </span>
                 <span className="result-bars__value">
-                  {pct(counts[v], total)}%<span className="sr-only"> ({t.ofExperts(counts[v], total)})</span>
+                  {pct(counts[v], voted)}%<span className="sr-only"> ({t.ofExperts(counts[v], voted)})</span>
                 </span>
               </li>
             ))}
@@ -374,12 +387,12 @@ function ExpiredTopic({ topic }: { topic: Topic }) {
         <ul className="topic__answers">
           {topic.mine && (
             <li>
-              <AnswerItem answer={topic.mine} you readOnly />
+              <AnswerItem answer={topic.mine} you readOnly showVerdict />
             </li>
           )}
           {topic.others.map((a) => (
             <li key={a.id}>
-              <AnswerItem answer={a} readOnly />
+              <AnswerItem answer={a} readOnly showVerdict />
             </li>
           ))}
         </ul>

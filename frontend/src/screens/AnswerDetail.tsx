@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState, type FormEvent } from 'react';
 import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AlertCircle, Plus, X } from 'lucide-react';
 import { ScreenHeader } from '../components/ScreenHeader';
-import { RiskCard } from '../components/RiskCard';
+import { FlipRiskCard } from '../components/FlipRiskCard';
 import { LikelihoodSlider } from '../components/LikelihoodSlider';
 import { AcapsAnalysis } from '../components/AcapsAnalysis';
 import { SubmittedDialog } from '../components/SubmittedDialog';
@@ -39,7 +39,6 @@ export function AnswerDetail() {
 
   const [verdict, setVerdict] = useState<Verdict | null>((location.state as { verdict?: Verdict } | null)?.verdict ?? null);
   const [forecast, setForecast] = useState<Likelihood | null>(null);
-  const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(false);
   const [text, setText] = useState('');
   const [sources, setSources] = useState<Source[]>([]);
@@ -99,21 +98,7 @@ export function AnswerDetail() {
     <div className={`screen answer answer--${risk.level.toLowerCase()}`}>
       <ScreenHeader title={en.answer.title} back />
       {/* Same card as the Risks tab; tap to see the triggers on the back */}
-      <div
-        className="answer__card"
-        role="button"
-        tabIndex={0}
-        aria-pressed={flipped}
-        onClick={() => setFlipped((f) => !f)}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            setFlipped((f) => !f);
-          }
-        }}
-      >
-        <RiskCard risk={risk} flipped={flipped} />
-      </div>
+      <FlipRiskCard risk={risk} />
 
       <AcapsAnalysis risk={risk} />
 
@@ -126,8 +111,6 @@ export function AnswerDetail() {
             value={verdict}
             onChange={setVerdict}
             labelledBy="answer-question"
-            options={['yes', 'no']}
-            labels={{ yes: en.answer.agree, no: en.answer.disagree }}
             shine={false}
           />
         </div>
