@@ -25,8 +25,8 @@ APP_FILE = ROOT / "app" / "data" / "expert_demo.json"
 # Hand-written and synthetic: past risks have no comments, so this one shows how a comment that
 # named the real reason earns the spot-on bonus. The app labels it as an example.
 SPOT_ON_EXAMPLE = {
-    "risk_id": "R1056",
-    "text": "Tensions inside the camps could turn into clashes soon, but I don't expect that to cut aid access.",
+    "risk_id": "R0108",
+    "text": "Local sources in Uganda already point to this. I expect it to happen in the coming months.",
 }
 
 

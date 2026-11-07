@@ -761,10 +761,14 @@ def build_all(export_path, cfg=CONFIG):
     matches = expert_matches(experts, ecountries, edomains, risk_countries, risk_categories, cfg)
     risks, windows, questions = build_windows_and_questions(risks, cfg, rng)
 
-    # the demo expert: approved, in the demo risk's country and its main category
+    # the demo expert: approved, matches the demo risk on country and domain, and has the most past
+    # risks to forecast on, so the rank and results have something to show
     cfg = dict(cfg)
     dm = matches[(matches["risk_id"] == cfg["demo_risk"]) & (matches["match_type"] == "country_and_domain")]
-    cfg["_demo_expert"] = dm["expert_id"].iloc[0] if len(dm) else None
+    past = questions.loc[questions["is_backtest"], "risk_id"]
+    past_matches = matches[matches["risk_id"].isin(past)].groupby("expert_id").size()
+    by_past = past_matches.reindex(dm["expert_id"]).fillna(0).sort_values(ascending=False, kind="stable")
+    cfg["_demo_expert"] = by_past.index[0] if len(by_past) else None
 
     swipes, todos, stances, comments, sources, act_forecasts, views = build_activity(
         risks, matches, windows, questions, experts, cfg, rng, truth)
