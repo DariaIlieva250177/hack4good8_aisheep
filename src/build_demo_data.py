@@ -15,8 +15,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
+from app_bundle import add_screens
 from expert_stats import alerts_for_app, build_contributions, contributions_for_app
-from points import (SPOT_ON_BONUS, build_group_ranks, build_ranks, build_results, rank_for_app, score_forecasts,
+from points import (SPOT_ON_BONUS, add_accuracy, build_group_ranks, final_answers, build_ranks, build_results, rank_for_app, score_forecasts,
                     sort_deck)
 from risk_tools import load_risks
 from synthetic_data import CONFIG, _clean, build_all, expert_demo_bundle, save_all, validate
@@ -46,6 +47,8 @@ def build(config=CONFIG):
         raise ValueError(f"{demo_expert} has no scored forecast on {SPOT_ON_EXAMPLE['risk_id']}: pick another example")
 
     ranks = build_ranks(scored, tables["experts"], {demo_expert: SPOT_ON_BONUS})
+    chosen = final_answers(tables["forecasts"], tables["forecast_questions"])[["expert_id", "question_id", "probability"]]
+    ranks = add_accuracy(ranks, scored.merge(chosen, on=["expert_id", "question_id"]), tables["risks"])
     group_ranks = build_group_ranks(ranks, tables["expert_countries"], tables["expert_domains"], tables["categories"])
     contributions = build_contributions(tables)
     rank = rank_for_app(ranks, demo_expert, group_ranks)
@@ -58,7 +61,7 @@ def build(config=CONFIG):
     bundle["alerts"] = alerts_for_app(alerts, demo_expert, tables["risks"], SPOT_ON_EXAMPLE["risk_id"])
     bundle["alerts_unread"] = int(((alerts["expert_id"] == demo_expert) & alerts["read_at"].isna()).sum())
     tables = {**tables, "group_ranks": group_ranks, "contributions": contributions}
-    return tables, truth, ranks, _clean(bundle)
+    return tables, truth, ranks, _clean(add_screens(bundle, tables, load_risks(EXPORT)))
 
 
 def main():

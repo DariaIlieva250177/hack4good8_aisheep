@@ -1,12 +1,6 @@
-suggestion_id,expert_id,type,risk_id,country,category_id,title,description,created_at,status,reviewed_by,reviewed_at
-SG001,E001,missing_trigger,R1038,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-13,accepted,M03,2026-10-15
-SG002,E013,missing_trigger,R1044,,9,Late onset of the rainy season,Synthetic suggestion for the demo.,2026-11-03,new,,
-SG003,E014,missing_trigger,R1067,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-24,accepted,M03,2026-10-26
-SG004,E024,new_risk,,Sudan,2,Emerging armed conflict risk,Synthetic suggestion for the demo.,2026-10-29,rejected,M02,2026-10-31
-SG005,E058,missing_trigger,R1065,,1,Closure of a main border crossing,Synthetic suggestion for the demo.,2026-11-02,accepted,M03,2026-11-04
-SG006,E060,missing_trigger,R1068,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-11-05,new,,
-SG007,E062,missing_trigger,R1074,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-27,rejected,M03,2026-10-29
-SG008,E069,new_risk,,Afghanistan,5,Emerging economic crisis / prices risk,Synthetic suggestion for the demo.,2026-10-26,accepted,M03,2026-10-28
-SG009,E071,new_risk,,Yemen,2,Emerging armed conflict risk,Synthetic suggestion for the demo.,2026-10-29,accepted,M03,2026-10-31
-SG010,E073,missing_trigger,R1074,,2,Breakdown of a local ceasefire,Synthetic suggestion for the demo.,2026-10-18,accepted,M03,2026-10-20
-SG011,E079,missing_trigger,R1051,,5,Sharp rise in staple prices,Synthetic suggestion for the demo.,2026-11-03,new,,
+suggestion_id,expert_id,statement,area,why,created_at,status,reviewed_by,reviewed_at,posted_risk_id
+SG001,E060,Fuel shortages around Abéché force aid convoys to cut deliveries to refugee sites in eastern Chad,Eastern Chad,"Truck operators I speak to are already rationing fuel, and prices moved again in the last two weeks.",2026-11-05,new,,,
+SG002,E019,Cholera spreads through displacement sites around Tawila as water points fail,North Darfur,"Clinics report more cases of watery diarrhoea, and water trucking has slowed since the last attacks.",2026-11-04,new,,,
+SG003,E004,Flooding along the Niger river cuts farmers in Tillabéri off from their markets,"Tillabéri, Niger",The river is higher than usual for November and two local roads are already closed.,2026-11-03,new,,,
+SG004,E039,Fuel import limits at Hodeidah push up the price of trucked water in northern Yemen,Northern Yemen,Water trucking depends on diesel. Households are already paying more for less.,2026-10-27,approved,M02,2026-10-29,
+SG005,E011,Ethiopia's rains end early and harm the next harvest,Ethiopia,Farmers are worried about the season.,2026-10-20,rejected,M03,2026-10-22,

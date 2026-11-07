@@ -94,6 +94,15 @@ def build_group_ranks(ranks, expert_countries, expert_domains, categories, min_r
     return members[["expert_id", "group_type", "group", "position", "out_of"]].reset_index(drop=True)
 
 
+def add_accuracy(ranks, scored, risks):
+    """Adds each expert's Brier score and what ACAPS scored on the same risks. Lower is better."""
+    acaps = scored["risk_id"].map(risks.set_index("risk_id")["acaps_p"]).astype(float)
+    outcome = scored["outcome"].astype(float)
+    errors = pd.DataFrame({"expert_id": scored["expert_id"], "brier": (scored["probability"].astype(float) - outcome) ** 2,
+                           "acaps_brier": (acaps - outcome) ** 2})
+    return ranks.merge(errors.groupby("expert_id").mean().reset_index(), on="expert_id", how="left")
+
+
 def rank_for_app(ranks, expert_id, group_ranks=None):
     """The one expert's own rank, as the app reads it in expert.rank. Position is None until they have enough forecasts."""
     row = ranks.set_index("expert_id").loc[expert_id]
@@ -102,12 +111,16 @@ def rank_for_app(ranks, expert_id, group_ranks=None):
         mine = group_ranks[group_ranks["expert_id"] == expert_id].sort_values(["group_type", "position"])
         groups = [{"type": g["group_type"], "name": g["group"], "position": int(g["position"]),
                    "out_of": int(g["out_of"])} for _, g in mine.iterrows()]
-    return {"points": int(row["points"]),
+    rank = {"points": int(row["points"]),
             "average_points": None if pd.isna(row["average_points"]) else float(row["average_points"]),
             "position": None if pd.isna(row["position"]) else int(row["position"]),
             "out_of": int(ranks["position"].notna().sum()),
             "forecasts": int(row["forecasts"]), "calls": int(row["calls"]), "correct": int(row["correct"]),
             "groups": groups}
+    for column in ("brier", "acaps_brier"):
+        if column in row and pd.notna(row[column]):
+            rank[column] = round(float(row[column]), 3)
+    return rank
 
 
 def sort_deck(deck):

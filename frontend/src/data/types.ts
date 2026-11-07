@@ -101,6 +101,9 @@ export interface User {
   twoStep: boolean;
   /** When the password was last changed (ISO date) */
   passwordChanged: string;
+  /** Approved countries and domains */
+  countries?: string[];
+  domains?: string[];
 }
 
 export type LanguageCode = 'en' | 'fr' | 'es' | 'ar' | 'pt';
@@ -150,6 +153,29 @@ export interface AnswerInput {
   sources: string[];
 }
 
+/** The group's answer. Agree share counts each vote by how closely the expert matches the risk. */
+export interface GroupAnswer {
+  answers: number;
+  agree: number;
+  disagree: number;
+  weightedAgree: number | null;
+  /** Empty under 3 answers, because a smaller group could show how one person voted */
+  countryAnswers: number | null;
+  countryAgree: number | null;
+  /** Null when the risk spans several countries */
+  country: string | null;
+}
+
+/** What happened to a risk, and how the demo expert's forecast did. */
+export interface ChatOutcome {
+  happened: boolean;
+  whatHappened: string | null;
+  youSaid: string | null;
+  points: number | null;
+  bonusPoints: number;
+  correctCall: boolean | null;
+}
+
 export interface Community {
   riskId: string;
   name: string;
@@ -161,6 +187,10 @@ export interface Community {
   summary?: string;
   /** Latest message, shown as the preview line in the chat list (synthetic) */
   lastMessage?: { author: string; text: string };
+  group?: GroupAnswer;
+  /** How many forecasts fell on each of the five steps */
+  forecasts?: number[];
+  outcome?: ChatOutcome;
 }
 
 export interface Topic {
@@ -216,6 +246,10 @@ export interface Ranking {
   countries: CountryContribution[];
   /** Risks the expert helped assess (for the exposure sum) */
   assessedRiskIds: string[];
+  /** Filled by the data file; otherwise summed from assessedRiskIds */
+  exposedPeople?: number;
+  overall?: { position: number | null; outOf: number; points: number };
+  groups?: { name: string; position: number; outOf: number }[];
   stats: {
     contributions: number;
     resolvedForecasts: number;

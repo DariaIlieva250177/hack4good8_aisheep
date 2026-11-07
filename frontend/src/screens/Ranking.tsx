@@ -74,6 +74,14 @@ export function Ranking() {
         </h2>
         <p className="lx-panel">{t.onPanel(r.panel)}</p>
         <span className="lx-rule" aria-hidden="true" />
+        {r.overall?.position != null && (
+          <p className="lx-note">{t.overall(r.overall.points, r.overall.position, r.overall.outOf)}</p>
+        )}
+        {r.groups?.map((g) => (
+          <p key={g.name} className="lx-note">
+            {t.groupRank(g.name, g.position, g.outOf)}
+          </p>
+        ))}
         <p className="lx-note">{t.rankNote}</p>
       </section>
 

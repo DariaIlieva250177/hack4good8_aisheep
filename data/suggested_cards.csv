@@ -1,0 +1,6 @@
+suggestion_id,expert_id,statement,area,why,created_at,status,reviewed_by,reviewed_at
+SG001,E060,"Fuel shortages around Abéché force aid convoys to cut deliveries to refugee sites in eastern Chad",Eastern Chad,"Truck operators I speak to are already rationing fuel, and prices moved again in the last two weeks.",2026-11-05,new,,
+SG002,E019,"Cholera spreads through displacement sites around Tawila as water points fail",North Darfur,"Clinics report more cases of watery diarrhoea, and water trucking has slowed since the last attacks.",2026-11-04,new,,
+SG003,E004,"Flooding along the Niger river cuts farmers in Tillabéri off from their markets","Tillabéri, Niger",The river is higher than usual for November and two local roads are already closed.,2026-11-03,new,,
+SG004,E039,"Fuel import limits at Hodeidah push up the price of trucked water in northern Yemen",Northern Yemen,Water trucking depends on diesel. Households are already paying more for less.,2026-10-27,approved,M02,2026-10-29
+SG005,E011,"Ethiopia's rains end early and harm the next harvest",Ethiopia,Farmers are worried about the season.,2026-10-20,rejected,M03,2026-10-22

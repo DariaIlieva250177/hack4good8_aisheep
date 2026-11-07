@@ -602,7 +602,6 @@ export const ar: Translation = {
     yourRanking: 'ترتيبك',
     rankOf: (r: number, of: number, panel: string) => `#${r} من ${of} في فريق ${panel}`,
     rankNote: 'الترتيب حسب دقة توقعاتك المحسومة.',
-    roundCloses: (round: number) => `تُغلق الجولة ${round} خلال`,
     countdownUnits: { d: 'أيام', h: 'ساعات', m: 'دقيقة', s: 'ثانية' },
     countdownSr: (d: number, h: number, m: number) => `الأيام ${d}، الساعات ${h}، الدقائق ${m}`,
     certificates: 'شهاداتك',

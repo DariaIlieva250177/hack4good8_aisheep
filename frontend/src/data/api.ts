@@ -4,7 +4,7 @@
  */
 import type { Answer, AnswerInput, AppNotification, Community, Family, IdentityMode, LanguageCode, NotificationPrefs, Ranking, Risk, Topic, User } from './types';
 import { storedLanguage } from '../i18n/language';
-import { COMMUNITIES, INITIAL_STACK, INITIAL_TODO, ME, NOTIFICATIONS, RANKING, RISKS, seedAnswers } from './mock';
+import { COMMUNITIES, INITIAL_STACK, INITIAL_TODO, ME, NOTIFICATIONS, RANKING, RISKS, seedAnswers } from './live';
 
 const LATENCY_MS = 80;
 const wait = <T>(value: T) => new Promise<T>((resolve) => setTimeout(() => resolve(value), LATENCY_MS));
@@ -102,7 +102,8 @@ export async function getTopic(riskId: string, { explore = false } = {}): Promis
 }
 
 export const getRanking = (): Promise<Ranking & { exposedPeople: number }> => {
-  const exposedPeople = byIds(RANKING.assessedRiskIds).reduce((sum, r) => sum + exposureLowerBound(r.exposure), 0);
+  const exposedPeople =
+    RANKING.exposedPeople ?? byIds(RANKING.assessedRiskIds).reduce((sum, r) => sum + exposureLowerBound(r.exposure), 0);
   // Per country: people in the areas of its crises, from ACAPS exposure bands.
   // "<20,000" style bands only give a ceiling, so those read "up to".
   const countries = RANKING.countries.map((c) => {

@@ -619,7 +619,6 @@ export const fr: Translation = {
     yourRanking: 'Votre classement',
     rankOf: (r: number, of: number, panel: string) => `N° ${r} sur ${of} dans le panel ${panel}`,
     rankNote: 'Classement selon la précision de vos prévisions résolues.',
-    roundCloses: (round: number) => `Le tour ${round} se termine dans`,
     countdownUnits: { d: 'jours', h: 'heures', m: 'min', s: 'sec' },
     countdownSr: (d: number, h: number, m: number) =>
       `${d} ${d > 1 ? 'jours' : 'jour'}, ${h} ${h > 1 ? 'heures' : 'heure'} et ${m} ${m > 1 ? 'minutes' : 'minute'}`,

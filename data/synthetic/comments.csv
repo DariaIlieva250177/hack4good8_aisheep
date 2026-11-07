@@ -278,3 +278,97 @@ C00276,R1049,E080,answer,I disagree with the timing; this looks more likely late
 C00277,R1054,E080,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-23,False
 C00278,R1061,E080,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-02,False
 C00279,R1073,E080,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
+C00280,R1049,E041,answer,"Agree. Sieges of this size rarely stay local: once the main roads into a city are cut, the pressure moves to the next town that still has a market. I'd expect people to leave in stages, which makes the numbers easy to underestimate early on.",,False,,2026-10-27,False
+C00281,R1053,E041,answer,"Agree on the direction. I know infrastructure risk better than Sudan itself, but when a supply corridor comes into drone range, hauliers and insurers change their behaviour before anything is hit. Deliveries slow first, and the damage shows up later in prices.",,False,,2026-10-20,False
+C00282,R1074,E041,answer,"I'd rate this lower. Armies often close ranks after a mutiny when the threat outside is this visible, and I don't see a clear split yet. It would change my mind if units in the border regions started refusing orders.",,False,,2026-10-17,False
+C00283,R1043,E053,reply,"Spillover or not, the effect on the Chadian side is the same for families near the line. I'd separate intent from impact here.",,False,C00058,2026-11-03,False
+C00284,R1043,E059,reply,"Fair point on fuel, but repeated strikes near the border don't fit a simple supply dispute.",,False,C00058,2026-11-03,False
+C00285,R1043,E046,reply,"Agree on bursts. Dry season movement could pull the timing forward, though.",,False,C00156,2026-11-04,False
+C00286,R1043,E008,reply,Amdjarass is the one I'd watch too. A strike there would hit aid flights as well as the headlines.,,False,C00137,2026-11-06,False
+C00287,R1043,E043,reply,Same pattern elsewhere in the Sahel. Access took far longer to come back than the fighting took to move on.,,False,C00014,2026-11-06,False
+C00288,R1043,E072,reply,Worth checking with partners in Adré first. Some tracks may still be cut after the last storms.,,False,C00218,2026-11-06,False
+C00289,R1043,E003,reply,We hear the same on the Chad side. Rumours about registration can move people as fast as shelling does.,,False,C00232,2026-11-06,False
+C00290,R1074,E062,reply,"Agree, and it could move faster than the analysis expects.",,False,C00009,2026-10-26,False
+C00291,R1052,E080,reply,"Not what I'm hearing, but conditions differ a lot by area.",,False,C00011,2026-10-25,False
+C00292,R1042,E044,reply,I'd want a second source before relying on this.,,False,C00013,2026-11-05,False
+C00293,R1066,E053,reply,That matches what partners are telling me.,,False,C00017,2026-11-06,False
+C00294,R1047,E012,reply,"I read this differently, but it's worth watching.",,False,C00019,2026-11-01,False
+C00295,R1052,E018,reply,This fits the pattern from last year.,,False,C00021,2026-10-31,False
+C00296,R1066,E071,reply,That matches what partners are telling me.,,False,C00025,2026-11-06,False
+C00297,R1054,E074,reply,"I read this differently, but it's worth watching.",,False,C00028,2026-10-26,False
+C00298,R1055,E057,reply,I see this too in the areas I know.,,False,C00032,2026-11-01,False
+C00299,R1047,E062,reply,Interesting. How recent is this?,,False,C00038,2026-10-24,True
+C00300,R1062,E057,reply,"I read this differently, but it's worth watching.",,False,C00045,2026-11-03,False
+C00301,R1059,E032,reply,Interesting. How recent is this?,,False,C00048,2026-11-06,False
+C00302,R1037,E049,reply,"I read this differently, but it's worth watching.",,False,C00049,2026-11-06,False
+C00303,R1042,E001,reply,That matches what partners are telling me.,,False,C00050,2026-11-06,False
+C00304,R1061,E048,reply,"I read this differently, but it's worth watching.",,False,C00055,2026-10-31,False
+C00305,R1038,E065,reply,"Agree, and it could move faster than the analysis expects.",,False,C00057,2026-11-05,False
+C00306,R1047,E031,reply,Good point. Do you have a source for this?,,False,C00063,2026-11-06,False
+C00307,R1052,E035,reply,Thanks for sharing. It changes how I read the triggers.,,False,C00067,2026-10-22,False
+C00308,R1042,E018,reply,Interesting. How recent is this?,,False,C00069,2026-11-06,False
+C00309,R1054,E056,reply,This fits the pattern from last year.,,False,C00071,2026-11-06,False
+C00310,R1069,E004,reply,I see this too in the areas I know.,,False,C00073,2026-11-03,False
+C00311,R1048,E032,reply,Good point. Do you have a source for this?,,False,C00075,2026-11-04,False
+C00312,R1049,E024,reply,I'd want a second source before relying on this.,,False,C00084,2026-11-05,False
+C00313,R1051,E065,reply,Good point. Do you have a source for this?,,False,C00085,2026-11-06,False
+C00314,R1051,E048,reply,Good point. Do you have a source for this?,,False,C00090,2026-11-06,False
+C00315,R1052,E056,reply,"I read this differently, but it's worth watching.",,False,C00091,2026-10-26,False
+C00316,R1058,E068,reply,This fits the pattern from last year.,,False,C00096,2026-10-25,False
+C00317,R1051,E048,reply,Interesting. How recent is this?,,False,C00099,2026-11-06,False
+C00318,R1052,E048,reply,This fits the pattern from last year.,,False,C00100,2026-10-28,False
+C00319,R1072,E061,reply,I'd want a second source before relying on this.,,False,C00105,2026-11-06,False
+C00320,R1038,E053,reply,That matches what partners are telling me.,,False,C00106,2026-11-01,False
+C00321,R1042,E059,reply,This fits the pattern from last year.,,False,C00107,2026-11-05,False
+C00322,R1053,E021,reply,"Agree, and it could move faster than the analysis expects.",,False,C00110,2026-11-06,False
+C00323,R1068,E049,reply,Interesting. How recent is this?,,False,C00112,2026-11-06,False
+C00324,R1044,E021,reply,"Not what I'm hearing, but conditions differ a lot by area.",,False,C00113,2026-10-30,False
+C00325,R1059,E023,reply,That matches what partners are telling me.,,False,C00115,2026-11-06,False
+C00326,R1037,E055,reply,"Agree, and it could move faster than the analysis expects.",,False,C00120,2026-11-06,False
+C00327,R1052,E006,reply,"Agree, and it could move faster than the analysis expects.",,False,C00121,2026-11-06,False
+C00328,R1052,E055,reply,That matches what partners are telling me.,,False,C00122,2026-11-06,False
+C00329,R1053,E048,reply,Thanks for sharing. It changes how I read the triggers.,,False,C00123,2026-10-24,False
+C00330,R1051,E022,reply,Thanks for sharing. It changes how I read the triggers.,,False,C00129,2026-11-05,False
+C00331,R1065,E008,reply,I'd want a second source before relying on this.,,False,C00131,2026-11-06,False
+C00332,R1055,E068,reply,Good point. Do you have a source for this?,,False,C00138,2026-10-22,False
+C00333,R1054,E065,reply,Thanks for sharing. It changes how I read the triggers.,,False,C00141,2026-11-01,False
+C00334,R1065,E048,reply,This fits the pattern from last year.,,False,C00143,2026-11-01,False
+C00335,R1066,E030,reply,This fits the pattern from last year.,,False,C00144,2026-11-06,False
+C00336,R1038,E056,reply,"Agree, and it could move faster than the analysis expects.",,False,C00146,2026-11-01,False
+C00337,R1052,E004,reply,That matches what partners are telling me.,,False,C00148,2026-10-27,False
+C00338,R1054,E055,reply,"Not what I'm hearing, but conditions differ a lot by area.",,False,C00153,2026-11-06,False
+C00339,R1038,E034,reply,"I read this differently, but it's worth watching.",,False,C00155,2026-11-05,False
+C00340,R1061,E020,reply,Interesting. How recent is this?,,False,C00158,2026-11-04,False
+C00341,R1066,E053,reply,"I read this differently, but it's worth watching.",,False,C00160,2026-11-06,False
+C00342,R1074,E076,reply,Interesting. How recent is this?,,False,C00161,2026-10-30,False
+C00343,R1042,E024,reply,Interesting. How recent is this?,,False,C00162,2026-11-06,False
+C00344,R1062,E020,reply,"I read this differently, but it's worth watching.",,False,C00166,2026-10-24,False
+C00345,R1053,E030,reply,This fits the pattern from last year.,,False,C00169,2026-10-27,False
+C00346,R1074,E001,reply,Interesting. How recent is this?,,False,C00171,2026-10-18,False
+C00347,R1038,E076,reply,This fits the pattern from last year.,,False,C00172,2026-11-06,False
+C00348,R1046,E004,reply,"Not what I'm hearing, but conditions differ a lot by area.",,False,C00178,2026-10-31,False
+C00349,R1062,E033,reply,This fits the pattern from last year.,,False,C00180,2026-10-24,False
+C00350,R1037,E003,reply,That matches what partners are telling me.,,False,C00182,2026-11-06,False
+C00351,R1042,E048,reply,Thanks for sharing. It changes how I read the triggers.,,False,C00186,2026-11-06,True
+C00352,R1048,E068,reply,Thanks for sharing. It changes how I read the triggers.,,False,C00187,2026-10-30,False
+C00353,R1072,E026,reply,"Not what I'm hearing, but conditions differ a lot by area.",,False,C00189,2026-11-06,False
+C00354,R1055,E043,reply,"Agree, and it could move faster than the analysis expects.",,False,C00191,2026-10-18,False
+C00355,R1066,E075,reply,I see this too in the areas I know.,,False,C00193,2026-11-06,False
+C00356,R1049,E056,reply,Thanks for sharing. It changes how I read the triggers.,,False,C00200,2026-11-06,False
+C00357,R1048,E061,reply,"I read this differently, but it's worth watching.",,False,C00202,2026-11-06,False
+C00358,R1072,E042,reply,This fits the pattern from last year.,,False,C00205,2026-11-06,False
+C00359,R1038,E072,reply,I see this too in the areas I know.,,False,C00210,2026-10-26,True
+C00360,R1048,E044,reply,Thanks for sharing. It changes how I read the triggers.,,False,C00220,2026-11-05,False
+C00361,R1074,E025,reply,That matches what partners are telling me.,,False,C00223,2026-10-16,False
+C00362,R1059,E014,reply,That matches what partners are telling me.,,False,C00225,2026-11-06,False
+C00363,R1074,E024,reply,"Agree, and it could move faster than the analysis expects.",,False,C00227,2026-10-19,False
+C00364,R1054,E022,reply,"I read this differently, but it's worth watching.",,False,C00230,2026-10-27,False
+C00365,R1055,E049,reply,I'd want a second source before relying on this.,,False,C00237,2026-10-21,False
+C00366,R1069,E053,reply,That matches what partners are telling me.,,False,C00239,2026-11-06,False
+C00367,R1055,E030,reply,That matches what partners are telling me.,,False,C00243,2026-10-29,False
+C00368,R1038,E020,reply,Good point. Do you have a source for this?,,False,C00250,2026-10-28,False
+C00369,R1049,E080,reply,"Agree, and it could move faster than the analysis expects.",,False,C00255,2026-11-04,False
+C00370,R1044,E044,reply,Good point. Do you have a source for this?,,False,C00259,2026-11-06,False
+C00371,R1052,E080,reply,Thanks for sharing. It changes how I read the triggers.,,False,C00263,2026-10-28,False
+C00372,R1069,E074,reply,Good point. Do you have a source for this?,,False,C00268,2026-11-04,False
+C00373,R1074,E001,reply,Thanks for sharing. It changes how I read the triggers.,,False,C00269,2026-11-02,False

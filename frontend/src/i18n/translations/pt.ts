@@ -608,7 +608,6 @@ export const pt: Translation = {
     yourRanking: 'A sua classificação',
     rankOf: (r: number, of: number, panel: string) => `#${r} de ${of} no painel ${panel}`,
     rankNote: 'Classificação pela precisão das suas previsões resolvidas.',
-    roundCloses: (round: number) => `A ronda ${round} fecha dentro de`,
     countdownUnits: { d: 'dias', h: 'horas', m: 'min', s: 'seg' },
     countdownSr: (d: number, h: number, m: number) => `${d} dias, ${h} horas e ${m} minutos`,
     certificates: 'Os seus certificados',

@@ -4,7 +4,7 @@ synthetic_data.py - builds every table of the Ground Truth data model (docs/data
 REAL (from the ACAPS Risk Radar export): risks, countries, triggers, outcomes.
 SYNTHETIC (made up): experts, approvals, anonymity, documents, display names, moderators,
 answering windows, card swipes, to-do items, stances, comments, sources, likes, forecasts,
-trigger and risk suggestions, read-only views.
+suggested cards, read-only views, moderator messages, chat summaries.
 
 Put this file in src/ next to risk_tools.py. The notebook 05_generate_synthetic_data runs it.
 
@@ -20,6 +20,8 @@ import numpy as np
 import pandas as pd
 
 from risk_tools import load_risks, add_outcome, prob_to_number, parse_triggers, PROB_SCHEMES
+from screen_tables import (add_demo_answers, build_chat_summaries, build_moderator_messages, build_replies,
+                           load_suggestions, mark_removed_todos)
 
 # ======================================================================= settings
 CONFIG = {
@@ -32,6 +34,8 @@ CONFIG = {
     "status_mix": {"approved": 0.88, "pending": 0.07, "rejected": 0.05},
     "default_horizon_months": 2,
     "demo_risk": "R1043",
+    "demo_later": ["R1042", "R1054"],  # cards the demo expert starts with in To-do
+    "demo_skill": 0.98,              # simulated skill of the demo expert, so Ranking shows a top place
 }
 
 # ======================================================================= categories (domains)
@@ -248,14 +252,13 @@ def build_reference(export_path, cfg, rng):
 
     categories = pd.DataFrame(CATEGORIES, columns=["category_id", "name", "image_description", "file_name"])
 
-    # triggers from ACAPS (expert suggestions that get accepted are added later)
+    # triggers from ACAPS
     trig = []
     for _, r in df.iterrows():
         for k, t in enumerate(parse_triggers(r.get("triggers"))):
             tid = t["trigger_id"] if t["trigger_id"] != "unparsed" else f'{r["risk_id"]} - U{k + 1}'
             trig.append({"trigger_id": tid, "risk_id": r["risk_id"], "title": t["title"],
-                         "description": t["description"], "source": "acaps",
-                         "suggestion_id": None, "suggested_by": None, "added_at": None})
+                         "description": t["description"], "source": "acaps"})
     triggers = pd.DataFrame(trig).drop_duplicates("trigger_id")
     return risks, risk_countries, risk_categories, categories, triggers
 
@@ -550,14 +553,6 @@ SOURCE_TITLES = [
     "Field assessment report", "Market monitoring bulletin", "Situation update",
     "Research paper on early warning signals", "Local news investigation",
 ]
-TRIGGER_IDEAS = {
-    1: "Closure of a main border crossing", 2: "Breakdown of a local ceasefire",
-    3: "New arrivals at informal sites", 4: "Postponed elections", 5: "Sharp rise in staple prices",
-    6: "Failed second harvest", 7: "Rising cases at district clinics", 8: "River levels above seasonal average",
-    9: "Late onset of the rainy season", 10: "Cyclone season forecast above normal",
-    11: "Aftershocks near populated areas", 12: "Locust swarms reported nearby",
-    13: "Damage to the main water supply", 14: "Cuts to humanitarian funding", 0: "Access restrictions on aid convoys",
-}
 
 
 def build_activity(risks, matches, windows, questions, experts, cfg, rng, truth):
@@ -710,42 +705,6 @@ def build_backtest_forecasts(risks, matches, questions, truth, cfg, rng):
     return pd.DataFrame(rows)
 
 
-def build_suggestions(risks, matches, experts, ecountries, edomains, truth, cfg, rng, triggers=None):
-    today = _ts(cfg["today"])
-    posted = set()
-    if triggers is not None and len(triggers):
-        posted = set(zip(triggers["risk_id"], triggers["title"].astype(str).str.lower()))
-    active = risks[risks["status"] == "Active"].set_index("risk_id")
-    am = matches[matches["risk_id"].isin(active.index)]
-    rows = []
-    for eid in experts.loc[experts["status"] == "approved", "expert_id"]:
-        if eid == cfg.get("_demo_expert") or rng.random() > 0.15 + 0.3 * truth.loc[eid, "sim_activity"]:
-            continue
-        created = _rand_date(rng, today - timedelta(days=25), today)
-        mine = am[am["expert_id"] == eid]
-        if len(mine) and rng.random() < 0.75:
-            rid = rng.choice(mine["risk_id"].tolist())
-            cid = int(active.loc[rid, "category_id"])
-            stype, country, title = "missing_trigger", None, TRIGGER_IDEAS.get(cid, TRIGGER_IDEAS[0])
-            if (rid, title.lower()) in posted:
-                continue  # ACAPS already lists this trigger
-        else:
-            rid = None
-            c = ecountries[(ecountries["expert_id"] == eid) & (ecountries["status"] == "approved")]["country"]
-            d = edomains[(edomains["expert_id"] == eid) & (edomains["status"] == "approved")]["category_id"]
-            country = c.iloc[0] if len(c) else None
-            cid = int(d.iloc[0]) if len(d) else 0
-            stype, title = "new_risk", f"Emerging {CAT_NAME[cid].lower()} risk"
-        reviewed = (today - created).days > 3
-        status = str(rng.choice(["accepted", "rejected", "new"], p=[0.5, 0.3, 0.2])) if reviewed else "new"
-        rows.append({"suggestion_id": f"SG{len(rows) + 1:03d}", "expert_id": eid, "type": stype,
-                     "risk_id": rid, "country": country, "category_id": cid, "title": title,
-                     "description": "Synthetic suggestion for the demo.", "created_at": created,
-                     "status": status, "reviewed_by": rng.choice(["M02", "M03"]) if status != "new" else None,
-                     "reviewed_at": created + timedelta(days=2) if status != "new" else None})
-    return pd.DataFrame(rows)
-
-
 def build_display_names(stances, comments, windows, rng):
     """One display name per expert per risk: the same inside that risk's discussion, and never reused
     by that expert on another risk, so two discussions cannot be linked through a name."""
@@ -884,6 +843,9 @@ def build_all(export_path, cfg=CONFIG):
     past_matches = matches[matches["risk_id"].isin(past)].groupby("expert_id").size()
     by_past = past_matches.reindex(dm["expert_id"]).fillna(0).sort_values(ascending=False, kind="stable")
     cfg["_demo_expert"] = by_past.index[0] if len(by_past) else None
+    if cfg["_demo_expert"] is not None and cfg.get("demo_skill") is not None:
+        # moves only this expert's past forecasts: skill changes no random draw behind anyone else's answers
+        truth.loc[cfg["_demo_expert"], "sim_skill"] = cfg["demo_skill"]
 
     swipes, todos, stances, comments, sources, act_forecasts, views = build_activity(
         risks, matches, windows, questions, experts, cfg, rng, truth)
@@ -893,25 +855,31 @@ def build_all(export_path, cfg=CONFIG):
     forecasts.insert(0, "forecast_id", [f"F{i + 1:05d}" for i in range(len(forecasts))])
     forecasts = add_changed_forecasts(forecasts, stances, questions, cfg)
     comments, forecasts = mark_hidden_names(stances, comments, forecasts, questions)
-    suggestions = build_suggestions(risks, matches, experts, ecountries, edomains, truth, cfg, rng, triggers)
-
-    # accepted missing triggers join the trigger list (the loop back to ACAPS)
-    acc = suggestions[(suggestions["type"] == "missing_trigger") & (suggestions["status"] == "accepted")]
-    if len(acc):
-        new_t = pd.DataFrame({"trigger_id": acc["risk_id"] + " - X" + acc["suggestion_id"].str[2:],
-                              "risk_id": acc["risk_id"], "title": acc["title"],
-                              "description": "Suggested by an expert and accepted by ACAPS.",
-                              "source": "expert_suggestion", "suggestion_id": acc["suggestion_id"],
-                              "suggested_by": acc["expert_id"], "added_at": acc["reviewed_at"]})
-        triggers = pd.concat([triggers, new_t], ignore_index=True)
+    data_dir = Path(export_path).parent
+    today = _ts(cfg["today"])
+    suggestions = load_suggestions(data_dir / "suggested_cards.csv")
+    demo_answers = pd.read_csv(data_dir / "demo_expert_answers.csv", encoding="utf-8")
+    added = add_demo_answers(cfg["_demo_expert"], demo_answers, cfg["demo_later"],
+                             {"swipes": swipes, "todos": todos, "stances": stances, "comments": comments,
+                              "forecasts": forecasts},
+                             questions, windows, matches, level_probabilities(cfg["prob_scheme"]))
+    swipes, todos, stances, comments, forecasts = (added[k] for k in ("swipes", "todos", "stances", "comments", "forecasts"))
 
     display_names = build_display_names(stances, comments, windows, rng)
-    comments, sources = apply_written_comments(comments, sources, Path(export_path).parent / "r1043_comments.csv")
+    comments, sources = apply_written_comments(comments, sources, data_dir / "r1043_comments.csv")
 
     # a separate generator, so these tables cannot shift any value simulated above
     screen_rng = np.random.default_rng(cfg["seed"] + 1)
     notifications = build_notifications(matches, stances, comments, forecasts, questions, windows, cfg, screen_rng)
     discussion_reads = build_discussion_reads(stances, cfg, screen_rng)
+
+    extra_rng = np.random.default_rng(cfg["seed"] + 2)
+    replies = build_replies(comments, stances, cfg["_demo_expert"], cfg["demo_risk"], today, extra_rng,
+                            data_dir / "r1043_replies.csv")
+    comments = pd.concat([comments, replies], ignore_index=True)
+    moderator_messages = build_moderator_messages(windows, cfg["demo_risk"], today, extra_rng)
+    chat_summaries = build_chat_summaries(questions, forecasts, risks, "M03")
+    todos = mark_removed_todos(todos, cfg["_demo_expert"], extra_rng)
 
     tables = {
         "categories": categories, "countries": load_countries(Path(export_path).parent / "country_regions.csv"),
@@ -925,6 +893,7 @@ def build_all(export_path, cfg=CONFIG):
         "sources": sources, "comment_likes": likes, "forecasts": forecasts,
         "suggestions": suggestions, "discussion_views": views,
         "notifications": notifications, "discussion_reads": discussion_reads,
+        "moderator_messages": moderator_messages, "chat_summaries": chat_summaries,
     }
     truth = truth.reset_index().merge(recovery_codes, on="expert_id", how="left")
     truth["is_demo_expert"] = truth["expert_id"] == cfg["_demo_expert"]
@@ -969,7 +938,12 @@ FOREIGN_KEYS = [
     ("forecasts", "question_id", "forecast_questions", "question_id"),
     ("forecasts", "expert_id", "experts", "expert_id"),
     ("suggestions", "expert_id", "experts", "expert_id"),
-    ("suggestions", "risk_id", "risks", "risk_id"),
+    ("suggestions", "reviewed_by", "moderators", "moderator_id"),
+    ("comments", "reply_to", "comments", "comment_id"),
+    ("moderator_messages", "risk_id", "risks", "risk_id"),
+    ("moderator_messages", "moderator_id", "moderators", "moderator_id"),
+    ("chat_summaries", "risk_id", "risks", "risk_id"),
+    ("chat_summaries", "moderator_id", "moderators", "moderator_id"),
     ("discussion_views", "expert_id", "experts", "expert_id"),
     ("discussion_views", "risk_id", "risks", "risk_id"),
 ]
@@ -1107,7 +1081,7 @@ def expert_demo_bundle(tables, truth, cfg=CONFIG):
     def community(rid, limit=None):
         st = T["stances"][T["stances"]["risk_id"] == rid]
         latest = st.sort_values("version").groupby("expert_id").tail(1)
-        cm = T["comments"][T["comments"]["risk_id"] == rid].sort_values("posted_at")
+        cm = T["comments"].query("risk_id == @rid and kind != 'reply'").sort_values("posted_at")
         items = []
         for _, c in cm.iterrows():
             s = None
@@ -1123,8 +1097,12 @@ def expert_demo_bundle(tables, truth, cfg=CONFIG):
         return {**group_answer(latest), "name": risks.loc[rid, "community_name"], "unread": unread,
                 "comments": items[:limit] if limit else items}
 
+    answered = set(T["stances"][T["stances"]["expert_id"] == eid]["risk_id"])
+    saved = set(T["todo_items"][T["todo_items"]["expert_id"] == eid]["risk_id"])
     deck = []
     for rid, m in eligible.iterrows():
+        if rid in answered | saved:
+            continue
         r, w = risks.loc[rid], win.loc[rid]
         deck.append({"risk_id": rid, "title": r["title"], "short_explanation": r["short_explanation"],
                      "country": r["country"], "category": r["category"], "category_image": r["category_image"],
@@ -1144,7 +1122,7 @@ def expert_demo_bundle(tables, truth, cfg=CONFIG):
             "rationale": r["rationale"], "acaps_probability": r["acaps_probability"],
             "risk_level": r["risk_level"], "risk_trend": r["risk_trend"], "priority_needs": r["priority_needs"],
             "triggers": [{"trigger_id": t["trigger_id"], "title": t["title"], "description": t["description"],
-                          "posted_by": "ACAPS" if t["source"] == "acaps" else "Suggested by an expert, added by ACAPS"}
+                          "posted_by": "ACAPS"}
                          for _, t in trig.iterrows()],
             "forecast": {"question_id": q.loc[rid, "question_id"], "text": q.loc[rid, "question_text"],
                          "horizon_months": q.loc[rid, "horizon_months"], "closes": q.loc[rid, "closes"],

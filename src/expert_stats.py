@@ -28,7 +28,8 @@ def activity(tables):
     """
     risk_of = tables["forecast_questions"].set_index("question_id")["risk_id"]
     forecasts = tables["forecasts"].assign(risk_id=lambda t: t["question_id"].map(risk_of))
-    frames = {"votes": tables["stances"].query("version == 1"), "comments": tables["comments"].query("kind == 'answer'"),
+    frames = {"votes": tables["stances"].query("version == 1"),
+              "comments": tables["comments"].query("kind in ['answer', 'reply']"),
               "sources": tables["sources"], "forecasts": forecasts.query("version == 1")}
     rows = [f[["expert_id", "risk_id"]].assign(kind=kind) for kind, f in frames.items() if len(f)]
     return pd.concat(rows, ignore_index=True)
@@ -50,10 +51,17 @@ def contributions_for_app(contributions, tables, expert_id, resolved_forecasts):
     places = contributions[contributions["expert_id"] == expert_id].merge(
         tables["countries"][["country", "iso_numeric"]], on="country")
     places = places.sort_values(["total", "country"], ascending=[False, True])
-    exposure = tables["risks"].set_index("risk_id")["expected_exposure"]
+    risks = tables["risks"].set_index("risk_id")
+    exposure = risks["expected_exposure"]
+    worked_on = tables["risk_countries"][tables["risk_countries"]["risk_id"].isin(mine["risk_id"])]
+
+    def crises(country):
+        return [{"title": risks.loc[rid, "title"], "exposure": exposure[rid] if isinstance(exposure[rid], str) else ""}
+                for rid in worked_on[worked_on["country"] == country]["risk_id"].drop_duplicates()]
+
     return {"total": len(mine),
             "countries": [{"country": p["country"], "iso_numeric": p["iso_numeric"], "region": p["region"],
-                           "count": int(p["total"])} for _, p in places.iterrows()],
+                           "count": int(p["total"]), "crises": crises(p["country"])} for _, p in places.iterrows()],
             "country_count": len(places),
             "region_count": int(places["region"].nunique()),
             "resolved_forecasts": resolved_forecasts,

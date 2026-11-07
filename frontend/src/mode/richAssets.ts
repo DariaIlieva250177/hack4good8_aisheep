@@ -1,5 +1,5 @@
 import { IMAGE_CATEGORIES } from '../data/families';
-import { RISKS } from '../data/mock';
+import { RISKS } from '../data/live';
 
 let loading: Promise<void> | null = null;
 

@@ -616,7 +616,6 @@ export const es: Translation = {
     yourRanking: 'Tu clasificación',
     rankOf: (r: number, of: number, panel: string) => `N.º ${r} de ${of} en el panel de ${panel}`,
     rankNote: 'Clasificación según la precisión de tus pronósticos resueltos.',
-    roundCloses: (round: number) => `La ronda ${round} se cierra en`,
     countdownUnits: { d: 'días', h: 'horas', m: 'min', s: 'seg' },
     countdownSr: (d: number, h: number, m: number) => `${d} días, ${h} horas y ${m} minutos`,
     certificates: 'Tus certificados',

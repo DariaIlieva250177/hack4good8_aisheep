@@ -11,5 +11,7 @@ export default defineConfig({
     // Under WSL, file changes on Windows drives (/mnt/c, /mnt/d) don't send
     // events, so the dev server would keep serving stale code. Poll there.
     watch: env.WSL_DISTRO_NAME ? { usePolling: true, interval: 300 } : undefined,
+    // The data files sit outside this folder, in app/data.
+    fs: { allow: ['..'] },
   },
 })
