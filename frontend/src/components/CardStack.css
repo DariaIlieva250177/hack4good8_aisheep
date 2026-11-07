@@ -18,6 +18,8 @@
 
 .card-stack__front {
   position: relative;
+  /* Lets the swipe labels find the bottom of the 16:10 image */
+  container-type: inline-size;
   z-index: 2;
   touch-action: pan-y;
   cursor: grab;
@@ -29,9 +31,26 @@
 
 .card-stack__ghost {
   overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--card-bg);
   transform-origin: 50% 100%;
   box-shadow: 10px 10px 24px var(--shadow-dark), -10px -10px 24px var(--shadow-light);
   scale: 0.96;
+  position: relative;
+}
+
+/* Shade the back cards so the front one stands out */
+.card-stack__ghost::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+/* Drop shadow from the front card onto the ones behind */
+.card-stack__front > .risk-card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack__ghost-body {
@@ -52,7 +71,9 @@
 
 .swipe-label {
   position: absolute;
-  inset-block-start: 18px;
+  /* Bottom edge of the card image (16:10), less a small gap */
+  inset-block-start: calc(100cqi * 10 / 16 - 14px);
+  translate: 0 -100%;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -62,6 +83,11 @@
   font-size: var(--fs-small);
   font-weight: 600;
   pointer-events: none;
+}
+
+:root[data-mode="lite"] .swipe-label {
+  inset-block-start: 18px;
+  translate: none;
 }
 
 .swipe-label--later {
@@ -79,6 +105,20 @@
   margin-block-start: 16px;
 }
 
-.card-stack__buttons .btn {
-  min-inline-size: 120px;
+.card-stack__buttons {
+  gap: 32px;
+}
+
+.card-stack__link {
+  min-block-size: 44px;
+  padding-inline: 8px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
 }

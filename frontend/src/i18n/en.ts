@@ -64,6 +64,7 @@ export const en = {
     community: 'Community',
     ranking: 'Ranking',
     unread: (count: number) => `${count} unread`,
+    newTodo: (count: number) => `${count} new`,
   },
 
   login: {
@@ -113,7 +114,9 @@ export const en = {
 
   risks: {
     title: 'Risks',
-    instruction: 'Tap Yes, Partly or No to answer. Swipe right to answer later, left to skip.',
+    forReview: 'For review',
+    position: (n: number, total: number) => `${n}/${total}`,
+    instruction: 'Swipe right to save a risk to your To-do list, or left to skip it.',
     stackLabel: 'Risks to review',
     sent: 'Sent. You’ll see the group’s view when the round closes.',
     movedToTodo: 'Moved to To-do.',

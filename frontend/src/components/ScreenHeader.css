@@ -3,7 +3,9 @@
   grid-template-columns: 56px 1fr 56px;
   align-items: center;
   min-block-size: 56px;
-  padding-block: calc(env(safe-area-inset-top, 0px) + 8px) 4px;
+  /* Keep the profile and back buttons clear of the phone's rounded corners */
+  padding-block: calc(env(safe-area-inset-top, 0px) + 20px) 4px;
+  padding-inline: 8px;
 }
 
 .screen-header__side {

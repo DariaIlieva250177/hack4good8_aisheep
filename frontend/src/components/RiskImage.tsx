@@ -15,22 +15,24 @@ interface RiskImageProps {
   /** Layer drawn above the image (swipe labels) */
   overlay?: ReactNode;
   decorative?: boolean;
+  /** Show the illustration as-is: no tint, fade or duotone (colour-block cards) */
+  plain?: boolean;
 }
 
 /**
  * The illustration blended into its surface: multiply blend, all edges faded,
  * a soft family tint behind. Lite mode renders nothing, so nothing downloads.
  */
-export function RiskImage({ family, image, variant = 'card', behind, overlay, decorative = false }: RiskImageProps) {
+export function RiskImage({ family, image, variant = 'card', behind, overlay, decorative = false, plain = false }: RiskImageProps) {
   const { mode } = useMode();
   if (mode === 'lite') return null;
 
   const category = imageFor(family, image);
-  const tint = FAMILIES[family].tint;
-  const filter = IMAGE_TREATMENT === 'duotone' ? `url(#duotone-${family})` : undefined;
+  const tint = plain ? undefined : FAMILIES[family].tint;
+  const filter = !plain && IMAGE_TREATMENT === 'duotone' ? `url(#duotone-${family})` : undefined;
 
   return (
-    <div className={`risk-image risk-image--${variant}`}>
+    <div className={`risk-image risk-image--${variant}${plain ? ' risk-image--plain' : ''}`}>
       {tint && <div className="risk-image__tint" style={{ background: tint }} aria-hidden="true" />}
       {behind}
       <img

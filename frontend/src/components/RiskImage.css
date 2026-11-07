@@ -57,3 +57,14 @@
   -webkit-mask-image: radial-gradient(ellipse 58% 58% at 50% 50%, #000 62%, transparent 100%);
   mask-image: radial-gradient(ellipse 58% 58% at 50% 50%, #000 62%, transparent 100%);
 }
+
+/* Colour-block cards show the illustration whole, on its own cream ground. */
+.risk-image--plain {
+  background: #efe7da;
+}
+.risk-image--plain .risk-image__img {
+  mix-blend-mode: normal;
+  filter: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+}

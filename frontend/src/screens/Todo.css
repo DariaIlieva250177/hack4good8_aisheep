@@ -24,8 +24,9 @@
   color: var(--level-high-ink);
 }
 .todo__pill--medium {
-  background: var(--level-medium);
-  color: var(--level-medium-ink);
+  /* Same yellow-orange and white text as the Medium risk card */
+  background: #f2a33a;
+  color: #ffffff;
 }
 .todo__pill--low {
   background: var(--level-low);

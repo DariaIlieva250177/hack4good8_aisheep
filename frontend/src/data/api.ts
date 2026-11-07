@@ -13,6 +13,8 @@ const state = {
   risks: RISKS.map((r) => ({ ...r })),
   stack: [...INITIAL_STACK],
   todo: [...INITIAL_TODO],
+  /** Cards added to To-do since the user last opened it (badge on the tab) */
+  newTodo: 0,
   answers: seedAnswers(),
   communities: COMMUNITIES.map((c) => ({ ...c })),
   notifications: NOTIFICATIONS.map((n) => ({ ...n })),
@@ -85,6 +87,17 @@ export const getRanking = (): Promise<Ranking & { exposedPeople: number }> => {
 
 export const getNotifications = () => wait(state.notifications.map((n) => ({ ...n })));
 
+export function newTodoCount(): number {
+  return state.newTodo;
+}
+
+/** Opening To-do clears its badge. */
+export function markTodoSeen(): void {
+  if (state.newTodo === 0) return;
+  state.newTodo = 0;
+  changed();
+}
+
 export function unreadNotificationCount(): number {
   return state.notifications.filter((n) => n.unread).length;
 }
@@ -106,7 +119,10 @@ export async function setIdentity(identity: IdentityMode): Promise<User> {
 /** Swipe right: keep it for later. */
 export async function answerLater(riskId: string): Promise<void> {
   state.stack = state.stack.filter((id) => id !== riskId);
-  if (!state.todo.includes(riskId)) state.todo.unshift(riskId);
+  if (!state.todo.includes(riskId)) {
+    state.todo.unshift(riskId);
+    state.newTodo += 1;
+  }
   changed();
   return wait(undefined);
 }

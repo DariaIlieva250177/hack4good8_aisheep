@@ -1,4 +1,20 @@
+.risks__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-block-start: 0;
+}
+
+.risks__heading {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
 .risks__instruction {
   max-inline-size: 34ch;
-  margin-block: -6px 18px;
+  margin-block: 6px 16px;
 }

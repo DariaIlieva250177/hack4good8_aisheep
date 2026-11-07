@@ -1,11 +1,10 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion, useMotionValue, useTransform, type PanInfo } from 'motion/react';
 import { Clock, X } from 'lucide-react';
-import type { Risk, Verdict } from '../data/types';
+import type { Risk } from '../data/types';
 import { RiskCard, RiskChips } from './RiskCard';
 import { RiskImage } from './RiskImage';
 import { useMode } from '../mode/ModeContext';
-import { GlassButton } from './glass/GlassButton';
 import { en } from '../i18n/en';
 import './CardStack.css';
 
@@ -15,20 +14,16 @@ interface CardStackProps {
   risks: Risk[];
   onLater: (risk: Risk) => void;
   onSkip: (risk: Risk) => void;
-  onSend: (risk: Risk, verdict: Verdict) => void;
+  /** Shown in the front card's top-right corner, e.g. "1/4" */
+  counter?: string;
 }
-
-/* Long enough to see your choice pressed before the card leaves. */
-const SEND_DELAY_MS = 350;
 
 const SWIPE_DISTANCE = 110;
 const SWIPE_VELOCITY = 600;
 
-export function CardStack({ risks, onLater, onSkip, onSend }: CardStackProps) {
+export function CardStack({ risks, onLater, onSkip, counter }: CardStackProps) {
   const { reducedMotion } = useMode();
-  const [verdicts, setVerdicts] = useState<Record<string, Verdict>>({});
   const [exit, setExit] = useState<Exit>('later');
-  const sending = useRef<string | null>(null);
   const [front, ...rest] = risks;
   const behind = rest.slice(0, 2);
 
@@ -36,18 +31,6 @@ export function CardStack({ risks, onLater, onSkip, onSend }: CardStackProps) {
     setExit(kind);
     if (kind === 'later') onLater(risk);
     else onSkip(risk);
-  };
-
-  // One tap answers: show the choice, then send it.
-  const answer = (risk: Risk, v: Verdict) => {
-    if (sending.current === risk.id) return;
-    sending.current = risk.id;
-    setVerdicts((s) => ({ ...s, [risk.id]: v }));
-    window.setTimeout(() => {
-      setExit('sent');
-      onSend(risk, v);
-      sending.current = null;
-    }, reducedMotion ? 0 : SEND_DELAY_MS);
   };
 
   return (
@@ -66,7 +49,7 @@ export function CardStack({ risks, onLater, onSkip, onSend }: CardStackProps) {
               reducedMotion={reducedMotion}
               onSwipe={(dir) => act(dir === 1 ? 'later' : 'skip', front)}
             >
-              <RiskCard risk={front} verdict={verdicts[front.id] ?? null} onVerdict={(v) => answer(front, v)} />
+              <RiskCard risk={front} counter={counter} />
             </SwipeCard>
           )}
         </AnimatePresence>
@@ -74,14 +57,12 @@ export function CardStack({ risks, onLater, onSkip, onSend }: CardStackProps) {
 
       {front && (
         <div className="card-stack__buttons">
-          <GlassButton pill onClick={() => act('skip', front)}>
-            <X size={18} aria-hidden="true" />
+          <button type="button" className="card-stack__link" onClick={() => act('skip', front)}>
             {en.card.skip}
-          </GlassButton>
-          <GlassButton pill onClick={() => act('later', front)}>
-            <Clock size={18} aria-hidden="true" />
+          </button>
+          <button type="button" className="card-stack__link" onClick={() => act('later', front)}>
             {en.card.later}
-          </GlassButton>
+          </button>
         </div>
       )}
     </section>
@@ -114,6 +95,7 @@ function SwipeCard({
   const skipOpacity = useTransform(x, [-SWIPE_DISTANCE, -24], [1, 0]);
 
   const onDragEnd = (_: unknown, info: PanInfo) => {
+    // Right saves to To-do, left skips.
     if (info.offset.x > SWIPE_DISTANCE || info.velocity.x > SWIPE_VELOCITY) onSwipe(1);
     else if (info.offset.x < -SWIPE_DISTANCE || info.velocity.x < -SWIPE_VELOCITY) onSwipe(-1);
   };
@@ -147,8 +129,8 @@ function SwipeCard({
 /** The cards peeking out behind, fanned. Decorative and inert. */
 function GhostCard({ risk, tilt }: { risk: Risk; tilt: number }) {
   return (
-    <div className="card-stack__ghost soft-card" style={{ rotate: `${tilt}deg` }} aria-hidden="true" inert>
-      <RiskImage family={risk.family} image={risk.image} decorative />
+    <div className={`card-stack__ghost risk-card--${risk.level.toLowerCase()}`} style={{ rotate: `${tilt}deg` }} aria-hidden="true" inert>
+      <RiskImage family={risk.family} image={risk.image} decorative plain />
       <div className="card-stack__ghost-body">
         <RiskChips risk={risk} />
         <p className="t-title card-stack__ghost-title">{risk.title}</p>

@@ -1,69 +1,136 @@
+/*
+ * Colour-block risk card. The level sets the card colour (--card-bg) and the
+ * text colour on it (--card-ink); everything inside draws in --card-ink.
+ */
 .risk-card {
+  --card-bg: var(--level-high);
+  --card-ink: #ffffff;
   position: relative;
   overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--card-bg);
+  color: var(--card-ink);
+  box-shadow: 0 18px 44px var(--glass-drop);
   user-select: none;
+}
+
+.risk-card--high {
+  --card-bg: #b5123a;
+  --card-ink: #ffffff;
+}
+.risk-card--medium {
+  --card-bg: #f2a33a;
+  --card-ink: #ffffff;
+}
+.risk-card--low {
+  --card-bg: #e8d6a0;
+  --card-ink: #ffffff;
+}
+
+.risk-card__media {
+  position: relative;
+}
+
+.risk-card__media .risk-image--card {
+  aspect-ratio: 16 / 10;
+}
+
+/* Black tint over the picture: darkest at the top, fading out downwards. */
+.risk-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 45%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Keep the badge above the tint */
+.risk-card__badge {
+  z-index: 1;
+}
+
+.risk-card__counter {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 14px;
+  inset-inline-end: 16px;
+  padding: 6px 2px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+:root[data-mode="lite"] .risk-card__counter {
+  inset-block-start: 18px;
+  inset-inline-end: 20px;
+  color: var(--card-ink);
+}
+
+:root[data-mode="lite"] .risk-card__media::after {
+  display: none;
+}
+
+.risk-card__badge {
+  position: absolute;
+  inset-block-start: 14px;
+  inset-inline-start: 14px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--card-bg);
+  color: var(--card-ink);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Lite mode has no image: the badge sits in the flow at the top. */
+:root[data-mode="lite"] .risk-card__media {
+  padding: 18px 20px 0;
+}
+:root[data-mode="lite"] .risk-card__badge {
+  position: static;
+  display: inline-block;
+  padding: 0;
 }
 
 .risk-card__body {
   display: grid;
-  gap: 12px;
-  padding: 0 20px 22px;
+  gap: 14px;
+  padding: 18px 20px 22px;
 }
 
-/* Lite mode has no image, so the body needs its own top padding */
-:root[data-mode="lite"] .risk-card__body {
-  padding-block-start: 20px;
+.risk-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.risk-card__chip {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 26px;
+  padding-inline: 10px;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .risk-card__title {
-  color: var(--accent);
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  /* Show the whole title: the card grows to fit it */
+  overflow-wrap: break-word;
 }
 
-.risk-card__question {
-  margin-block-start: 2px;
-}
-
-.risk-card .verdicts {
-  margin-block-end: 2px;
-}
-
-/*
- * High risk: a red border and a red glow around the card's edge (red means
- * risk level only). The border is an outline so the full-bleed image can't
- * cover it; the glow breathes slowly and holds still under reduced motion.
- */
-.risk-glow {
-  --glow: 184, 22, 60;
-  outline: 2px solid rgb(var(--glow));
-  outline-offset: -1px;
-  box-shadow:
-    0 0 0 1px rgba(var(--glow), 0.25),
-    0 0 18px rgba(var(--glow), 0.45),
-    0 0 46px rgba(var(--glow), 0.22),
-    inset 0 0 26px rgba(var(--glow), 0.12);
-  animation: risk-glow 3.6s ease-in-out infinite;
-}
-
-:root[data-theme="dark"] .risk-glow {
-  --glow: 236, 52, 92;
-}
-
-@keyframes risk-glow {
-  50% {
-    box-shadow:
-      0 0 0 1px rgba(var(--glow), 0.4),
-      0 0 26px rgba(var(--glow), 0.6),
-      0 0 64px rgba(var(--glow), 0.32),
-      inset 0 0 32px rgba(var(--glow), 0.18);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .risk-glow {
-    animation: none;
-  }
+.risk-card :focus-visible {
+  outline: 2px solid var(--card-ink);
+  outline-offset: 2px;
 }

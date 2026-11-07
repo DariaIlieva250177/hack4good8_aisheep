@@ -1,16 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Bell, Layers, ListTodo, Trophy, Users, type LucideIcon } from 'lucide-react';
-import { unreadNotificationCount } from '../data/api';
+import { newTodoCount, unreadNotificationCount } from '../data/api';
 import { useStoreValue } from '../data/useQuery';
 import { useMode } from '../mode/ModeContext';
 import { en } from '../i18n/en';
 import './GlassTabBar.css';
 
-const TABS: { to: string; label: string; Icon: LucideIcon; badge?: boolean }[] = [
+const TABS: { to: string; label: string; Icon: LucideIcon; badge?: 'todo' | 'alerts' }[] = [
   { to: '/risks', label: en.tabs.risks, Icon: Layers },
-  { to: '/todo', label: en.tabs.todo, Icon: ListTodo },
-  { to: '/alerts', label: en.tabs.alerts, Icon: Bell, badge: true },
+  { to: '/todo', label: en.tabs.todo, Icon: ListTodo, badge: 'todo' },
+  { to: '/alerts', label: en.tabs.alerts, Icon: Bell, badge: 'alerts' },
   { to: '/community', label: en.tabs.community, Icon: Users },
   { to: '/ranking', label: en.tabs.ranking, Icon: Trophy },
 ];
@@ -22,12 +22,16 @@ const TABS: { to: string; label: string; Icon: LucideIcon; badge?: boolean }[] =
  */
 export function GlassTabBar({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
   const unread = useStoreValue(unreadNotificationCount);
+  const newTodo = useStoreValue(newTodoCount);
+  const counts = { todo: newTodo, alerts: unread };
   const { reducedMotion } = useMode();
 
   return (
     <nav className={`tabbar${tone === 'dark' ? ' tabbar--night' : ''}`} aria-label={en.tabs.label}>
       <ul className="tabbar__list">
-        {TABS.map(({ to, label, Icon, badge }) => (
+        {TABS.map(({ to, label, Icon, badge }) => {
+          const count = badge ? counts[badge] : 0;
+          return (
           <li key={to}>
             <NavLink to={to} className="tabbar__item">
               {({ isActive }) => (
@@ -47,10 +51,10 @@ export function GlassTabBar({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
                       fill={isActive ? 'currentColor' : 'none'}
                       aria-hidden="true"
                     />
-                    {badge && unread > 0 && (
+                    {count > 0 && (
                       <span className="tabbar__badge">
-                        <span aria-hidden="true">{unread}</span>
-                        <span className="sr-only">{en.tabs.unread(unread)}</span>
+                        <span aria-hidden="true">{count}</span>
+                        <span className="sr-only">{badge === 'todo' ? en.tabs.newTodo(count) : en.tabs.unread(count)}</span>
                       </span>
                     )}
                   </span>
@@ -59,7 +63,8 @@ export function GlassTabBar({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
               )}
             </NavLink>
           </li>
-        ))}
+          );
+        })}
       </ul>
     </nav>
   );
