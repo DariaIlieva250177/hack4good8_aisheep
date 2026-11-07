@@ -1,25 +1,15 @@
-/* The glass layer fills whatever hosts it and sits under the host's content. */
-.glass-host,
-.glass-btn {
+/* ---------- GlassLayer hosts (Profile's segmented options) ---------- */
+
+.glass-host {
   position: relative;
   overflow: hidden;
 }
 
-.glass-host > .glass-layer,
-.glass-btn > .glass-layer {
+.glass-host > .glass-layer {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-}
-
-.glass-btn__label {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
 }
 
 .glass-host > :not(.glass-layer) {
@@ -28,20 +18,10 @@
 }
 
 /*
- * Rich mode. GlassSurface splits and recombines colour channels, which only
- * works over an opaque backdrop; inside our translucent cards it turns grey.
- * So secondary glass buttons sit on an opaque base matching the glass tone.
+ * GlassSurface splits and recombines colour channels, which only works over an
+ * opaque backdrop; inside our translucent cards it turns grey. So the segmented
+ * options sit on an opaque base matching the glass tone.
  */
-:root[data-mode="rich"] .glass-btn.btn-soft {
-  background: var(--control-solid);
-  box-shadow: 0 4px 14px var(--glass-drop);
-}
-
-:root[data-mode="rich"] .glass-btn.btn-soft[aria-pressed="true"] {
-  background: var(--control-on-solid);
-  box-shadow: inset 0 2px 8px var(--glass-drop);
-}
-
 :root[data-mode="rich"] .segmented__face.glass-host {
   background: var(--control-solid);
 }
@@ -50,15 +30,6 @@
   background: var(--control-on-solid);
 }
 
-
-/* Keep the sheen faint on blue so white labels stay readable in the frosted fallback. */
-.glass-layer--primary .glass-surface__sheen,
-.glass-layer--primary .glass-surface__rim {
-  opacity: 0.4;
-}
-
-/* Light theme: GlassSurface's dark inner shadows read as grey on our pale blue
-   field, so swap them for a white rim and inner glow. Dark theme keeps them. */
 :root:not([data-theme="dark"]) .glass-layer--soft.glass-surface--svg {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.75),
@@ -66,8 +37,72 @@
     inset 0 -2px 6px rgba(0, 75, 120, 0.08);
 }
 
-:root:not([data-theme="dark"]) .glass-layer--primary.glass-surface--svg {
+/* ---------- SpecularButton, fitted to our button sizes and tokens ---------- */
+
+.btn.specular-button {
+  min-block-size: 48px;
+  padding-block: 0;
+  padding-inline: 20px;
+  font-size: var(--fs-ui);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.btn-soft.specular-button {
+  background: var(--control);
+  color: var(--ink);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
-    inset 0 1px 6px rgba(255, 255, 255, 0.3);
+    inset 0 0 0 1px var(--glass-line),
+    0 10px 24px -14px rgba(0, 0, 0, 0.45);
+}
+
+/* Selected: tint, accent text and weight, plus the blue dot; never the light alone */
+.btn-soft.specular-button[aria-pressed="true"] {
+  background: var(--control-on);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.btn-primary.specular-button {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.5);
+}
+
+.btn-icon.specular-button {
+  inline-size: 44px;
+  block-size: 44px;
+  min-block-size: 44px;
+  padding: 0;
+}
+
+.avatar-button.specular-button {
+  inline-size: 48px;
+  block-size: 48px;
+  min-block-size: 48px;
+}
+
+.toast__action.specular-button {
+  min-block-size: 44px;
+  padding-inline: 16px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.btn.specular-button:focus-visible {
+  outline: var(--focus);
+  outline-offset: 2px;
+}
+
+/* Keep the label's own icon + text spacing */
+.btn.specular-button .specular-button__label {
+  gap: 8px;
+}
+
+/* base.css caps canvases at 100% width; the light canvas must overhang by 24px */
+.specular-button__light {
+  max-inline-size: none;
 }

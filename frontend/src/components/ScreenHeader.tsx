@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Avatar } from './Avatar';
-import { GlassButton, GlassLayer } from './glass/GlassButton';
+import { GlassButton } from './glass/GlassButton';
 import { displayNameFor, getMe } from '../data/api';
 import { useQuery } from '../data/useQuery';
 import { en } from '../i18n/en';
@@ -39,15 +39,14 @@ export function ScreenHeader({ title, showTitle = true, back = false, avatar = t
       <h1 className={showTitle ? 'screen-header__title' : 'sr-only'}>{title}</h1>
       <div className="screen-header__side screen-header__side--end">
         {avatar && me && (
-          <button
-            type="button"
-            className="avatar-button glass-host"
+          <GlassButton
+            icon
+            className="avatar-button"
             onClick={() => navigate('/profile', { state: { from: location.pathname } })}
             aria-label={en.common.openProfile}
           >
-            <GlassLayer radius={24} />
             <Avatar name={displayNameFor(me)} identity={me.identity} seed={me.id} size={40} you />
-          </button>
+          </GlassButton>
         )}
       </div>
     </header>

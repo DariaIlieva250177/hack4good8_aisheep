@@ -30,3 +30,40 @@
 .risk-card .verdicts {
   margin-block-end: 2px;
 }
+
+/*
+ * High risk: a red border and a red glow around the card's edge (red means
+ * risk level only). The border is an outline so the full-bleed image can't
+ * cover it; the glow breathes slowly and holds still under reduced motion.
+ */
+.risk-glow {
+  --glow: 184, 22, 60;
+  outline: 2px solid rgb(var(--glow));
+  outline-offset: -1px;
+  box-shadow:
+    0 0 0 1px rgba(var(--glow), 0.25),
+    0 0 18px rgba(var(--glow), 0.45),
+    0 0 46px rgba(var(--glow), 0.22),
+    inset 0 0 26px rgba(var(--glow), 0.12);
+  animation: risk-glow 3.6s ease-in-out infinite;
+}
+
+:root[data-theme="dark"] .risk-glow {
+  --glow: 236, 52, 92;
+}
+
+@keyframes risk-glow {
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(var(--glow), 0.4),
+      0 0 26px rgba(var(--glow), 0.6),
+      0 0 64px rgba(var(--glow), 0.32),
+      inset 0 0 32px rgba(var(--glow), 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .risk-glow {
+    animation: none;
+  }
+}

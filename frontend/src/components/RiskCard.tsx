@@ -20,7 +20,7 @@ export function RiskCard({ risk, verdict, onVerdict, overlay }: RiskCardProps) {
   const titleId = `risk-${risk.id}-title`;
 
   return (
-    <article className="risk-card soft-card" aria-labelledby={titleId}>
+    <article className={`risk-card soft-card${risk.level === 'High' ? ' risk-glow' : ''}`} aria-labelledby={titleId}>
       <RiskImage family={risk.family} image={risk.image} overlay={overlay} />
       <div className="risk-card__body">
         <RiskChips risk={risk} />

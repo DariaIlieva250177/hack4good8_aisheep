@@ -7,7 +7,10 @@ import './RiskHeader.css';
 /** Compact risk header for Answer detail and Community topic. */
 export function RiskHeader({ risk, questionId }: { risk: Risk; questionId?: string }) {
   return (
-    <section className="risk-header soft-card" aria-labelledby={`${risk.id}-header-title`}>
+    <section
+      className={`risk-header soft-card${risk.level === 'High' ? ' risk-glow' : ''}`}
+      aria-labelledby={`${risk.id}-header-title`}
+    >
       <RiskImage family={risk.family} image={risk.image} variant="compact" />
       <div className="risk-header__body">
         <RiskChips risk={risk} />
