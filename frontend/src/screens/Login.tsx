@@ -10,6 +10,7 @@ import { useToast } from '../components/Toast';
 import { GlassButton } from '../components/glass/GlassButton';
 import { useMode } from '../mode/ModeContext';
 import { en } from '../i18n/en';
+import { useLoginDefaults } from '../mode/loginDefaults';
 import './Login.css';
 
 const STORY_IMAGES: { family: Family; image: ImageCategory }[] = [
@@ -126,9 +127,13 @@ function LoginForm({ reducedMotion }: { reducedMotion: boolean }) {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const applyDefaults = useLoginDefaults();
+
   // UI only: any input logs in. Real authentication comes with the backend.
+  // Every log-in starts from the default settings (light theme, low-data off).
   const submit = (e: FormEvent) => {
     e.preventDefault();
+    applyDefaults();
     navigate('/risks');
   };
 

@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValue, useTransform, type PanInfo } from 'motion/react';
-import { Clock, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock, X } from 'lucide-react';
 import type { Risk } from '../data/types';
 import { RiskCard, RiskChips } from './RiskCard';
 import { RiskImage } from './RiskImage';
@@ -35,6 +35,26 @@ export function CardStack({ risks, onLater, onSkip, counter }: CardStackProps) {
     else onSkip(risk);
   };
 
+  // Keyboard: ← skips, → saves to To-do (the same as swiping left / right)
+  const latest = useRef({ front, act });
+  latest.current = { front, act };
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.repeat || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      // Not while typing or while a pop-up is open
+      const el = document.activeElement as HTMLElement | null;
+      if (el?.closest('input, textarea, select, [contenteditable="true"], dialog[open]')) return;
+      if (document.querySelector('dialog[open]')) return;
+      const { front: card, act: run } = latest.current;
+      if (!card) return;
+      e.preventDefault();
+      run(e.key === 'ArrowRight' ? 'later' : 'skip', card);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
   return (
     <section className="card-stack" aria-label={en.risks.stackLabel}>
       <div className="card-stack__deck">
@@ -44,6 +64,29 @@ export function CardStack({ risks, onLater, onSkip, counter }: CardStackProps) {
           .map((risk, i, arr) => (
             <GhostCard key={risk.id} risk={risk} tilt={arr.length - i === 1 ? -6 : 6} />
           ))}
+        {/* Round arrow buttons either side of the deck (shown on the website) */}
+        {front && (
+          <>
+            <button
+              type="button"
+              className="card-stack__arrow card-stack__arrow--left"
+              aria-label={en.card.arrowSkip}
+              title={en.card.arrowSkip}
+              onClick={() => act('skip', front)}
+            >
+              <ArrowLeft size={26} aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              className="card-stack__arrow card-stack__arrow--right"
+              aria-label={en.card.arrowLater}
+              title={en.card.arrowLater}
+              onClick={() => act('later', front)}
+            >
+              <ArrowRight size={26} aria-hidden="true" />
+            </button>
+          </>
+        )}
         <AnimatePresence custom={{ exit, reducedMotion }} initial={false}>
           {front && (
             <SwipeCard
@@ -115,6 +158,8 @@ function SwipeCard({
       drag="x"
       dragSnapToOrigin
       dragElastic={0.9}
+      // Stop the browser's own drag-and-drop of images/text from stealing the swipe
+      onDragStartCapture={(e: React.DragEvent) => e.preventDefault()}
       dragMomentum={false}
       onDragEnd={onDragEnd}
       // onTap only fires when the pointer didn't travel, so a swipe never flips.

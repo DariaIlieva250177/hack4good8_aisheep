@@ -14,22 +14,28 @@
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
+  /* No visible scrollbar at any size (it still scrolls), like a real phone,
+     including the home page's preview, where the app runs at phone width */
+  scrollbar-width: none;
+}
+
+.device__screen::-webkit-scrollbar {
+  display: none;
 }
 
 body.night .device {
   background: var(--night);
 }
 
-/* Desktop and tablet browsers: show the app in a phone-sized frame. */
+/* Desktop and tablet browsers: show the app in a phone-sized frame.
+   Scoped with :has(.device) so the full-width home page is left alone. */
 @media (min-width: 600px) and (min-height: 640px) {
-  html,
-  body,
-  body.night,
-  html:has(body.night) {
+  html:has(.device),
+  body:has(.device) {
     background: var(--desk);
   }
 
-  body {
+  body:has(.device) {
     display: grid;
     place-items: center;
     min-block-size: 100dvh;
@@ -46,11 +52,4 @@ body.night .device {
       0 40px 90px rgba(0, 20, 34, 0.35);
   }
 
-  .device__screen {
-    scrollbar-width: none;
-  }
-
-  .device__screen::-webkit-scrollbar {
-    display: none;
-  }
 }

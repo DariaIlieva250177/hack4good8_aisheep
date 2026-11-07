@@ -244,6 +244,14 @@ export const ME: User = {
   name: 'Sam Demo',
   panel: 'Chad',
   identity: 'pseudonym',
+  email: 'sam.demo@example.org',
+  country: 'Chad',
+  domain: 'conflict',
+  bio: 'Protection officer in eastern Chad since 2021. Synthetic profile for the demo.',
+  language: 'en',
+  notifications: { newRisks: true, roundReminders: true, replies: true, summaries: true, emailDigest: false },
+  twoStep: false,
+  passwordChanged: '2026-08-14',
 };
 
 /** Order of the card stack (front first) and the To-do list at start. */

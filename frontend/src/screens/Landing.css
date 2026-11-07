@@ -1,0 +1,537 @@
+/*
+ * ACAPS Community home page. Fixed light palette (whatever the app theme),
+ * warm off-white like the reference, the app's font and the logo blue.
+ */
+html:has(.landing) {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.landing) {
+    scroll-behavior: auto;
+  }
+}
+
+.landing {
+  --lp-bg: #efeeeb;
+  --lp-ink: #14202b;
+  --lp-ink-2: #5a6670;
+  --lp-blue: #0196ba;
+  --ink: var(--lp-ink); /* logo wordmark */
+  min-block-size: 100dvh;
+  background: var(--lp-bg);
+  color: var(--lp-ink);
+  color-scheme: light;
+}
+
+html:has(.landing),
+body:has(.landing) {
+  background: #efeeeb; /* the home page stays light whatever the theme */
+}
+
+.lp-accent {
+  color: var(--lp-blue);
+}
+
+/* ---------- Hero ---------- */
+.lp-hero {
+  position: relative;
+  block-size: 100dvh;
+  min-block-size: 600px;
+  max-block-size: 1100px;
+  overflow: hidden;
+}
+
+.lp-hero__sphere {
+  position: absolute;
+  inset: 0;
+}
+
+.lp-corner {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+}
+
+.lp-corner--tl {
+  inset-block-start: 104px;
+  inset-inline-start: 32px;
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+}
+
+.lp-logo {
+  inline-size: 64px;
+  margin-block-end: 6px;
+}
+
+.lp-title {
+  margin: 0;
+  font-size: clamp(30px, 3.6vw, 52px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.lp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-block-start: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--lp-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lp-dot {
+  inline-size: 12px;
+  block-size: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #7fd8ef, var(--lp-blue));
+}
+
+.lp-corner--tr {
+  inset-block-start: 108px;
+  inset-inline-end: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  pointer-events: none;
+}
+
+.lp-tag {
+  max-inline-size: 150px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--lp-ink-2);
+}
+
+.lp-corner--bl {
+  inset-block-end: 36px;
+  inset-inline-start: 32px;
+  max-inline-size: 280px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--lp-ink-2);
+  pointer-events: none;
+}
+
+.lp-corner--br {
+  inset-block-end: 30px;
+  inset-inline-end: 32px;
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-align: end;
+  pointer-events: none;
+}
+
+/* "Register now", centred under the globe */
+.lp-register-now {
+  position: absolute;
+  z-index: 3;
+  inset-block-end: 30px;
+  inset-inline-start: 50%;
+  translate: -50% 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: var(--lp-blue);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 14px 30px -12px rgba(1, 150, 186, 0.8);
+  transition: transform 0.2s ease;
+}
+
+.lp-register-now:hover {
+  transform: translateY(-2px);
+}
+
+.landing a:focus-visible,
+.landing button:focus-visible {
+  outline: 3px solid var(--lp-blue);
+  outline-offset: 3px;
+}
+
+/* ---------- Sections ---------- */
+.lp-section {
+  max-inline-size: 1120px;
+  margin: 0 auto;
+  padding: 96px 32px 0;
+}
+
+.lp-h2 {
+  margin: 0 0 32px;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.lp-steps,
+.lp-why {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lp-step,
+.lp-why__item {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 26px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(20, 32, 43, 0.06);
+}
+
+/* How it works: coloured cards with a big number in the corner */
+.lp-step {
+  position: relative;
+  overflow: hidden;
+  min-block-size: 230px;
+  padding-block-start: 96px;
+}
+
+.lp-step__n {
+  position: absolute;
+  inset-block-start: -14px;
+  inset-inline-end: 14px;
+  font-size: 128px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  pointer-events: none;
+}
+
+.lp-step .lp-step__title {
+  position: relative;
+  font-size: 28px;
+}
+
+.lp-step .lp-step__body {
+  position: relative;
+  font-size: 15px;
+}
+
+.lp-step--1 {
+  background: var(--lp-blue);
+  color: #fff;
+}
+
+.lp-step--1 .lp-step__n {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+.lp-step--2 {
+  background: #14202b;
+  color: #fff;
+}
+
+.lp-step--2 .lp-step__n {
+  color: rgba(255, 255, 255, 0.14);
+}
+
+.lp-step--1 .lp-step__body,
+.lp-step--2 .lp-step__body {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.lp-step--3 .lp-step__n {
+  color: rgba(1, 150, 186, 0.16);
+}
+
+.lp-step__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.lp-step__body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--lp-ink-2);
+}
+
+.lp-why__item {
+  border-block-start: 4px solid var(--lp-blue);
+}
+
+/* Why to choose us: two columns of numbered reasons */
+.lp-choose {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lp-choose__item {
+  display: flex;
+  gap: 18px;
+  padding: 26px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(20, 32, 43, 0.06);
+}
+
+.lp-choose__item h3 {
+  margin-block-end: 8px;
+}
+
+.lp-choose__n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  inline-size: 44px;
+  block-size: 44px;
+  border-radius: 50%;
+  background: rgba(1, 150, 186, 0.12);
+  color: var(--lp-blue);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+/* Registration */
+.lp-register {
+  display: grid;
+  /* Heading and intro on the left, the form on the right */
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  grid-template-areas: 'head form';
+  align-items: start;
+  gap: 48px;
+  scroll-margin-block-start: 90px; /* clear the fixed navigation */
+}
+
+.lp-register > .reg {
+  grid-area: form;
+}
+
+.lp-register__head {
+  grid-area: head;
+}
+
+.lp-register__head {
+  display: grid;
+  gap: 14px;
+  position: sticky;
+  inset-block-start: 32px;
+}
+
+.lp-register__head .lp-h2 {
+  margin: 0;
+}
+
+.lp-register__title {
+  font-size: clamp(40px, 4.6vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.lp-register {
+  padding-block-start: 170px; /* room for the phone hanging below the blue band */
+}
+
+/* App preview: a full-width blue band, the phone overlapping it top and bottom */
+.lp-app {
+  margin-block-start: 140px;
+  background: var(--lp-blue);
+  color: #fff;
+}
+
+.lp-app__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 48px;
+  max-inline-size: 1120px;
+  margin: 0 auto;
+  padding: 0 32px;
+  min-block-size: 360px;
+}
+
+.lp-app__text {
+  display: grid;
+  justify-items: start;
+  gap: 20px;
+  padding-block: 56px;
+}
+
+.lp-app__title {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.lp-app__body {
+  margin: 0;
+  max-inline-size: 46ch;
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Phone: the live app (390 x 780) scaled to 0.7, sticking out of the band */
+.lp-phone {
+  --scale: 0.7;
+  /* The screen is scaled from its top-left corner, so the frame itself stays
+     left-to-right even when the page is in Arabic (the app inside still is RTL) */
+  direction: ltr;
+  inline-size: calc(390px * var(--scale) + 16px);
+  block-size: calc(780px * var(--scale) + 16px);
+  margin-block: -110px;
+  padding: 8px;
+  border-radius: 46px;
+  background: #0e1a22;
+  box-shadow: 0 40px 80px rgba(0, 20, 34, 0.35);
+  overflow: hidden;
+}
+
+.lp-phone__screen {
+  display: block;
+  inline-size: 390px;
+  block-size: 780px;
+  border: 0;
+  border-radius: calc(38px / var(--scale));
+  background: #e6f0f8;
+  transform: scale(var(--scale));
+  transform-origin: 0 0;
+}
+
+.lp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: var(--lp-blue);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lp-button--white {
+  background: #fff;
+  color: var(--lp-ink);
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Footer CTA ---------- */
+.lp-footer {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  margin-block-start: 110px;
+  padding: 80px 32px 40px;
+  background: var(--lp-ink);
+  color: #fff;
+  text-align: center;
+}
+
+.lp-footer__title {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.lp-footer .lp-step__body {
+  color: #c4ced5;
+}
+
+.lp-button--light {
+  margin-block-start: 8px;
+}
+
+.lp-credit {
+  margin: 48px 0 0;
+  font-size: 12px;
+  color: #8d9aa3;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 860px) {
+  .lp-corner--tr {
+    display: none;
+  }
+
+  .lp-steps,
+  .lp-why,
+  .lp-choose,
+  .lp-register {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-register {
+    grid-template-areas: 'head' 'form';
+  }
+
+  .lp-register__head {
+    position: static;
+  }
+
+  .lp-app__inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding-block-end: 48px;
+  }
+
+  .lp-phone {
+    margin-block: 0;
+  }
+
+  .lp-register {
+    padding-block-start: 72px;
+  }
+}
+
+@media (max-width: 600px) {
+  .lp-corner--tl {
+    inset-block-start: 76px;
+    inset-inline-start: 20px;
+  }
+
+  .lp-corner--bl {
+    display: none;
+  }
+
+  .lp-corner--br {
+    inset-block-end: 96px;
+    inset-inline-end: 20px;
+  }
+
+
+  .lp-section {
+    padding: 72px 20px 0;
+  }
+
+
+}
+
+
+
+/* Arrows in buttons point the reading direction (right-to-left in Arabic) */
+:dir(rtl) .lp-button svg,
+:dir(rtl) .lp-register-now svg {
+  transform: scaleX(-1);
+}

@@ -1,39 +1,68 @@
 import { useId, useState, type FormEvent } from 'react';
-import { AlertCircle, Send } from 'lucide-react';
+import { AlertCircle, ChevronDown, Send } from 'lucide-react';
 import { suggestCard } from '../data/api';
+import type { Family } from '../data/types';
 import { MessageDialog } from './MessageDialog';
 import { en } from '../i18n/en';
 import './SuggestCard.css';
 
+/** Domains offered in the dropdown: the ACAPS risk families, "Other" last. */
+const DOMAINS: Family[] = [
+  'conflict',
+  'political',
+  'economic',
+  'hydromet',
+  'geophysical',
+  'environmental',
+  'technological',
+  'health',
+  'fallback',
+];
+
 /**
- * "Add your own card": an expert proposes a new risk statement for ACAPS.
- * After sending, a pop-up confirms it went to the company.
+ * "Report uncovered risk": an expert reports a risk ACAPS isn't covering yet.
+ * Statement, domain and why it matters are required; country is optional.
  */
 export function SuggestCard() {
   const id = useId();
   const t = en.suggest;
   const [statement, setStatement] = useState('');
   const [area, setArea] = useState('');
+  const [domain, setDomain] = useState<Family | ''>('');
   const [why, setWhy] = useState('');
   const [tried, setTried] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
-  const missing = !statement.trim();
+  const errors = {
+    statement: !statement.trim(),
+    domain: !domain,
+    why: !why.trim(),
+  };
+  const show = (k: keyof typeof errors) => tried && errors[k];
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     setTried(true);
-    if (missing) return;
+    if (errors.statement || errors.domain || errors.why) return;
     setSending(true);
-    await suggestCard({ statement, area, why });
+    await suggestCard({ statement, area, domain: domain as Family, why });
     setSending(false);
     setSent(true);
     setStatement('');
     setArea('');
+    setDomain('');
     setWhy('');
     setTried(false);
   };
+
+  const error = (k: keyof typeof errors, text: string) =>
+    show(k) && (
+      <p id={`${id}-${k}-error`} className="suggest__error" role="alert">
+        <AlertCircle size={16} aria-hidden="true" />
+        {text}
+      </p>
+    );
 
   return (
     <section className="suggest" aria-labelledby={`${id}-title`}>
@@ -50,18 +79,14 @@ export function SuggestCard() {
           id={`${id}-statement`}
           className="suggest__field"
           rows={3}
+          required
           value={statement}
           placeholder={t.statementPlaceholder}
-          aria-invalid={tried && missing}
-          aria-describedby={tried && missing ? `${id}-error` : undefined}
+          aria-invalid={show('statement')}
+          aria-describedby={show('statement') ? `${id}-statement-error` : undefined}
           onChange={(e) => setStatement(e.target.value)}
         />
-        {tried && missing && (
-          <p id={`${id}-error`} className="suggest__error" role="alert">
-            <AlertCircle size={16} aria-hidden="true" />
-            {t.needsStatement}
-          </p>
-        )}
+        {error('statement', t.needsStatement)}
 
         <label className="suggest__label" htmlFor={`${id}-area`}>
           {t.area}
@@ -74,6 +99,32 @@ export function SuggestCard() {
           onChange={(e) => setArea(e.target.value)}
         />
 
+        <label className="suggest__label" htmlFor={`${id}-domain`}>
+          {t.domain}
+        </label>
+        <div className="suggest__select">
+          <select
+            id={`${id}-domain`}
+            className="suggest__field"
+            required
+            value={domain}
+            aria-invalid={show('domain')}
+            aria-describedby={show('domain') ? `${id}-domain-error` : undefined}
+            onChange={(e) => setDomain(e.target.value as Family | '')}
+          >
+            <option value="" disabled>
+              {t.domainPlaceholder}
+            </option>
+            {DOMAINS.map((d) => (
+              <option key={d} value={d}>
+                {en.families[d]}
+              </option>
+            ))}
+          </select>
+          <ChevronDown className="suggest__chevron" size={18} aria-hidden="true" />
+        </div>
+        {error('domain', t.needsDomain)}
+
         <label className="suggest__label" htmlFor={`${id}-why`}>
           {t.why}
         </label>
@@ -81,10 +132,14 @@ export function SuggestCard() {
           id={`${id}-why`}
           className="suggest__field"
           rows={3}
+          required
           value={why}
           placeholder={t.whyPlaceholder}
+          aria-invalid={show('why')}
+          aria-describedby={show('why') ? `${id}-why-error` : undefined}
           onChange={(e) => setWhy(e.target.value)}
         />
+        {error('why', t.needsWhy)}
 
         <button type="submit" className="suggest__send" disabled={sending}>
           <Send size={18} aria-hidden="true" />

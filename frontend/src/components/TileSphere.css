@@ -1,0 +1,65 @@
+.tile-sphere {
+  position: relative;
+  inline-size: 100%;
+  block-size: 100%;
+  perspective: calc(var(--r) * 4.2);
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.tile-sphere:active {
+  cursor: grabbing;
+}
+
+.tile-sphere__ball {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  transform-style: preserve-3d;
+}
+
+.tile-sphere__tile {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  transform-style: preserve-3d;
+}
+
+.tile-sphere__front,
+.tile-sphere__back {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.tile-sphere__front {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(20, 32, 43, 0.18);
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Back of each tile: a plain card, seen through the gaps on the far side */
+.tile-sphere__back {
+  transform: rotateY(180deg);
+  background: linear-gradient(160deg, #f4f3f0, #dcdad5);
+}
+
+.tile-sphere__tile:hover .tile-sphere__front {
+  transform: translateZ(18px) scale(1.06);
+  filter: brightness(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile-sphere__front {
+    transition: none;
+  }
+}

@@ -90,6 +90,27 @@ export interface User {
   name: string;
   panel: string;
   identity: IdentityMode;
+  /** Personal information (synthetic) */
+  email: string;
+  country: string;
+  domain: Family;
+  bio: string;
+  /** Settings */
+  language: LanguageCode;
+  notifications: NotificationPrefs;
+  twoStep: boolean;
+  /** When the password was last changed (ISO date) */
+  passwordChanged: string;
+}
+
+export type LanguageCode = 'en' | 'fr' | 'es' | 'ar' | 'pt';
+
+export interface NotificationPrefs {
+  newRisks: boolean;
+  roundReminders: boolean;
+  replies: boolean;
+  summaries: boolean;
+  emailDigest: boolean;
 }
 
 /** A reply under an expert's answer in a community chat. */

@@ -14,17 +14,32 @@ const STORAGE_KEY = 'appTheme';
 const QUERY = '(prefers-color-scheme: dark)';
 const ThemeContext = createContext<ThemeValue | null>(null);
 
-function readSetting(): ThemeSetting {
+function readSetting(key: string, fallback: ThemeSetting): ThemeSetting {
+  // ?appearance=light|dark: show the app in that theme without saving it (home page preview)
+  const forced = new URLSearchParams(window.location.search).get('appearance');
+  if (forced === 'light' || forced === 'dark') return forced;
   try {
-    const v = localStorage.getItem(STORAGE_KEY);
-    return v === 'light' || v === 'system' ? v : 'dark';
+    const v = localStorage.getItem(key);
+    return v === 'light' || v === 'dark' || v === 'system' ? v : fallback;
   } catch {
-    return 'dark';
+    return fallback;
   }
 }
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [setting, setSettingState] = useState<ThemeSetting>(readSetting);
+/**
+ * Theme setting, saved per site: the phone app ('appTheme', dark by default)
+ * and the website ('webTheme', light by default) keep separate choices.
+ */
+export function ThemeProvider({
+  children,
+  storageKey = STORAGE_KEY,
+  defaultSetting = 'dark',
+}: {
+  children: ReactNode;
+  storageKey?: string;
+  defaultSetting?: ThemeSetting;
+}) {
+  const [setting, setSettingState] = useState<ThemeSetting>(() => readSetting(storageKey, defaultSetting));
   const [systemDark, setSystemDark] = useState(() => window.matchMedia?.(QUERY).matches ?? false);
 
   useEffect(() => {
@@ -44,12 +59,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const setSetting = useCallback((s: ThemeSetting) => {
     try {
-      localStorage.setItem(STORAGE_KEY, s);
+      localStorage.setItem(storageKey, s);
     } catch {
       /* storage blocked: the choice lasts for this session only */
     }
     setSettingState(s);
-  }, []);
+  }, [storageKey]);
 
   const value = useMemo(() => ({ setting, theme, setSetting }), [setting, theme, setSetting]);
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;

@@ -212,3 +212,27 @@
   align-items: center;
   gap: 6px;
 }
+
+.profile__logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  inline-size: fit-content;
+  min-block-size: 46px;
+  margin: 28px auto 0;
+  padding: 0 22px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.profile__logout:focus-visible {
+  outline: var(--focus);
+  outline-offset: 2px;
+}

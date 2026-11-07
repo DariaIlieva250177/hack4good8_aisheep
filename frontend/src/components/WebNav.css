@@ -1,0 +1,105 @@
+/* Fixed bar across the top of the browser window:
+   logo left, menu centred, your avatar right */
+.web-nav {
+  position: fixed;
+  z-index: 50;
+  inset-block-start: 0;
+  inset-inline: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 32px 22px;
+  pointer-events: none;
+  /* Soft fade so content scrolling underneath doesn't clash with the bar */
+  background: linear-gradient(rgba(var(--web-fade, 239, 238, 235), 0.94) 55%, rgba(var(--web-fade, 239, 238, 235), 0));
+}
+
+.web-nav > * {
+  pointer-events: auto;
+}
+
+.web-nav > .pill-nav {
+  justify-self: center;
+}
+
+.web-nav__logo {
+  justify-self: start;
+  display: block;
+  border-radius: 12px;
+}
+
+.web-nav__logo-img {
+  inline-size: 56px;
+}
+
+.web-nav__me {
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  inline-size: 48px;
+  block-size: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--paper, #fff) 85%, transparent);
+  box-shadow: 0 8px 20px -10px rgba(20, 32, 43, 0.35);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.web-nav__me:hover {
+  transform: scale(1.05);
+}
+
+.web-nav__logo:focus-visible,
+.web-nav__me:focus-visible {
+  outline: 3px solid var(--logo-blue, #0196ba);
+  outline-offset: 3px;
+}
+
+/* Folded into a menu button on narrow screens: keep it next to the avatar */
+.web-nav .pill-nav[data-collapsed] {
+  justify-content: flex-end;
+}
+
+@media (max-width: 600px) {
+  .web-nav {
+    padding-inline: 16px;
+    gap: 10px;
+  }
+
+  .web-nav__logo-img {
+    inline-size: 46px;
+  }
+}
+
+/* Signed out: logo and "Log in" only */
+.web-nav--guest {
+  grid-template-columns: 1fr auto;
+}
+
+.web-nav__login {
+  justify-self: end;
+  min-block-size: 44px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #14202b;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 22px -12px rgba(20, 32, 43, 0.6);
+  transition: transform 0.15s;
+}
+
+.web-nav__login:hover {
+  transform: translateY(-1px);
+}
+
+.web-nav__login:focus-visible {
+  outline: 3px solid var(--logo-blue, #0196ba);
+  outline-offset: 3px;
+}

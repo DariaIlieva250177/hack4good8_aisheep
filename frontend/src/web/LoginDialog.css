@@ -1,0 +1,144 @@
+.login-dialog {
+  inline-size: min(calc(100% - 32px), 420px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 28px;
+  background: #fff;
+  color: #14202b;
+  box-shadow: 0 30px 80px rgba(0, 20, 34, 0.35);
+}
+
+.login-dialog[open] {
+  animation: login-in 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.15);
+}
+
+.login-dialog::backdrop {
+  background: rgba(20, 32, 43, 0.45);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+@keyframes login-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+}
+
+.login-dialog__panel {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  padding: 32px 30px 26px;
+}
+
+.login-dialog__close {
+  position: absolute;
+  inset-block-start: 14px;
+  inset-inline-end: 14px;
+  display: grid;
+  place-items: center;
+  inline-size: 38px;
+  block-size: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #f1f3f5;
+  color: #5a6670;
+  cursor: pointer;
+}
+
+.login-dialog__logo {
+  inline-size: 54px;
+  margin-block-end: 6px;
+}
+
+.login-dialog__title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.login-dialog__intro {
+  margin: 0 0 10px;
+  font-size: 15px;
+  color: #5a6670;
+}
+
+.login-dialog__label {
+  margin-block-start: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.login-dialog__input {
+  min-block-size: 48px;
+  padding: 0 14px;
+  border: 1px solid #d9dee2;
+  border-radius: 14px;
+  background: #f7f8f9;
+  color: #14202b;
+  font: inherit;
+  font-size: 16px;
+}
+
+.login-dialog__input[aria-invalid='true'] {
+  border-color: #b5123a;
+}
+
+.login-dialog__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #b5123a;
+}
+
+.login-dialog__submit {
+  min-block-size: 52px;
+  margin-block-start: 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #0196ba;
+  color: #fff;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-dialog__alt {
+  margin: 6px 0 0;
+  font-size: 14px;
+  text-align: center;
+  color: #5a6670;
+}
+
+.login-dialog__link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #0196ba;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.login-dialog__input:focus-visible,
+.login-dialog__submit:focus-visible,
+.login-dialog__close:focus-visible,
+.login-dialog__link:focus-visible {
+  outline: 3px solid #0196ba;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-dialog[open] {
+    animation: none;
+  }
+}

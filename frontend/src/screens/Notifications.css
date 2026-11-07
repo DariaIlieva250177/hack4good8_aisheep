@@ -52,6 +52,21 @@
   }
 }
 
+/* Light theme: plain blue, no glow. A flat logo-blue tint and edge bar. */
+:root:not([data-theme="dark"]) .notif--unread {
+  background: rgba(1, 150, 186, 0.12);
+  box-shadow: inset 3px 0 0 var(--logo-blue);
+  animation: none;
+}
+
+:root:not([data-theme="dark"]) .notif--unread .notif__icon {
+  box-shadow: none;
+}
+
+:root:not([data-theme="dark"]) .notif__dot {
+  box-shadow: none;
+}
+
 .notif__icon {
   display: grid;
   place-items: center;

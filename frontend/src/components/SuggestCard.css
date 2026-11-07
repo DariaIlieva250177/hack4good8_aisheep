@@ -40,6 +40,34 @@
   resize: vertical;
 }
 
+/* Dropdown: native select with our own chevron */
+.suggest__select {
+  position: relative;
+}
+
+.suggest__select select {
+  appearance: none;
+  padding-inline-end: 40px;
+  cursor: pointer;
+}
+
+.suggest__select select:invalid {
+  color: var(--ink-2);
+}
+
+.suggest__select option {
+  color: var(--ink);
+}
+
+.suggest__chevron {
+  position: absolute;
+  inset-inline-end: 14px;
+  inset-block-start: 50%;
+  translate: 0 -50%;
+  color: var(--ink-2);
+  pointer-events: none;
+}
+
 .suggest__field:focus-visible {
   outline: var(--focus);
   outline-offset: 1px;

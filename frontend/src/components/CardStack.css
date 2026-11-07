@@ -18,6 +18,8 @@
 
 .card-stack__front {
   position: relative;
+  user-select: none;
+  -webkit-user-select: none;
   /* Lets the swipe labels find the bottom of the 16:10 image */
   container-type: inline-size;
   z-index: 2;
@@ -121,4 +123,15 @@
   text-decoration: underline;
   text-underline-offset: 3px;
   cursor: pointer;
+}
+
+/* Arrow buttons beside the deck: hidden in the phone app (swipe there),
+   shown on the website (see web.css) */
+.card-stack__arrow {
+  display: none;
+}
+
+.card-stack__front img {
+  -webkit-user-drag: none;
+  user-select: none;
 }

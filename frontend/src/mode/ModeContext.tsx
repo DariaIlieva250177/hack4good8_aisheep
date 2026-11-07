@@ -17,9 +17,9 @@ const ModeContext = createContext<ModeValue | null>(null);
 function readSetting(): LowDataSetting {
   try {
     const v = localStorage.getItem(STORAGE_KEY);
-    return v === 'on' || v === 'off' ? v : 'auto';
+    return v === 'on' || v === 'auto' ? v : 'off';
   } catch {
-    return 'auto';
+    return 'off';
   }
 }
 

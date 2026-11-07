@@ -2,14 +2,15 @@
  * Thin data layer. Every screen reads and writes through these async functions,
  * so swapping the in-memory mock for a real backend only touches this file.
  */
-import type { Answer, AnswerInput, AppNotification, Community, IdentityMode, Ranking, Risk, Topic, User } from './types';
+import type { Answer, AnswerInput, AppNotification, Community, Family, IdentityMode, LanguageCode, NotificationPrefs, Ranking, Risk, Topic, User } from './types';
+import { storedLanguage } from '../i18n/language';
 import { COMMUNITIES, INITIAL_STACK, INITIAL_TODO, ME, NOTIFICATIONS, RANKING, RISKS, seedAnswers } from './mock';
 
 const LATENCY_MS = 80;
 const wait = <T>(value: T) => new Promise<T>((resolve) => setTimeout(() => resolve(value), LATENCY_MS));
 
 const state = {
-  me: { ...ME },
+  me: { ...ME, language: storedLanguage() },
   risks: RISKS.map((r) => ({ ...r })),
   stack: [...INITIAL_STACK],
   todo: [...INITIAL_TODO],
@@ -52,10 +53,13 @@ export function displayNameFor(user: User): string {
 
 /* ---------- reads ---------- */
 
-export const getMe = () => wait({ ...state.me });
+export const getMe = () => wait({ ...state.me, notifications: { ...state.me.notifications } });
 
 /** Risks waiting in the card stack, front first. */
 export const getRisks = () => wait(byIds(state.stack));
+
+/** Every risk in the demo (home page showcase). */
+export const getAllRisks = () => wait(state.risks.map((r) => ({ ...r })));
 
 export const getRisk = (id: string) => wait(riskById(id) ?? null);
 
@@ -135,6 +139,42 @@ export function exposureLowerBound(band: string): number {
 
 /* ---------- writes ---------- */
 
+/** Save personal information. */
+export async function updateProfile(
+  fields: Partial<Pick<User, 'name' | 'pseudonym' | 'email' | 'country' | 'domain' | 'bio'>>,
+): Promise<User> {
+  Object.assign(state.me, fields);
+  state.me.notifications = { ...state.me.notifications };
+  changed();
+  return wait({ ...state.me });
+}
+
+/** Change password (prototype: checks the form only; nothing is stored). */
+export async function changePassword(current: string, next: string): Promise<{ ok: boolean; error?: 'current' }> {
+  if (!current || next.length < 8) return wait({ ok: false, error: 'current' });
+  state.me.passwordChanged = new Date().toISOString().slice(0, 10);
+  changed();
+  return wait({ ok: true });
+}
+
+export async function setTwoStep(on: boolean): Promise<void> {
+  state.me.twoStep = on;
+  changed();
+  return wait(undefined);
+}
+
+export async function setNotificationPrefs(prefs: NotificationPrefs): Promise<void> {
+  state.me.notifications = { ...prefs };
+  changed();
+  return wait(undefined);
+}
+
+export async function setLanguage(language: LanguageCode): Promise<void> {
+  state.me.language = language;
+  changed();
+  return wait(undefined);
+}
+
 export async function setIdentity(identity: IdentityMode): Promise<User> {
   state.me.identity = identity;
   changed();
@@ -160,10 +200,11 @@ export async function skipRisk(riskId: string): Promise<number> {
   return wait(index);
 }
 
-/** An expert's idea for a new card, sent to ACAPS for review (mock: kept in memory). */
+/** An uncovered risk reported by an expert, sent to ACAPS for review (mock: kept in memory). */
 export interface CardSuggestion {
   statement: string;
   area: string;
+  domain: Family;
   why: string;
 }
 const suggestions: (CardSuggestion & { sentAt: number })[] = [];
@@ -172,7 +213,38 @@ export async function suggestCard(input: CardSuggestion): Promise<void> {
   suggestions.push({
     statement: input.statement.trim(),
     area: input.area.trim(),
+    domain: input.domain,
     why: input.why.trim(),
+    sentAt: Date.now(),
+  });
+  return wait(undefined);
+}
+
+/** Expert sign-up from the home page (mock: kept in memory, files are not uploaded). */
+export interface ExpertRegistration {
+  first: string;
+  last: string;
+  email: string;
+  /** One or two */
+  domains: Family[];
+  /** One or two */
+  countries: string[];
+  cv: File;
+  articles: File[];
+}
+const registrations: (Omit<ExpertRegistration, 'cv' | 'articles'> & { cv: string; articles: string[]; sentAt: number })[] =
+  [];
+
+export async function registerExpert(input: ExpertRegistration): Promise<void> {
+  registrations.push({
+    first: input.first.trim(),
+    last: input.last.trim(),
+    email: input.email.trim(),
+    domains: input.domains.slice(0, 2),
+    countries: input.countries.map((c) => c.trim()).filter(Boolean).slice(0, 2),
+    // Only file names are kept in the prototype; a real backend would upload them securely
+    cv: input.cv.name,
+    articles: input.articles.map((a) => a.name),
     sentAt: Date.now(),
   });
   return wait(undefined);

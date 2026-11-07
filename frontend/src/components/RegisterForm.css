@@ -1,0 +1,237 @@
+/* Registration form on the home page (fixed light palette, like the page) */
+.reg {
+  display: grid;
+  gap: 18px;
+  padding: 32px;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(20, 32, 43, 0.08);
+  color: #14202b;
+}
+
+.reg__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.reg__field {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.reg__label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* "Domains" / "Countries": a heading over two side-by-side fields */
+.reg__group {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+.reg__group > legend {
+  margin-block-end: 8px;
+  padding: 0;
+}
+
+.reg__sublabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5a6670;
+}
+
+.reg__input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.reg__input {
+  inline-size: 100%;
+  min-block-size: 48px;
+  padding: 0 14px;
+  border: 1px solid #d9dee2;
+  border-radius: 14px;
+  background: #f7f8f9;
+  color: #14202b;
+  font: inherit;
+  font-size: 16px;
+}
+
+.reg__input:focus-visible {
+  outline: 3px solid #0196ba;
+  outline-offset: 1px;
+}
+
+.reg__input[aria-invalid='true'],
+.reg__drop.is-invalid {
+  border-color: #b5123a;
+}
+
+.reg__select {
+  position: relative;
+}
+
+.reg__select select {
+  appearance: none;
+  padding-inline-end: 40px;
+  cursor: pointer;
+}
+
+.reg__select select:invalid {
+  color: #6b7780;
+}
+
+.reg__select option {
+  color: #14202b;
+}
+
+.reg__chevron {
+  position: absolute;
+  inset-inline-end: 14px;
+  inset-block-start: 50%;
+  translate: 0 -50%;
+  color: #5a6670;
+  pointer-events: none;
+}
+
+/* Upload buttons: dashed drop-style boxes */
+.reg__drop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-block-size: 56px;
+  border: 1.5px dashed #9fcfe0;
+  border-radius: 14px;
+  background: rgba(1, 150, 186, 0.05);
+  color: #0196ba;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.reg__drop:hover {
+  background: rgba(1, 150, 186, 0.1);
+}
+
+.reg__drop:focus-visible,
+.reg__file-remove:focus-visible,
+.reg__submit:focus-visible {
+  outline: 3px solid #0196ba;
+  outline-offset: 2px;
+}
+
+.reg__hint {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7780;
+}
+
+.reg__files {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reg__file {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px 10px 14px;
+  border-radius: 12px;
+  background: #f1f4f6;
+  color: #0196ba;
+}
+
+.reg__file-name {
+  flex: 1;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #14202b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.reg__file-size {
+  flex: none;
+  font-size: 12px;
+  color: #6b7780;
+}
+
+.reg__file-remove {
+  display: grid;
+  place-items: center;
+  inline-size: 32px;
+  block-size: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: #5a6670;
+  cursor: pointer;
+}
+
+.reg__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #b5123a;
+}
+
+.reg__submit {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-block-size: 50px;
+  padding: 0 24px;
+  margin-block-start: 6px;
+  border: 0;
+  border-radius: 999px;
+  background: #0196ba;
+  color: #fff;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 26px -12px rgba(1, 150, 186, 0.8);
+}
+
+.reg__submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.reg__privacy {
+  margin: -6px 0 0;
+  font-size: 12px;
+  color: #6b7780;
+}
+
+@media (max-width: 600px) {
+  .reg {
+    padding: 22px 18px;
+  }
+
+  .reg__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+:dir(rtl) .reg__submit svg {
+  transform: scaleX(-1);
+}

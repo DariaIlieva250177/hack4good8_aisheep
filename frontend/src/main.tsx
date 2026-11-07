@@ -3,6 +3,10 @@ import { createRoot } from 'react-dom/client';
 import './styles/tokens.css';
 import './styles/base.css';
 import App from './App';
+import { applyLanguage, storedLanguage } from './i18n/language';
+
+// The saved language is in place before the first render
+applyLanguage(storedLanguage());
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

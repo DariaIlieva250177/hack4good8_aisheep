@@ -18,3 +18,37 @@
   max-inline-size: 34ch;
   margin-block: 6px 16px;
 }
+
+.risks__howto-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px auto 28px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--logo-blue);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.risks__howto-link:hover {
+  background: rgba(1, 150, 186, 0.1);
+}
+
+/* While the pop-up is open the link waits, invisible but keeping its place
+   (the pop-up zooms into it) */
+.risks__howto-link.is-hidden {
+  opacity: 0;
+}
+
+.risks__howto-link:focus-visible {
+  outline: 3px solid var(--logo-blue);
+  outline-offset: 2px;
+}

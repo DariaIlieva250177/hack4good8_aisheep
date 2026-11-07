@@ -7,12 +7,15 @@ import { useMode } from '../mode/ModeContext';
 import { en } from '../i18n/en';
 import './GlassTabBar.css';
 
-const TABS: { to: string; label: string; Icon: LucideIcon; badge?: 'todo' | 'alerts' }[] = [
-  { to: '/risks', label: en.tabs.risks, Icon: Layers },
-  { to: '/todo', label: en.tabs.todo, Icon: ListTodo, badge: 'todo' },
-  { to: '/alerts', label: en.tabs.alerts, Icon: Bell, badge: 'alerts' },
-  { to: '/community', label: en.tabs.community, Icon: Users },
-  { to: '/ranking', label: en.tabs.ranking, Icon: Trophy },
+type TabKey = 'risks' | 'todo' | 'alerts' | 'community' | 'ranking';
+
+// Labels are looked up at render time so they follow the chosen language
+const TABS: { to: string; key: TabKey; Icon: LucideIcon; badge?: 'todo' | 'alerts' }[] = [
+  { to: '/risks', key: 'risks', Icon: Layers },
+  { to: '/todo', key: 'todo', Icon: ListTodo, badge: 'todo' },
+  { to: '/alerts', key: 'alerts', Icon: Bell, badge: 'alerts' },
+  { to: '/community', key: 'community', Icon: Users },
+  { to: '/ranking', key: 'ranking', Icon: Trophy },
 ];
 
 /**
@@ -29,7 +32,8 @@ export function GlassTabBar({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
   return (
     <nav className={`tabbar${tone === 'dark' ? ' tabbar--night' : ''}`} aria-label={en.tabs.label}>
       <ul className="tabbar__list">
-        {TABS.map(({ to, label, Icon, badge }) => {
+        {TABS.map(({ to, key, Icon, badge }) => {
+          const label = en.tabs[key];
           const count = badge ? counts[badge] : 0;
           return (
           <li key={to}>

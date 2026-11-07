@@ -11,9 +11,15 @@
       // Apply the saved theme before first paint to avoid a light flash.
       try {
         // Teal dark is the default; only an explicit Light or System choice changes it.
-        var t = localStorage.getItem('appTheme');
-        var dark = t === 'system' ? matchMedia('(prefers-color-scheme: dark)').matches : t !== 'light';
+        // The phone app (/app) and the website keep separate choices; both default to light.
+        var isApp = /^\/app(\/|$)/.test(location.pathname);
+        var t = localStorage.getItem(isApp ? 'appTheme' : 'webTheme');
+        var dark = t === 'system' ? matchMedia('(prefers-color-scheme: dark)').matches : t === 'dark';
         document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        // Saved language (Arabic reads right-to-left) before first paint
+        var lang = localStorage.getItem('acapsLanguage') || 'en';
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
       } catch (e) {}
     </script>
     <style>

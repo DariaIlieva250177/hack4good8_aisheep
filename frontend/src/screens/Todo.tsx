@@ -12,10 +12,11 @@ import type { Risk, RiskLevel } from '../data/types';
 import { en } from '../i18n/en';
 import './Todo.css';
 
-const GROUPS: { level: RiskLevel; title: string }[] = [
-  { level: 'High', title: en.todo.urgent },
-  { level: 'Medium', title: en.todo.moderate },
-  { level: 'Low', title: en.todo.low },
+// Titles looked up at render time so they follow the chosen language
+const GROUPS: { level: RiskLevel; key: 'urgent' | 'moderate' | 'low' }[] = [
+  { level: 'High', key: 'urgent' },
+  { level: 'Medium', key: 'moderate' },
+  { level: 'Low', key: 'low' },
 ];
 
 export function Todo() {
@@ -29,7 +30,8 @@ export function Todo() {
       {risks && risks.length === 0 && <EmptyState title={en.todo.emptyTitle} body={en.todo.emptyBody} />}
 
       {risks &&
-        GROUPS.map(({ level, title }) => {
+        GROUPS.map(({ level, key }) => {
+          const title = en.todo[key];
           const items = risks.filter((r) => r.level === level);
           if (!items.length) return null;
           const id = `todo-${level}`;

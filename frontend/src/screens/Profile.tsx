@@ -1,9 +1,8 @@
-import { useEffect, useRef, type ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Bell, ChevronRight, Globe, Info, KeyRound, Palette, UserRound, Wifi, type LucideIcon } from 'lucide-react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Bell, ChevronRight, Globe, Info, KeyRound, LogOut, Palette, UserRound, Wifi, type LucideIcon } from 'lucide-react';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { Avatar } from '../components/Avatar';
-import { useToast } from '../components/Toast';
 import { GlassLayer } from '../components/glass/GlassButton';
 import { displayNameFor, getMe, setIdentity } from '../data/api';
 import { useQuery } from '../data/useQuery';
@@ -11,6 +10,9 @@ import type { IdentityMode } from '../data/types';
 import { useMode, type LowDataSetting } from '../mode/ModeContext';
 import { useTheme, type ThemeSetting } from '../mode/ThemeContext';
 import { en } from '../i18n/en';
+import { ProfileSheets, type SheetName } from './profile/ProfileSheets';
+import { signOut } from '../web/auth';
+import { LANGUAGES } from './profile/languages';
 import './Profile.css';
 
 const IDENTITIES: IdentityMode[] = ['name', 'pseudonym', 'anonymous'];
@@ -21,7 +23,17 @@ export function Profile() {
   const { data: me } = useQuery(getMe);
   const { mode, setting, setSetting } = useMode();
   const theme = useTheme();
-  const toast = useToast();
+  const [sheet, setSheet] = useState<SheetName | null>(null);
+  const navigate = useNavigate();
+  // Website: sign out and go home. Phone app: back to its start screen.
+  const logOut = () => {
+    if (window.location.pathname.startsWith('/app')) {
+      navigate('/login', { replace: true });
+    } else {
+      signOut();
+      navigate('/', { replace: true });
+    }
+  };
   const { hash } = useLocation();
   const privacyRef = useRef<HTMLHeadingElement>(null);
 
@@ -34,8 +46,9 @@ export function Profile() {
 
   if (!me) return <div className="screen" />;
 
-  const notYet = () => toast({ message: en.common.notInPrototype });
   const shownAs = displayNameFor(me);
+  const language = LANGUAGES.find((l) => l.code === me.language)?.native ?? 'English';
+  const notificationsOn = Object.values(me.notifications).filter(Boolean).length;
 
   return (
     <div className="screen profile">
@@ -50,14 +63,24 @@ export function Profile() {
       </section>
 
       <SettingsGroup title={en.profile.account}>
-        <SettingsRow Icon={UserRound} label={en.profile.manage} onClick={notYet} />
-        <SettingsRow Icon={KeyRound} label={en.profile.security} onClick={notYet} />
-        <SettingsRow Icon={Bell} label={en.profile.notifications} onClick={notYet} />
-        <SettingsRow Icon={Globe} label={en.profile.language} value={en.profile.languageValue} onClick={notYet} />
+        <SettingsRow Icon={UserRound} label={en.profile.manage} onClick={() => setSheet('personal')} />
+        <SettingsRow
+          Icon={KeyRound}
+          label={en.profile.security}
+          value={me.twoStep ? en.profile.twoStepOn : undefined}
+          onClick={() => setSheet('security')}
+        />
+        <SettingsRow
+          Icon={Bell}
+          label={en.profile.notifications}
+          value={en.profile.notificationsOn(notificationsOn)}
+          onClick={() => setSheet('notifications')}
+        />
+        <SettingsRow Icon={Globe} label={en.profile.language} value={language} onClick={() => setSheet('language')} />
       </SettingsGroup>
 
       <SettingsGroup title={en.profile.preferences}>
-        <SettingsRow Icon={Info} label={en.profile.about} onClick={notYet} />
+        <SettingsRow Icon={Info} label={en.profile.about} onClick={() => setSheet('about')} />
         <SegmentedSetting
           name="theme"
           Icon={Palette}
@@ -119,6 +142,13 @@ export function Profile() {
           <p className="privacy__help t-small">{en.profile.privacyHelp}</p>
         </fieldset>
       </section>
+
+      <button type="button" className="profile__logout" onClick={logOut}>
+        <LogOut size={18} aria-hidden="true" />
+        {en.webLogin.logout}
+      </button>
+
+      <ProfileSheets me={me} open={sheet} onClose={() => setSheet(null)} />
     </div>
   );
 }
