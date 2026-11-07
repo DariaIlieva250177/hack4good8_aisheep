@@ -422,6 +422,8 @@ def build_experts(risks, risk_countries, risk_categories, cfg, rng):
             "reviewed_by": moderator if reviewed is not None else None,
             "language": rng.choice(["English", "French", "Arabic", "Spanish"], p=[0.55, 0.25, 0.1, 0.1]),
         })
+        if deleted:  # nothing that could identify them stays after approval
+            experts[-1].update(education_level=None, education_field=None, application_comment=None)
 
     return (pd.DataFrame(experts), pd.DataFrame(identity), pd.DataFrame(ecountries),
             pd.DataFrame(edomains), pd.DataFrame(docs), pd.DataFrame(anon_hist), pd.DataFrame(recovery_codes))
@@ -726,17 +728,34 @@ def build_suggestions(risks, matches, experts, ecountries, edomains, truth, cfg,
 
 
 def build_display_names(stances, comments, windows, rng):
-    """One display name per expert per risk: the same inside that risk's discussion, new for every risk."""
+    """One display name per expert per risk: the same inside that risk's discussion, and never reused
+    by that expert on another risk, so two discussions cannot be linked through a name."""
     pairs = pd.concat([stances[["expert_id", "risk_id"]], comments[["expert_id", "risk_id"]]]).drop_duplicates()
     win = windows.set_index("risk_id")
+    names = [f"{a} {b}" for a in ADJECTIVES for b in ANIMALS]
+    used_by = {}
     rows = []
     for rid, grp in pairs.groupby("risk_id"):
-        names = [f"{a} {b}" for a in ADJECTIVES for b in ANIMALS]
-        picks = rng.choice(len(names), size=len(grp), replace=False)
-        for eid, k in zip(grp["expert_id"], picks):
-            rows.append({"expert_id": eid, "risk_id": rid, "display_name": names[k],
+        order = rng.permutation(len(names))
+        taken = set()
+        for eid in grp["expert_id"]:
+            mine = used_by.setdefault(eid, set())
+            name = next(names[k] for k in order if names[k] not in taken and names[k] not in mine)
+            taken.add(name)
+            mine.add(name)
+            rows.append({"expert_id": eid, "risk_id": rid, "display_name": name,
                          "valid_from": win.loc[rid, "opens"], "valid_to": win.loc[rid, "closes"]})
     return pd.DataFrame(rows)
+
+
+def mark_hidden_answers(stances, comments, forecasts, questions):
+    """An answer hidden from ACAPS also hides the expert's comments and forecast on that risk."""
+    hidden = stances[stances["hidden_from_acaps"]]
+    hidden = set(zip(hidden["expert_id"], hidden["risk_id"]))
+    risk_of = questions.set_index("question_id")["risk_id"]
+    comments = comments.assign(hidden_from_acaps=[pair in hidden for pair in zip(comments["expert_id"], comments["risk_id"])])
+    forecasts = forecasts.assign(hidden_from_acaps=[(e, risk_of[q]) in hidden for e, q in zip(forecasts["expert_id"], forecasts["question_id"])])
+    return comments, forecasts
 
 
 # ======================================================================= build everything
@@ -772,6 +791,7 @@ def build_all(export_path, cfg=CONFIG):
     hist_forecasts = build_backtest_forecasts(risks, matches, questions, truth, cfg, rng)
     forecasts = pd.concat([act_forecasts, hist_forecasts], ignore_index=True)
     forecasts.insert(0, "forecast_id", [f"F{i + 1:05d}" for i in range(len(forecasts))])
+    comments, forecasts = mark_hidden_answers(stances, comments, forecasts, questions)
     suggestions = build_suggestions(risks, matches, experts, ecountries, edomains, truth, cfg, rng, triggers)
 
     # accepted missing triggers join the trigger list (the loop back to ACAPS)
@@ -859,6 +879,12 @@ def validate(tables):
     dn = tables["display_names"]
     if len(dn) and dn.duplicated(["risk_id", "display_name"]).any():
         problems.append("two experts share a display name on the same risk")
+    if len(dn) and dn.duplicated(["expert_id", "display_name"]).any():
+        problems.append("an expert reuses a display name on another risk")
+    ex = tables["experts"]
+    gone = ex[(ex["anonymity_level"] == "verified_deleted") & (ex["status"] != "pending")]
+    if gone[["application_comment", "education_level", "education_field"]].notna().any().any():
+        problems.append("verified_deleted experts still have application details")
     ident = tables["expert_identity"].merge(tables["experts"][["expert_id", "anonymity_level", "status"]])
     leak = ident[(ident["anonymity_level"] == "verified_deleted") & (ident["status"] != "pending")
                  & ident["full_name"].notna()]

@@ -19,11 +19,11 @@ How Ground Truth stores ACAPS risks, experts and everything experts do in the ap
 - **Approval** happens per country and per domain. The moderator can deny any of them.
 - **Anonymity.** The expert chooses the level at registration and can change it in settings:
   - **known to ACAPS:** personal data kept; single answers can be hidden from ACAPS.
-  - **verified anonymous:** personal data kept but never shown.
-  - **verified, then deleted:** personal data and documents are needed for approval, then deleted.
+  - **verified anonymous:** personal data kept in `expert_identity` and never shown in the app. It shares an `expert_id` with the expert's answers, so this rests on who at ACAPS can open that table.
+  - **verified, then deleted:** personal data, documents, the application comment and education are needed for approval, then deleted.
 
   **Account recovery works like a crypto wallet.** At registration every expert gets a secret recovery code (12 words), shown once. Only that code lets them reset a forgotten password. ACAPS stores just a salted hash of the code, so nobody at ACAPS can read it. If the code is lost, the account cannot be recovered. No email is needed for recovery, so emails are deleted together with the other personal data for "verified, then deleted".
-- **Display names** are never stored with the expert. Each expert gets a new random name for every risk, and keeps it inside that risk's discussion.
+- **Display names** are kept in their own table, not in `experts`. Each expert gets a new random name for every risk, never reuses one on another risk, and keeps it inside that risk's discussion.
 - **Swipes:**
 
   | Action | Result |
@@ -95,8 +95,8 @@ All categories a risk matches. Fields: `risk_id`, `category_id`, `is_primary`.
 | `expert_id` | e.g. `E001`; no name or display name here |
 | `status` | `pending`, `approved`, `rejected` |
 | `anonymity_level` | current level |
-| `education_level`, `education_field` | from the registration form |
-| `application_comment` | the short comment |
+| `education_level`, `education_field` | from the registration form; empty after approval for verified, then deleted |
+| `application_comment` | the short comment; empty after approval for verified, then deleted |
 | `registered_at`, `reviewed_at`, `reviewed_by` | |
 | `language` | |
 
@@ -185,6 +185,7 @@ Fields: `expert_id`, `risk_id`, `added_at`, `status` (`open` or `done`), `comple
 | `source_id`, `ai_draft_used` | when the comment started from an AI summary of a source |
 | `reply_to` | for threaded discussion later |
 | `posted_at` | |
+| `hidden_from_acaps` | true when the expert hid their answer on this risk |
 
 ### `sources`
 | Field | Notes |
@@ -206,6 +207,7 @@ Fields: `comment_id`, `expert_id`, `liked_at`. Only members of that risk's commu
 | `probability` | from the answer level (0.1 to 0.9); empty for don't know |
 | `match_type`, `match_weight` | |
 | `submitted_at` | |
+| `hidden_from_acaps` | true when the expert hid their answer on this risk |
 
 ### `suggestions`
 | Field | Notes |
