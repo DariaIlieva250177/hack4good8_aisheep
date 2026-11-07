@@ -1,0 +1,29 @@
+risk_id,categories
+R1037,Armed conflict; Displacement
+R1038,Armed conflict; Displacement
+R1042,Armed conflict; Displacement
+R1043,Cross-border insecurity; Armed conflict; Displacement
+R1044,Drought; Food insecurity
+R1045,Drought; Food insecurity
+R1046,Drought; Food insecurity
+R1047,Drought; Flood; Food insecurity
+R1048,Armed conflict; Displacement
+R1049,Armed conflict; Displacement
+R1051,Economic crisis / prices; Food insecurity
+R1052,Armed conflict; Political crisis
+R1053,Armed conflict; Economic crisis / prices
+R1054,Infrastructure failure; Armed conflict
+R1055,Displacement; Cross-border insecurity
+R1058,Drought; Food insecurity
+R1059,Armed conflict; Political crisis; Displacement
+R1061,Armed conflict; Political crisis; Displacement
+R1062,Cross-border insecurity; Armed conflict
+R1065,Cross-border insecurity; Armed conflict; Displacement
+R1066,Armed conflict; Cross-border insecurity; Displacement
+R1067,Armed conflict
+R1068,Armed conflict; Political crisis; Displacement
+R1069,Armed conflict; Displacement
+R1071,Fallback (no match)
+R1072,Armed conflict; Displacement
+R1073,Displacement; Political crisis
+R1074,Armed conflict; Political crisis; Displacement
