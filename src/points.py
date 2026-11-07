@@ -21,13 +21,27 @@ POINTS = {
 CALL_SIDE = {"very_likely": 1, "likely": 1, "unlikely": 0, "very_unlikely": 0}
 SPOT_ON_BONUS = 5
 MIN_FORECASTS = 5
+MIN_GROUP_EXPERTS = 3
 MATCH_ORDER = {"country_and_domain": 0, "country_only": 1, "domain_only": 2}
+
+
+def final_answers(forecasts, questions):
+    """Each expert's last forecast on each question from before the risk happened.
+
+    Answers given after that date still reach ACAPS, but they earn nothing: by then anyone can read
+    the news. Risks that did not happen have no date, so all their answers count.
+    """
+    dated = forecasts.merge(questions[["question_id", "happened_on"]], on="question_id")
+    happened = pd.to_datetime(dated["happened_on"])
+    in_time = dated[happened.isna() | (pd.to_datetime(dated["submitted_at"]) < happened)]
+    return in_time.sort_values("version", kind="stable").groupby(["expert_id", "question_id"]).tail(1)
 
 
 def score_forecasts(forecasts, questions):
     """One row per scored forecast. Open questions and "don't know" answers are left out."""
     resolved = questions.loc[questions["outcome"].notna(), ["question_id", "risk_id", "outcome", "resolves_on"]]
-    scored = forecasts[forecasts["answer_level"].isin(POINTS)].merge(resolved, on="question_id")
+    answers = final_answers(forecasts, questions)
+    scored = answers[answers["answer_level"].isin(POINTS)].merge(resolved, on="question_id")
     scored["outcome"] = scored["outcome"].astype(int)
     scored["points"] = [POINTS[a][o] for a, o in zip(scored["answer_level"], scored["outcome"])]
     scored["is_call"] = scored["answer_level"].isin(CALL_SIDE)
@@ -57,14 +71,43 @@ def build_ranks(scored, experts, bonuses=None, min_forecasts=MIN_FORECASTS):
                   "forecasts", "calls", "correct"]]
 
 
-def rank_for_app(ranks, expert_id):
+def build_group_ranks(ranks, expert_countries, expert_domains, categories, min_ranked=MIN_GROUP_EXPERTS):
+    """Each expert's position inside their approved countries and domains.
+
+    It compares the same overall average, because no country has enough scored forecasts on its own
+    risks yet. A group needs min_ranked ranked experts, so a position always compares real people.
+    """
+    average = ranks[ranks["position"].notna()].set_index("expert_id")["average_points"]
+    names = categories.set_index("category_id")["name"]
+    countries = expert_countries[expert_countries["status"] == "approved"]
+    domains = expert_domains[(expert_domains["status"] == "approved") & (expert_domains["category_id"] != 0)]
+    members = pd.concat([
+        countries.assign(group_type="country", group=countries["country"]),
+        domains.assign(group_type="domain", group=domains["category_id"].map(names)),
+    ])[["expert_id", "group_type", "group"]]
+    members = members[members["expert_id"].isin(average.index)].assign(
+        average_points=lambda t: t["expert_id"].map(average))
+    groups = members.groupby(["group_type", "group"])
+    members = members.assign(out_of=groups["expert_id"].transform("size"),
+                             position=groups["average_points"].rank(ascending=False, method="min").astype(int))
+    members = members[members["out_of"] >= min_ranked]
+    return members[["expert_id", "group_type", "group", "position", "out_of"]].reset_index(drop=True)
+
+
+def rank_for_app(ranks, expert_id, group_ranks=None):
     """The one expert's own rank, as the app reads it in expert.rank. Position is None until they have enough forecasts."""
     row = ranks.set_index("expert_id").loc[expert_id]
+    groups = []
+    if group_ranks is not None:
+        mine = group_ranks[group_ranks["expert_id"] == expert_id].sort_values(["group_type", "position"])
+        groups = [{"type": g["group_type"], "name": g["group"], "position": int(g["position"]),
+                   "out_of": int(g["out_of"])} for _, g in mine.iterrows()]
     return {"points": int(row["points"]),
             "average_points": None if pd.isna(row["average_points"]) else float(row["average_points"]),
             "position": None if pd.isna(row["position"]) else int(row["position"]),
             "out_of": int(ranks["position"].notna().sum()),
-            "forecasts": int(row["forecasts"]), "calls": int(row["calls"]), "correct": int(row["correct"])}
+            "forecasts": int(row["forecasts"]), "calls": int(row["calls"]), "correct": int(row["correct"]),
+            "groups": groups}
 
 
 def sort_deck(deck):

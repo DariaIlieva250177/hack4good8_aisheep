@@ -1,8 +1,8 @@
 import pandas as pd
 import pytest
 
-from points import (POINTS, SPOT_ON_BONUS, build_ranks, build_results, rank_for_app, score_forecasts, sort_deck,
-                    what_happened)
+from points import (POINTS, SPOT_ON_BONUS, build_group_ranks, build_ranks, build_results, rank_for_app,
+                    score_forecasts, sort_deck, what_happened)
 
 BANDS = {"very_unlikely": 0.1, "unlikely": 0.3, "even_chance": 0.5, "likely": 0.7, "very_likely": 0.9}
 
@@ -12,6 +12,7 @@ def forecasts():
         "expert_id": ["E1", "E1", "E1", "E1", "E2", "E2"],
         "question_id": ["Q1", "Q2", "Q3", "Q4", "Q1", "Q2"],
         "answer_level": ["very_likely", "unlikely", "dont_know", "likely", "even_chance", "very_likely"],
+        "version": 1, "submitted_at": "2025-06-01",
     })
 
 
@@ -19,6 +20,7 @@ def questions():
     return pd.DataFrame({
         "question_id": ["Q1", "Q2", "Q3", "Q4"], "risk_id": ["R1", "R2", "R3", "R4"],
         "outcome": [1, 0, 1, None], "resolves_on": ["2026-01-01", "2026-02-01", "2026-03-01", "2027-01-01"],
+        "happened_on": ["2026-01-01", None, "2026-03-01", None],
     })
 
 
@@ -106,16 +108,107 @@ def test_the_spot_on_bonus_is_worth_more_than_any_right_forecast():
     assert SPOT_ON_BONUS > max(max(v.values()) for v in POINTS.values())
 
 
+def answers_on_q1(*rows):
+    """Forecasts on Q1, which happened on 2026-01-01, as (expert, level, version, submitted_at)."""
+    table = pd.DataFrame(rows, columns=["expert_id", "answer_level", "version", "submitted_at"])
+    return table.assign(question_id="Q1")
+
+
+def points_of(table):
+    scored = score_forecasts(table, questions())
+    return dict(zip(scored.expert_id, scored.points))
+
+
+def test_an_expert_who_warned_a_day_before_it_happened_scores():
+    assert points_of(answers_on_q1(("E1", "very_likely", 1, "2025-12-31"))) == {"E1": 3}
+
+
+def test_a_first_answer_after_it_happened_earns_nothing():
+    assert points_of(answers_on_q1(("E1", "very_likely", 1, "2026-01-02"))) == {}
+
+
+def test_an_answer_on_the_day_it_happened_earns_nothing():
+    assert points_of(answers_on_q1(("E1", "very_likely", 1, "2026-01-01"))) == {}
+
+
+def test_points_use_the_changed_answer_when_it_came_before_it_happened():
+    table = answers_on_q1(("E1", "unlikely", 1, "2025-06-01"), ("E1", "very_likely", 2, "2025-12-01"))
+    assert points_of(table) == {"E1": 3}
+
+
+def test_a_change_after_it_happened_leaves_the_earlier_answer_in_place():
+    table = answers_on_q1(("E1", "unlikely", 1, "2025-06-01"), ("E1", "very_likely", 2, "2026-01-10"))
+    assert points_of(table) == {"E1": -3}
+
+
+def test_a_change_to_dont_know_means_no_points():
+    table = answers_on_q1(("E1", "very_likely", 1, "2025-06-01"), ("E1", "dont_know", 2, "2025-12-01"))
+    assert points_of(table) == {}
+
+
+def test_a_risk_that_did_not_happen_has_no_cut_off_date():
+    table = pd.DataFrame({"expert_id": ["E1"], "answer_level": ["unlikely"], "version": [1],
+                          "submitted_at": ["2026-01-31"], "question_id": ["Q2"]})
+    assert points_of(table) == {"E1": 2}
+
+
+def group_inputs():
+    ids = ["E1", "E2", "E3", "E4", "E5"]
+    ranks = pd.DataFrame({"expert_id": ids, "average_points": [3.0, 2.0, 1.0, 0.5, None],
+                          "position": [1, 2, 3, 4, None]})
+    countries = pd.DataFrame({"expert_id": ids + ["E1", "E1"], "country": ["Chad"] * 5 + ["Mali", "Peru"],
+                              "status": ["approved"] * 4 + ["approved", "approved", "denied"]})
+    domains = pd.DataFrame({"expert_id": ["E1", "E2", "E3", "E1", "E2", "E3"], "category_id": [1, 1, 1, 0, 0, 0],
+                            "status": ["approved"] * 6})
+    categories = pd.DataFrame({"category_id": [0, 1], "name": ["No match", "Flood"]})
+    return ranks, countries, domains, categories
+
+
+def test_group_ranks_compare_experts_inside_a_country():
+    groups = build_group_ranks(*group_inputs())
+    chad = groups[groups.group == "Chad"].set_index("expert_id")
+    assert (chad.loc["E2", "position"], chad.loc["E2", "out_of"]) == (2, 4)
+    assert chad.loc["E2", "group_type"] == "country"
+
+
+def test_group_ranks_cover_domains_by_name():
+    groups = build_group_ranks(*group_inputs())
+    flood = groups[groups.group == "Flood"].set_index("expert_id")
+    assert (flood.loc["E3", "position"], flood.loc["E3", "out_of"]) == (3, 3)
+    assert flood.loc["E3", "group_type"] == "domain"
+
+
+def test_experts_without_a_position_are_left_out_of_group_ranks():
+    assert "E5" not in set(build_group_ranks(*group_inputs()).expert_id)
+
+
+def test_a_group_under_three_ranked_experts_is_hidden():
+    assert "Mali" not in set(build_group_ranks(*group_inputs()).group)
+
+
+def test_denied_countries_and_the_no_match_domain_are_not_groups():
+    assert not {"Peru", "No match"} & set(build_group_ranks(*group_inputs()).group)
+
+
+def test_rank_for_app_lists_the_experts_groups():
+    ranks = build_ranks(score_forecasts(forecasts(), questions()), experts(), min_forecasts=1)
+    groups = pd.DataFrame({"expert_id": ["E1", "E1", "E2"], "group_type": ["domain", "country", "country"],
+                           "group": ["Flood", "Chad", "Chad"], "position": [2, 1, 3], "out_of": [5, 4, 4]})
+    assert rank_for_app(ranks, "E1", groups)["groups"] == [
+        {"type": "country", "name": "Chad", "position": 1, "out_of": 4},
+        {"type": "domain", "name": "Flood", "position": 2, "out_of": 5}]
+
+
 def test_rank_for_app_has_the_agreed_format():
     ranks = build_ranks(score_forecasts(forecasts(), questions()), experts(), {"E1": 5}, min_forecasts=1)
     assert rank_for_app(ranks, "E1") == {"points": 10, "average_points": 5.0, "position": 1, "out_of": 2,
-                                         "forecasts": 2, "calls": 2, "correct": 2}
+                                         "forecasts": 2, "calls": 2, "correct": 2, "groups": []}
 
 
 def test_rank_for_app_without_a_position():
     ranks = build_ranks(score_forecasts(forecasts(), questions()), experts())
     assert rank_for_app(ranks, "E3") == {"points": 0, "average_points": None, "position": None, "out_of": 0,
-                                         "forecasts": 0, "calls": 0, "correct": 0}
+                                         "forecasts": 0, "calls": 0, "correct": 0, "groups": []}
 
 
 def card(risk_id, score, match, days):

@@ -1,6 +1,6 @@
 # Data model
 
-How Ground Truth stores ACAPS risks, experts and everything experts do in the app. There are 25 tables in six groups. Notebook `05_generate_synthetic_data` (code in `src/synthetic_data.py`) builds all of them; the files are in `data/synthetic/`.
+How Ground Truth stores ACAPS risks, experts and everything experts do in the app. There are 31 tables in seven groups. `python src/build_demo_data.py` builds all of them; the files are in `data/synthetic/`. Notebook `05_generate_synthetic_data` builds the first 28, but not the points tables in group 7.
 
 **Real** ACAPS data: risks, countries, triggers, outcomes. **Synthetic**: everything about experts. No real person is in the data.
 
@@ -23,8 +23,10 @@ How Ground Truth stores ACAPS risks, experts and everything experts do in the ap
   - **verified anonymous:** personal data kept in `expert_identity` and never shown in the app. It shares an `expert_id` with the expert's answers, so this rests on who at ACAPS can open that table.
   - **verified, then deleted:** personal data, documents, the application comment and education are needed for approval, then deleted.
 
+  Changing level only applies to new answers. Past answers stay as they were given, so an answer ACAPS could see stays visible to ACAPS.
+
   **Account recovery works like a crypto wallet.** At registration every expert gets a secret recovery code (12 words), shown once. Only that code lets them reset a forgotten password. ACAPS stores just a salted hash of the code, so nobody at ACAPS can read it. If the code is lost, the account cannot be recovered. No email is needed for recovery, so emails are deleted together with the other personal data for "verified, then deleted".
-- **Display names** are kept in their own table, not in `experts`. Each expert gets a new random name for every risk, never reuses one on another risk, and keeps it inside that risk's discussion.
+- **Display names** are kept in their own table, not in `experts`. In a discussion an expert always has an alias. It stays the same throughout one risk so people can debate with them, changes on the next risk, and is never reused, so two discussions cannot be linked through a name.
 - **Swipes:**
 
   | Action | Result |
@@ -34,18 +36,20 @@ How Ground Truth stores ACAPS risks, experts and everything experts do in the ap
   | No answer, then right | To-do item, answer later |
   | No answer, then left | Skipped |
 
-- **Changing an opinion** is allowed **once**. The new stance is saved as version 2, and a "Changed opinion" comment appears in the same discussion.
-- **Community.** An expert joins a risk's community after their first answer, even just agree or disagree.
+- **Changing an opinion** is allowed **once**. The new stance and forecast are saved as version 2, and a "Changed opinion" comment appears in the same discussion.
+- **Community.** Everyone answers alone. An expert joins a risk's community after their first answer, even just agree or disagree, and only then sees comments and group numbers.
+- **When a risk ends.** There is no deadline for answers, because ACAPS wants all the information it can get while a risk is open. A risk closes when it happens or when its N months run out, which counts as did not happen. Then experts see their results.
+- **Points.** When ACAPS closes a risk that happened, it records the date it happened. Points use each expert's last answer from before that date. Answers after it still reach ACAPS but earn nothing, because by then anyone can read the news, and ACAPS may take time to close the risk.
 - **Urgency** sets the card colour and the order of the to-do list. Every risk is at least yellow; there is no green:
 
   | Urgency | Colour | When |
   |---|---|---|
-  | Very urgent | Red | High risk that is deteriorating, or closing within 2 days |
+  | Very urgent | Red | High risk that is deteriorating, or ending within 2 days |
   | Urgent | Orange | High risk |
   | Watch | Yellow | Every other risk |
 
 - **Triggers come from ACAPS.** Every risk shows the triggers ACAPS already posted. Experts can suggest a missing one; it joins the list only after ACAPS accepts it, and the app never shows which expert suggested it.
-- **ACAPS sets the answering window** (from and until) for every risk, and can edit the forecast question and its horizon (N months).
+- **ACAPS opens each risk**, sets its horizon (N months) and can edit the forecast question.
 
 ---
 
@@ -70,7 +74,11 @@ How Ground Truth stores ACAPS risks, experts and everything experts do in the ap
 | `expected_exposure`, `priority_needs` | |
 | `status`, `outcome` | outcome 1 = happened, 0 = did not, empty = still open |
 | `category_id`, `category`, `category_image` | main category and its image |
+| `community_name` | short name of the risk's discussion, built from the country and category |
 | `urgency`, `urgency_colour`, `urgency_hex`, `urgency_label`, `urgency_score` | for active risks only; red, orange or yellow |
+
+### `countries`
+Every country in the data, for the contributions map. Fields: `country`, `iso_numeric` (the map's code, kept as text), `region`. From `data/country_regions.csv`.
 
 ### `risk_countries`
 One row per risk per country, because a risk can cover several countries. Fields: `risk_id`, `country`.
@@ -144,7 +152,7 @@ Fields: `expert_id`, `risk_id`, `display_name`, `valid_from`, `valid_to`. Names 
 ## 4. What ACAPS publishes
 
 ### `risk_windows`
-When a risk is open for answers. Fields: `window_id`, `risk_id`, `opens`, `closes`, `set_by`.
+When a risk is open. Fields: `window_id`, `risk_id`, `opens`, `closes` (the end of its N months, sooner if it happens), `set_by`.
 
 ### `forecast_questions`
 | Field | Notes |
@@ -153,7 +161,8 @@ When a risk is open for answers. Fields: `window_id`, `risk_id`, `opens`, `close
 | `question_text`, `original_text` | ACAPS can edit the question |
 | `horizon_months` | N, chosen by ACAPS |
 | `created_by`, `edited_by`, `edited_at` | |
-| `opens`, `closes`, `resolves_on` | |
+| `opens`, `resolves_on` | `resolves_on` is the end of the N months |
+| `happened_on` | the date it happened, entered by ACAPS when closing; empty if it did not. The export has no such date, so past risks use `resolves_on` |
 | `status`, `outcome` | `open` or `resolved`; outcome once resolved |
 | `is_backtest` | true for past risks with real outcomes, used to test scoring |
 
@@ -204,6 +213,7 @@ Fields: `comment_id`, `expert_id`, `liked_at`. Only members of that risk's commu
 | Field | Notes |
 |---|---|
 | `forecast_id`, `question_id`, `expert_id` | |
+| `version`, `previous_forecast_id` | version 2 = the one allowed change, moved one step towards the new opinion |
 | `answer_level` | very unlikely, unlikely, even chance, likely, very likely, or don't know |
 | `probability` | from the answer level (0.1 to 0.9); empty for don't know |
 | `match_type`, `match_weight` | |
@@ -223,12 +233,33 @@ Fields: `comment_id`, `expert_id`, `liked_at`. Only members of that risk's commu
 ### `discussion_views`
 Read-only views of discussions outside an expert's countries and domains. Fields: `expert_id`, `risk_id`, `viewed_at`.
 
+### `notifications`
+The alerts an expert receives. Fields: `notification_id`, `expert_id`, `kind`, `risk_id`, `created_at`, `read_at` (empty = unread). Kinds: `new_risk`, `reply`, `result`. `private_message` joins them when private chat is built.
+
+### `discussion_reads`
+When an expert last opened a discussion they joined. Fields: `expert_id`, `risk_id`, `last_read_at`. Comments by others after that time are their unread count.
+
 ---
 
 ## 6. Simulation only
 
 ### `_simulation/expert_truth.csv`
 The hidden skill, bias, noise, activity and comment quality of each synthetic expert, which one is the demo expert, and the plain recovery codes so the team can test the recovery screen. It's used only for **testing**; the app never reads it.
+
+---
+
+## 7. Points and screen numbers
+
+Built by `src/build_demo_data.py`, not the notebook. Each expert sees only their own rows.
+
+### `ranks`
+Every approved expert's points. Position goes by average points per scored forecast, and experts under 5 scored forecasts have no position yet. Fields: `expert_id`, `points`, `average_points`, `position`, `forecast_points`, `bonus_points`, `forecasts`, `calls`, `correct`.
+
+### `group_ranks`
+Each expert's position inside their approved countries and domains, using the same average. Groups under 3 ranked experts are left out. Fields: `expert_id`, `group_type` (`country` or `domain`), `group`, `position`, `out_of`.
+
+### `contributions`
+How much each expert contributed per country. A risk across two countries counts in both. Fields: `expert_id`, `country`, `region`, `votes`, `comments`, `sources`, `forecasts`, `total`.
 
 ---
 
@@ -249,8 +280,6 @@ The hidden skill, bias, noise, activity and comment quality of each synthetic ex
 | Table | Purpose |
 |---|---|
 | `discussion_threads`, `private_messages` | Public threads and private discussions between two experts |
-| `notification_tokens`, `notification_addresses` | Alerts for anonymous experts, stored apart from answers |
-| `ranks`, `rank_history` | Output of the ranking algorithm (Valeri) |
-| `certificates` | Recognition, with verification codes for anonymous experts |
+| `notification_tokens`, `notification_addresses` | How alerts reach anonymous experts, stored apart from answers |
 | `client_requests` | Expert panel analysis on request |
 | `moderation_log` | Every approval, denial and edit by ACAPS staff |
