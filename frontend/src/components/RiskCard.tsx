@@ -1,27 +1,22 @@
 import type { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
-import { UserRound } from 'lucide-react';
-import type { Risk, User, Verdict } from '../data/types';
+import type { Risk, Verdict } from '../data/types';
 import { RiskImage } from './RiskImage';
 import { AreaChip, FamilyChip, LevelChip, VeryHighBadge } from './Chips';
 import { VerdictButtons } from './VerdictButtons';
-import { GlassButton } from './glass/GlassButton';
 import { useMode } from '../mode/ModeContext';
 import { en } from '../i18n/en';
 import './RiskCard.css';
 
 interface RiskCardProps {
   risk: Risk;
-  me: User;
   verdict: Verdict | null;
+  /** Tapping a verdict sends it */
   onVerdict: (v: Verdict) => void;
-  onAddNote: () => void;
-  onSend: () => void;
   /** Swipe hint drawn over the image */
   overlay?: ReactNode;
 }
 
-export function RiskCard({ risk, me, verdict, onVerdict, onAddNote, onSend, overlay }: RiskCardProps) {
+export function RiskCard({ risk, verdict, onVerdict, overlay }: RiskCardProps) {
   const titleId = `risk-${risk.id}-title`;
 
   return (
@@ -34,16 +29,6 @@ export function RiskCard({ risk, me, verdict, onVerdict, onAddNote, onSend, over
         </h2>
         <p className="risk-card__question expert t-quote">{en.card.question}</p>
         <VerdictButtons value={verdict} onChange={onVerdict} labelledBy={titleId} />
-        <div className="risk-card__actions">
-          <GlassButton pill onClick={onAddNote}>
-            {en.card.addNote}
-          </GlassButton>
-          <GlassButton variant="primary" pill onClick={onSend} aria-disabled={!verdict}>
-            {en.card.send}
-          </GlassButton>
-          <span className="risk-card__count t-small t-muted">{en.card.answered(risk.answered, risk.panelSize)}</span>
-        </div>
-        <IdentityFooter me={me} />
       </div>
     </article>
   );
@@ -60,21 +45,5 @@ export function RiskChips({ risk }: { risk: Risk }) {
       {risk.probability === 'Very High' && mode === 'rich' && <span className="sr-only">{en.veryHigh}</span>}
       <span className="chip-row__id">{risk.id}</span>
     </div>
-  );
-}
-
-export function IdentityFooter({ me }: { me: User }) {
-  const label =
-    me.identity === 'anonymous'
-      ? en.card.peersSeeYouAnonymous
-      : en.card.peersSeeYouAs(me.identity === 'name' ? me.name : me.pseudonym);
-  return (
-    <p className="identity-footer t-small">
-      <UserRound size={18} color="var(--acaps-blue)" aria-hidden="true" />
-      <span>{label}</span>
-      <Link to="/profile#privacy" className="identity-footer__change">
-        {en.card.change}
-      </Link>
-    </p>
   );
 }

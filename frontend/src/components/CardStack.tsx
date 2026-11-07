@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValue, useTransform, type PanInfo } from 'motion/react';
 import { Clock, X } from 'lucide-react';
-import type { Risk, User, Verdict } from '../data/types';
+import type { Risk, Verdict } from '../data/types';
 import { RiskCard, RiskChips } from './RiskCard';
 import { RiskImage } from './RiskImage';
 import { useMode } from '../mode/ModeContext';
-import { useToast } from './Toast';
 import { GlassButton } from './glass/GlassButton';
 import { en } from '../i18n/en';
 import './CardStack.css';
@@ -14,36 +13,41 @@ type Exit = 'later' | 'skip' | 'sent';
 
 interface CardStackProps {
   risks: Risk[];
-  me: User;
   onLater: (risk: Risk) => void;
   onSkip: (risk: Risk) => void;
   onSend: (risk: Risk, verdict: Verdict) => void;
-  onAddNote: (risk: Risk, verdict: Verdict | null) => void;
 }
+
+/* Long enough to see your choice pressed before the card leaves. */
+const SEND_DELAY_MS = 350;
 
 const SWIPE_DISTANCE = 110;
 const SWIPE_VELOCITY = 600;
 
-export function CardStack({ risks, me, onLater, onSkip, onSend, onAddNote }: CardStackProps) {
+export function CardStack({ risks, onLater, onSkip, onSend }: CardStackProps) {
   const { reducedMotion } = useMode();
-  const toast = useToast();
   const [verdicts, setVerdicts] = useState<Record<string, Verdict>>({});
   const [exit, setExit] = useState<Exit>('later');
+  const sending = useRef<string | null>(null);
   const [front, ...rest] = risks;
   const behind = rest.slice(0, 2);
 
-  const act = (kind: Exit, risk: Risk) => {
+  const act = (kind: 'later' | 'skip', risk: Risk) => {
     setExit(kind);
     if (kind === 'later') onLater(risk);
-    else if (kind === 'skip') onSkip(risk);
-    else {
-      const v = verdicts[risk.id];
-      if (!v) {
-        toast({ message: en.card.chooseFirst });
-        return;
-      }
+    else onSkip(risk);
+  };
+
+  // One tap answers: show the choice, then send it.
+  const answer = (risk: Risk, v: Verdict) => {
+    if (sending.current === risk.id) return;
+    sending.current = risk.id;
+    setVerdicts((s) => ({ ...s, [risk.id]: v }));
+    window.setTimeout(() => {
+      setExit('sent');
       onSend(risk, v);
-    }
+      sending.current = null;
+    }, reducedMotion ? 0 : SEND_DELAY_MS);
   };
 
   return (
@@ -62,14 +66,7 @@ export function CardStack({ risks, me, onLater, onSkip, onSend, onAddNote }: Car
               reducedMotion={reducedMotion}
               onSwipe={(dir) => act(dir === 1 ? 'later' : 'skip', front)}
             >
-              <RiskCard
-                risk={front}
-                me={me}
-                verdict={verdicts[front.id] ?? null}
-                onVerdict={(v) => setVerdicts((s) => ({ ...s, [front.id]: v }))}
-                onAddNote={() => onAddNote(front, verdicts[front.id] ?? null)}
-                onSend={() => act('sent', front)}
-              />
+              <RiskCard risk={front} verdict={verdicts[front.id] ?? null} onVerdict={(v) => answer(front, v)} />
             </SwipeCard>
           )}
         </AnimatePresence>

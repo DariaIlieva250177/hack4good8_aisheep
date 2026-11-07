@@ -125,36 +125,38 @@
   --surface: rgba(255, 255, 255, 0.88);
 }
 
-/* ---------- Dark theme ----------
-   Same roles, re-mapped. Ranking keeps its own night palette in both themes. */
+/* ---------- Dark theme (default): teal glass ----------
+   Near-black to deep teal with a cyan glow at the top right, and clear glass
+   with thin white edges on top. Ranking keeps its own night palette. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --ink: #eef3f6;
-  --ink-2: #a9bccb;
-  --ground: #0b2236;
+  --ink: #f1f5f7;
+  --ink-2: #b4c3cb;
+  --ground: #031319;
   --line: rgba(255, 255, 255, 0.12);
   --app-bg:
-    radial-gradient(90% 50% at 100% 20%, rgba(0, 150, 186, 0.28) 0%, transparent 70%),
-    radial-gradient(90% 55% at 0% 90%, rgba(0, 75, 120, 0.45) 0%, transparent 70%),
-    linear-gradient(180deg, #071a2b 0%, #0b2741 100%);
-  --surface: rgba(18, 44, 66, 0.55);
+    radial-gradient(75% 45% at 100% 0%, rgba(98, 188, 214, 0.7) 0%, rgba(34, 128, 158, 0.35) 38%, transparent 72%),
+    radial-gradient(80% 50% at 85% 55%, rgba(14, 92, 116, 0.45) 0%, transparent 70%),
+    radial-gradient(70% 45% at 30% 100%, rgba(0, 0, 0, 0.55) 0%, transparent 70%),
+    linear-gradient(160deg, #010608 0%, #03161d 35%, #06303d 70%, #0b4c5f 100%);
+  --surface: rgba(255, 255, 255, 0.07);
   --control: rgba(255, 255, 255, 0.08);
-  --control-on: rgba(127, 211, 234, 0.18);
-  --control-solid: #163248;
-  --control-on-solid: #1d4b62;
-  --field: rgba(0, 10, 20, 0.28);
-  --glass-line: rgba(255, 255, 255, 0.13);
-  --glass-drop: rgba(0, 0, 0, 0.35);
-  --accent: #7fd3ea;
-  --primary: #0a5f8f;
+  --control-on: rgba(255, 255, 255, 0.16);
+  --control-solid: #0f2c36;
+  --control-on-solid: #24434d;
+  --field: rgba(0, 0, 0, 0.25);
+  --glass-line: rgba(255, 255, 255, 0.2);
+  --glass-drop: rgba(0, 0, 0, 0.4);
+  --accent: #8fd8ec;
+  --primary: #146f8c;
   --paper: #121b21;
   --disabled: #3b5566;
   --switch-border: #84939d;
   --level-high-text: #ff9db1;
   --highlight-12: rgba(216, 216, 0, 0.14);
-  --desk: #06121c;
+  --desk: #020a0d;
   --bezel: #000000;
-  --glass-bg: rgba(14, 38, 58, 0.62);
+  --glass-bg: rgba(10, 34, 42, 0.55);
   --glass-border: 1px solid rgba(255, 255, 255, 0.12);
   /* Multiply would sink the illustrations into a dark card, so show them as lit panels. */
   --image-blend: normal;
@@ -162,6 +164,6 @@
 }
 
 :root[data-theme="dark"][data-mode="lite"] {
-  --glass-bg: rgba(14, 38, 58, 0.97);
-  --surface: rgba(18, 44, 66, 0.92);
+  --glass-bg: rgba(8, 30, 38, 0.97);
+  --surface: rgba(12, 40, 50, 0.92);
 }

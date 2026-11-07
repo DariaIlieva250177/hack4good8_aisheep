@@ -150,6 +150,19 @@ export async function submitAnswer(input: AnswerInput): Promise<Answer> {
   return wait(answer);
 }
 
+/** Take back a one-tap answer from the card stack and put the card back. */
+export async function undoAnswer(riskId: string, index: number): Promise<void> {
+  const i = state.answers.findIndex((a) => a.riskId === riskId && a.authorId === state.me.id);
+  if (i >= 0) {
+    state.answers.splice(i, 1);
+    const risk = riskById(riskId);
+    if (risk) risk.answered = Math.max(0, risk.answered - 1);
+  }
+  if (!state.stack.includes(riskId)) state.stack.splice(Math.max(0, index), 0, riskId);
+  changed();
+  return wait(undefined);
+}
+
 export async function markNotificationRead(id: string): Promise<AppNotification[]> {
   const n = state.notifications.find((x) => x.id === id);
   if (n) n.unread = false;

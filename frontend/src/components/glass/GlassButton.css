@@ -50,13 +50,6 @@
   background: var(--control-on-solid);
 }
 
-/* The tab bar floats over the opaque page, so the real glass replaces its own frost. */
-:root[data-mode="rich"] .tabbar.glass {
-  background: transparent;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  border-color: transparent;
-}
 
 /* Keep the sheen faint on blue so white labels stay readable in the frosted fallback. */
 .glass-layer--primary .glass-surface__sheen,
@@ -66,8 +59,7 @@
 
 /* Light theme: GlassSurface's dark inner shadows read as grey on our pale blue
    field, so swap them for a white rim and inner glow. Dark theme keeps them. */
-:root:not([data-theme="dark"]) .glass-layer--soft.glass-surface--svg,
-:root:not([data-theme="dark"]) .glass-layer--bar.glass-surface--svg {
+:root:not([data-theme="dark"]) .glass-layer--soft.glass-surface--svg {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.75),
     inset 0 1px 8px rgba(255, 255, 255, 0.7),

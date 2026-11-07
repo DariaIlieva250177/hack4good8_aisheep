@@ -15,7 +15,7 @@ import './Profile.css';
 
 const IDENTITIES: IdentityMode[] = ['name', 'pseudonym', 'anonymous'];
 const LOW_DATA: LowDataSetting[] = ['auto', 'on', 'off'];
-const THEMES: ThemeSetting[] = ['light', 'dark', 'system'];
+const THEMES: ThemeSetting[] = ['dark', 'light', 'system'];
 
 export function Profile() {
   const { data: me } = useQuery(getMe);

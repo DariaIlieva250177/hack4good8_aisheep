@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#e4e8eb" />
+    <meta name="theme-color" content="#03161d" />
     <meta name="referrer" content="no-referrer" />
     <title>AI Sheep</title>
     <script>
       // Apply the saved theme before first paint to avoid a light flash.
       try {
-        var t = localStorage.getItem('theme');
-        var dark = t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+        // Teal dark is the default; only an explicit Light or System choice changes it.
+        var t = localStorage.getItem('appTheme');
+        var dark = t === 'system' ? matchMedia('(prefers-color-scheme: dark)').matches : t !== 'light';
         document.documentElement.dataset.theme = dark ? 'dark' : 'light';
       } catch (e) {}
     </script>

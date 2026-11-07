@@ -5,10 +5,9 @@ import { ScreenHeader } from '../components/ScreenHeader';
 import { RiskHeader } from '../components/RiskHeader';
 import { VerdictButtons } from '../components/VerdictButtons';
 import { Avatar } from '../components/Avatar';
-import { IdentityFooter } from '../components/RiskCard';
 import { useToast } from '../components/Toast';
 import { GlassButton } from '../components/glass/GlassButton';
-import { getMe, getTopic, markCommunityRead, submitAnswer } from '../data/api';
+import { getTopic, markCommunityRead, submitAnswer } from '../data/api';
 import { useQuery } from '../data/useQuery';
 import type { Answer, Verdict } from '../data/types';
 import { en } from '../i18n/en';
@@ -18,7 +17,6 @@ export function CommunityTopic() {
   const { riskId = '' } = useParams();
   const toast = useToast();
   const { data: topic, loading } = useQuery(() => getTopic(riskId), [riskId]);
-  const { data: me } = useQuery(getMe);
   const [verdict, setVerdict] = useState<Verdict | null>(null);
   const [note, setNote] = useState('');
   const [sending, setSending] = useState(false);
@@ -72,7 +70,6 @@ export function CommunityTopic() {
             <GlassButton type="submit" variant="primary" pill disabled={sending}>
               {en.topic.send}
             </GlassButton>
-            {me && <IdentityFooter me={me} />}
           </form>
         )}
       </section>

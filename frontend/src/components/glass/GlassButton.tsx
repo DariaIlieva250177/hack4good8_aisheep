@@ -3,7 +3,7 @@ import GlassSurface from './GlassSurface';
 import { useMode } from '../../mode/ModeContext';
 import './GlassButton.css';
 
-type Tone = 'soft' | 'primary' | 'bar';
+type Tone = 'soft' | 'primary';
 
 /**
  * The refractive glass from GlassSurface, as a background layer filling its
@@ -21,11 +21,11 @@ export function GlassLayer({ radius, tone = 'soft' }: { radius: number; tone?: T
       borderRadius={radius}
       className={`glass-layer glass-layer--${tone}`}
       // Primary buttons keep their solid blue under the glass so white text stays at 4.5:1.
-      backgroundOpacity={tone === 'bar' ? 0.75 : tone === 'soft' ? 0.15 : 0}
+      backgroundOpacity={tone === 'soft' ? 0.15 : 0}
       displace={0.5}
       // Small controls bend less, or the edge refraction sweeps across the label.
-      blur={tone === 'bar' ? 11 : 5}
-      distortionScale={tone === 'bar' ? -140 : -70}
+      blur={5}
+      distortionScale={-70}
     />
   );
 }

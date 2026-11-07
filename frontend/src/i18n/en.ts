@@ -104,12 +104,6 @@ export const en = {
 
   card: {
     question: 'Do you recognise this picture?',
-    addNote: 'Add a note',
-    send: 'Send answer',
-    answered: (done: number, total: number) => `${done} of ${total} answered`,
-    peersSeeYouAs: (name: string) => `Peers see you as ${name}`,
-    peersSeeYouAnonymous: 'Peers see you as an anonymous expert',
-    change: 'Change',
     later: 'Later',
     skip: 'Skip',
     dragLater: 'Answer later',
@@ -119,7 +113,7 @@ export const en = {
 
   risks: {
     title: 'Risks',
-    instruction: 'Tap Yes, Partly or No. Swipe right to answer later, left to skip.',
+    instruction: 'Tap Yes, Partly or No to answer. Swipe right to answer later, left to skip.',
     stackLabel: 'Risks to review',
     sent: 'Sent. You’ll see the group’s view when the round closes.',
     movedToTodo: 'Moved to To-do.',

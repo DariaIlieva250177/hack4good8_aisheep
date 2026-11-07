@@ -10,16 +10,16 @@ interface ThemeValue {
 }
 
 /* Same key as the pre-paint script in index.html. */
-const STORAGE_KEY = 'theme';
+const STORAGE_KEY = 'appTheme';
 const QUERY = '(prefers-color-scheme: dark)';
 const ThemeContext = createContext<ThemeValue | null>(null);
 
 function readSetting(): ThemeSetting {
   try {
     const v = localStorage.getItem(STORAGE_KEY);
-    return v === 'light' || v === 'dark' ? v : 'system';
+    return v === 'light' || v === 'system' ? v : 'dark';
   } catch {
-    return 'system';
+    return 'dark';
   }
 }
 
@@ -39,7 +39,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#071a2b' : '#e6f0f8');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#03161d' : '#e6f0f8');
   }, [theme]);
 
   const setSetting = useCallback((s: ThemeSetting) => {
