@@ -27,7 +27,14 @@ def test_demo_expert_has_a_track_record_and_matching_rank(built):
     row = ranks.set_index("expert_id").loc[bundle["expert"]["expert_id"]]
     assert row.forecasts > 0
     assert rank["points"] == row.points == row.forecast_points + SPOT_ON_BONUS
-    assert rank["out_of"] == len(ranks)
+    assert rank["position"] == row.position
+    assert rank["out_of"] == ranks.position.notna().sum()
+
+
+def test_experts_under_the_minimum_have_no_position(built):
+    ranks = built[2]
+    assert ranks[ranks.forecasts < 5].position.isna().all()
+    assert ranks[ranks.forecasts >= 5].position.notna().all()
 
 
 def test_demo_points_add_up_from_the_results(built):

@@ -61,17 +61,45 @@ def test_ranks_include_every_approved_expert_and_no_one_else():
     assert ranks.set_index("expert_id").loc["E3", "points"] == 0
 
 
-def test_most_points_comes_first_and_a_negative_total_comes_last():
-    ranks = build_ranks(score_forecasts(forecasts(), questions()), experts()).set_index("expert_id")
-    assert (ranks.loc["E1", "points"], ranks.loc["E1", "position"]) == (5, 1)
-    assert (ranks.loc["E3", "points"], ranks.loc["E3", "position"]) == (0, 2)
-    assert (ranks.loc["E2", "points"], ranks.loc["E2", "position"]) == (-7, 3)
+def scored_points(rows):
+    """A scored table from {expert: [points, ...]}, for tests that only care about points."""
+    records = [(expert, p) for expert, points in rows.items() for p in points]
+    table = pd.DataFrame(records, columns=["expert_id", "points"])
+    return table.assign(is_call=True, correct_call=True)
+
+
+def test_the_best_average_comes_first_and_a_negative_average_comes_last():
+    ranks = build_ranks(score_forecasts(forecasts(), questions()), experts(), min_forecasts=1).set_index("expert_id")
+    assert (ranks.loc["E1", "average_points"], ranks.loc["E1", "position"]) == (2.5, 1)
+    assert (ranks.loc["E2", "average_points"], ranks.loc["E2", "position"]) == (-3.5, 2)
+
+
+def test_answering_more_does_not_beat_a_better_average():
+    scored = scored_points({"E1": [3, 3], "E2": [2, 2, 2, 2, 2]})
+    ranks = build_ranks(scored, experts(), min_forecasts=1).set_index("expert_id")
+    assert ranks.loc["E2", "points"] > ranks.loc["E1", "points"]
+    assert (ranks.loc["E1", "position"], ranks.loc["E2", "position"]) == (1, 2)
+
+
+def test_an_expert_under_the_minimum_gets_no_position():
+    scored = scored_points({"E1": [3, 3, 3, 3, 3], "E2": [3, 3, 3, 3]})
+    ranks = build_ranks(scored, experts()).set_index("expert_id")
+    assert ranks.loc["E1", "position"] == 1
+    assert pd.isna(ranks.loc["E2", "position"])
+    assert pd.isna(ranks.loc["E3", "position"])
 
 
 def test_ties_share_a_position():
-    ranks = build_ranks(score_forecasts(forecasts(), questions()), experts(), {"E3": 5}).set_index("expert_id")
-    assert ranks.loc["E1", "position"] == ranks.loc["E3", "position"] == 1
-    assert ranks.loc["E2", "position"] == 3
+    scored = scored_points({"E1": [2, 2], "E2": [3, 1], "E3": [1, 1]})
+    ranks = build_ranks(scored, experts(), min_forecasts=1).set_index("expert_id")
+    assert ranks.loc["E1", "position"] == ranks.loc["E2", "position"] == 1
+    assert ranks.loc["E3", "position"] == 3
+
+
+def test_the_spot_on_bonus_counts_in_the_average():
+    ranks = build_ranks(scored_points({"E1": [2, 2]}), experts(), {"E1": 5}, min_forecasts=1).set_index("expert_id")
+    assert ranks.loc["E1", "points"] == 9
+    assert ranks.loc["E1", "average_points"] == 4.5
 
 
 def test_the_spot_on_bonus_is_worth_more_than_any_right_forecast():
@@ -79,8 +107,15 @@ def test_the_spot_on_bonus_is_worth_more_than_any_right_forecast():
 
 
 def test_rank_for_app_has_the_agreed_format():
-    ranks = build_ranks(score_forecasts(forecasts(), questions()), experts(), {"E1": 5})
-    assert rank_for_app(ranks, "E1") == {"points": 10, "position": 1, "out_of": 3, "calls": 2, "correct": 2}
+    ranks = build_ranks(score_forecasts(forecasts(), questions()), experts(), {"E1": 5}, min_forecasts=1)
+    assert rank_for_app(ranks, "E1") == {"points": 10, "average_points": 5.0, "position": 1, "out_of": 2,
+                                         "forecasts": 2, "calls": 2, "correct": 2}
+
+
+def test_rank_for_app_without_a_position():
+    ranks = build_ranks(score_forecasts(forecasts(), questions()), experts())
+    assert rank_for_app(ranks, "E3") == {"points": 0, "average_points": None, "position": None, "out_of": 0,
+                                         "forecasts": 0, "calls": 0, "correct": 0}
 
 
 def card(risk_id, score, match, days):

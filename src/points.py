@@ -20,6 +20,7 @@ POINTS = {
 }
 CALL_SIDE = {"very_likely": 1, "likely": 1, "unlikely": 0, "very_unlikely": 0}
 SPOT_ON_BONUS = 5
+MIN_FORECASTS = 5
 MATCH_ORDER = {"country_and_domain": 0, "country_only": 1, "domain_only": 2}
 
 
@@ -35,8 +36,12 @@ def score_forecasts(forecasts, questions):
                    "points", "is_call", "correct_call"]]
 
 
-def build_ranks(scored, experts, bonuses=None):
-    """Every approved expert's total points and position (1 = most points). Ties share a position."""
+def build_ranks(scored, experts, bonuses=None, min_forecasts=MIN_FORECASTS):
+    """Every approved expert, ordered by average points per scored forecast (position 1 = best).
+
+    Using the average means answering more cannot buy a higher rank. Experts with fewer than
+    min_forecasts scored forecasts have no position yet. Ties share a position.
+    """
     approved = experts.loc[experts["status"] == "approved", "expert_id"]
     per_expert = scored.groupby("expert_id").agg(
         forecast_points=("points", "sum"), forecasts=("points", "size"),
@@ -44,16 +49,22 @@ def build_ranks(scored, experts, bonuses=None):
     ranks = per_expert.reindex(approved).fillna(0).astype(int)
     ranks["bonus_points"] = pd.Series(bonuses or {}, dtype=float).reindex(ranks.index).fillna(0).astype(int)
     ranks["points"] = ranks["forecast_points"] + ranks["bonus_points"]
-    ranks["position"] = ranks["points"].rank(ascending=False, method="min").astype(int)
-    ranks = ranks.sort_values(["position", "forecasts"], ascending=[True, False]).reset_index()
-    return ranks[["expert_id", "points", "position", "forecast_points", "bonus_points", "forecasts", "calls", "correct"]]
+    ranks["average_points"] = (ranks["points"] / ranks["forecasts"].where(ranks["forecasts"] > 0)).round(2)
+    enough = ranks.loc[ranks["forecasts"] >= min_forecasts, "average_points"]
+    ranks["position"] = enough.rank(ascending=False, method="min").astype("Int64")
+    ranks = ranks.sort_values(["position", "forecasts"], ascending=[True, False], na_position="last").reset_index()
+    return ranks[["expert_id", "points", "average_points", "position", "forecast_points", "bonus_points",
+                  "forecasts", "calls", "correct"]]
 
 
 def rank_for_app(ranks, expert_id):
-    """The one expert's own rank, in the format the app reads as expert.rank."""
+    """The one expert's own rank, as the app reads it in expert.rank. Position is None until they have enough forecasts."""
     row = ranks.set_index("expert_id").loc[expert_id]
-    return {"points": int(row["points"]), "position": int(row["position"]), "out_of": len(ranks),
-            "calls": int(row["calls"]), "correct": int(row["correct"])}
+    return {"points": int(row["points"]),
+            "average_points": None if pd.isna(row["average_points"]) else float(row["average_points"]),
+            "position": None if pd.isna(row["position"]) else int(row["position"]),
+            "out_of": int(ranks["position"].notna().sum()),
+            "forecasts": int(row["forecasts"]), "calls": int(row["calls"]), "correct": int(row["correct"])}
 
 
 def sort_deck(deck):
