@@ -12,7 +12,7 @@ C00010,R1042,E002,answer,This source shows developments relevant to this risk. I
 C00011,R1052,E002,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-25,False
 C00012,R1054,E002,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-17,False
 C00013,R1042,E003,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-03,False
-C00014,R1043,E003,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
+C00014,R1043,E003,answer,"Agree. Working in Niger, I've seen how quickly a border area changes once armed groups move freely, and how slowly humanitarian access comes back afterwards. I'd plan for access problems before casualties rise.",,False,,2026-11-06,False
 C00015,R1053,E004,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-24,False
 C00016,R1059,E004,answer,This matches what partners on the ground are reporting.,,False,,2026-10-18,False
 C00017,R1066,E004,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06,False
@@ -56,7 +56,7 @@ C00054,R1069,E018,answer,The analysis overstates the role of this trigger.,,Fals
 C00055,R1061,E019,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0012,True,,2026-10-30,False
 C00056,R1067,E019,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-28,False
 C00057,R1038,E020,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-05,False
-C00058,R1043,E020,answer,Local reporting does not support this yet.,,False,,2026-11-03,False
+C00058,R1043,E020,answer,"I'd push back on ""deliberate"". From the Darfur side, most of these incidents look like fights over fuel and supply routes that spill across the line, not a plan to strike Chad. The risk is real, but for now I read it as spillover.",,False,,2026-11-03,False
 C00059,R1051,E020,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
 C00060,R1053,E020,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-05,False
 C00061,R1055,E020,answer,This matches what partners on the ground are reporting.,,False,,2026-10-26,False
@@ -115,7 +115,7 @@ C00113,R1044,E032,answer,"The source reports developments relevant to this risk.
 C00114,R1055,E032,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-05,False
 C00115,R1059,E032,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
 C00116,R1042,E033,answer,This matches what partners on the ground are reporting.,,False,,2026-11-04,False
-C00117,R1043,E033,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0019,True,,2026-11-06,False
+C00117,R1043,E033,answer,"Attached a market bulletin that fits this reading. Supply routes are where armed groups earn and spend, so markets often show trouble early. I know this pattern from Colombia's border regions more than from Chad, so take it as a comparison.",SRC0019,True,,2026-11-06,False
 C00118,R1062,E033,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-04,False
 C00119,R1067,E033,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-05,False
 C00120,R1037,E034,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
@@ -126,7 +126,7 @@ C00124,R1061,E034,answer,This matches what partners on the ground are reporting.
 C00125,R1062,E034,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-22,False
 C00126,R1066,E034,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
 C00127,R1074,E034,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06,False
-C00128,R1043,E035,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-05,False
+C00128,R1043,E035,answer,"Agree, and the economic side deserves more weight. When a conflict runs on fuel and gold routes, the fighting follows the money. If those corridors close, prices in the border towns will move long before the headlines do.",,False,,2026-11-05,False
 C00129,R1051,E035,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04,False
 C00130,R1052,E035,answer,This matches what partners on the ground are reporting.,,False,,2026-10-23,False
 C00131,R1065,E035,answer,This matches what partners on the ground are reporting.,,False,,2026-11-05,False
@@ -135,7 +135,7 @@ C00133,R1049,E036,answer,I disagree with the timing; this looks more likely late
 C00134,R1054,E036,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
 C00135,R1067,E036,answer,This matches what partners on the ground are reporting.,,False,,2026-10-25,False
 C00136,R1074,E036,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-27,False
-C00137,R1043,E038,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-05,False
+C00137,R1043,E038,answer,"I've seen this pattern on other borders. Once armed groups depend on a crossing for supplies, it stops being a border incident and becomes a target. The infrastructure trigger is the one I'd watch: a strike on Amdjarass would change the whole picture.",,False,,2026-11-05,False
 C00138,R1055,E038,answer,The analysis overstates the role of this trigger.,,False,,2026-10-20,False
 C00139,R1062,E038,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0022,True,,2026-10-25,False
 C00140,R1065,E038,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-28,False
@@ -154,14 +154,14 @@ C00152,R1053,E043,answer,I disagree with the timing; this looks more likely late
 C00153,R1054,E043,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0024,True,,2026-11-06,False
 C00154,R1059,E043,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31,False
 C00155,R1038,E044,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-04,False
-C00156,R1043,E044,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-03,False
+C00156,R1043,E044,answer,"The direction looks right, but two months feels tight. I don't know Chad closely, but conflicts like this tend to move in bursts, and both sides still have more to gain inside Sudan. I'd rate this lower for January and higher for later in 2027.",,False,,2026-11-03,False
 C00157,R1048,E044,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-04,False
 C00158,R1061,E044,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-04,False
 C00159,R1066,E044,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06,False
 C00160,R1066,E044,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
 C00161,R1074,E044,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0025,True,,2026-10-29,False
 C00162,R1042,E045,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
-C00163,R1043,E045,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
+C00163,R1043,E045,answer,"Agree with the rating, but I'd add local deals to the picture. In Syria, crossings changed hands through negotiation as often as through fighting, and civilians were caught out either way. Could the same happen around Tine?",,False,,2026-11-06,False
 C00164,R1048,E045,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-29,False
 C00165,R1061,E045,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-27,False
 C00166,R1062,E045,answer,The analysis overstates the role of this trigger.,,False,,2026-10-22,False
@@ -206,7 +206,7 @@ C00204,R1054,E056,changed_opinion,Changed opinion: the latest field updates conv
 C00205,R1072,E056,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
 C00206,R1074,E056,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-02,False
 C00207,R1066,E057,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
-C00208,R1043,E058,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-03,False
+C00208,R1043,E058,changed_opinion,"I agreed at first, but the point about supply routes here changed my mind. Most of what I hear around Tine is about fuel and smuggling disputes, not fighters trying to hold ground inside Chad. Worrying, but not sustained confrontation yet.",,False,,2026-11-03,False
 C00209,R1066,E058,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0040,True,,2026-11-06,False
 C00210,R1038,E059,answer,The analysis overstates the role of this trigger.,,False,,2026-10-24,False
 C00211,R1048,E059,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06,False
@@ -216,7 +216,7 @@ C00214,R1038,E060,answer,"Agree, and I would watch the next few weeks closely.",
 C00215,R1042,E060,answer,Local reporting does not support this yet.,,False,,2026-11-03,False
 C00216,R1053,E060,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0042,True,,2026-11-04,False
 C00217,R1062,E060,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-02,False
-C00218,R1043,E061,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
+C00218,R1043,E061,answer,"The rains are over, so the tracks around Adré are passable again. That helps aid trucks, but it helps armed groups too. Sites in Ouaddaï and Wadi Fira are already overcrowded, so new arrivals would have nowhere to go.",,False,,2026-11-06,False
 C00219,R1047,E061,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06,True
 C00220,R1048,E061,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-03,False
 C00221,R1055,E061,answer,This matches what partners on the ground are reporting.,,False,,2026-10-21,False
@@ -230,7 +230,7 @@ C00228,R1044,E063,answer,"Agree, and I would watch the next few weeks closely.",
 C00229,R1044,E063,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
 C00230,R1054,E063,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0044,True,,2026-10-27,False
 C00231,R1055,E063,answer,This matches what partners on the ground are reporting.,,False,,2026-10-24,False
-C00232,R1043,E065,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0045,True,,2026-11-06,False
+C00232,R1043,E065,answer,"Attached a situation update. Families in West Darfur are deciding on rumours as much as on attacks, so one strike near Adré could move people in both directions at once. Refugees and returnees would need help on the same road.",SRC0045,True,,2026-11-06,False
 C00233,R1048,E065,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06,False
 C00234,R1049,E065,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
 C00235,R1051,E065,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
