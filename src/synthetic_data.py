@@ -423,7 +423,7 @@ def expert_matches(experts, ecountries, edomains, risk_countries, risk_categorie
     rows = []
     for eid in approved:
         cs, ds = ec.get(eid, set()), ed.get(eid, set())
-        for rid in set(rc.index) | set(rk.index):
+        for rid in sorted(set(rc.index) | set(rk.index)):
             c = bool(cs & rc.get(rid, set()))
             d = bool(ds & rk.get(rid, set()))
             if c or d:
