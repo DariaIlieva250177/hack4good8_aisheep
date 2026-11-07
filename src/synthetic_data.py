@@ -15,6 +15,7 @@ import hashlib
 import re
 from datetime import timedelta
 
+from pathlib import Path
 import numpy as np
 import pandas as pd
 
@@ -53,24 +54,27 @@ CATEGORIES = [
 ]
 CAT_NAME = {c[0]: c[1] for c in CATEGORIES}
 
-# Keywords searched in the risk title and triggers. Checked in this order; the first hit is the
-# main category. More specific categories come first, broad ones (conflict) last.
+# Keywords searched in a risk's title (its triggers only if the title matches nothing). Checked in
+# this order; the first hit is the main category. Each keyword must start a word, and the ones in
+# WHOLE_WORD_KEYWORDS must also end it, so "dam" and "war" never match "damage" or "warning".
 CATEGORY_KEYWORDS = [
     (1, ["cross-border", "border"]),
     (11, ["earthquake", "landslide", "seismic", "volcan"]),
     (10, ["cyclone", "hurricane", "typhoon", "storm"]),
-    (8, ["flood", "inundat", "heavy rain", "rainfall"]),
-    (9, ["drought", "dry spell", "below-average rain"]),
+    (9, ["drought", "dry spell", "dry condition", "below-average", "el niño", "el nino", "water shortage"]),
+    (8, ["flood", "inundat", "heavy rain"]),
     (12, ["locust", "pest", "armyworm"]),
     (7, ["cholera", "outbreak", "epidemic", "disease", "measles", "dengue", "mpox", "ebola", "malaria", "diphtheria"]),
-    (13, ["dam", "infrastructure", "power outage", "electricity", "blackout", "bridge"]),
+    (13, ["dam", "infrastructure", "power outage", "power grid", "electricity", "blackout", "bridge"]),
     (14, ["funding", "aid cut", "aid suspension", "assistance cut", "usaid", "donor"]),
-    (4, ["election", "political", "coup", "protest", "unrest", "referendum", "government"]),
-    (5, ["economic", "price", "inflation", "currency", "fuel", "devaluation", "debt", "market"]),
+    (4, ["election", "political", "coup", "protest", "unrest", "referendum", "government", "mutiny"]),
+    (5, ["economic", "price", "inflation", "currency", "fuel", "devaluation", "debt", "market", "trade"]),
     (6, ["food", "hunger", "famine", "malnutrition", "nutrition", "harvest", "crop"]),
-    (3, ["displace", "refugee", "idp", "returnee", "migration", "influx", "evict"]),
-    (2, ["conflict", "armed", "clash", "violence", "insecurity", "attack", "fighting", "military", "militia", "insurg"]),
+    (3, ["displace", "refugee", "idp", "returnee", "mass return", "migration", "influx", "evict"]),
+    (2, ["conflict", "armed", "clash", "violence", "insecurity", "attack", "fighting", "military", "militia", "insurg",
+         "war", "drone", "siege", "offensive", "strike"]),
 ]
+WHOLE_WORD_KEYWORDS = {"dam", "war", "idp"}
 
 LEVELS = ["very_unlikely", "unlikely", "even_chance", "likely", "very_likely"]
 URGENCY = {  # no green: every risk shown is at least yellow
@@ -128,9 +132,24 @@ def _short(text, max_chars=280):
 
 def classify_categories(text):
     """All matching category ids in priority order; [0] if nothing matches."""
-    t = str(text or "").lower()
-    hits = [cid for cid, words in CATEGORY_KEYWORDS if any(w in t for w in words)]
+    t = str(text or "").lower().replace("food insecurity", "food shortage")
+    hits = [cid for cid, words in CATEGORY_KEYWORDS if any(_keyword_hit(w, t) for w in words)]
     return hits or [0]
+
+
+def _keyword_hit(word, text):
+    tail = r"s?\b" if word in WHOLE_WORD_KEYWORDS else ""
+    return re.search(r"\b" + re.escape(word) + tail, text) is not None
+
+
+def load_category_overrides(path):
+    """Hand-checked categories: {risk_id: [category ids, main first]}. Empty if the file is missing."""
+    path = Path(path)
+    if not path.exists():
+        return {}
+    ids = {c[1]: c[0] for c in CATEGORIES}
+    table = pd.read_csv(path)
+    return {r["risk_id"]: [ids[name.strip()] for name in r["categories"].split(";")] for _, r in table.iterrows()}
 
 
 def level_probabilities(scheme):
@@ -202,14 +221,18 @@ def build_reference(export_path, cfg, rng):
                 rc.append({"risk_id": r["risk_id"], "country": c.strip()})
     risk_countries = pd.DataFrame(rc, columns=["risk_id", "country"])
 
-    # categories: use a category column if the export has one, otherwise keywords
+    # categories: hand-checked overrides first, then a category column if the export has one, then keywords
+    overrides = load_category_overrides(Path(export_path).parent / "risk_category_overrides.csv")
     cat_rows = []
     for i, r in df.iterrows():
-        if "category" in df.columns and pd.notna(r.get("category")):
-            text = str(r["category"])
+        if r["risk_id"] in overrides:
+            hits = overrides[r["risk_id"]]
+        elif "category" in df.columns and pd.notna(r.get("category")):
+            hits = classify_categories(str(r["category"]))
         else:
-            text = f'{r.get("risk_title", "")} {r.get("triggers", "")}'
-        hits = classify_categories(text)
+            hits = classify_categories(r.get("risk_title", ""))
+            if hits == [0]:
+                hits = classify_categories(r.get("triggers", ""))
         for rank, cid in enumerate(hits):
             cat_rows.append({"risk_id": r["risk_id"], "category_id": cid, "is_primary": rank == 0})
     risk_categories = pd.DataFrame(cat_rows)
