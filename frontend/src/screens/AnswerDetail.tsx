@@ -4,8 +4,10 @@ import { AlertCircle, Plus, X } from 'lucide-react';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { RiskCard } from '../components/RiskCard';
 import { LikelihoodSlider } from '../components/LikelihoodSlider';
+import { AcapsAnalysis } from '../components/AcapsAnalysis';
+import { SubmittedDialog } from '../components/SubmittedDialog';
 import { VerdictButtons } from '../components/VerdictButtons';
-import { useToast } from '../components/Toast';
+import { FuseButton } from '../components/FuseButton';
 import { GlassButton } from '../components/glass/GlassButton';
 import { displayNameFor, getMe, getRisk, submitAnswer } from '../data/api';
 import { useQuery } from '../data/useQuery';
@@ -32,13 +34,13 @@ export function AnswerDetail() {
   const { riskId = '' } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const toast = useToast();
   const { data: risk, loading } = useQuery(() => getRisk(riskId), [riskId]);
   const { data: me } = useQuery(getMe);
 
   const [verdict, setVerdict] = useState<Verdict | null>((location.state as { verdict?: Verdict } | null)?.verdict ?? null);
   const [forecast, setForecast] = useState<Likelihood | null>(null);
   const [flipped, setFlipped] = useState(false);
+  const [done, setDone] = useState(false);
   const [text, setText] = useState('');
   const [sources, setSources] = useState<Source[]>([]);
   const [tried, setTried] = useState(false);
@@ -76,19 +78,25 @@ export function AnswerDetail() {
     setSources((list) => [...list, { key, url: '', touched: false }]);
   };
 
-  const submit = async (e: FormEvent) => {
-    e.preventDefault();
+  // Submit starts a fuse; the answer is only sent when the fuse ends, so a
+  // press can be undone for a few seconds.
+  const validate = () => {
     setTried(true);
     setSources((list) => list.map((s) => ({ ...s, touched: true })));
-    if (empty || invalid.length) return;
-    setSending(true);
-    await submitAnswer({ riskId: risk.id, verdict, forecast, text, sources: filledSources.map((s) => s.url.trim()) });
-    toast({ message: en.answer.sent });
-    navigate('/risks');
+    return !empty && invalid.length === 0;
   };
 
+  const send = async () => {
+    setSending(true);
+    await submitAnswer({ riskId: risk.id, verdict, forecast, text, sources: filledSources.map((s) => s.url.trim()) });
+    setDone(true);
+  };
+
+  // Enter in a field shouldn't bypass the fuse.
+  const submit = (e: FormEvent) => e.preventDefault();
+
   return (
-    <div className="screen answer">
+    <div className={`screen answer answer--${risk.level.toLowerCase()}`}>
       <ScreenHeader title={en.answer.title} back />
       {/* Same card as the Risks tab; tap to see the triggers on the back */}
       <div
@@ -106,6 +114,8 @@ export function AnswerDetail() {
       >
         <RiskCard risk={risk} flipped={flipped} />
       </div>
+
+      <AcapsAnalysis risk={risk} />
 
       <form className="answer__form" onSubmit={submit} noValidate>
         <div>
@@ -193,7 +203,7 @@ export function AnswerDetail() {
               );
             })}
           </ul>
-          <GlassButton pill className="answer__add" onClick={addSource}>
+          <GlassButton pill shine={false} className="answer__add" onClick={addSource}>
             <Plus size={18} aria-hidden="true" />
             {en.answer.addSource}
           </GlassButton>
@@ -206,11 +216,36 @@ export function AnswerDetail() {
           </p>
         )}
 
-        <GlassButton type="submit" variant="primary" pill className="answer__submit" disabled={sending}>
-          {en.answer.submit}
-        </GlassButton>
+        <FuseButton
+          className="answer__submit"
+          label={en.answer.submit}
+          doneLabel={en.answer.submitted}
+          undoLabel={en.answer.undo}
+          color="var(--lvl-ink)"
+          background="var(--lvl)"
+          fuseColor="var(--fuse)"
+          size="md"
+          radius={24}
+          undoWindow={4000}
+          fuse="outline"
+          fuseThickness={2}
+          crossfadeMs={200}
+          commitOn="press"
+          pauseOnHover
+          settle="done"
+          disabled={sending}
+          canCommit={validate}
+          onFuseEnd={send}
+        />
         {me && <p className="t-small t-muted answer__note">{en.answer.note(displayNameFor(me))}</p>}
       </form>
+
+      <SubmittedDialog
+        open={done}
+        // replace: the sent form shouldn't be one Back press away
+        onSeeOthers={() => navigate(`/community/${risk.id}`, { replace: true })}
+        onBack={() => navigate('/risks', { replace: true })}
+      />
     </div>
   );
 }

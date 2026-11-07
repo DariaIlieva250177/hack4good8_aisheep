@@ -39,6 +39,17 @@ export interface Trigger {
   description: string;
 }
 
+/** ACAPS Risk Radar write-up for one risk (paragraphs as arrays). */
+export interface RiskAnalysis {
+  trend: string | null;
+  priorityNeeds: string[];
+  rationale: string[];
+  update: { date: string; text: string[] } | null;
+  vulnerability: string[];
+  expectedImpact: string[];
+  sources: { label: string; url: string }[];
+}
+
 export interface Risk {
   id: string;
   title: string;
@@ -60,11 +71,13 @@ export interface Risk {
   panelSize: number;
   /** ACAPS triggers, shown on the back of the card */
   triggers?: Trigger[];
+  /** Full ACAPS analysis, shown on the Answer page */
+  analysis?: RiskAnalysis;
 }
 
 export type Verdict = 'yes' | 'partly' | 'no';
 
-/** Five-point forecast scale: 1 strongly disagree … 5 strongly agree. */
+/** Five-point forecast scale: 1 very unlikely … 5 very likely. */
 export type Likelihood = 1 | 2 | 3 | 4 | 5;
 
 export type IdentityMode = 'name' | 'pseudonym' | 'anonymous';
@@ -86,7 +99,7 @@ export interface Answer {
   displayName: string;
   identity: IdentityMode;
   verdict: Verdict;
-  /** Forecast, 1 (strongly disagree) to 5 (strongly agree) that the risk happens */
+  /** Forecast that the risk happens, 1 (very unlikely) to 5 (very likely) */
   forecast?: Likelihood;
   text: string;
   sources: string[];

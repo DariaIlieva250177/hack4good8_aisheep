@@ -1,0 +1,112 @@
+.fuse-btn {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--fuse-radius);
+  background: var(--fuse-bg);
+  color: var(--fuse-color);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fuse-btn--sm {
+  min-block-size: 40px;
+  padding-inline: 16px;
+  font-size: 14px;
+}
+.fuse-btn--md {
+  min-block-size: 48px;
+  padding-inline: 20px;
+  font-size: var(--fs-ui);
+}
+.fuse-btn--lg {
+  min-block-size: 56px;
+  padding-inline: 24px;
+  font-size: 18px;
+}
+
+.fuse-btn:active {
+  transform: scale(0.97);
+}
+
+.fuse-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.fuse-btn:focus-visible {
+  outline: var(--focus);
+  outline-offset: 3px;
+}
+
+/* Both labels share one grid cell; the inactive one fades out */
+.fuse-btn__labels {
+  display: grid;
+}
+
+.fuse-btn__label {
+  grid-area: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity var(--fuse-fade) ease, transform var(--fuse-fade) ease;
+}
+
+.fuse-btn__label--burning {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.fuse-btn.is-burning .fuse-btn__label--idle {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.fuse-btn.is-burning .fuse-btn__label--burning {
+  opacity: 1;
+  transform: none;
+}
+
+.fuse-btn__sep {
+  opacity: 0.6;
+}
+
+.fuse-btn__undo {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* The fuse: a line around the border that burns down as time runs out */
+.fuse-btn__fuse {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.fuse-btn__fuse rect {
+  fill: none;
+  stroke: var(--fuse-line);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 3px var(--fuse-line));
+}
+
+/* Paused (hover/focus): the fuse stops glowing so it reads as on hold */
+.fuse-btn.is-paused .fuse-btn__fuse rect {
+  filter: none;
+  opacity: 0.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fuse-btn,
+  .fuse-btn__label {
+    transition: none;
+  }
+}

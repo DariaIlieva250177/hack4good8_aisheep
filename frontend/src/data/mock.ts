@@ -6,6 +6,7 @@
 import type { Answer, AppNotification, Community, Ranking, Risk, User } from './types';
 import { ROUND_ENDS_AT } from '../config';
 import { TRIGGERS } from './triggers';
+import { ANALYSIS } from './analysis';
 
 const DETERIORATION = 'Marked deterioration in an existing crisis';
 
@@ -111,7 +112,11 @@ const RISK_ROWS: Risk[] = [
   },
 ];
 
-export const RISKS: Risk[] = RISK_ROWS.map((r) => ({ ...r, triggers: TRIGGERS[r.id] ?? [] }));
+export const RISKS: Risk[] = RISK_ROWS.map((r) => ({
+  ...r,
+  triggers: TRIGGERS[r.id] ?? [],
+  analysis: ANALYSIS[r.id],
+}));
 
 export const ME: User = {
   id: 'u-kestrel',

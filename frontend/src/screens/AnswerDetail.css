@@ -1,3 +1,87 @@
+/*
+ * Accents on the whole Answer page follow the risk level of the card: red for
+ * High, orange for Moderate. The shared accent, primary, selected and focus
+ * tokens are re-pointed, so every component on the page picks the colour up.
+ * Each level sets: --lvl (fills, white text on it), --lvl-text (readable text
+ * on the light page), --lvl-dark (text on the dark page), --lvl-rgb (tints).
+ */
+.answer {
+  --lvl: #b5123a;
+  --lvl-text: #b5123a;
+  --lvl-dark: #ff8aa1;
+  --lvl-light: #ff6b86;
+  --lvl-rgb: 181, 18, 58;
+  --lvl-ink: #ffffff; /* text on a --lvl fill */
+  --fuse: #ffd27a; /* Submit's burning fuse, gold on crimson */
+}
+
+.answer--medium {
+  --lvl: #f2a33a; /* the card's own fill */
+  --lvl-text: #b45a08;
+  --lvl-dark: #ffb760;
+  --lvl-light: #f2a33a;
+  --lvl-rgb: 242, 163, 58;
+  --lvl-ink: #2a1606; /* dark text: white on this orange is too faint */
+  --fuse: #2a1606; /* dark fuse on the orange */
+}
+
+.answer {
+  --accent: var(--lvl-text);
+  --primary: var(--lvl);
+  --acaps-blue: var(--lvl-text); /* the "you" dot */
+  --control-on: rgba(var(--lvl-rgb), 0.16);
+  --focus: 2px solid var(--lvl-text);
+}
+
+:root[data-theme="dark"] .answer {
+  /* Lighter shade so text and outlines stay readable on the dark background */
+  --accent: var(--lvl-dark);
+  --acaps-blue: var(--lvl-dark);
+  --control-on: rgba(var(--lvl-rgb), 0.2);
+  --focus: 2px solid var(--lvl-dark);
+}
+
+/* Chosen Agree / Disagree: solid card colour with a lift, no dot */
+.answer .verdicts__btn[aria-pressed="true"] {
+  background: var(--lvl);
+  color: var(--lvl-ink);
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(var(--lvl-rgb), 0.45), 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.answer .verdicts .you-dot {
+  display: none;
+}
+
+/* Slider thumb in the card colour (dark theme included) */
+.answer .seg__track {
+  --seg-thumb: var(--lvl);
+}
+
+.answer .seg__option.is-on {
+  color: var(--lvl-ink);
+}
+
+/* Submit: text colour on the level fill (beats the shine button's white text) */
+.answer .btn-primary,
+.answer .btn-primary.specular-button {
+  color: var(--lvl-ink);
+}
+
+.answer .seg__thumb {
+  box-shadow: 0 6px 14px rgba(var(--lvl-rgb), 0.45), 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.answer .answer__label {
+  color: var(--accent);
+}
+
+/* Moderate: the questions are black (orange text is too faint on the light page).
+   The dark theme keeps its light orange, since black wouldn't show there. */
+:root:not([data-theme="dark"]) .answer--medium .answer__label {
+  color: #000;
+}
+
 .answer__card {
   border-radius: var(--radius-card);
   cursor: pointer;
