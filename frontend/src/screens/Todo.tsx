@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Trash2 } from 'lucide-react';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { Carousel } from '../components/Carousel';
+import { SuggestCard } from '../components/SuggestCard';
 import { EmptyState } from '../components/EmptyState';
 import { getTodo, markTodoSeen, removeFromTodo, undoRemoveFromTodo } from '../data/api';
 import { useToast } from '../components/Toast';
@@ -47,6 +48,8 @@ export function Todo() {
             </section>
           );
         })}
+
+      <SuggestCard />
     </div>
   );
 }

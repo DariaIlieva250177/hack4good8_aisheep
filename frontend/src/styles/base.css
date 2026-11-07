@@ -177,7 +177,7 @@ a {
 .btn-primary {
   background: var(--primary);
   color: var(--white);
-  box-shadow: 0 6px 14px rgba(0, 75, 120, 0.28);
+  box-shadow: 0 6px 14px rgba(1, 150, 186, 0.28);
 }
 .btn-primary:disabled {
   background: var(--disabled);

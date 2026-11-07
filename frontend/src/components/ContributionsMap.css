@@ -39,7 +39,7 @@
   border: 1px solid rgba(1, 150, 186, 0.35);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
-  color: #00648a;
+  color: var(--logo-blue);
   box-shadow: 0 4px 12px rgba(1, 90, 125, 0.15);
   cursor: pointer;
 }
@@ -161,7 +161,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #00648a;
+  color: var(--logo-blue);
 }
 
 .globe-balloon__text {

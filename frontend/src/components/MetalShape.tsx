@@ -40,18 +40,18 @@ export function MetalShape({ variant, size = 96, className }: MetalShapeProps) {
     <defs>
       <linearGradient id={body} x1="0" y1="0" x2="1" y2="1">
         <stop offset="0" stopColor="#00263f" />
-        <stop offset="0.22" stopColor="#004b78" />
+        <stop offset="0.22" stopColor="#0196ba" />
         <stop offset="0.42" stopColor="#0096ba" />
         <stop offset="0.5" stopColor="#dff7ff" />
         <stop offset="0.58" stopColor="#0096ba" />
-        <stop offset="0.8" stopColor="#004b78" />
+        <stop offset="0.8" stopColor="#0196ba" />
         <stop offset="1" stopColor="#00263f" />
       </linearGradient>
       <radialGradient id={shine} cx="0.35" cy="0.3" r="0.75">
         <stop offset="0" stopColor="#ffffff" />
         <stop offset="0.18" stopColor="#bfefff" />
         <stop offset="0.45" stopColor="#0096ba" />
-        <stop offset="0.8" stopColor="#004b78" />
+        <stop offset="0.8" stopColor="#0196ba" />
         <stop offset="1" stopColor="#002239" />
       </radialGradient>
       <filter id={soft} x="-20%" y="-20%" width="140%" height="140%">

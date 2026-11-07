@@ -9,7 +9,7 @@
   --lx-ink-2: #52606b;
   /* Accent: the logo's blue */
   --lx-accent: #0196ba;
-  --lx-accent-dark: #00648a;
+  --lx-accent-dark: #0196ba;
   --lx-line: #cfe6ef;
   --lx-sheen: linear-gradient(135deg, #00557a 0%, #2bb3e0 40%, #d6f1fa 55%, #0196ba 75%, #00557a 100%);
   /* Header title, logo and avatar ring read on the light page */

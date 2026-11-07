@@ -200,6 +200,22 @@ export const en = {
     sent: 'Sent. You’ll see the group’s view when the round closes.',
   },
 
+  suggest: {
+    title: 'Add your own card',
+    intro: 'Seen a risk ACAPS isn’t covering yet? Suggest it as a new card.',
+    statement: 'Your statement',
+    statementPlaceholder: 'e.g. Flooding along the Logone river displaces families in southern Chad',
+    needsStatement: 'Write the statement for your card first.',
+    area: 'Country or area (optional)',
+    areaPlaceholder: 'e.g. Southern Chad',
+    why: 'Why it matters (optional)',
+    whyPlaceholder: 'What are you seeing on the ground?',
+    send: 'Send to the company',
+    sentTitle: 'Your idea was sent to the company!',
+    sentBody: 'You will receive a notification if ACAPS approves the idea.',
+    ok: 'OK',
+  },
+
   submitted: {
     title: 'Thank you for your submission!',
     body: 'Your response was successfully sent to the community.',

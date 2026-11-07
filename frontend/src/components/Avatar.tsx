@@ -3,7 +3,7 @@ import './Avatar.css';
 
 /* Generated avatars only: initials or an abstract shape. Never photos. */
 
-const COLOURS = ['#004b78', '#2f6385', '#285f58', '#43623f', '#475670', '#4d5257', '#5f5c36'];
+const COLOURS = ['#0196ba', '#2f6385', '#285f58', '#43623f', '#475670', '#4d5257', '#5f5c36'];
 
 function hash(s: string): number {
   let h = 0;

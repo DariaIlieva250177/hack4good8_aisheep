@@ -4,7 +4,7 @@
   --tab-edge: rgba(255, 255, 255, 0.9);
   --tab-icon: #44515b;
   --tab-icon-on: var(--acaps-dark);
-  --tab-pill: rgba(0, 75, 120, 0.12);
+  --tab-pill: rgba(1, 150, 186, 0.14);
   --tab-pill-edge: rgba(255, 255, 255, 0.7);
 
   position: fixed;

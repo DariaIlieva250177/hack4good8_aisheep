@@ -5,25 +5,27 @@
   /* Colour */
   --ink: #000000;
   --ink-2: #44515b;
-  --acaps-dark: #004b78;
-  --acaps-blue: #0096ba; /* "you" marker only; icons and large text */
+  /* Every blue in the app is the logo blue (#0196BA); dark theme uses the logo's own lighter variant */
+  --logo-blue: #0196ba;
+  --acaps-dark: var(--logo-blue);
+  --acaps-blue: var(--logo-blue); /* "you" marker */
   --highlight: #d8d800; /* "new since last round" only */
   --highlight-12: rgba(216, 216, 0, 0.12);
   --ground: #d6e5f2; /* solid fallback behind the gradient */
   --night: #001f33;
-  --line: rgba(0, 75, 120, 0.14);
+  --line: rgba(1, 150, 186, 0.16);
   --white: #ffffff;
   --desk: #b7cbdd; /* page behind the phone frame on desktop */
 
   /* Glass theme: frosted surfaces over a blue field */
   --app-bg:
     radial-gradient(110% 55% at 0% 0%, rgba(255, 255, 255, 0.85) 0%, transparent 60%),
-    radial-gradient(80% 45% at 100% 28%, rgba(0, 150, 186, 0.3) 0%, transparent 70%),
-    radial-gradient(90% 50% at 10% 95%, rgba(0, 75, 120, 0.24) 0%, transparent 70%),
+    radial-gradient(80% 45% at 100% 28%, rgba(1, 150, 186, 0.3) 0%, transparent 70%),
+    radial-gradient(90% 50% at 10% 95%, rgba(1, 150, 186, 0.24) 0%, transparent 70%),
     linear-gradient(180deg, #e6f0f8 0%, #c8dbec 100%);
   --surface: rgba(255, 255, 255, 0.55); /* cards */
   --control: rgba(255, 255, 255, 0.62); /* buttons, pills, rows */
-  --control-on: rgba(0, 150, 186, 0.16); /* selected */
+  --control-on: rgba(1, 150, 186, 0.16); /* selected */
   /* Opaque equivalents: the refractive glass needs an opaque backdrop or it greys out */
   --control-solid: #f2f7fb;
   --control-on-solid: #d3e9f2;
@@ -147,8 +149,9 @@
   --field: rgba(0, 0, 0, 0.25);
   --glass-line: rgba(255, 255, 255, 0.2);
   --glass-drop: rgba(0, 0, 0, 0.4);
-  --accent: #8fd8ec;
-  --primary: #146f8c;
+  --logo-blue: #1aa8cc;
+  --accent: var(--logo-blue);
+  --primary: #0196ba;
   --paper: #121b21;
   --disabled: #3b5566;
   --switch-border: #84939d;

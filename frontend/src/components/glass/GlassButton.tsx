@@ -32,8 +32,8 @@ export function GlassLayer({ radius, tone = 'soft' }: { radius: number; tone?: T
 
 /* Edge-light colours. They feed WebGL, so they must be concrete colours, not var(). */
 const LIGHT = {
-  dark: { soft: { line: '#ffffff', base: '#6f8f99' }, primary: { line: '#ffffff', base: '#7fc4da' } },
-  light: { soft: { line: '#0096ba', base: '#9db4c4' }, primary: { line: '#ffffff', base: '#6aa8c2' } },
+  dark: { soft: { line: '#ffffff', base: '#6f8f99' }, primary: { line: '#ffffff', base: '#1aa8cc' } },
+  light: { soft: { line: '#0196ba', base: '#9db4c4' }, primary: { line: '#ffffff', base: '#0196ba' } },
 };
 
 interface GlassButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

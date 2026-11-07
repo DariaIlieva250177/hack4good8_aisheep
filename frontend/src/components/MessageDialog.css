@@ -1,4 +1,4 @@
-.submitted {
+.message-dialog {
   inline-size: min(calc(100% - 48px), 340px);
   margin: auto;
   padding: 28px 24px 18px;
@@ -10,37 +10,37 @@
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
-.submitted[open] {
-  animation: submitted-in 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+.message-dialog[open] {
+  animation: message-dialog-in 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2);
 }
 
-.submitted::backdrop {
+.message-dialog::backdrop {
   background: rgba(0, 0, 0, 0.45);
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
 }
 
-@keyframes submitted-in {
+@keyframes message-dialog-in {
   from {
     opacity: 0;
     transform: translateY(12px) scale(0.96);
   }
 }
 
-.submitted__icon {
+.message-dialog__icon {
   display: block;
   margin: 0 auto 10px;
   color: var(--accent);
 }
 
-.submitted__title {
+.message-dialog__title {
   margin: 0;
   font-size: 22px;
   font-weight: 800;
   line-height: 1.15;
 }
 
-.submitted__body {
+.message-dialog__body {
   margin: 8px 0 0;
   font-size: 15px;
   line-height: 1.45;
@@ -48,14 +48,14 @@
 }
 
 /* Two very small text links */
-.submitted__links {
+.message-dialog__links {
   display: flex;
   justify-content: center;
   gap: 24px;
   margin-block-start: 18px;
 }
 
-.submitted__link {
+.message-dialog__link {
   min-block-size: 36px;
   padding: 0 4px;
   border: 0;
@@ -69,14 +69,14 @@
   cursor: pointer;
 }
 
-.submitted__link:focus-visible {
+.message-dialog__link:focus-visible {
   outline: var(--focus);
   outline-offset: 2px;
   border-radius: 6px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .submitted[open] {
+  .message-dialog[open] {
     animation: none;
   }
 }

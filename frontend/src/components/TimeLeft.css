@@ -12,8 +12,8 @@
 }
 
 .time-left--calm {
-  background: #dbeef6;
-  color: #004b78;
+  background: rgba(1, 150, 186, 0.14);
+  color: var(--logo-blue);
 }
 
 .time-left--soon {
@@ -27,8 +27,8 @@
 }
 
 :root[data-theme="dark"] .time-left--calm {
-  background: rgba(143, 216, 236, 0.16);
-  color: #8fd8ec;
+  background: rgba(26, 168, 204, 0.18);
+  color: var(--logo-blue);
 }
 
 :root[data-theme="dark"] .time-left--soon {

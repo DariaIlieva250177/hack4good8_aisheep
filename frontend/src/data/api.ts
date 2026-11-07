@@ -160,6 +160,24 @@ export async function skipRisk(riskId: string): Promise<number> {
   return wait(index);
 }
 
+/** An expert's idea for a new card, sent to ACAPS for review (mock: kept in memory). */
+export interface CardSuggestion {
+  statement: string;
+  area: string;
+  why: string;
+}
+const suggestions: (CardSuggestion & { sentAt: number })[] = [];
+
+export async function suggestCard(input: CardSuggestion): Promise<void> {
+  suggestions.push({
+    statement: input.statement.trim(),
+    area: input.area.trim(),
+    why: input.why.trim(),
+    sentAt: Date.now(),
+  });
+  return wait(undefined);
+}
+
 /** Trash a card from To-do. Returns its position so Undo can put it back. */
 export async function removeFromTodo(riskId: string): Promise<number> {
   const index = state.todo.indexOf(riskId);

@@ -5,7 +5,7 @@ import { ScreenHeader } from '../components/ScreenHeader';
 import { FlipRiskCard } from '../components/FlipRiskCard';
 import { LikelihoodSlider } from '../components/LikelihoodSlider';
 import { AcapsAnalysis } from '../components/AcapsAnalysis';
-import { SubmittedDialog } from '../components/SubmittedDialog';
+import { MessageDialog } from '../components/MessageDialog';
 import { VerdictButtons } from '../components/VerdictButtons';
 import { FuseButton } from '../components/FuseButton';
 import { GlassButton } from '../components/glass/GlassButton';
@@ -223,11 +223,16 @@ export function AnswerDetail() {
         {me && <p className="t-small t-muted answer__note">{en.answer.note(displayNameFor(me))}</p>}
       </form>
 
-      <SubmittedDialog
+      {/* replace: the sent form shouldn't be one Back press away */}
+      <MessageDialog
         open={done}
-        // replace: the sent form shouldn't be one Back press away
-        onSeeOthers={() => navigate(`/community/${risk.id}`, { replace: true })}
-        onBack={() => navigate('/risks', { replace: true })}
+        title={en.submitted.title}
+        body={en.submitted.body}
+        actions={[
+          { label: en.submitted.seeOthers, onClick: () => navigate(`/community/${risk.id}`, { replace: true }) },
+          { label: en.submitted.back, onClick: () => navigate('/risks', { replace: true }) },
+        ]}
+        onClose={() => navigate('/risks', { replace: true })}
       />
     </div>
   );

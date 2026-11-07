@@ -50,7 +50,7 @@ export function Risks() {
         />
       )}
 
-      {risks && risks.length === 0 && <EmptyState title={en.risks.emptyTitle} body={en.risks.emptyBody} />}
+      {risks && risks.length === 0 && <EmptyState title={en.risks.emptyTitle} body={en.risks.emptyBody} shape={null} />}
     </div>
   );
 }

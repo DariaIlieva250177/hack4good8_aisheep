@@ -65,7 +65,7 @@
 }
 
 :root[data-theme="dark"] .status-tabs__tab.is-on {
-  background: #146f8c;
+  background: var(--primary);
 }
 
 .status-tabs__tab:focus-visible {
@@ -267,7 +267,7 @@
 }
 
 :root[data-theme="dark"] .chat-row__explore {
-  background: #146f8c;
+  background: var(--primary);
 }
 
 .chat-row__explore:focus-visible {

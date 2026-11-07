@@ -56,7 +56,7 @@ const PEARL = {
   land: 'rgba(1,150,186,0.55)',
   landLine: 'rgba(255,255,255,0.6)',
   rim: 'rgba(1,150,186,0.8)',
-  mark: '#00557A',
+  mark: '#0196BA',
 };
 
 /**
@@ -132,7 +132,7 @@ function drawPearl(
     ctx.globalAlpha = fade;
     ctx.beginPath();
     ctx.arc(p[0], p[1], radius * 2.4, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(0,85,122,0.22)';
+    ctx.fillStyle = 'rgba(1,150,186,0.25)';
     ctx.fill();
     ctx.beginPath();
     ctx.arc(p[0], p[1], radius, 0, Math.PI * 2);
