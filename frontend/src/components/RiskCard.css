@@ -20,7 +20,7 @@
 }
 .risk-card--medium {
   --card-bg: #f2a33a;
-  --card-ink: #ffffff;
+  --card-ink: #000000; /* black reads better than white on this orange */
 }
 .risk-card--low {
   --card-bg: #e8d6a0;
