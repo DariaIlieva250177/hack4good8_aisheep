@@ -1,4 +1,4 @@
-stance_id,expert_id,risk_id,stance,version,changed_opinion,previous_stance_id,given_at,hidden_from_acaps,match_type,match_weight
+stance_id,expert_id,risk_id,stance,version,changed_opinion,previous_stance_id,given_at,name_hidden_from_acaps,match_type,match_weight
 ST00001,E001,R1037,agree,1,False,,2026-10-31,False,country_and_domain,1.0
 ST00002,E001,R1038,disagree,1,False,,2026-10-31,False,domain_only,0.4
 ST00003,E001,R1042,agree,1,False,,2026-11-01,False,domain_only,0.4

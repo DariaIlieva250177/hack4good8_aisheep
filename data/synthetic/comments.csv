@@ -1,280 +1,280 @@
-comment_id,risk_id,expert_id,kind,text,source_id,ai_draft_used,reply_to,posted_at
-C00001,R1037,E001,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0001,True,,2026-10-31
-C00002,R1052,E001,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-05
-C00003,R1053,E001,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-31
-C00004,R1053,E001,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-01
-C00005,R1054,E001,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-27
-C00006,R1054,E001,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-30
-C00007,R1061,E001,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-03
-C00008,R1065,E001,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-05
-C00009,R1074,E001,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-26
-C00010,R1042,E002,answer,This source shows developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.,SRC0002,True,,2026-11-06
-C00011,R1052,E002,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-25
-C00012,R1054,E002,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-17
-C00013,R1042,E003,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-03
-C00014,R1043,E003,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06
-C00015,R1053,E004,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-24
-C00016,R1059,E004,answer,This matches what partners on the ground are reporting.,,False,,2026-10-18
-C00017,R1066,E004,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06
-C00018,R1069,E004,answer,This source shows developments relevant to this risk. The analysis overstates the role of this trigger.,SRC0003,True,,2026-10-28
-C00019,R1047,E005,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-31
-C00020,R1048,E005,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-04
-C00021,R1052,E005,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-31
-C00022,R1053,E005,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-24
-C00023,R1061,E005,answer,This source shows developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.,SRC0004,True,,2026-10-30
-C00024,R1061,E005,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-30
-C00025,R1066,E005,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06
-C00026,R1068,E005,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00027,R1038,E006,answer,This matches what partners on the ground are reporting.,,False,,2026-10-29
-C00028,R1054,E006,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-24
-C00029,R1061,E006,answer,Local reporting does not support this yet.,,False,,2026-10-29
-C00030,R1062,E006,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-06
-C00031,R1074,E006,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31
-C00032,R1055,E008,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31
-C00033,R1065,E008,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0005,True,,2026-11-06
-C00034,R1044,E009,answer,Local reporting does not support this yet.,,False,,2026-10-26
-C00035,R1046,E010,answer,The analysis overstates the role of this trigger.,,False,,2026-10-30
-C00036,R1058,E010,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-24
-C00037,R1046,E011,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04
-C00038,R1047,E011,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0006,True,,2026-10-24
-C00039,R1047,E011,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-28
-C00040,R1058,E011,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-05
-C00041,R1046,E012,answer,This source shows developments relevant to this risk. I agree. The signs are visible already in the areas I cover.,SRC0007,True,,2026-11-01
-C00042,R1038,E014,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-31
-C00043,R1058,E014,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06
-C00044,R1059,E014,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0008,True,,2026-10-30
-C00045,R1062,E014,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-03
-C00046,R1046,E015,answer,The source reports developments relevant to this risk. I agree. The signs are visible already in the areas I cover.,SRC0009,True,,2026-10-24
-C00047,R1042,E017,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06
-C00048,R1059,E017,answer,The source reports developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0010,True,,2026-11-06
-C00049,R1037,E018,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0011,True,,2026-11-06
-C00050,R1042,E018,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06
-C00051,R1054,E018,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-06
-C00052,R1061,E018,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-28
-C00053,R1062,E018,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-18
-C00054,R1069,E018,answer,The analysis overstates the role of this trigger.,,False,,2026-11-06
-C00055,R1061,E019,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0012,True,,2026-10-30
-C00056,R1067,E019,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-28
-C00057,R1038,E020,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-05
-C00058,R1043,E020,answer,Local reporting does not support this yet.,,False,,2026-11-03
-C00059,R1051,E020,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06
-C00060,R1053,E020,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-05
-C00061,R1055,E020,answer,This matches what partners on the ground are reporting.,,False,,2026-10-26
-C00062,R1068,E020,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06
-C00063,R1047,E021,answer,Local reporting does not support this yet.,,False,,2026-11-06
-C00064,R1047,E021,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-06
-C00065,R1054,E021,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-25
-C00066,R1051,E022,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06
-C00067,R1052,E022,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-20
-C00068,R1055,E022,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-03
-C00069,R1042,E023,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06
-C00070,R1048,E023,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-03
-C00071,R1054,E023,answer,The analysis overstates the role of this trigger.,,False,,2026-11-06
-C00072,R1055,E023,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06
-C00073,R1069,E023,answer,Local reporting does not support this yet.,,False,,2026-11-01
-C00074,R1037,E024,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06
-C00075,R1048,E024,answer,Local reporting does not support this yet.,,False,,2026-11-03
-C00076,R1053,E024,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06
-C00077,R1055,E024,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-23
-C00078,R1059,E024,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06
-C00079,R1066,E024,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06
-C00080,R1067,E024,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-04
-C00081,R1072,E024,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-05
-C00082,R1038,E025,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06
-C00083,R1048,E025,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-02
-C00084,R1049,E025,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-04
-C00085,R1051,E025,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-04
-C00086,R1052,E025,answer,Local reporting does not support this yet.,,False,,2026-10-23
-C00087,R1053,E025,answer,This source shows developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.,SRC0013,True,,2026-10-28
-C00088,R1053,E025,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31
-C00089,R1051,E026,answer,The source reports developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0014,True,,2026-11-06
-C00090,R1051,E026,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00091,R1052,E026,answer,This matches what partners on the ground are reporting.,,False,,2026-10-26
-C00092,R1055,E026,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-01
-C00093,R1061,E026,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-31
-C00094,R1049,E027,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31
-C00095,R1055,E027,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06
-C00096,R1058,E027,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-24
-C00097,R1049,E028,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04
-C00098,R1049,E029,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04
-C00099,R1051,E029,answer,This matches what partners on the ground are reporting.,,False,,2026-11-04
-C00100,R1052,E029,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-27
-C00101,R1053,E029,answer,The analysis overstates the role of this trigger.,,False,,2026-10-27
-C00102,R1053,E029,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-27
-C00103,R1055,E029,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-30
-C00104,R1069,E029,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-01
-C00105,R1072,E029,answer,The source reports developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.,SRC0015,True,,2026-11-06
-C00106,R1038,E030,answer,Local reporting does not support this yet.,,False,,2026-11-01
-C00107,R1042,E030,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-03
-C00108,R1048,E030,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-03
-C00109,R1051,E030,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0016,True,,2026-11-05
-C00110,R1053,E030,answer,The source reports developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.,SRC0017,True,,2026-11-06
-C00111,R1055,E030,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06
-C00112,R1068,E030,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06
-C00113,R1044,E032,answer,"The source reports developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0018,True,,2026-10-28
-C00114,R1055,E032,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-05
-C00115,R1059,E032,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06
-C00116,R1042,E033,answer,This matches what partners on the ground are reporting.,,False,,2026-11-04
-C00117,R1043,E033,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0019,True,,2026-11-06
-C00118,R1062,E033,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-04
-C00119,R1067,E033,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-05
-C00120,R1037,E034,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06
-C00121,R1052,E034,answer,Local reporting does not support this yet.,,False,,2026-11-06
-C00122,R1052,E034,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-06
-C00123,R1053,E034,answer,This source shows developments relevant to this risk. I agree. The signs are visible already in the areas I cover.,SRC0020,True,,2026-10-23
-C00124,R1061,E034,answer,This matches what partners on the ground are reporting.,,False,,2026-10-27
-C00125,R1062,E034,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-22
-C00126,R1066,E034,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06
-C00127,R1074,E034,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06
-C00128,R1043,E035,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-05
-C00129,R1051,E035,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04
-C00130,R1052,E035,answer,This matches what partners on the ground are reporting.,,False,,2026-10-23
-C00131,R1065,E035,answer,This matches what partners on the ground are reporting.,,False,,2026-11-05
-C00132,R1066,E035,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0021,True,,2026-11-06
-C00133,R1049,E036,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-01
-C00134,R1054,E036,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06
-C00135,R1067,E036,answer,This matches what partners on the ground are reporting.,,False,,2026-10-25
-C00136,R1074,E036,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-27
-C00137,R1043,E038,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-05
-C00138,R1055,E038,answer,The analysis overstates the role of this trigger.,,False,,2026-10-20
-C00139,R1062,E038,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0022,True,,2026-10-25
-C00140,R1065,E038,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-28
-C00141,R1054,E040,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-01
-C00142,R1062,E040,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-02
-C00143,R1065,E040,answer,This matches what partners on the ground are reporting.,,False,,2026-10-30
-C00144,R1066,E040,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06
-C00145,R1066,E040,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00146,R1038,E042,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-01
-C00147,R1048,E042,answer,Local reporting does not support this yet.,,False,,2026-11-05
-C00148,R1052,E042,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-27
-C00149,R1061,E042,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0023,True,,2026-10-31
-C00150,R1066,E042,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00151,R1074,E042,answer,This matches what partners on the ground are reporting.,,False,,2026-11-01
-C00152,R1053,E043,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-25
-C00153,R1054,E043,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0024,True,,2026-11-06
-C00154,R1059,E043,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31
-C00155,R1038,E044,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-04
-C00156,R1043,E044,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-03
-C00157,R1048,E044,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-04
-C00158,R1061,E044,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-04
-C00159,R1066,E044,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06
-C00160,R1066,E044,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00161,R1074,E044,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0025,True,,2026-10-29
-C00162,R1042,E045,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00163,R1043,E045,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06
-C00164,R1048,E045,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-29
-C00165,R1061,E045,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-27
-C00166,R1062,E045,answer,The analysis overstates the role of this trigger.,,False,,2026-10-22
-C00167,R1038,E046,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0026,True,,2026-11-06
-C00168,R1038,E046,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-06
-C00169,R1053,E046,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-27
-C00170,R1062,E046,answer,This source shows developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.,SRC0027,True,,2026-10-27
-C00171,R1074,E046,answer,The source reports developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0028,True,,2026-10-17
-C00172,R1038,E047,answer,The source reports developments relevant to this risk. The analysis overstates the role of this trigger.,SRC0029,True,,2026-11-05
-C00173,R1042,E047,answer,This matches what partners on the ground are reporting.,,False,,2026-11-04
-C00174,R1048,E047,answer,The source reports developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.,SRC0030,True,,2026-11-06
-C00175,R1054,E047,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-23
-C00176,R1037,E048,answer,This matches what partners on the ground are reporting.,,False,,2026-11-03
-C00177,R1042,E048,answer,Local reporting does not support this yet.,,False,,2026-11-05
-C00178,R1046,E048,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-29
-C00179,R1061,E048,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-04
-C00180,R1062,E048,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0031,True,,2026-10-24
-C00181,R1069,E048,answer,This source shows developments relevant to this risk. The analysis overstates the role of this trigger.,SRC0032,True,,2026-10-29
-C00182,R1037,E049,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-04
-C00183,R1055,E049,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06
-C00184,R1065,E049,answer,This matches what partners on the ground are reporting.,,False,,2026-11-02
-C00185,R1074,E049,answer,Local reporting does not support this yet.,,False,,2026-10-23
-C00186,R1042,E051,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06
-C00187,R1048,E051,answer,The source reports developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.,SRC0033,True,,2026-10-29
-C00188,R1065,E051,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0034,True,,2026-10-30
-C00189,R1072,E051,answer,The source reports developments relevant to this risk. Local reporting does not support this yet.,SRC0035,True,,2026-11-05
-C00190,R1069,E052,answer,The source reports developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.,SRC0036,True,,2026-10-30
-C00191,R1055,E053,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-18
-C00192,R1055,E053,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-19
-C00193,R1066,E053,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06
-C00194,R1069,E053,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-28
-C00195,R1072,E053,answer,Local reporting does not support this yet.,,False,,2026-11-06
-C00196,R1073,E053,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0037,True,,2026-11-05
-C00197,R1037,E054,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-02
-C00198,R1061,E054,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0038,True,,2026-11-02
-C00199,R1066,E054,answer,The source reports developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0039,True,,2026-11-06
-C00200,R1049,E055,answer,Local reporting does not support this yet.,,False,,2026-11-06
-C00201,R1062,E055,answer,Local reporting does not support this yet.,,False,,2026-10-21
-C00202,R1048,E056,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00203,R1054,E056,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-02
-C00204,R1054,E056,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04
-C00205,R1072,E056,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06
-C00206,R1074,E056,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-02
-C00207,R1066,E057,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06
-C00208,R1043,E058,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-03
-C00209,R1066,E058,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0040,True,,2026-11-06
-C00210,R1038,E059,answer,The analysis overstates the role of this trigger.,,False,,2026-10-24
-C00211,R1048,E059,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06
-C00212,R1052,E059,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-30
-C00213,R1067,E059,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0041,True,,2026-10-23
-C00214,R1038,E060,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-24
-C00215,R1042,E060,answer,Local reporting does not support this yet.,,False,,2026-11-03
-C00216,R1053,E060,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0042,True,,2026-11-04
-C00217,R1062,E060,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-02
-C00218,R1043,E061,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06
-C00219,R1047,E061,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06
-C00220,R1048,E061,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-03
-C00221,R1055,E061,answer,This matches what partners on the ground are reporting.,,False,,2026-10-21
-C00222,R1072,E061,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-05
-C00223,R1074,E061,answer,This matches what partners on the ground are reporting.,,False,,2026-10-16
-C00224,R1047,E062,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-01
-C00225,R1059,E062,answer,The analysis overstates the role of this trigger.,,False,,2026-11-06
-C00226,R1072,E062,answer,This source shows developments relevant to this risk. The analysis overstates the role of this trigger.,SRC0043,True,,2026-11-05
-C00227,R1074,E062,answer,This matches what partners on the ground are reporting.,,False,,2026-10-19
-C00228,R1044,E063,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06
-C00229,R1044,E063,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00230,R1054,E063,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0044,True,,2026-10-27
-C00231,R1055,E063,answer,This matches what partners on the ground are reporting.,,False,,2026-10-24
-C00232,R1043,E065,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0045,True,,2026-11-06
-C00233,R1048,E065,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06
-C00234,R1049,E065,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06
-C00235,R1051,E065,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00236,R1053,E065,answer,Local reporting does not support this yet.,,False,,2026-10-20
-C00237,R1055,E065,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-21
-C00238,R1066,E065,answer,This source shows developments relevant to this risk. The analysis overstates the role of this trigger.,SRC0046,True,,2026-11-06
-C00239,R1069,E065,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06
-C00240,R1046,E066,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-30
-C00241,R1049,E066,answer,Local reporting does not support this yet.,,False,,2026-10-30
-C00242,R1049,E066,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-01
-C00243,R1055,E066,answer,"The source reports developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0047,True,,2026-10-29
-C00244,R1053,E067,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0048,True,,2026-10-26
-C00245,R1066,E067,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00246,R1052,E068,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-25
-C00247,R1058,E068,answer,This source shows developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.,SRC0049,True,,2026-11-06
-C00248,R1051,E069,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0050,True,,2026-11-05
-C00249,R1051,E069,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00250,R1038,E071,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-27
-C00251,R1065,E072,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0051,True,,2026-11-02
-C00252,R1065,E072,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-03
-C00253,R1069,E072,answer,Local reporting does not support this yet.,,False,,2026-10-31
-C00254,R1072,E072,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00255,R1049,E073,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-03
-C00256,R1052,E073,answer,This source shows developments relevant to this risk. I agree. The signs are visible already in the areas I cover.,SRC0052,True,,2026-10-26
-C00257,R1065,E073,answer,The source reports developments relevant to this risk. I agree. The signs are visible already in the areas I cover.,SRC0053,True,,2026-11-04
-C00258,R1038,E074,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-01
-C00259,R1044,E074,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06
-C00260,R1051,E074,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0054,True,,2026-11-04
-C00261,R1068,E074,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00262,R1048,E075,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06
-C00263,R1052,E075,answer,This matches what partners on the ground are reporting.,,False,,2026-10-27
-C00264,R1052,E075,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-27
-C00265,R1054,E075,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-31
-C00266,R1059,E075,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06
-C00267,R1067,E075,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-03
-C00268,R1069,E075,answer,Local reporting does not support this yet.,,False,,2026-11-03
-C00269,R1074,E075,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-01
-C00270,R1038,E076,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-27
-C00271,R1047,E076,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0055,True,,2026-10-28
-C00272,R1052,E076,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-23
-C00273,R1074,E076,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-22
-C00274,R1074,E076,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-23
-C00275,R1048,E080,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-02
-C00276,R1049,E080,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-02
-C00277,R1054,E080,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-23
-C00278,R1061,E080,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-02
-C00279,R1073,E080,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06
+comment_id,risk_id,expert_id,kind,text,source_id,ai_draft_used,reply_to,posted_at,name_hidden_from_acaps
+C00001,R1037,E001,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0001,True,,2026-10-31,False
+C00002,R1052,E001,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-05,False
+C00003,R1053,E001,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-31,False
+C00004,R1053,E001,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-01,False
+C00005,R1054,E001,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-27,False
+C00006,R1054,E001,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-30,False
+C00007,R1061,E001,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-03,True
+C00008,R1065,E001,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-05,False
+C00009,R1074,E001,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-26,False
+C00010,R1042,E002,answer,This source shows developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.,SRC0002,True,,2026-11-06,False
+C00011,R1052,E002,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-25,False
+C00012,R1054,E002,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-17,False
+C00013,R1042,E003,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-03,False
+C00014,R1043,E003,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
+C00015,R1053,E004,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-24,False
+C00016,R1059,E004,answer,This matches what partners on the ground are reporting.,,False,,2026-10-18,False
+C00017,R1066,E004,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06,False
+C00018,R1069,E004,answer,This source shows developments relevant to this risk. The analysis overstates the role of this trigger.,SRC0003,True,,2026-10-28,False
+C00019,R1047,E005,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-31,False
+C00020,R1048,E005,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-04,False
+C00021,R1052,E005,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-31,False
+C00022,R1053,E005,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-24,False
+C00023,R1061,E005,answer,This source shows developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.,SRC0004,True,,2026-10-30,False
+C00024,R1061,E005,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-30,False
+C00025,R1066,E005,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
+C00026,R1068,E005,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00027,R1038,E006,answer,This matches what partners on the ground are reporting.,,False,,2026-10-29,False
+C00028,R1054,E006,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-24,True
+C00029,R1061,E006,answer,Local reporting does not support this yet.,,False,,2026-10-29,False
+C00030,R1062,E006,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-06,False
+C00031,R1074,E006,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31,False
+C00032,R1055,E008,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31,False
+C00033,R1065,E008,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0005,True,,2026-11-06,False
+C00034,R1044,E009,answer,Local reporting does not support this yet.,,False,,2026-10-26,False
+C00035,R1046,E010,answer,The analysis overstates the role of this trigger.,,False,,2026-10-30,False
+C00036,R1058,E010,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-24,False
+C00037,R1046,E011,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04,False
+C00038,R1047,E011,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0006,True,,2026-10-24,False
+C00039,R1047,E011,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-28,False
+C00040,R1058,E011,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-05,False
+C00041,R1046,E012,answer,This source shows developments relevant to this risk. I agree. The signs are visible already in the areas I cover.,SRC0007,True,,2026-11-01,False
+C00042,R1038,E014,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-31,False
+C00043,R1058,E014,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06,False
+C00044,R1059,E014,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0008,True,,2026-10-30,False
+C00045,R1062,E014,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-03,False
+C00046,R1046,E015,answer,The source reports developments relevant to this risk. I agree. The signs are visible already in the areas I cover.,SRC0009,True,,2026-10-24,False
+C00047,R1042,E017,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06,False
+C00048,R1059,E017,answer,The source reports developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0010,True,,2026-11-06,False
+C00049,R1037,E018,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0011,True,,2026-11-06,False
+C00050,R1042,E018,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
+C00051,R1054,E018,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-06,False
+C00052,R1061,E018,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-28,False
+C00053,R1062,E018,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-18,False
+C00054,R1069,E018,answer,The analysis overstates the role of this trigger.,,False,,2026-11-06,False
+C00055,R1061,E019,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0012,True,,2026-10-30,False
+C00056,R1067,E019,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-28,False
+C00057,R1038,E020,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-05,False
+C00058,R1043,E020,answer,Local reporting does not support this yet.,,False,,2026-11-03,False
+C00059,R1051,E020,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
+C00060,R1053,E020,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-05,False
+C00061,R1055,E020,answer,This matches what partners on the ground are reporting.,,False,,2026-10-26,False
+C00062,R1068,E020,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
+C00063,R1047,E021,answer,Local reporting does not support this yet.,,False,,2026-11-06,False
+C00064,R1047,E021,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-06,False
+C00065,R1054,E021,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-25,False
+C00066,R1051,E022,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06,False
+C00067,R1052,E022,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-20,False
+C00068,R1055,E022,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-03,False
+C00069,R1042,E023,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06,False
+C00070,R1048,E023,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-03,False
+C00071,R1054,E023,answer,The analysis overstates the role of this trigger.,,False,,2026-11-06,False
+C00072,R1055,E023,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
+C00073,R1069,E023,answer,Local reporting does not support this yet.,,False,,2026-11-01,False
+C00074,R1037,E024,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06,False
+C00075,R1048,E024,answer,Local reporting does not support this yet.,,False,,2026-11-03,False
+C00076,R1053,E024,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
+C00077,R1055,E024,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-23,False
+C00078,R1059,E024,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
+C00079,R1066,E024,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
+C00080,R1067,E024,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-04,False
+C00081,R1072,E024,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-05,False
+C00082,R1038,E025,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06,False
+C00083,R1048,E025,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-02,False
+C00084,R1049,E025,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-04,False
+C00085,R1051,E025,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-04,False
+C00086,R1052,E025,answer,Local reporting does not support this yet.,,False,,2026-10-23,False
+C00087,R1053,E025,answer,This source shows developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.,SRC0013,True,,2026-10-28,False
+C00088,R1053,E025,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31,False
+C00089,R1051,E026,answer,The source reports developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0014,True,,2026-11-06,False
+C00090,R1051,E026,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00091,R1052,E026,answer,This matches what partners on the ground are reporting.,,False,,2026-10-26,False
+C00092,R1055,E026,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-01,False
+C00093,R1061,E026,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-31,False
+C00094,R1049,E027,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31,False
+C00095,R1055,E027,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
+C00096,R1058,E027,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-24,False
+C00097,R1049,E028,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04,False
+C00098,R1049,E029,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04,False
+C00099,R1051,E029,answer,This matches what partners on the ground are reporting.,,False,,2026-11-04,False
+C00100,R1052,E029,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-27,False
+C00101,R1053,E029,answer,The analysis overstates the role of this trigger.,,False,,2026-10-27,False
+C00102,R1053,E029,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-27,False
+C00103,R1055,E029,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-30,False
+C00104,R1069,E029,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-01,False
+C00105,R1072,E029,answer,The source reports developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.,SRC0015,True,,2026-11-06,False
+C00106,R1038,E030,answer,Local reporting does not support this yet.,,False,,2026-11-01,False
+C00107,R1042,E030,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-03,False
+C00108,R1048,E030,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-03,False
+C00109,R1051,E030,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0016,True,,2026-11-05,False
+C00110,R1053,E030,answer,The source reports developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.,SRC0017,True,,2026-11-06,False
+C00111,R1055,E030,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
+C00112,R1068,E030,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
+C00113,R1044,E032,answer,"The source reports developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0018,True,,2026-10-28,False
+C00114,R1055,E032,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-05,False
+C00115,R1059,E032,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
+C00116,R1042,E033,answer,This matches what partners on the ground are reporting.,,False,,2026-11-04,False
+C00117,R1043,E033,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0019,True,,2026-11-06,False
+C00118,R1062,E033,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-04,False
+C00119,R1067,E033,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-05,False
+C00120,R1037,E034,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
+C00121,R1052,E034,answer,Local reporting does not support this yet.,,False,,2026-11-06,False
+C00122,R1052,E034,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-06,False
+C00123,R1053,E034,answer,This source shows developments relevant to this risk. I agree. The signs are visible already in the areas I cover.,SRC0020,True,,2026-10-23,False
+C00124,R1061,E034,answer,This matches what partners on the ground are reporting.,,False,,2026-10-27,False
+C00125,R1062,E034,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-22,False
+C00126,R1066,E034,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
+C00127,R1074,E034,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06,False
+C00128,R1043,E035,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-05,False
+C00129,R1051,E035,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04,False
+C00130,R1052,E035,answer,This matches what partners on the ground are reporting.,,False,,2026-10-23,False
+C00131,R1065,E035,answer,This matches what partners on the ground are reporting.,,False,,2026-11-05,False
+C00132,R1066,E035,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0021,True,,2026-11-06,False
+C00133,R1049,E036,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-01,False
+C00134,R1054,E036,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
+C00135,R1067,E036,answer,This matches what partners on the ground are reporting.,,False,,2026-10-25,False
+C00136,R1074,E036,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-27,False
+C00137,R1043,E038,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-05,False
+C00138,R1055,E038,answer,The analysis overstates the role of this trigger.,,False,,2026-10-20,False
+C00139,R1062,E038,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0022,True,,2026-10-25,False
+C00140,R1065,E038,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-28,False
+C00141,R1054,E040,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-01,False
+C00142,R1062,E040,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-02,False
+C00143,R1065,E040,answer,This matches what partners on the ground are reporting.,,False,,2026-10-30,False
+C00144,R1066,E040,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06,False
+C00145,R1066,E040,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00146,R1038,E042,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-01,True
+C00147,R1048,E042,answer,Local reporting does not support this yet.,,False,,2026-11-05,False
+C00148,R1052,E042,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-27,False
+C00149,R1061,E042,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0023,True,,2026-10-31,False
+C00150,R1066,E042,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00151,R1074,E042,answer,This matches what partners on the ground are reporting.,,False,,2026-11-01,False
+C00152,R1053,E043,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-25,False
+C00153,R1054,E043,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0024,True,,2026-11-06,False
+C00154,R1059,E043,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-31,False
+C00155,R1038,E044,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-04,False
+C00156,R1043,E044,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-03,False
+C00157,R1048,E044,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-04,False
+C00158,R1061,E044,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-04,False
+C00159,R1066,E044,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06,False
+C00160,R1066,E044,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00161,R1074,E044,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0025,True,,2026-10-29,False
+C00162,R1042,E045,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00163,R1043,E045,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
+C00164,R1048,E045,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-29,False
+C00165,R1061,E045,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-27,False
+C00166,R1062,E045,answer,The analysis overstates the role of this trigger.,,False,,2026-10-22,False
+C00167,R1038,E046,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0026,True,,2026-11-06,False
+C00168,R1038,E046,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-06,False
+C00169,R1053,E046,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-10-27,False
+C00170,R1062,E046,answer,This source shows developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.,SRC0027,True,,2026-10-27,False
+C00171,R1074,E046,answer,The source reports developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0028,True,,2026-10-17,False
+C00172,R1038,E047,answer,The source reports developments relevant to this risk. The analysis overstates the role of this trigger.,SRC0029,True,,2026-11-05,False
+C00173,R1042,E047,answer,This matches what partners on the ground are reporting.,,False,,2026-11-04,False
+C00174,R1048,E047,answer,The source reports developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.,SRC0030,True,,2026-11-06,False
+C00175,R1054,E047,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-23,False
+C00176,R1037,E048,answer,This matches what partners on the ground are reporting.,,False,,2026-11-03,False
+C00177,R1042,E048,answer,Local reporting does not support this yet.,,False,,2026-11-05,True
+C00178,R1046,E048,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-29,False
+C00179,R1061,E048,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-04,False
+C00180,R1062,E048,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0031,True,,2026-10-24,False
+C00181,R1069,E048,answer,This source shows developments relevant to this risk. The analysis overstates the role of this trigger.,SRC0032,True,,2026-10-29,False
+C00182,R1037,E049,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-04,False
+C00183,R1055,E049,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-06,False
+C00184,R1065,E049,answer,This matches what partners on the ground are reporting.,,False,,2026-11-02,False
+C00185,R1074,E049,answer,Local reporting does not support this yet.,,False,,2026-10-23,False
+C00186,R1042,E051,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06,False
+C00187,R1048,E051,answer,The source reports developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.,SRC0033,True,,2026-10-29,False
+C00188,R1065,E051,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0034,True,,2026-10-30,False
+C00189,R1072,E051,answer,The source reports developments relevant to this risk. Local reporting does not support this yet.,SRC0035,True,,2026-11-05,False
+C00190,R1069,E052,answer,The source reports developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.,SRC0036,True,,2026-10-30,False
+C00191,R1055,E053,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-18,False
+C00192,R1055,E053,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-19,False
+C00193,R1066,E053,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
+C00194,R1069,E053,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-28,False
+C00195,R1072,E053,answer,Local reporting does not support this yet.,,False,,2026-11-06,False
+C00196,R1073,E053,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0037,True,,2026-11-05,False
+C00197,R1037,E054,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-02,False
+C00198,R1061,E054,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0038,True,,2026-11-02,False
+C00199,R1066,E054,answer,The source reports developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0039,True,,2026-11-06,False
+C00200,R1049,E055,answer,Local reporting does not support this yet.,,False,,2026-11-06,False
+C00201,R1062,E055,answer,Local reporting does not support this yet.,,False,,2026-10-21,False
+C00202,R1048,E056,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00203,R1054,E056,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-02,False
+C00204,R1054,E056,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-04,False
+C00205,R1072,E056,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
+C00206,R1074,E056,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-02,False
+C00207,R1066,E057,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
+C00208,R1043,E058,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-03,False
+C00209,R1066,E058,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0040,True,,2026-11-06,False
+C00210,R1038,E059,answer,The analysis overstates the role of this trigger.,,False,,2026-10-24,False
+C00211,R1048,E059,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06,False
+C00212,R1052,E059,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-30,False
+C00213,R1067,E059,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0041,True,,2026-10-23,False
+C00214,R1038,E060,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-10-24,False
+C00215,R1042,E060,answer,Local reporting does not support this yet.,,False,,2026-11-03,False
+C00216,R1053,E060,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0042,True,,2026-11-04,False
+C00217,R1062,E060,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-02,False
+C00218,R1043,E061,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
+C00219,R1047,E061,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-06,True
+C00220,R1048,E061,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-11-03,False
+C00221,R1055,E061,answer,This matches what partners on the ground are reporting.,,False,,2026-10-21,False
+C00222,R1072,E061,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-05,False
+C00223,R1074,E061,answer,This matches what partners on the ground are reporting.,,False,,2026-10-16,False
+C00224,R1047,E062,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-01,True
+C00225,R1059,E062,answer,The analysis overstates the role of this trigger.,,False,,2026-11-06,False
+C00226,R1072,E062,answer,This source shows developments relevant to this risk. The analysis overstates the role of this trigger.,SRC0043,True,,2026-11-05,False
+C00227,R1074,E062,answer,This matches what partners on the ground are reporting.,,False,,2026-10-19,False
+C00228,R1044,E063,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-06,False
+C00229,R1044,E063,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00230,R1054,E063,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0044,True,,2026-10-27,False
+C00231,R1055,E063,answer,This matches what partners on the ground are reporting.,,False,,2026-10-24,False
+C00232,R1043,E065,answer,"This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0045,True,,2026-11-06,False
+C00233,R1048,E065,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06,False
+C00234,R1049,E065,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False
+C00235,R1051,E065,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00236,R1053,E065,answer,Local reporting does not support this yet.,,False,,2026-10-20,False
+C00237,R1055,E065,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-21,False
+C00238,R1066,E065,answer,This source shows developments relevant to this risk. The analysis overstates the role of this trigger.,SRC0046,True,,2026-11-06,False
+C00239,R1069,E065,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06,False
+C00240,R1046,E066,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-30,False
+C00241,R1049,E066,answer,Local reporting does not support this yet.,,False,,2026-10-30,False
+C00242,R1049,E066,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-01,False
+C00243,R1055,E066,answer,"The source reports developments relevant to this risk. Agree, and I would watch the next few weeks closely.",SRC0047,True,,2026-10-29,False
+C00244,R1053,E067,answer,This source shows developments relevant to this risk. Local reporting does not support this yet.,SRC0048,True,,2026-10-26,False
+C00245,R1066,E067,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00246,R1052,E068,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-25,False
+C00247,R1058,E068,answer,This source shows developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.,SRC0049,True,,2026-11-06,False
+C00248,R1051,E069,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0050,True,,2026-11-05,False
+C00249,R1051,E069,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00250,R1038,E071,answer,Yes. Local markets and community leaders point the same way.,,False,,2026-10-27,False
+C00251,R1065,E072,answer,This source shows developments relevant to this risk. This matches what partners on the ground are reporting.,SRC0051,True,,2026-11-02,False
+C00252,R1065,E072,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-11-03,False
+C00253,R1069,E072,answer,Local reporting does not support this yet.,,False,,2026-10-31,False
+C00254,R1072,E072,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00255,R1049,E073,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-03,False
+C00256,R1052,E073,answer,This source shows developments relevant to this risk. I agree. The signs are visible already in the areas I cover.,SRC0052,True,,2026-10-26,False
+C00257,R1065,E073,answer,The source reports developments relevant to this risk. I agree. The signs are visible already in the areas I cover.,SRC0053,True,,2026-11-04,False
+C00258,R1038,E074,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-01,False
+C00259,R1044,E074,answer,This matches what partners on the ground are reporting.,,False,,2026-11-06,False
+C00260,R1051,E074,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0054,True,,2026-11-04,False
+C00261,R1068,E074,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00262,R1048,E075,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-06,False
+C00263,R1052,E075,answer,This matches what partners on the ground are reporting.,,False,,2026-10-27,True
+C00264,R1052,E075,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-27,True
+C00265,R1054,E075,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-10-31,False
+C00266,R1059,E075,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-06,False
+C00267,R1067,E075,answer,"Agree, and I would watch the next few weeks closely.",,False,,2026-11-03,True
+C00268,R1069,E075,answer,Local reporting does not support this yet.,,False,,2026-11-03,False
+C00269,R1074,E075,changed_opinion,Changed opinion after reading the group discussion and new local reports.,,False,,2026-11-01,True
+C00270,R1038,E076,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-27,False
+C00271,R1047,E076,answer,This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.,SRC0055,True,,2026-10-28,False
+C00272,R1052,E076,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-10-23,False
+C00273,R1074,E076,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-10-22,False
+C00274,R1074,E076,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-23,False
+C00275,R1048,E080,answer,I agree. The signs are visible already in the areas I cover.,,False,,2026-11-02,False
+C00276,R1049,E080,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-02,False
+C00277,R1054,E080,changed_opinion,Changed opinion: the latest field updates convinced me.,,False,,2026-10-23,False
+C00278,R1061,E080,answer,I disagree with the timing; this looks more likely later in the season.,,False,,2026-11-02,False
+C00279,R1073,E080,answer,I see less pressure than the analysis suggests in the areas I know.,,False,,2026-11-06,False

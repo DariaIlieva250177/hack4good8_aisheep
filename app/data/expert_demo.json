@@ -26,8 +26,10 @@
     ],
     "rank": {
       "points": 17,
-      "position": 41,
-      "out_of": 76,
+      "average_points": 0.61,
+      "position": 54,
+      "out_of": 67,
+      "forecasts": 28,
       "calls": 19,
       "correct": 13
     }
@@ -377,10 +379,13 @@
         "answers": 28,
         "agree": 15,
         "disagree": 13,
+        "weighted_agree": 53,
+        "country_answers": 4,
+        "country_agree": 2,
         "comments": [
           {
             "comment_id": "C00053",
-            "display_name": "Sharp Crane",
+            "display_name": "Patient Gazelle",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 9,
@@ -389,7 +394,7 @@
           },
           {
             "comment_id": "C00201",
-            "display_name": "Quiet Heron",
+            "display_name": "Calm Owl",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 9,
@@ -398,7 +403,7 @@
           },
           {
             "comment_id": "C00125",
-            "display_name": "Clear Gazelle",
+            "display_name": "Bold Lynx",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 2,
@@ -407,7 +412,7 @@
           },
           {
             "comment_id": "C00166",
-            "display_name": "Steady Badger",
+            "display_name": "Bold Otter",
             "kind": "Answer",
             "text": "The analysis overstates the role of this trigger.",
             "likes": 11,
@@ -416,7 +421,7 @@
           },
           {
             "comment_id": "C00180",
-            "display_name": "Hidden Gazelle",
+            "display_name": "Wise Swift",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Local reporting does not support this yet.",
             "likes": 8,
@@ -428,7 +433,7 @@
           },
           {
             "comment_id": "C00139",
-            "display_name": "Gentle Egret",
+            "display_name": "Clear Owl",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 3,
@@ -440,7 +445,7 @@
           },
           {
             "comment_id": "C00170",
-            "display_name": "Swift Plover",
+            "display_name": "Swift Oryx",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.",
             "likes": 10,
@@ -452,7 +457,7 @@
           },
           {
             "comment_id": "C00142",
-            "display_name": "Hidden Heron",
+            "display_name": "Southern Owl",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 5,
@@ -461,7 +466,7 @@
           },
           {
             "comment_id": "C00217",
-            "display_name": "Early Fox",
+            "display_name": "Bold Jackal",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 6,
@@ -470,7 +475,7 @@
           },
           {
             "comment_id": "C00045",
-            "display_name": "Northern Owl",
+            "display_name": "Silver Crane",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 6,
@@ -479,7 +484,7 @@
           },
           {
             "comment_id": "C00118",
-            "display_name": "Hidden Swift",
+            "display_name": "Bold Owl",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 6,
@@ -488,7 +493,7 @@
           },
           {
             "comment_id": "C00030",
-            "display_name": "Warm Sparrow",
+            "display_name": "Hidden Hare",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 5,
@@ -554,10 +559,13 @@
         "answers": 41,
         "agree": 22,
         "disagree": 19,
+        "weighted_agree": 53,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00210",
-            "display_name": "Early Badger",
+            "display_name": "Amber Ibis",
             "kind": "Answer",
             "text": "The analysis overstates the role of this trigger.",
             "likes": 7,
@@ -566,7 +574,7 @@
           },
           {
             "comment_id": "C00214",
-            "display_name": "Hidden Falcon",
+            "display_name": "Amber Owl",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 10,
@@ -575,7 +583,7 @@
           },
           {
             "comment_id": "C00250",
-            "display_name": "Clear Gazelle",
+            "display_name": "Keen Sparrow",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 5,
@@ -584,7 +592,7 @@
           },
           {
             "comment_id": "C00270",
-            "display_name": "Gentle Plover",
+            "display_name": "Brave Sparrow",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 4,
@@ -593,7 +601,7 @@
           },
           {
             "comment_id": "C00027",
-            "display_name": "Gentle Kestrel",
+            "display_name": "Warm Stork",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 12,
@@ -602,7 +610,7 @@
           },
           {
             "comment_id": "C00042",
-            "display_name": "Silver Plover",
+            "display_name": "Calm Lynx",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 10,
@@ -611,7 +619,7 @@
           },
           {
             "comment_id": "C00106",
-            "display_name": "Swift Oryx",
+            "display_name": "Warm Kestrel",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 8,
@@ -620,7 +628,7 @@
           },
           {
             "comment_id": "C00146",
-            "display_name": "Bold Oryx",
+            "display_name": "Amber Badger",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 9,
@@ -629,7 +637,7 @@
           },
           {
             "comment_id": "C00258",
-            "display_name": "Sharp Egret",
+            "display_name": "Calm Badger",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 9,
@@ -638,7 +646,7 @@
           },
           {
             "comment_id": "C00155",
-            "display_name": "Warm Plover",
+            "display_name": "Wise Otter",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 13,
@@ -647,7 +655,7 @@
           },
           {
             "comment_id": "C00057",
-            "display_name": "Clear Falcon",
+            "display_name": "Quiet Heron",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 14,
@@ -656,7 +664,7 @@
           },
           {
             "comment_id": "C00172",
-            "display_name": "Bold Otter",
+            "display_name": "Quiet Fox",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. The analysis overstates the role of this trigger.",
             "likes": 9,
@@ -668,7 +676,7 @@
           },
           {
             "comment_id": "C00082",
-            "display_name": "Sharp Gazelle",
+            "display_name": "Bold Jackal",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 9,
@@ -677,7 +685,7 @@
           },
           {
             "comment_id": "C00167",
-            "display_name": "Patient Falcon",
+            "display_name": "Southern Heron",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 13,
@@ -689,7 +697,7 @@
           },
           {
             "comment_id": "C00168",
-            "display_name": "Patient Falcon",
+            "display_name": "Southern Heron",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 9,
@@ -743,10 +751,13 @@
         "answers": 23,
         "agree": 3,
         "disagree": 20,
+        "weighted_agree": 12,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00018",
-            "display_name": "Northern Crane",
+            "display_name": "Calm Lynx",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. The analysis overstates the role of this trigger.",
             "likes": 5,
@@ -758,7 +769,7 @@
           },
           {
             "comment_id": "C00194",
-            "display_name": "Swift Falcon",
+            "display_name": "Brave Swift",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 6,
@@ -767,7 +778,7 @@
           },
           {
             "comment_id": "C00181",
-            "display_name": "Brave Swift",
+            "display_name": "Southern Heron",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. The analysis overstates the role of this trigger.",
             "likes": 4,
@@ -779,7 +790,7 @@
           },
           {
             "comment_id": "C00190",
-            "display_name": "Hidden Lynx",
+            "display_name": "Wise Owl",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.",
             "likes": 6,
@@ -791,7 +802,7 @@
           },
           {
             "comment_id": "C00253",
-            "display_name": "Wise Plover",
+            "display_name": "Calm Hare",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 5,
@@ -800,7 +811,7 @@
           },
           {
             "comment_id": "C00073",
-            "display_name": "Silver Oryx",
+            "display_name": "Southern Oryx",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 6,
@@ -809,7 +820,7 @@
           },
           {
             "comment_id": "C00104",
-            "display_name": "Keen Kestrel",
+            "display_name": "Keen Sparrow",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 3,
@@ -818,7 +829,7 @@
           },
           {
             "comment_id": "C00268",
-            "display_name": "Keen Hare",
+            "display_name": "Gentle Kestrel",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 1,
@@ -827,7 +838,7 @@
           },
           {
             "comment_id": "C00054",
-            "display_name": "Brave Sparrow",
+            "display_name": "Steady Marten",
             "kind": "Answer",
             "text": "The analysis overstates the role of this trigger.",
             "likes": 6,
@@ -836,7 +847,7 @@
           },
           {
             "comment_id": "C00239",
-            "display_name": "Patient Owl",
+            "display_name": "Amber Sparrow",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 4,
@@ -890,10 +901,13 @@
         "answers": 28,
         "agree": 22,
         "disagree": 6,
+        "weighted_agree": 80,
+        "country_answers": 6,
+        "country_agree": 5,
         "comments": [
           {
             "comment_id": "C00058",
-            "display_name": "Warm Lynx",
+            "display_name": "Clear Hare",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 5,
@@ -902,7 +916,7 @@
           },
           {
             "comment_id": "C00156",
-            "display_name": "Calm Owl",
+            "display_name": "Hidden Gazelle",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 7,
@@ -911,7 +925,7 @@
           },
           {
             "comment_id": "C00208",
-            "display_name": "Steady Sparrow",
+            "display_name": "Clear Plover",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 8,
@@ -920,7 +934,7 @@
           },
           {
             "comment_id": "C00128",
-            "display_name": "Quiet Lynx",
+            "display_name": "Swift Crane",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 6,
@@ -929,7 +943,7 @@
           },
           {
             "comment_id": "C00137",
-            "display_name": "Silver Swift",
+            "display_name": "Gentle Heron",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 6,
@@ -938,7 +952,7 @@
           },
           {
             "comment_id": "C00014",
-            "display_name": "Bright Owl",
+            "display_name": "Calm Lynx",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 12,
@@ -947,7 +961,7 @@
           },
           {
             "comment_id": "C00117",
-            "display_name": "Quiet Stork",
+            "display_name": "Silver Sparrow",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 3,
@@ -959,7 +973,7 @@
           },
           {
             "comment_id": "C00163",
-            "display_name": "Southern Fox",
+            "display_name": "Wise Swift",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 5,
@@ -968,7 +982,7 @@
           },
           {
             "comment_id": "C00218",
-            "display_name": "Keen Sparrow",
+            "display_name": "Brave Lynx",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 5,
@@ -977,7 +991,7 @@
           },
           {
             "comment_id": "C00232",
-            "display_name": "Early Oryx",
+            "display_name": "Keen Oryx",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",
             "likes": 4,
@@ -1040,10 +1054,13 @@
         "answers": 30,
         "agree": 23,
         "disagree": 7,
+        "weighted_agree": 77,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00016",
-            "display_name": "Swift Otter",
+            "display_name": "Silver Badger",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 8,
@@ -1052,7 +1069,7 @@
           },
           {
             "comment_id": "C00044",
-            "display_name": "Clear Swift",
+            "display_name": "Gentle Falcon",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 7,
@@ -1064,7 +1081,7 @@
           },
           {
             "comment_id": "C00154",
-            "display_name": "Clear Otter",
+            "display_name": "Bold Crane",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 7,
@@ -1073,7 +1090,7 @@
           },
           {
             "comment_id": "C00048",
-            "display_name": "Brave Plover",
+            "display_name": "Calm Marten",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. Yes. Local markets and community leaders point the same way.",
             "likes": 11,
@@ -1085,7 +1102,7 @@
           },
           {
             "comment_id": "C00078",
-            "display_name": "Hidden Marten",
+            "display_name": "Clear Gazelle",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 8,
@@ -1094,7 +1111,7 @@
           },
           {
             "comment_id": "C00115",
-            "display_name": "Early Plover",
+            "display_name": "Silver Lynx",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 4,
@@ -1103,7 +1120,7 @@
           },
           {
             "comment_id": "C00225",
-            "display_name": "Steady Lynx",
+            "display_name": "Silver Otter",
             "kind": "Answer",
             "text": "The analysis overstates the role of this trigger.",
             "likes": 9,
@@ -1112,7 +1129,7 @@
           },
           {
             "comment_id": "C00266",
-            "display_name": "Warm Fox",
+            "display_name": "Calm Heron",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 8,
@@ -1160,10 +1177,13 @@
         "answers": 33,
         "agree": 24,
         "disagree": 9,
+        "weighted_agree": 74,
+        "country_answers": 5,
+        "country_agree": 4,
         "comments": [
           {
             "comment_id": "C00017",
-            "display_name": "Northern Oryx",
+            "display_name": "Bright Gazelle",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 3,
@@ -1172,7 +1192,7 @@
           },
           {
             "comment_id": "C00025",
-            "display_name": "Calm Lynx",
+            "display_name": "Swift Sparrow",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 11,
@@ -1181,7 +1201,7 @@
           },
           {
             "comment_id": "C00079",
-            "display_name": "Steady Marten",
+            "display_name": "Hidden Marten",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 9,
@@ -1190,7 +1210,7 @@
           },
           {
             "comment_id": "C00126",
-            "display_name": "Steady Fox",
+            "display_name": "Wise Oryx",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 6,
@@ -1199,7 +1219,7 @@
           },
           {
             "comment_id": "C00132",
-            "display_name": "Steady Jackal",
+            "display_name": "Early Marten",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",
             "likes": 9,
@@ -1211,7 +1231,7 @@
           },
           {
             "comment_id": "C00144",
-            "display_name": "Silver Swift",
+            "display_name": "Calm Swift",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 4,
@@ -1220,7 +1240,7 @@
           },
           {
             "comment_id": "C00145",
-            "display_name": "Silver Swift",
+            "display_name": "Calm Swift",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 5,
@@ -1229,7 +1249,7 @@
           },
           {
             "comment_id": "C00150",
-            "display_name": "Warm Stork",
+            "display_name": "Silver Plover",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 11,
@@ -1238,7 +1258,7 @@
           },
           {
             "comment_id": "C00159",
-            "display_name": "Brave Falcon",
+            "display_name": "Amber Stork",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 13,
@@ -1247,7 +1267,7 @@
           },
           {
             "comment_id": "C00160",
-            "display_name": "Brave Falcon",
+            "display_name": "Amber Stork",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 14,
@@ -1256,7 +1276,7 @@
           },
           {
             "comment_id": "C00193",
-            "display_name": "Amber Owl",
+            "display_name": "Patient Owl",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 5,
@@ -1265,7 +1285,7 @@
           },
           {
             "comment_id": "C00199",
-            "display_name": "Warm Marten",
+            "display_name": "Quiet Sparrow",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 3,
@@ -1277,7 +1297,7 @@
           },
           {
             "comment_id": "C00207",
-            "display_name": "Sharp Marten",
+            "display_name": "Calm Crane",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 7,
@@ -1286,7 +1306,7 @@
           },
           {
             "comment_id": "C00209",
-            "display_name": "Northern Kestrel",
+            "display_name": "Keen Jackal",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",
             "likes": 7,
@@ -1298,7 +1318,7 @@
           },
           {
             "comment_id": "C00238",
-            "display_name": "Gentle Marten",
+            "display_name": "Brave Jackal",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. The analysis overstates the role of this trigger.",
             "likes": 2,
@@ -1310,7 +1330,7 @@
           },
           {
             "comment_id": "C00245",
-            "display_name": "Southern Oryx",
+            "display_name": "Early Ibis",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 5,
@@ -1364,10 +1384,13 @@
         "answers": 29,
         "agree": 28,
         "disagree": 1,
+        "weighted_agree": 97,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00001",
-            "display_name": "Gentle Stork",
+            "display_name": "Bright Stork",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 4,
@@ -1379,7 +1402,7 @@
           },
           {
             "comment_id": "C00197",
-            "display_name": "Calm Kestrel",
+            "display_name": "Bold Sparrow",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 3,
@@ -1388,7 +1411,7 @@
           },
           {
             "comment_id": "C00176",
-            "display_name": "Northern Otter",
+            "display_name": "Keen Stork",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 5,
@@ -1397,7 +1420,7 @@
           },
           {
             "comment_id": "C00182",
-            "display_name": "Early Fox",
+            "display_name": "Brave Owl",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 8,
@@ -1406,7 +1429,7 @@
           },
           {
             "comment_id": "C00049",
-            "display_name": "Gentle Lynx",
+            "display_name": "Keen Falcon",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.",
             "likes": 5,
@@ -1418,7 +1441,7 @@
           },
           {
             "comment_id": "C00074",
-            "display_name": "Hidden Owl",
+            "display_name": "Swift Badger",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 6,
@@ -1427,7 +1450,7 @@
           },
           {
             "comment_id": "C00120",
-            "display_name": "Brave Oryx",
+            "display_name": "Keen Ibis",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 0,
@@ -1481,10 +1504,13 @@
         "answers": 36,
         "agree": 6,
         "disagree": 30,
+        "weighted_agree": 16,
+        "country_answers": 13,
+        "country_agree": 2,
         "comments": [
           {
             "comment_id": "C00164",
-            "display_name": "Southern Oryx",
+            "display_name": "Hidden Egret",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 15,
@@ -1493,7 +1519,7 @@
           },
           {
             "comment_id": "C00187",
-            "display_name": "Warm Badger",
+            "display_name": "Bold Badger",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.",
             "likes": 4,
@@ -1505,7 +1531,7 @@
           },
           {
             "comment_id": "C00083",
-            "display_name": "Swift Sparrow",
+            "display_name": "Silver Otter",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 4,
@@ -1514,7 +1540,7 @@
           },
           {
             "comment_id": "C00275",
-            "display_name": "Early Hare",
+            "display_name": "Amber Egret",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 8,
@@ -1523,7 +1549,7 @@
           },
           {
             "comment_id": "C00070",
-            "display_name": "Patient Marten",
+            "display_name": "Bold Owl",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 6,
@@ -1532,7 +1558,7 @@
           },
           {
             "comment_id": "C00075",
-            "display_name": "Silver Ibis",
+            "display_name": "Swift Falcon",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 6,
@@ -1541,7 +1567,7 @@
           },
           {
             "comment_id": "C00108",
-            "display_name": "Southern Sparrow",
+            "display_name": "Sharp Egret",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 6,
@@ -1550,7 +1576,7 @@
           },
           {
             "comment_id": "C00220",
-            "display_name": "Quiet Kestrel",
+            "display_name": "Quiet Lynx",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 11,
@@ -1559,7 +1585,7 @@
           },
           {
             "comment_id": "C00020",
-            "display_name": "Amber Plover",
+            "display_name": "Bold Oryx",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 8,
@@ -1568,7 +1594,7 @@
           },
           {
             "comment_id": "C00157",
-            "display_name": "Early Plover",
+            "display_name": "Clear Egret",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 14,
@@ -1577,7 +1603,7 @@
           },
           {
             "comment_id": "C00147",
-            "display_name": "Calm Fox",
+            "display_name": "Wise Fox",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 12,
@@ -1586,7 +1612,7 @@
           },
           {
             "comment_id": "C00174",
-            "display_name": "Patient Kestrel",
+            "display_name": "Warm Egret",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.",
             "likes": 7,
@@ -1598,7 +1624,7 @@
           },
           {
             "comment_id": "C00202",
-            "display_name": "Warm Stork",
+            "display_name": "Gentle Fox",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 9,
@@ -1607,7 +1633,7 @@
           },
           {
             "comment_id": "C00211",
-            "display_name": "Warm Otter",
+            "display_name": "Sharp Heron",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 9,
@@ -1616,7 +1642,7 @@
           },
           {
             "comment_id": "C00233",
-            "display_name": "Brave Lynx",
+            "display_name": "Swift Marten",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 7,
@@ -1625,7 +1651,7 @@
           },
           {
             "comment_id": "C00262",
-            "display_name": "Gentle Marten",
+            "display_name": "Clear Hare",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 7,
@@ -1673,10 +1699,13 @@
         "answers": 30,
         "agree": 12,
         "disagree": 18,
+        "weighted_agree": 38,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00013",
-            "display_name": "Patient Crane",
+            "display_name": "Keen Hare",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 6,
@@ -1685,7 +1714,7 @@
           },
           {
             "comment_id": "C00107",
-            "display_name": "Steady Crane",
+            "display_name": "Silver Ibis",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 9,
@@ -1694,7 +1723,7 @@
           },
           {
             "comment_id": "C00215",
-            "display_name": "Sharp Hare",
+            "display_name": "Warm Swift",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 7,
@@ -1703,7 +1732,7 @@
           },
           {
             "comment_id": "C00116",
-            "display_name": "Warm Falcon",
+            "display_name": "Clear Ibis",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 4,
@@ -1712,7 +1741,7 @@
           },
           {
             "comment_id": "C00173",
-            "display_name": "Quiet Oryx",
+            "display_name": "Swift Swift",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 3,
@@ -1721,7 +1750,7 @@
           },
           {
             "comment_id": "C00177",
-            "display_name": "Early Falcon",
+            "display_name": "Clear Lynx",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 6,
@@ -1730,7 +1759,7 @@
           },
           {
             "comment_id": "C00010",
-            "display_name": "Calm Stork",
+            "display_name": "Bright Hare",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.",
             "likes": 2,
@@ -1742,7 +1771,7 @@
           },
           {
             "comment_id": "C00047",
-            "display_name": "Wise Ibis",
+            "display_name": "Gentle Lynx",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 14,
@@ -1751,7 +1780,7 @@
           },
           {
             "comment_id": "C00050",
-            "display_name": "Patient Egret",
+            "display_name": "Quiet Sparrow",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 7,
@@ -1760,7 +1789,7 @@
           },
           {
             "comment_id": "C00069",
-            "display_name": "Bold Crane",
+            "display_name": "Quiet Kestrel",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 9,
@@ -1769,7 +1798,7 @@
           },
           {
             "comment_id": "C00162",
-            "display_name": "Hidden Egret",
+            "display_name": "Quiet Plover",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 11,
@@ -1778,7 +1807,7 @@
           },
           {
             "comment_id": "C00186",
-            "display_name": "Brave Lynx",
+            "display_name": "Brave Jackal",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 3,
@@ -1838,10 +1867,13 @@
         "answers": 26,
         "agree": 10,
         "disagree": 16,
+        "weighted_agree": 38,
+        "country_answers": 3,
+        "country_agree": 1,
         "comments": [
           {
             "comment_id": "C00124",
-            "display_name": "Brave Lynx",
+            "display_name": "Sharp Kestrel",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 2,
@@ -1850,7 +1882,7 @@
           },
           {
             "comment_id": "C00165",
-            "display_name": "Early Sparrow",
+            "display_name": "Northern Sparrow",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 5,
@@ -1859,7 +1891,7 @@
           },
           {
             "comment_id": "C00052",
-            "display_name": "Keen Hare",
+            "display_name": "Calm Owl",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 4,
@@ -1868,7 +1900,7 @@
           },
           {
             "comment_id": "C00029",
-            "display_name": "Gentle Owl",
+            "display_name": "Southern Gazelle",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 8,
@@ -1877,7 +1909,7 @@
           },
           {
             "comment_id": "C00023",
-            "display_name": "Keen Otter",
+            "display_name": "Silver Ibis",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.",
             "likes": 6,
@@ -1889,7 +1921,7 @@
           },
           {
             "comment_id": "C00024",
-            "display_name": "Keen Otter",
+            "display_name": "Silver Ibis",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 6,
@@ -1898,7 +1930,7 @@
           },
           {
             "comment_id": "C00055",
-            "display_name": "Keen Swift",
+            "display_name": "Brave Badger",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Local reporting does not support this yet.",
             "likes": 6,
@@ -1910,7 +1942,7 @@
           },
           {
             "comment_id": "C00093",
-            "display_name": "Steady Swift",
+            "display_name": "Sharp Heron",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 4,
@@ -1919,7 +1951,7 @@
           },
           {
             "comment_id": "C00149",
-            "display_name": "Keen Lynx",
+            "display_name": "Quiet Lynx",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 4,
@@ -1931,7 +1963,7 @@
           },
           {
             "comment_id": "C00198",
-            "display_name": "Bold Crane",
+            "display_name": "Clear Lynx",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Local reporting does not support this yet.",
             "likes": 5,
@@ -1943,7 +1975,7 @@
           },
           {
             "comment_id": "C00278",
-            "display_name": "Silver Heron",
+            "display_name": "Bright Stork",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 9,
@@ -1952,7 +1984,7 @@
           },
           {
             "comment_id": "C00007",
-            "display_name": "Brave Owl",
+            "display_name": "Hidden Fox",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 2,
@@ -1961,7 +1993,7 @@
           },
           {
             "comment_id": "C00158",
-            "display_name": "Warm Badger",
+            "display_name": "Patient Plover",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 7,
@@ -1970,7 +2002,7 @@
           },
           {
             "comment_id": "C00179",
-            "display_name": "Bright Falcon",
+            "display_name": "Calm Oryx",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 7,
@@ -2030,10 +2062,13 @@
         "answers": 24,
         "agree": 19,
         "disagree": 5,
+        "weighted_agree": 82,
+        "country_answers": 3,
+        "country_agree": 3,
         "comments": [
           {
             "comment_id": "C00213",
-            "display_name": "Clear Gazelle",
+            "display_name": "Early Hare",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",
             "likes": 6,
@@ -2045,7 +2080,7 @@
           },
           {
             "comment_id": "C00135",
-            "display_name": "Silver Egret",
+            "display_name": "Clear Badger",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 9,
@@ -2054,7 +2089,7 @@
           },
           {
             "comment_id": "C00056",
-            "display_name": "Warm Gazelle",
+            "display_name": "Bold Gazelle",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 6,
@@ -2063,7 +2098,7 @@
           },
           {
             "comment_id": "C00267",
-            "display_name": "Hidden Sparrow",
+            "display_name": "Calm Sparrow",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 9,
@@ -2072,7 +2107,7 @@
           },
           {
             "comment_id": "C00080",
-            "display_name": "Patient Egret",
+            "display_name": "Bright Owl",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 2,
@@ -2081,7 +2116,7 @@
           },
           {
             "comment_id": "C00119",
-            "display_name": "Silver Hare",
+            "display_name": "Clear Oryx",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 4,
@@ -2135,10 +2170,13 @@
         "answers": 33,
         "agree": 9,
         "disagree": 24,
+        "weighted_agree": 25,
+        "country_answers": 3,
+        "country_agree": 0,
         "comments": [
           {
             "comment_id": "C00081",
-            "display_name": "Amber Crane",
+            "display_name": "Brave Otter",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 6,
@@ -2147,7 +2185,7 @@
           },
           {
             "comment_id": "C00189",
-            "display_name": "Warm Badger",
+            "display_name": "Keen Sparrow",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. Local reporting does not support this yet.",
             "likes": 4,
@@ -2159,7 +2197,7 @@
           },
           {
             "comment_id": "C00222",
-            "display_name": "Warm Heron",
+            "display_name": "Brave Stork",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 5,
@@ -2168,7 +2206,7 @@
           },
           {
             "comment_id": "C00226",
-            "display_name": "Patient Heron",
+            "display_name": "Gentle Fox",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. The analysis overstates the role of this trigger.",
             "likes": 7,
@@ -2180,7 +2218,7 @@
           },
           {
             "comment_id": "C00105",
-            "display_name": "Brave Fox",
+            "display_name": "Sharp Fox",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.",
             "likes": 6,
@@ -2192,7 +2230,7 @@
           },
           {
             "comment_id": "C00195",
-            "display_name": "Sharp Swift",
+            "display_name": "Early Gazelle",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 5,
@@ -2201,7 +2239,7 @@
           },
           {
             "comment_id": "C00205",
-            "display_name": "Brave Swift",
+            "display_name": "Patient Marten",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 4,
@@ -2210,7 +2248,7 @@
           },
           {
             "comment_id": "C00254",
-            "display_name": "Keen Owl",
+            "display_name": "Steady Otter",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 9,
@@ -2264,10 +2302,13 @@
         "answers": 31,
         "agree": 9,
         "disagree": 22,
+        "weighted_agree": 28,
+        "country_answers": 14,
+        "country_agree": 4,
         "comments": [
           {
             "comment_id": "C00236",
-            "display_name": "Keen Marten",
+            "display_name": "Quiet Oryx",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 5,
@@ -2276,7 +2317,7 @@
           },
           {
             "comment_id": "C00123",
-            "display_name": "Amber Heron",
+            "display_name": "Early Owl",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. I agree. The signs are visible already in the areas I cover.",
             "likes": 3,
@@ -2288,7 +2329,7 @@
           },
           {
             "comment_id": "C00015",
-            "display_name": "Southern Plover",
+            "display_name": "Northern Stork",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 6,
@@ -2297,7 +2338,7 @@
           },
           {
             "comment_id": "C00022",
-            "display_name": "Bold Crane",
+            "display_name": "Warm Owl",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 8,
@@ -2306,7 +2347,7 @@
           },
           {
             "comment_id": "C00152",
-            "display_name": "Hidden Ibis",
+            "display_name": "Patient Otter",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 7,
@@ -2315,7 +2356,7 @@
           },
           {
             "comment_id": "C00244",
-            "display_name": "Swift Ibis",
+            "display_name": "Bright Badger",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Local reporting does not support this yet.",
             "likes": 11,
@@ -2327,7 +2368,7 @@
           },
           {
             "comment_id": "C00169",
-            "display_name": "Early Heron",
+            "display_name": "Clear Jackal",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 14,
@@ -2336,7 +2377,7 @@
           },
           {
             "comment_id": "C00102",
-            "display_name": "Quiet Badger",
+            "display_name": "Northern Swift",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 7,
@@ -2345,7 +2386,7 @@
           },
           {
             "comment_id": "C00101",
-            "display_name": "Quiet Badger",
+            "display_name": "Northern Swift",
             "kind": "Answer",
             "text": "The analysis overstates the role of this trigger.",
             "likes": 6,
@@ -2354,7 +2395,7 @@
           },
           {
             "comment_id": "C00087",
-            "display_name": "Silver Ibis",
+            "display_name": "Keen Fox",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.",
             "likes": 10,
@@ -2366,7 +2407,7 @@
           },
           {
             "comment_id": "C00088",
-            "display_name": "Silver Ibis",
+            "display_name": "Keen Fox",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 10,
@@ -2375,7 +2416,7 @@
           },
           {
             "comment_id": "C00003",
-            "display_name": "Steady Falcon",
+            "display_name": "Keen Owl",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 7,
@@ -2384,7 +2425,7 @@
           },
           {
             "comment_id": "C00004",
-            "display_name": "Steady Falcon",
+            "display_name": "Keen Owl",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 5,
@@ -2393,7 +2434,7 @@
           },
           {
             "comment_id": "C00216",
-            "display_name": "Swift Lynx",
+            "display_name": "Southern Gazelle",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Local reporting does not support this yet.",
             "likes": 9,
@@ -2405,7 +2446,7 @@
           },
           {
             "comment_id": "C00060",
-            "display_name": "Patient Hare",
+            "display_name": "Bright Otter",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 12,
@@ -2414,7 +2455,7 @@
           },
           {
             "comment_id": "C00110",
-            "display_name": "Brave Badger",
+            "display_name": "Calm Kestrel",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. I disagree with the timing; this looks more likely later in the season.",
             "likes": 2,
@@ -2426,7 +2467,7 @@
           },
           {
             "comment_id": "C00076",
-            "display_name": "Gentle Sparrow",
+            "display_name": "Clear Oryx",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 8,
@@ -2486,10 +2527,13 @@
         "answers": 27,
         "agree": 19,
         "disagree": 8,
+        "weighted_agree": 72,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00223",
-            "display_name": "Early Badger",
+            "display_name": "Sharp Stork",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 5,
@@ -2498,7 +2542,7 @@
           },
           {
             "comment_id": "C00171",
-            "display_name": "Patient Plover",
+            "display_name": "Swift Crane",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 9,
@@ -2510,7 +2554,7 @@
           },
           {
             "comment_id": "C00227",
-            "display_name": "Brave Sparrow",
+            "display_name": "Sharp Ibis",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 7,
@@ -2519,7 +2563,7 @@
           },
           {
             "comment_id": "C00273",
-            "display_name": "Sharp Ibis",
+            "display_name": "Silver Marten",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 4,
@@ -2528,7 +2572,7 @@
           },
           {
             "comment_id": "C00185",
-            "display_name": "Gentle Otter",
+            "display_name": "Northern Hare",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 7,
@@ -2537,7 +2581,7 @@
           },
           {
             "comment_id": "C00274",
-            "display_name": "Sharp Ibis",
+            "display_name": "Silver Marten",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 3,
@@ -2546,7 +2590,7 @@
           },
           {
             "comment_id": "C00009",
-            "display_name": "Sharp Badger",
+            "display_name": "Southern Ibis",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 6,
@@ -2555,7 +2599,7 @@
           },
           {
             "comment_id": "C00136",
-            "display_name": "Northern Gazelle",
+            "display_name": "Clear Hare",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 7,
@@ -2564,7 +2608,7 @@
           },
           {
             "comment_id": "C00161",
-            "display_name": "Sharp Stork",
+            "display_name": "Keen Fox",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 7,
@@ -2576,7 +2620,7 @@
           },
           {
             "comment_id": "C00031",
-            "display_name": "Amber Ibis",
+            "display_name": "Southern Falcon",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 3,
@@ -2585,7 +2629,7 @@
           },
           {
             "comment_id": "C00151",
-            "display_name": "Steady Crane",
+            "display_name": "Sharp Lynx",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 2,
@@ -2594,7 +2638,7 @@
           },
           {
             "comment_id": "C00269",
-            "display_name": "Bright Badger",
+            "display_name": "Early Jackal",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 7,
@@ -2603,7 +2647,7 @@
           },
           {
             "comment_id": "C00206",
-            "display_name": "Keen Swift",
+            "display_name": "Southern Crane",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 6,
@@ -2612,7 +2656,7 @@
           },
           {
             "comment_id": "C00127",
-            "display_name": "Southern Badger",
+            "display_name": "Hidden Otter",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 7,
@@ -2666,10 +2710,13 @@
         "answers": 33,
         "agree": 22,
         "disagree": 11,
+        "weighted_agree": 66,
+        "country_answers": 13,
+        "country_agree": 9,
         "comments": [
           {
             "comment_id": "C00012",
-            "display_name": "Swift Badger",
+            "display_name": "Patient Hare",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 8,
@@ -2678,7 +2725,7 @@
           },
           {
             "comment_id": "C00175",
-            "display_name": "Wise Ibis",
+            "display_name": "Warm Badger",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 6,
@@ -2687,7 +2734,7 @@
           },
           {
             "comment_id": "C00277",
-            "display_name": "Brave Fox",
+            "display_name": "Steady Marten",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 8,
@@ -2696,7 +2743,7 @@
           },
           {
             "comment_id": "C00028",
-            "display_name": "Hidden Hare",
+            "display_name": "Bright Marten",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 7,
@@ -2705,7 +2752,7 @@
           },
           {
             "comment_id": "C00065",
-            "display_name": "Gentle Crane",
+            "display_name": "Patient Fox",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 9,
@@ -2714,7 +2761,7 @@
           },
           {
             "comment_id": "C00005",
-            "display_name": "Wise Marten",
+            "display_name": "Bright Falcon",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 6,
@@ -2723,7 +2770,7 @@
           },
           {
             "comment_id": "C00230",
-            "display_name": "Calm Gazelle",
+            "display_name": "Southern Stork",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.",
             "likes": 10,
@@ -2735,7 +2782,7 @@
           },
           {
             "comment_id": "C00006",
-            "display_name": "Wise Marten",
+            "display_name": "Bright Falcon",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 6,
@@ -2744,7 +2791,7 @@
           },
           {
             "comment_id": "C00265",
-            "display_name": "Early Crane",
+            "display_name": "Northern Heron",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 8,
@@ -2753,7 +2800,7 @@
           },
           {
             "comment_id": "C00141",
-            "display_name": "Silver Fox",
+            "display_name": "Sharp Heron",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 7,
@@ -2762,7 +2809,7 @@
           },
           {
             "comment_id": "C00203",
-            "display_name": "Bold Hare",
+            "display_name": "Gentle Otter",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 8,
@@ -2771,7 +2818,7 @@
           },
           {
             "comment_id": "C00204",
-            "display_name": "Bold Hare",
+            "display_name": "Gentle Otter",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 6,
@@ -2780,7 +2827,7 @@
           },
           {
             "comment_id": "C00051",
-            "display_name": "Warm Egret",
+            "display_name": "Clear Otter",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 6,
@@ -2789,7 +2836,7 @@
           },
           {
             "comment_id": "C00071",
-            "display_name": "Bright Marten",
+            "display_name": "Wise Badger",
             "kind": "Answer",
             "text": "The analysis overstates the role of this trigger.",
             "likes": 10,
@@ -2798,7 +2845,7 @@
           },
           {
             "comment_id": "C00134",
-            "display_name": "Calm Kestrel",
+            "display_name": "Swift Marten",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 9,
@@ -2807,7 +2854,7 @@
           },
           {
             "comment_id": "C00153",
-            "display_name": "Brave Lynx",
+            "display_name": "Gentle Lynx",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 7,
@@ -2864,10 +2911,13 @@
         "answers": 33,
         "agree": 8,
         "disagree": 25,
+        "weighted_agree": 24,
+        "country_answers": 14,
+        "country_agree": 4,
         "comments": [
           {
             "comment_id": "C00241",
-            "display_name": "Quiet Ibis",
+            "display_name": "Swift Stork",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 3,
@@ -2876,7 +2926,7 @@
           },
           {
             "comment_id": "C00094",
-            "display_name": "Silver Owl",
+            "display_name": "Wise Kestrel",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 11,
@@ -2885,7 +2935,7 @@
           },
           {
             "comment_id": "C00133",
-            "display_name": "Brave Heron",
+            "display_name": "Quiet Lynx",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 11,
@@ -2894,7 +2944,7 @@
           },
           {
             "comment_id": "C00242",
-            "display_name": "Quiet Ibis",
+            "display_name": "Swift Stork",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 3,
@@ -2903,7 +2953,7 @@
           },
           {
             "comment_id": "C00276",
-            "display_name": "Northern Gazelle",
+            "display_name": "Southern Badger",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 7,
@@ -2912,7 +2962,7 @@
           },
           {
             "comment_id": "C00255",
-            "display_name": "Silver Kestrel",
+            "display_name": "Quiet Fox",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 3,
@@ -2921,7 +2971,7 @@
           },
           {
             "comment_id": "C00084",
-            "display_name": "Patient Plover",
+            "display_name": "Clear Stork",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 10,
@@ -2930,7 +2980,7 @@
           },
           {
             "comment_id": "C00097",
-            "display_name": "Calm Jackal",
+            "display_name": "Amber Badger",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 7,
@@ -2939,7 +2989,7 @@
           },
           {
             "comment_id": "C00098",
-            "display_name": "Early Plover",
+            "display_name": "Northern Oryx",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 2,
@@ -2948,7 +2998,7 @@
           },
           {
             "comment_id": "C00200",
-            "display_name": "Quiet Badger",
+            "display_name": "Amber Hare",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 10,
@@ -2957,7 +3007,7 @@
           },
           {
             "comment_id": "C00234",
-            "display_name": "Calm Gazelle",
+            "display_name": "Warm Badger",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 2,
@@ -3011,10 +3061,13 @@
         "answers": 31,
         "agree": 17,
         "disagree": 14,
+        "weighted_agree": 59,
+        "country_answers": 11,
+        "country_agree": 7,
         "comments": [
           {
             "comment_id": "C00067",
-            "display_name": "Hidden Swift",
+            "display_name": "Amber Lynx",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 7,
@@ -3023,7 +3076,7 @@
           },
           {
             "comment_id": "C00272",
-            "display_name": "Gentle Swift",
+            "display_name": "Bright Swift",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 5,
@@ -3032,7 +3085,7 @@
           },
           {
             "comment_id": "C00086",
-            "display_name": "Amber Hare",
+            "display_name": "Bright Plover",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 5,
@@ -3041,7 +3094,7 @@
           },
           {
             "comment_id": "C00130",
-            "display_name": "Brave Otter",
+            "display_name": "Swift Ibis",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 5,
@@ -3050,7 +3103,7 @@
           },
           {
             "comment_id": "C00011",
-            "display_name": "Bright Heron",
+            "display_name": "Steady Falcon",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 5,
@@ -3059,7 +3112,7 @@
           },
           {
             "comment_id": "C00246",
-            "display_name": "Bold Hare",
+            "display_name": "Southern Lynx",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 3,
@@ -3068,7 +3121,7 @@
           },
           {
             "comment_id": "C00091",
-            "display_name": "Warm Jackal",
+            "display_name": "Keen Gazelle",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 3,
@@ -3077,7 +3130,7 @@
           },
           {
             "comment_id": "C00256",
-            "display_name": "Silver Otter",
+            "display_name": "Bold Plover",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. I agree. The signs are visible already in the areas I cover.",
             "likes": 6,
@@ -3089,7 +3142,7 @@
           },
           {
             "comment_id": "C00100",
-            "display_name": "Southern Falcon",
+            "display_name": "Amber Badger",
             "kind": "Answer",
             "text": "I disagree with the timing; this looks more likely later in the season.",
             "likes": 7,
@@ -3098,7 +3151,7 @@
           },
           {
             "comment_id": "C00263",
-            "display_name": "Southern Stork",
+            "display_name": "Quiet Heron",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 6,
@@ -3107,7 +3160,7 @@
           },
           {
             "comment_id": "C00264",
-            "display_name": "Southern Stork",
+            "display_name": "Quiet Heron",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 6,
@@ -3116,7 +3169,7 @@
           },
           {
             "comment_id": "C00148",
-            "display_name": "Early Falcon",
+            "display_name": "Swift Plover",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 8,
@@ -3125,7 +3178,7 @@
           },
           {
             "comment_id": "C00212",
-            "display_name": "Patient Ibis",
+            "display_name": "Steady Fox",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 9,
@@ -3134,7 +3187,7 @@
           },
           {
             "comment_id": "C00021",
-            "display_name": "Bright Marten",
+            "display_name": "Quiet Kestrel",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 11,
@@ -3143,7 +3196,7 @@
           },
           {
             "comment_id": "C00002",
-            "display_name": "Steady Hare",
+            "display_name": "Steady Owl",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 6,
@@ -3152,7 +3205,7 @@
           },
           {
             "comment_id": "C00121",
-            "display_name": "Northern Marten",
+            "display_name": "Steady Egret",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 5,
@@ -3161,7 +3214,7 @@
           },
           {
             "comment_id": "C00122",
-            "display_name": "Northern Marten",
+            "display_name": "Steady Egret",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 5,
@@ -3221,10 +3274,13 @@
         "answers": 28,
         "agree": 26,
         "disagree": 2,
+        "weighted_agree": 93,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00140",
-            "display_name": "Early Owl",
+            "display_name": "Keen Otter",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 4,
@@ -3233,7 +3289,7 @@
           },
           {
             "comment_id": "C00143",
-            "display_name": "Bold Ibis",
+            "display_name": "Wise Plover",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 8,
@@ -3242,7 +3298,7 @@
           },
           {
             "comment_id": "C00188",
-            "display_name": "Hidden Marten",
+            "display_name": "Bright Fox",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 5,
@@ -3254,7 +3310,7 @@
           },
           {
             "comment_id": "C00184",
-            "display_name": "Early Badger",
+            "display_name": "Swift Stork",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 3,
@@ -3263,7 +3319,7 @@
           },
           {
             "comment_id": "C00251",
-            "display_name": "Patient Ibis",
+            "display_name": "Patient Fox",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 2,
@@ -3275,7 +3331,7 @@
           },
           {
             "comment_id": "C00252",
-            "display_name": "Patient Ibis",
+            "display_name": "Patient Fox",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 7,
@@ -3284,7 +3340,7 @@
           },
           {
             "comment_id": "C00257",
-            "display_name": "Silver Hare",
+            "display_name": "Bold Fox",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. I agree. The signs are visible already in the areas I cover.",
             "likes": 4,
@@ -3296,7 +3352,7 @@
           },
           {
             "comment_id": "C00008",
-            "display_name": "Calm Swift",
+            "display_name": "Swift Heron",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 3,
@@ -3305,7 +3361,7 @@
           },
           {
             "comment_id": "C00131",
-            "display_name": "Bold Gazelle",
+            "display_name": "Southern Sparrow",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 8,
@@ -3314,7 +3370,7 @@
           },
           {
             "comment_id": "C00033",
-            "display_name": "Bright Badger",
+            "display_name": "Wise Fox",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Agree, and I would watch the next few weeks closely.",
             "likes": 6,
@@ -3371,10 +3427,13 @@
         "answers": 22,
         "agree": 16,
         "disagree": 6,
+        "weighted_agree": 68,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00026",
-            "display_name": "Quiet Plover",
+            "display_name": "Sharp Kestrel",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 2,
@@ -3383,7 +3442,7 @@
           },
           {
             "comment_id": "C00062",
-            "display_name": "Silver Ibis",
+            "display_name": "Southern Stork",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 3,
@@ -3392,7 +3451,7 @@
           },
           {
             "comment_id": "C00112",
-            "display_name": "Hidden Otter",
+            "display_name": "Hidden Lynx",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 3,
@@ -3401,7 +3460,7 @@
           },
           {
             "comment_id": "C00261",
-            "display_name": "Silver Otter",
+            "display_name": "Warm Owl",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 5,
@@ -3423,10 +3482,13 @@
         "answers": 12,
         "agree": 9,
         "disagree": 3,
+        "weighted_agree": 68,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00034",
-            "display_name": "Warm Otter",
+            "display_name": "Bold Swift",
             "kind": "Answer",
             "text": "Local reporting does not support this yet.",
             "likes": 1,
@@ -3435,7 +3497,7 @@
           },
           {
             "comment_id": "C00113",
-            "display_name": "Silver Fox",
+            "display_name": "Keen Otter",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. Agree, and I would watch the next few weeks closely.",
             "likes": 2,
@@ -3447,7 +3509,7 @@
           },
           {
             "comment_id": "C00228",
-            "display_name": "Patient Plover",
+            "display_name": "Wise Hare",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 3,
@@ -3456,7 +3518,7 @@
           },
           {
             "comment_id": "C00229",
-            "display_name": "Patient Plover",
+            "display_name": "Wise Hare",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 2,
@@ -3465,7 +3527,7 @@
           },
           {
             "comment_id": "C00259",
-            "display_name": "Brave Stork",
+            "display_name": "Keen Plover",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 4,
@@ -3484,6 +3546,9 @@
         "answers": 6,
         "agree": 6,
         "disagree": 0,
+        "weighted_agree": 100,
+        "country_answers": null,
+        "country_agree": null,
         "comments": []
       }
     },
@@ -3496,10 +3561,13 @@
         "answers": 13,
         "agree": 7,
         "disagree": 6,
+        "weighted_agree": 50,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00046",
-            "display_name": "Gentle Lynx",
+            "display_name": "Warm Jackal",
             "kind": "Answer",
             "text": "The source reports developments relevant to this risk. I agree. The signs are visible already in the areas I cover.",
             "likes": 2,
@@ -3511,7 +3579,7 @@
           },
           {
             "comment_id": "C00178",
-            "display_name": "Sharp Ibis",
+            "display_name": "Wise Lynx",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 1,
@@ -3520,7 +3588,7 @@
           },
           {
             "comment_id": "C00035",
-            "display_name": "Amber Ibis",
+            "display_name": "Silver Oryx",
             "kind": "Answer",
             "text": "The analysis overstates the role of this trigger.",
             "likes": 1,
@@ -3529,7 +3597,7 @@
           },
           {
             "comment_id": "C00240",
-            "display_name": "Warm Ibis",
+            "display_name": "Bold Heron",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 0,
@@ -3538,7 +3606,7 @@
           },
           {
             "comment_id": "C00041",
-            "display_name": "Bold Ibis",
+            "display_name": "Northern Sparrow",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. I agree. The signs are visible already in the areas I cover.",
             "likes": 2,
@@ -3560,10 +3628,13 @@
         "answers": 14,
         "agree": 9,
         "disagree": 5,
+        "weighted_agree": 60,
+        "country_answers": 3,
+        "country_agree": 1,
         "comments": [
           {
             "comment_id": "C00038",
-            "display_name": "Silver Badger",
+            "display_name": "Steady Fox",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.",
             "likes": 4,
@@ -3575,7 +3646,7 @@
           },
           {
             "comment_id": "C00039",
-            "display_name": "Silver Badger",
+            "display_name": "Steady Fox",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 1,
@@ -3584,7 +3655,7 @@
           },
           {
             "comment_id": "C00271",
-            "display_name": "Amber Lynx",
+            "display_name": "Early Gazelle",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.",
             "likes": 0,
@@ -3596,7 +3667,7 @@
           },
           {
             "comment_id": "C00019",
-            "display_name": "Keen Hare",
+            "display_name": "Brave Gazelle",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 1,
@@ -3605,7 +3676,7 @@
           },
           {
             "comment_id": "C00224",
-            "display_name": "Sharp Hare",
+            "display_name": "Bright Stork",
             "kind": "Changed opinion",
             "text": "Changed opinion after reading the group discussion and new local reports.",
             "likes": 3,
@@ -3624,10 +3695,13 @@
         "answers": 15,
         "agree": 11,
         "disagree": 4,
+        "weighted_agree": 76,
+        "country_answers": 10,
+        "country_agree": 8,
         "comments": [
           {
             "comment_id": "C00085",
-            "display_name": "Southern Otter",
+            "display_name": "Sharp Owl",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 3,
@@ -3636,7 +3710,7 @@
           },
           {
             "comment_id": "C00099",
-            "display_name": "Southern Marten",
+            "display_name": "Steady Plover",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 2,
@@ -3645,7 +3719,7 @@
           },
           {
             "comment_id": "C00129",
-            "display_name": "Keen Fox",
+            "display_name": "Southern Stork",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 4,
@@ -3654,7 +3728,7 @@
           },
           {
             "comment_id": "C00260",
-            "display_name": "Bright Owl",
+            "display_name": "Quiet Marten",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. Yes. Local markets and community leaders point the same way.",
             "likes": 4,
@@ -3666,7 +3740,7 @@
           },
           {
             "comment_id": "C00109",
-            "display_name": "Quiet Hare",
+            "display_name": "Steady Hare",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 2,
@@ -3688,10 +3762,13 @@
         "answers": 24,
         "agree": 15,
         "disagree": 9,
+        "weighted_agree": 64,
+        "country_answers": 13,
+        "country_agree": 8,
         "comments": [
           {
             "comment_id": "C00191",
-            "display_name": "Sharp Egret",
+            "display_name": "Wise Falcon",
             "kind": "Answer",
             "text": "I agree. The signs are visible already in the areas I cover.",
             "likes": 9,
@@ -3700,7 +3777,7 @@
           },
           {
             "comment_id": "C00192",
-            "display_name": "Sharp Egret",
+            "display_name": "Wise Falcon",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 5,
@@ -3709,7 +3786,7 @@
           },
           {
             "comment_id": "C00138",
-            "display_name": "Wise Crane",
+            "display_name": "Hidden Hare",
             "kind": "Answer",
             "text": "The analysis overstates the role of this trigger.",
             "likes": 6,
@@ -3718,7 +3795,7 @@
           },
           {
             "comment_id": "C00221",
-            "display_name": "Amber Plover",
+            "display_name": "Calm Gazelle",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 4,
@@ -3727,7 +3804,7 @@
           },
           {
             "comment_id": "C00237",
-            "display_name": "Steady Stork",
+            "display_name": "Sharp Sparrow",
             "kind": "Answer",
             "text": "Yes. Local markets and community leaders point the same way.",
             "likes": 7,
@@ -3746,10 +3823,13 @@
         "answers": 10,
         "agree": 8,
         "disagree": 2,
+        "weighted_agree": 83,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00036",
-            "display_name": "Wise Jackal",
+            "display_name": "Swift Egret",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 4,
@@ -3758,7 +3838,7 @@
           },
           {
             "comment_id": "C00096",
-            "display_name": "Northern Egret",
+            "display_name": "Clear Kestrel",
             "kind": "Changed opinion",
             "text": "Changed opinion: the latest field updates convinced me.",
             "likes": 3,
@@ -3767,7 +3847,7 @@
           },
           {
             "comment_id": "C00040",
-            "display_name": "Warm Marten",
+            "display_name": "Hidden Egret",
             "kind": "Answer",
             "text": "Agree, and I would watch the next few weeks closely.",
             "likes": 2,
@@ -3776,7 +3856,7 @@
           },
           {
             "comment_id": "C00043",
-            "display_name": "Brave Jackal",
+            "display_name": "Sharp Stork",
             "kind": "Answer",
             "text": "This matches what partners on the ground are reporting.",
             "likes": 2,
@@ -3785,7 +3865,7 @@
           },
           {
             "comment_id": "C00247",
-            "display_name": "Steady Oryx",
+            "display_name": "Warm Heron",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. I see less pressure than the analysis suggests in the areas I know.",
             "likes": 4,
@@ -3807,6 +3887,9 @@
         "answers": 2,
         "agree": 2,
         "disagree": 0,
+        "weighted_agree": 100,
+        "country_answers": null,
+        "country_agree": null,
         "comments": []
       }
     },
@@ -3819,10 +3902,13 @@
         "answers": 13,
         "agree": 6,
         "disagree": 7,
+        "weighted_agree": 50,
+        "country_answers": null,
+        "country_agree": null,
         "comments": [
           {
             "comment_id": "C00196",
-            "display_name": "Wise Plover",
+            "display_name": "Bright Crane",
             "kind": "Answer",
             "text": "This source shows developments relevant to this risk. This matches what partners on the ground are reporting.",
             "likes": 2,
@@ -3834,7 +3920,7 @@
           },
           {
             "comment_id": "C00279",
-            "display_name": "Sharp Fox",
+            "display_name": "Keen Ibis",
             "kind": "Answer",
             "text": "I see less pressure than the analysis suggests in the areas I know.",
             "likes": 2,
@@ -3855,16 +3941,16 @@
   ],
   "results": [
     {
-      "risk_id": "R0108",
-      "title": "Escalation of violence in the lead-up to national presidential elections due on the 14 of January 2021.",
-      "country": "Uganda",
+      "risk_id": "R1026",
+      "title": "Potential Red Sea disruptions from a US–Iran conflict reduce foreign currency earnings, heighten food insecurity, and disrupt services across Egypt",
+      "country": "Egypt",
       "you_said": "very_likely",
       "outcome": "Happened",
-      "what_happened": "The escalation of violence in the lead-up to the national presidential elections in 2021 led to widespread unrest and insecurity, particularly in the form of political violence, protests, and clashes between security forces and opposition supporters. While large-scale displacement did not occur, many families in urban informal settlements (especially in Kampala and Wakiso) temporarily fled or…",
+      "what_happened": "The anticipated impacts partially materialised through wider conflict-related disruptions, with food inflation reaching an estimated 28% by March 2026, fertiliser prices rising by 75–87% by May, the Egyptian pound depreciating by 14% in the first month of the conflict, and power cuts exceeding two hours daily persisting in parts of Cairo and Giza through the March–April period. The anticipated…",
       "points": 3,
       "correct_call": true,
       "comment": {
-        "text": "Local sources in Uganda already point to this. I expect it to happen in the coming months.",
+        "text": "Egypt will feel this through food and fertiliser prices and the currency, even if Red Sea shipping holds up.",
         "spot_on": true,
         "example": true
       },
@@ -3915,18 +4001,6 @@
       "what_happened": null,
       "points": -3,
       "correct_call": false,
-      "comment": null,
-      "bonus_points": 0
-    },
-    {
-      "risk_id": "R1026",
-      "title": "Potential Red Sea disruptions from a US–Iran conflict reduce foreign currency earnings, heighten food insecurity, and disrupt services across Egypt",
-      "country": "Egypt",
-      "you_said": "very_likely",
-      "outcome": "Happened",
-      "what_happened": "The anticipated impacts partially materialised through wider conflict-related disruptions, with food inflation reaching an estimated 28% by March 2026, fertiliser prices rising by 75–87% by May, the Egyptian pound depreciating by 14% in the first month of the conflict, and power cuts exceeding two hours daily persisting in parts of Cairo and Giza through the March–April period. The anticipated…",
-      "points": 3,
-      "correct_call": true,
       "comment": null,
       "bonus_points": 0
     },
@@ -4047,6 +4121,18 @@
       "what_happened": "Since late 2022, there has been a significant increase in violent incidents attributed to non-state armed groups in the northern regions of West African coastal countries, particularly Benin, Côte d’Ivoire, Ghana, and Togo. Between October 2022 and January 2023, more than 73 such incidents were reported, representing a sharp increase compared to around 30 incidents during the same period the…",
       "points": -3,
       "correct_call": false,
+      "comment": null,
+      "bonus_points": 0
+    },
+    {
+      "risk_id": "R0108",
+      "title": "Escalation of violence in the lead-up to national presidential elections due on the 14 of January 2021.",
+      "country": "Uganda",
+      "you_said": "very_likely",
+      "outcome": "Happened",
+      "what_happened": "The escalation of violence in the lead-up to the national presidential elections in 2021 led to widespread unrest and insecurity, particularly in the form of political violence, protests, and clashes between security forces and opposition supporters. While large-scale displacement did not occur, many families in urban informal settlements (especially in Kampala and Wakiso) temporarily fled or…",
+      "points": 3,
+      "correct_call": true,
       "comment": null,
       "bonus_points": 0
     },
