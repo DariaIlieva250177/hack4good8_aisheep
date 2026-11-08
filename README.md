@@ -42,7 +42,6 @@ Every expert's vote counts, but a vote from someone who knows the country and th
 When the chat closes, the group view shows two lines. These are the R1043 numbers in the demo, from simulated votes:
 
 > **80% agree**
-> 5 of 6 Chad experts agree
 
 Country experts are the small panel ACAPS asked for, and domain-only experts add a wider view at a lower weight. The country line stays empty under 3 answers, because in a smaller group it could show how one person voted. R1043's chat is still open in the demo, so these lines appear on the moderator's Chad page rather than in the expert app.
 
