@@ -1,26 +1,28 @@
-# AI Sheep expert app: mobile UI
+# Ground Truth: expert app and website
 
-The mobile UI for the ACAPS Ground Truth expert panel. It runs on mock data, and the backend comes later.
+The phone app that experts use and the public website, in one React and TypeScript bundle. Both read the demo expert's data from `app/data/expert_demo.json`, which `python src/build_demo_data.py` writes. Nothing is saved: anything you do lasts until the page reloads.
 
 ```bash
 cd frontend
 npm install
-npm run dev     # http://localhost:5173, check at 390 × 844
+npm run dev     # website at http://localhost:5173, app at http://localhost:5173/app
 npm run build
 ```
+
+The login screen accepts anything: there is no real login yet.
 
 ## Where things live
 
 | Path | What |
 |---|---|
-| `src/styles/tokens.css` | Colours, type sizes, soft and glass surfaces |
-| `src/data/api.ts` | The only data entry point. These async functions return mock data now; replace their bodies with real calls later |
-| `src/data/mock.ts` | Six real ACAPS risks (from `data/risk-radar-export.csv`). Everything else is synthetic |
+| `src/data/live.ts` | Turns `app/data/expert_demo.json` into the app's risks, chats, alerts and ranking |
+| `src/data/api.ts` | The only data entry point for the screens. Replace these functions with server calls later |
 | `src/data/families.ts` | Risk family colours and the image for each illustration category |
-| `src/i18n/en.ts` | All UI text |
-| `src/mode/` | Lite / rich mode detection and the `lowData` setting |
+| `src/i18n/en.ts` | All English text. `src/i18n/translations/` holds French, Spanish, Portuguese and Arabic |
+| `src/styles/tokens.css` | Colours, type sizes, soft and glass surfaces |
+| `src/mode/` | Lite and rich mode detection and the `lowData` setting |
 | `src/config.ts` | `IMAGE_TREATMENT` (`'original'` or `'duotone'`) |
-| `public/risk-images/` | Copies of `UI_Images/`, renamed `cat-<category>.jpg` |
+| `public/risk-images/` | One illustration per risk category, named `cat-<category>.jpg` |
 
 ## Lite and rich mode
 
@@ -28,4 +30,6 @@ The app always starts in lite mode (system font, no images, blur, waves or metal
 
 ## Routes
 
-`/` Log in · `/risks` · `/todo` · `/alerts` · `/community` · `/community/:riskId` · `/ranking` · `/profile` · `/answer/:riskId`
+Website: `/` home and sign-up, plus web versions of the app pages.
+
+App, under `/app`: `/login` · `/risks` · `/todo` · `/alerts` · `/community` · `/community/:riskId` · `/ranking` · `/profile` · `/answer/:riskId`

@@ -1,5 +1,5 @@
 /*
- * The connected version of mock.ts: the same exports, built from the file that
+ * The app's data, built from the file that
  * `python src/build_demo_data.py` writes. Everything in it is synthetic except
  * the ACAPS risk text. Names are the aliases peers see, never real people.
  */
@@ -41,6 +41,7 @@ interface RawCard {
   country: string;
   area: string;
   image: string;
+  level: RiskLevel | null;
   urgency: string | null;
   probability: string | null;
   impact: number | null;
@@ -96,6 +97,7 @@ interface Bundle {
     domains: { category: string; status: string }[];
     panel: string;
     chats_joined: number;
+    names: Record<string, string>;
     rank: {
       points: number;
       position: number | null;
@@ -137,7 +139,6 @@ const chatEnd = (closes: string) => {
   return at >= generated ? LOADED + (at - generated) : at;
 };
 
-const LEVEL: Record<string, RiskLevel> = { very_urgent: 'High', urgent: 'Medium', watch: 'Low' };
 const PROBABILITIES: Probability[] = ['Very Low', 'Low', 'Medium', 'High', 'Very High'];
 
 function toAnalysis(a: RawAnalysis): RiskAnalysis {
@@ -160,7 +161,8 @@ function toRisk(c: RawCard): Risk {
     title: c.title,
     country: c.country,
     type: '',
-    level: LEVEL[c.urgency ?? ''] ?? 'Low',
+    // ACAPS's own risk level. Two past risks were never rated, so they show as Low
+    level: c.level ?? 'Low',
     probability: PROBABILITIES.find((p) => p === c.probability) ?? 'Medium',
     impact: (c.impact ?? 3) as Impact,
     exposure: c.exposure ?? '',
@@ -207,15 +209,19 @@ export const INITIAL_TODO = [...bundle.todo];
 
 const approved = <T extends { status: string }>(rows: T[]) => rows.filter((r) => r.status === 'approved');
 
+/** The demo expert's display name on each risk: a new one in every chat, so chats cannot be linked. */
+export const MY_NAMES: Record<string, string> = bundle.expert.names;
+
 export const ME: User = {
   id: 'u-kestrel',
-  pseudonym: 'Kestrel',
+  // Shown where no chat is in view, such as the profile picture
+  pseudonym: MY_NAMES.R1043 ?? 'Kestrel',
   name: 'Sam Demo',
   panel: bundle.expert.panel,
   identity: 'pseudonym',
   countries: approved(bundle.expert.countries).map((c) => c.country),
   domains: approved(bundle.expert.domains).map((d) => d.category),
-  // Profile settings: the same synthetic values as mock.ts
+  // Profile settings: synthetic values for the demo
   email: 'sam.demo@example.org',
   country: bundle.expert.panel,
   domain: 'conflict',
@@ -271,7 +277,7 @@ export function seedAnswers(): Answer[] {
       id: `${a.risk_id}-mine`,
       riskId: a.risk_id,
       authorId: ME.id,
-      displayName: ME.pseudonym,
+      displayName: MY_NAMES[a.risk_id] ?? ME.pseudonym,
       identity: ME.identity,
       verdict: a.verdict,
       forecast: toStep(a.forecast),

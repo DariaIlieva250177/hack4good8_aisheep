@@ -235,6 +235,28 @@ def test_every_risk_on_a_screen_has_a_card_and_a_chat(bundle):
     assert ids <= set(bundle["chats"])
 
 
+def test_the_demo_expert_has_a_different_name_on_every_risk(bundle, tables):
+    names = bundle["expert"]["names"]
+    assert set(names) == set(bundle["cards"])
+    assert len(set(names.values())) == len(names)
+    dn = tables["display_names"]
+    mine = dn[dn["expert_id"] == DEMO].set_index("risk_id")["display_name"]
+    assert all(names[rid] == name for rid, name in mine.items())
+    others = dn[dn["expert_id"] != DEMO]
+    assert not any(((others["risk_id"] == rid) & (others["display_name"] == n)).any() for rid, n in names.items())
+
+
+def test_no_saved_file_keeps_a_plain_recovery_code(built):
+    assert "recovery_code" not in built[1].columns
+
+
+def test_cards_carry_the_acaps_risk_level_not_the_urgency(bundle, tables):
+    levels = tables["risks"].set_index("risk_id")["risk_level"]
+    watch = next(rid for rid, c in bundle["cards"].items() if c["urgency"] == "watch")
+    assert bundle["cards"]["R1043"]["level"] == levels["R1043"] == "High"
+    assert bundle["cards"][watch]["level"] == levels[watch] == "Medium"
+
+
 def test_open_cards_carry_the_full_analysis(bundle):
     assert bundle["cards"]["R1043"]["analysis"]["rationale"]
     assert bundle["cards"]["R1043"]["triggers"][0]["title"]

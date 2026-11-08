@@ -4,7 +4,7 @@
  */
 import type { Answer, AnswerInput, AppNotification, Community, Family, IdentityMode, LanguageCode, NotificationPrefs, Ranking, Risk, Topic, User } from './types';
 import { storedLanguage } from '../i18n/language';
-import { COMMUNITIES, INITIAL_STACK, INITIAL_TODO, ME, NOTIFICATIONS, RANKING, RISKS, seedAnswers } from './live';
+import { COMMUNITIES, INITIAL_STACK, INITIAL_TODO, ME, MY_NAMES, NOTIFICATIONS, RANKING, RISKS, seedAnswers } from './live';
 
 const LATENCY_MS = 80;
 const wait = <T>(value: T) => new Promise<T>((resolve) => setTimeout(() => resolve(value), LATENCY_MS));
@@ -45,9 +45,10 @@ function changed() {
 const riskById = (id: string) => state.risks.find((r) => r.id === id);
 const byIds = (ids: string[]) => ids.map(riskById).filter((r): r is Risk => Boolean(r));
 
-export function displayNameFor(user: User): string {
+/** What other experts see. With a pseudonym, the name is different on every risk. */
+export function displayNameFor(user: User, riskId?: string): string {
   if (user.identity === 'name') return user.name;
-  if (user.identity === 'pseudonym') return user.pseudonym;
+  if (user.identity === 'pseudonym') return (riskId && MY_NAMES[riskId]) || user.pseudonym;
   return 'Anonymous expert';
 }
 
@@ -277,7 +278,7 @@ export async function submitAnswer(input: AnswerInput): Promise<Answer> {
     id: existing?.id ?? `${input.riskId}-mine`,
     riskId: input.riskId,
     authorId: state.me.id,
-    displayName: displayNameFor(state.me),
+    displayName: displayNameFor(state.me, input.riskId),
     identity: state.me.identity,
     verdict: input.verdict ?? existing?.verdict ?? null,
     forecast: input.forecast ?? existing?.forecast,
@@ -337,7 +338,7 @@ export async function addComment(answerId: string, text: string): Promise<void> 
       {
         id: `${answerId}-c${Date.now()}`,
         authorId: state.me.id,
-        displayName: displayNameFor(state.me),
+        displayName: displayNameFor(state.me, a.riskId),
         identity: state.me.identity,
         text: text.trim(),
       },

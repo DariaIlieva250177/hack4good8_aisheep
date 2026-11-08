@@ -65,7 +65,6 @@ function PersonalSheet({ me, open, onClose }: { me: User; open: boolean; onClose
 
   const errors = {
     name: !form.name.trim(),
-    pseudonym: !form.pseudonym.trim(),
     email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()),
   };
   const set = (k: keyof typeof form) => (e: { target: { value: string } }) =>
@@ -87,7 +86,7 @@ function PersonalSheet({ me, open, onClose }: { me: User; open: boolean; onClose
     onClose();
   };
 
-  const field = (k: 'name' | 'pseudonym' | 'email', label: string, type = 'text', hint?: string) => (
+  const field = (k: 'name' | 'email', label: string, type = 'text', hint?: string) => (
     <div className="sheet-field">
       <label className="sheet-label" htmlFor={`${id}-${k}`}>
         {label}
@@ -128,7 +127,6 @@ function PersonalSheet({ me, open, onClose }: { me: User; open: boolean; onClose
       }
     >
       {field('name', t.name, 'text', t.nameHint)}
-      {field('pseudonym', t.pseudonym, 'text', t.pseudonymHint)}
       {field('email', t.email, 'email', t.emailHint)}
       <div className="sheet-field">
         <label className="sheet-label" htmlFor={`${id}-country`}>

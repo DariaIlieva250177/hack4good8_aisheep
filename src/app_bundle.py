@@ -6,7 +6,7 @@ import re
 
 import pandas as pd
 
-from synthetic_data import LEVELS, _clean, group_answer
+from synthetic_data import ADJECTIVES, ANIMALS, LEVELS, _clean, group_answer
 
 LINK = re.compile(r"\[([^\]]+)\]\((https?://[^)\s\\]+)\\?\)")
 SPREAD = {level: i for i, level in enumerate(LEVELS)}
@@ -83,7 +83,8 @@ def cards_for(risk_ids, tables, export, full):
         listed = triggers.get_group(rid) if rid in triggers.groups else pd.DataFrame(columns=["trigger_id", "title", "description"])
         cards[rid] = {"risk_id": rid, "title": r["title"], "country": r["country"], "area": _short_area(r["country"]),
                       "category": r["category"], "image": str(r["category_image"]).replace("cat-", ""),
-                      "urgency": r["urgency"], "probability": r["acaps_probability"], "impact": r["impact"],
+                      "level": r["risk_level"], "urgency": r["urgency"],
+                      "probability": r["acaps_probability"], "impact": r["impact"],
                       "exposure": r["expected_exposure"], "status": r["status"],
                       "triggers": [{"id": t["trigger_id"], "title": t["title"], "description": t["description"]}
                                    for _, t in listed.iterrows()],
@@ -188,6 +189,27 @@ def my_answers(tables, demo_expert, results):
     return rows
 
 
+def names_for(expert, risk_ids, tables):
+    """The demo expert's display name on every risk in the app. Where they took part, it is their name in
+    the data. Elsewhere it is the next free name in a fixed order, never used by another expert on that
+    risk or by them on another risk, so their discussions cannot be linked through a name."""
+    dn = tables["display_names"]
+    have = dn[dn["expert_id"] == expert].set_index("risk_id")["display_name"].to_dict()
+    taken_on = dn.groupby("risk_id")["display_name"].agg(set).to_dict()
+    pool = [f"{a} {b}" for a in ADJECTIVES for b in ANIMALS]
+    used = set(have.values())
+    names = {}
+    for i, rid in enumerate(sorted(risk_ids)):
+        if rid in have:
+            names[rid] = have[rid]
+            continue
+        blocked = used | taken_on.get(rid, set())
+        start = (i * 37) % len(pool)
+        names[rid] = next(n for n in pool[start:] + pool[:start] if n not in blocked)
+        used.add(names[rid])
+    return names
+
+
 def add_screens(bundle, tables, export):
     """Adds what the connected screens read to the expert's file."""
     demo_expert = bundle["expert"]["expert_id"]
@@ -203,5 +225,6 @@ def add_screens(bundle, tables, export):
     bundle["todo"] = later
     bundle["my_answers"] = answers
     bundle["cards"] = cards_for(all_ids, tables, export, open_ids)
+    bundle["expert"]["names"] = names_for(demo_expert, bundle["cards"], tables)
     bundle["chats"] = chats_for(open_ids, bundle["results"], tables, demo_expert)
     return bundle

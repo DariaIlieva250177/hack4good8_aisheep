@@ -1,43 +1,19 @@
-# CLAUDE.md — Context for AI Coding Assistants
+# CLAUDE.md: context for AI coding assistants
 
-This is the challenge repository for the **ACAPS Ground Truth** challenge at **Hackathon for Good #8** (6-8 November 2026, The Hague).
+This is **Ground Truth**, a team's solution to the ACAPS challenge at Hackathon for Good #8 (6-8 November 2026, The Hague). Start with `README.md`. The challenge itself is in `docs/challenge-brief.md` and `docs/evaluation-criteria.md`.
 
-## What This Repo Is
+## Parts
 
-A hackathon challenge repository — not a software project. It contains:
-- Challenge documentation (the problem to solve)
-- A dataset (ACAPS Risk Radar export: 139 humanitarian risks across 57 countries)
-- Reference materials (methodology docs)
-- A starter notebook for data exploration
+- `src/`: Python that builds the simulated tables, points, ranks and the expert app's data file. `python src/build_demo_data.py` rebuilds everything.
+- `tests/`: `python -m pytest tests`.
+- `frontend/`: the expert app and the website (React, Vite, TypeScript). Screens read data only through `src/data/api.ts`.
+- `analyst/moderator_mockup_v3.html`: ACAPS's desktop moderator view, one file with its data embedded.
+- `data/risk-radar-export.csv`: the ACAPS Risk Radar export, 139 risks across 57 countries. Demo risk: **R1043** (Chad/Sudan cross-border insecurity).
+- `data/synthetic/`: the generated tables. `data/data_model/data_model.md` explains them.
 
-Participants fork this repo and build their solutions on top of it.
+## Rules
 
-## The Challenge
-
-Build a system for ACAPS to engage a trusted network of humanitarian experts to:
-1. **Ground truth** ACAPS risk analyses (Delphi-style expert validation)
-2. **Forecast** risk outcomes within a six-month horizon (with scoring and "super estimator" tracking)
-
-Key constraints: expert anonymity, minimal time commitment, retention over time, small trusted groups (5-10 per country).
-
-## Repo Structure
-
-```
-docs/           → Challenge brief, methodology, data dictionary, evaluation criteria, resources
-data/           → Risk Radar export (CSV + XLSX), data README
-references/     → ACAPS methodology PDF and infographic
-notebooks/      → Starter data exploration notebook
-```
-
-## Data
-
-- `data/risk-radar-export.csv` — clean CSV, 139 rows, 25 columns
-- Key fields: Risk ID, Risk Title, Country, Probability, Impact, Risk Level, Status
-- Demo risk: **R1043** (Chad/Sudan cross-border insecurity)
-- Text fields may contain multi-line content; triggers field has structured `Trigger ID: / Title: / Description:` format
-
-## Important Notes
-
-- Do not use personal data of real experts — use synthetic users
-- The data is a working export with some quality issues (see `docs/data-dictionary.md`)
-- ACAPS data is used under ACAPS' terms of use
+- Never use personal data of real experts. Every expert, vote and comment is synthetic.
+- Rebuild data with `build_demo_data.py`, not the notebooks: notebook 03 writes `experts.csv` in an old format, and notebook 05 writes the app file without ranks.
+- A moderator must never see an expert code next to an answer. Answers show only the match level.
+- ACAPS data is used under ACAPS' terms of use.

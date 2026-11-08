@@ -895,7 +895,8 @@ def build_all(export_path, cfg=CONFIG):
         "notifications": notifications, "discussion_reads": discussion_reads,
         "moderator_messages": moderator_messages, "chat_summaries": chat_summaries,
     }
-    truth = truth.reset_index().merge(recovery_codes, on="expert_id", how="left")
+    # The plain recovery codes are never saved, not even in the simulation file: only their hash is kept
+    truth = truth.reset_index()
     truth["is_demo_expert"] = truth["expert_id"] == cfg["_demo_expert"]
     return tables, truth
 

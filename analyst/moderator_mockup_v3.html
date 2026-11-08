@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ground Truth</title>
-<link rel="icon" href="/favicon.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%229%22%20fill%3D%22%23004b78%22/%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%227%22%20fill%3D%22none%22%20stroke%3D%22%230096ba%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%222.5%22%20fill%3D%22%23fff%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -758,7 +758,7 @@ fieldset.fld{border:0;padding:0;margin-inline:0}
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="#/picture"><img src="/favicon.svg" alt="" width="26" height="26"><span>Ground Truth</span></a>
+  <a class="brand" href="#/picture"><svg width="26" height="26" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#004b78"/><circle cx="16" cy="16" r="7" fill="none" stroke="#0096ba" stroke-width="3"/><circle cx="16" cy="16" r="2.5" fill="#fff"/></svg><span>Ground Truth</span></a>
   <nav aria-label="Main">
     <a data-nav="picture" href="#/picture">Picture</a>
     <a data-nav="open" href="#/open">Open risks</a>
@@ -1739,7 +1739,7 @@ function linkRow(l) {
   const a = DATA.connect[l.from], b = DATA.connect[l.to];
   return `<button class="lk" data-act="selLink" data-id="${l.id}" aria-pressed="${S.sel === l.id}">
     <span class="lk-line ${cl}"></span>
-    <span><b>${esc(l.name)}</b><small>${esc(a.name)} to ${esc(b.name)}${sameOn(l).length ? ' · same expert point on both' : ''}</small></span>
+    <span><b>${esc(l.name)}</b><small>${esc(a.name)} to ${esc(b.name)}${sameOn(l).length ? ' · the same point appears on both' : ''}</small></span>
     <span class="st">${st === 'confirmed' ? 'Confirmed' : st === 'rejected' ? 'Rejected' : esc(l.strength)}</span>
   </button>`;
 }
@@ -1865,8 +1865,7 @@ function paintInsight() { repaint(() => renderInsight()); }
 
 /* ---------- track ---------- */
 function renderTrack() {
-  const D = DATA.panel, P = { ...D, privacy: { known: D.privacy.known_to_acaps || 0, nobody: (D.privacy.verified_anonymous || 0) + (D.privacy.verified_deleted || 0) } };
-  const LV = [['known', 'ACAPS knows who they are'], ['nobody', 'Nobody knows who they are']];
+  const D = DATA.panel, P = D, LV = LEVELS;
   const tot = LV.reduce((s, [k]) => s + (P.privacy[k] || 0), 0) || 1;
   const fit = n => (n < 5 ? '<span class="pn-low">Fewer than 5</span>' : n > 10 ? '<span class="pn-high">More than 10</span>' : '<span class="muted">Within 5 to 10</span>');
   view.innerHTML = `<div class="pn scroll"><div class="pn-in">
@@ -1942,12 +1941,12 @@ function renderOpen() {
 /* ---------- approvals ---------- */
 const apKeys = x => [...x.countries.map(c => 'country:' + c.name), ...x.fields.map(f => 'field:' + f.name)];
 function apCard(x) {
-  const st = (S.ap[x.id] = S.ap[x.id] || { items: {} }), nobody = x.privacy !== 'known_to_acaps', keys = apKeys(x), decided = keys.filter(k => st.items[k]).length;
+  const st = (S.ap[x.id] = S.ap[x.id] || { items: {} }), keys = apKeys(x), decided = keys.filter(k => st.items[k]).length;
   const item = (kind, it) => { const key = kind + ':' + it.name, v = st.items[key];
     return `<li><span>${esc(it.name)}</span>${st.sent ? `<b>${v === 'deny' ? 'Denied' : 'Approved'}</b>` : `<span class="ap-btns"><button class="chip" data-act="apSet" data-id="${x.id}" data-key="${esc(key)}" data-v="approve" aria-pressed="${v === 'approve'}">Approve</button><button class="chip" data-act="apSet" data-id="${x.id}" data-key="${esc(key)}" data-v="deny" aria-pressed="${v === 'deny'}">Deny</button></span>`}</li>`; };
   return `<article class="ap${st.sent ? ' done' : ''}">
-    <header><h2>${esc(x.name || x.id)}</h2><span class="muted">Applied ${esc(fmtISO(x.registered))} · ${nobody ? 'chose: nobody knows who they are' : 'chose: ACAPS knows who they are'}</span>${st.sent ? '<span class="tag tag-i">Decided</span>' : ''}</header>
-    ${nobody && !st.sent ? '<p class="ap-note">Once you decide, their name, contact details, documents and background are deleted. Only their ID, approved countries and fields, password and recovery code stay.</p>' : ''}
+    <header><h2>${esc(x.name || x.id)}</h2><span class="muted">Applied ${esc(fmtISO(x.registered))} · chose: ${esc(PRIV(x.privacy))}</span>${st.sent ? '<span class="tag tag-i">Decided</span>' : ''}</header>
+    ${!st.sent && APNOTE[x.privacy] ? `<p class="ap-note">${APNOTE[x.privacy]}</p>` : ''}
     <div class="ap-grid">
       <div><h3>About them</h3>${x.org ? `<p>${esc(x.org)}</p>` : ''}${x.education ? `<p>${esc(x.education)}</p>` : ''}${x.comment ? `<p class="serif ap-quote">\u201c${esc(x.comment)}\u201d</p>` : ''}
         <h3>What they uploaded</h3><ul class="ap-docs">${x.docs.map(d => `<li><span class="ap-file">${esc(d.file)}</span> <span class="muted">${esc(d.type)}${d.supports ? `, for ${esc(d.supports)}` : ''}</span></li>`).join('') || '<li class="muted">Nothing uploaded</li>'}</ul></div>
@@ -1972,7 +1971,18 @@ function renderApprove() {
 const ORD = n => n + ((n % 100 >= 11 && n % 100 <= 13) ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[n % 10] || 'th'));
 const countryHref = c => `#/country/${encodeURIComponent(c)}`;
 const countryLinks = r => r.countries.map(c => (DATA.countries[c] ? `<a href="${countryHref(c)}">${esc(c)}</a>` : esc(c))).join(', ');
-const PRIV = p => (p === 'known_to_acaps' ? 'ACAPS knows who they are' : 'Nobody knows who they are');
+/* The three anonymity levels, named as in the README */
+const LEVELS = [['known_to_acaps', 'Known to ACAPS'], ['verified_anonymous', 'Verified anonymous'], ['verified_deleted', 'Verified, then deleted']];
+const PRIV = p => (LEVELS.find(([k]) => k === p) || [p, p])[1];
+const KEPT = {
+  known_to_acaps: 'ACAPS holds their name and documents. They are not shown here.',
+  verified_anonymous: 'Their name and documents sit in a separate table that only a few ACAPS staff can open. They are not shown here.',
+  verified_deleted: 'Their name, contact details and documents were deleted after approval.',
+};
+const APNOTE = {
+  verified_anonymous: 'Once you decide, their name, contact details and documents move to a separate table that only a few ACAPS staff can open. This view never shows them.',
+  verified_deleted: 'Once you decide, their name, contact details, documents and background are deleted. Only their ID, approved countries and fields, and a hash of their recovery code stay.',
+};
 const EXP = Object.fromEntries(DATA.experts.map(e => [e.id, e]));
 const rankText = e => (e.rank ? `${ORD(e.rank.position)} of ${DATA.rankedOutOf}` : 'No rank yet');
 const codeBtn = id => `<button class="code-l" data-act="acct" data-id="${esc(id)}">${esc(id)}</button>`;
@@ -2069,9 +2079,9 @@ function renderCountry(name) {
 
 /* ---------- expert accounts ---------- */
 function xpList() {
-  const f = S.xp, busy = e => e.round.answered + e.round.written;
+  const f = S.xp, busy = e => e.round.answered;
   return DATA.experts
-    .filter(e => (!f.country || e.countries.includes(f.country)) && (f.privacy === 'all' || (f.privacy === 'known') === (e.privacy === 'known_to_acaps')))
+    .filter(e => (!f.country || e.countries.includes(f.country)) && (f.privacy === 'all' || e.privacy === f.privacy))
     .sort(f.sort === 'active'
       ? (a, b) => busy(b) - busy(a) || (b.last || '').localeCompare(a.last || '')
       : (a, b) => (a.rank ? a.rank.position : 1e9) - (b.rank ? b.rank.position : 1e9) || a.id.localeCompare(b.id));
@@ -2079,14 +2089,13 @@ function xpList() {
 function xpSection() {
   const f = S.xp, list = xpList();
   const countries = [...new Set(DATA.experts.flatMap(e => e.countries))].sort();
-  const n = k => DATA.experts.filter(e => (k === 'known') === (e.privacy === 'known_to_acaps')).length;
+  const n = k => DATA.experts.filter(e => e.privacy === k).length;
   return `<section class="pn-card" id="allExperts"><h2>All experts <small>open a code to see the account</small></h2>
     <div class="row xp-tools">
       <label class="sr" for="xpCountry">Country</label>
       <select id="xpCountry" class="sel" data-xp="country"><option value="">All countries</option>${countries.map(c => `<option${c === f.country ? ' selected' : ''}>${esc(c)}</option>`).join('')}</select>
       <button class="chip" data-act="xpPrivacy" data-id="all" aria-pressed="${f.privacy === 'all'}">Everyone <small>${DATA.experts.length}</small></button>
-      <button class="chip" data-act="xpPrivacy" data-id="known" aria-pressed="${f.privacy === 'known'}">ACAPS knows who they are <small>${n('known')}</small></button>
-      <button class="chip" data-act="xpPrivacy" data-id="nobody" aria-pressed="${f.privacy === 'nobody'}">Nobody knows who they are <small>${n('nobody')}</small></button>
+      ${LEVELS.map(([k, l]) => `<button class="chip" data-act="xpPrivacy" data-id="${k}" aria-pressed="${f.privacy === k}">${l} <small>${n(k)}</small></button>`).join('')}
       <span class="grow"></span>
       <div class="seg" role="group" aria-label="Sort"><button data-act="xpSort" data-id="rank" aria-pressed="${f.sort === 'rank'}">By rank</button><button data-act="xpSort" data-id="active" aria-pressed="${f.sort === 'active'}">Most active</button></div>
     </div>
@@ -2105,7 +2114,7 @@ function xpSection() {
 function accountHTML(e) {
   return `<div class="acc">
     <p class="acc-top"><span class="pill">${PRIV(e.privacy)}</span><span class="small muted">Member since ${fmtISO(e.since)} · ${e.last ? `last active ${fmtISO(e.last)}` : 'not active yet'}</span></p>
-    <p class="acc-note">${e.privacy === 'known_to_acaps' ? 'ACAPS holds their name and documents. They are not shown here.' : 'Their name, contact details and documents were deleted after approval.'} Answers never show this code.</p>
+    <p class="acc-note">${KEPT[e.privacy] || ''} Answers never show this code.</p>
     <h3>Rank</h3>
     ${e.rank ? `<p><b>${rankText(e)}</b> overall, ${plural(e.rank.points, 'point')}</p>` : '<p>No rank yet. They need 5 or more scored forecasts.</p>'}
     ${e.groups.length ? `<ul class="acc-list">${e.groups.map(g => `<li><span>${esc(g.name)} <span class="muted">${g.type}</span></span><span>${ORD(g.position)} of ${g.outOf}</span></li>`).join('')}</ul>` : ''}

@@ -34,7 +34,6 @@ desktop.ini
 
 # Node (if teams use JS/TS)
 node_modules/
-package-lock.json
 yarn.lock
 
 # Data artifacts (keep original data, ignore generated)

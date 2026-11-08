@@ -10,7 +10,7 @@ import { en } from '../i18n/en';
 import './Ranking.css';
 
 /*
- * Ranking in the "luxury rose gold pearl" design (UI_Images reference):
+ * Ranking in the "luxury rose gold pearl" design:
  * a rose gold laurel medal with the rank as a Roman numeral, a live round
  * countdown, a certificate carousel and a pearl-toned contributions globe.
  */

@@ -12,9 +12,9 @@ export const en = {
   appName: 'AI Sheep',
 
   levels: {
-    High: 'Very urgent',
-    Medium: 'Urgent',
-    Low: 'Watch',
+    High: 'High risk',
+    Medium: 'Medium risk',
+    Low: 'Low risk',
   } satisfies Record<RiskLevel, string>,
 
   families: {
@@ -191,7 +191,7 @@ export const en = {
     },
     identityHelp: {
       name: (name: string) => `Peers see “${name}”.`,
-      pseudonym: (p: string) => `Peers see “${p}”.`,
+      pseudonym: (p: string) => `Peers see a new name in every chat, such as “${p}”.`,
       anonymous: 'Peers see “Anonymous expert”.',
     },
     privacyHelp: 'Whatever you choose, nothing you write is ever shown to the public.',
@@ -252,8 +252,8 @@ export const en = {
       thisDevice: 'This device',
       sessionList: [
         { device: 'Browser on this computer', when: 'Now' },
-        { device: 'Android phone, N’Djamena', when: '2 days ago' },
-        { device: 'Laptop, Abéché', when: '3 weeks ago' },
+        { device: 'Android phone', when: '2 days ago' },
+        { device: 'Laptop', when: '3 weeks ago' },
       ],
       signOutOthers: 'Log out of all other devices',
       signedOutOthers: 'Logged out of all other devices.',
@@ -288,9 +288,9 @@ export const en = {
 
   todo: {
     title: 'To-do',
-    urgent: 'Very urgent',
-    moderate: 'Urgent',
-    low: 'Watch',
+    urgent: 'High risk',
+    moderate: 'Medium risk',
+    low: 'Low risk',
     toAnswer: (n: number) => `${n} to answer`,
     removed: 'Removed from To-do.',
     removeLabel: (title: string) => `Remove from To-do: ${title}`,
@@ -318,7 +318,7 @@ export const en = {
     likelihood: 'How likely is this to happen?',
     likelihoodUnset: 'Not set yet',
     scale: ['Very unlikely', 'Unlikely', 'Even chance', 'Likely', 'Very likely'],
-    note: (name: string) => `Shared with your panel as ${name}. Never shown to the public.`,
+    note: (name: string) => `Other experts see this as ${name}. Never shown to the public.`,
     sent: 'Sent. You’ll see the group’s view when the chat closes.',
   },
 
@@ -467,7 +467,7 @@ export const en = {
     cv: 'CV',
     chooseCv: 'Upload your CV',
     needsCv: 'Upload your CV.',
-    articles: 'Articles where you were cited',
+    articles: 'Articles where you were cited (optional)',
     chooseArticles: 'Upload articles',
     addMoreArticles: 'Add more articles',
     needsArticles: 'Upload at least one article where you were cited.',
@@ -533,7 +533,7 @@ export const en = {
     others: 'Other communities',
     members: (m: number) => `${m} members`,
     newCount: (c: number) => `${c} new`,
-    youAppearAs: (name: string) => `You appear as ${name} in these chats`,
+    youAppearAs: 'You get a new name in every chat, so nobody can link your chats.',
     unreadTotal: (n: number) => `${n} unread`,
     openToExplore: 'open to explore',
     active: 'Active',
