@@ -6,7 +6,9 @@
 
 **Repository:** https://github.com/DariaIlieva250177/hack4good8_aisheep
 
-**Demo:** screenshots and run steps are in the [README](../README.md)
+**Demo:** https://mellow-pithivier-3abcbb.netlify.app (expert app at [/app](https://mellow-pithivier-3abcbb.netlify.app/app), analyst view at [/analyst](https://mellow-pithivier-3abcbb.netlify.app/analyst))
+
+**Video:** https://youtu.be/tfIt53hhEKY
 
 ## Description
 

@@ -4,6 +4,10 @@ A small, moderated network of humanitarian experts who check and forecast ACAPS 
 
 Built for [ACAPS](https://www.acaps.org/) at Hackathon for Good #8, The Hague, 6-8 November 2026. Read the [challenge brief](docs/challenge-brief.md).
 
+**Try it, nothing to install:** [website](https://mellow-pithivier-3abcbb.netlify.app) · [expert app](https://mellow-pithivier-3abcbb.netlify.app/app) · [analyst view](https://mellow-pithivier-3abcbb.netlify.app/analyst) · [demo video](https://youtu.be/tfIt53hhEKY)
+
+The expert app's login accepts any username and password. Everything runs on simulated data, and changes reset when the page reloads.
+
 <p align="center">
   <img src="docs/images/app-card.jpg" width="250" alt="The expert app's card for R1043, cross-border insecurity in eastern Chad, marked High risk">
   <img src="docs/images/app-answer.jpg" width="250" alt="The answer screen for R1043: agree or disagree with the statement">
