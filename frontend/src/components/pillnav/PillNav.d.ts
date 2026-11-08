@@ -3,7 +3,8 @@ import type { CSSProperties, ElementType, MouseEvent, ReactElement, ReactNode } 
 /* Types for PillNav.jsx (kept as provided, in plain JavaScript). */
 
 export interface PillNavItem {
-  label: string;
+  /** Usually text; can include a small badge (e.g. a count) */
+  label: ReactNode;
   href?: string;
   icon?: ReactNode;
   ariaLabel?: string;

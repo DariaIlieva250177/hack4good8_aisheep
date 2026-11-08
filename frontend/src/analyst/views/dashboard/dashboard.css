@@ -1,0 +1,714 @@
+/* Custom dashboard: the board (12-column grid) on the left, the component list on the right */
+
+.av .db {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 22px;
+  align-items: start;
+  padding: 22px 26px 40px 34px;
+}
+
+/* ---------- header ---------- */
+.av .db-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px 24px;
+  margin-bottom: 18px;
+}
+.av .db-head h1 {
+  font-size: 46px;
+  line-height: 1;
+}
+.av .db-head .sub {
+  max-inline-size: 720px;
+  margin: 8px 0 0;
+}
+.av .db-actions {
+  display: flex;
+  gap: 8px;
+}
+.av .db-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  block-size: 40px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--panel);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  font: 600 14px/1 var(--sans);
+}
+.av .db-btn svg {
+  inline-size: 16px;
+  block-size: 16px;
+  color: var(--teal);
+}
+.av .db-btn:hover:not(:disabled) {
+  color: var(--teal);
+}
+.av .db-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ---------- the board ---------- */
+.av .db-board {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  min-block-size: 420px;
+  padding: 4px;
+  border-radius: 26px;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.av .db-board.is-target {
+  background: rgba(1, 150, 186, 0.05);
+  box-shadow: inset 0 0 0 2px rgba(1, 150, 186, 0.25);
+}
+.av .db-sm {
+  grid-column: span 4;
+}
+.av .db-md {
+  grid-column: span 6;
+}
+.av .db-lg {
+  grid-column: span 8;
+}
+.av .db-xl {
+  grid-column: span 12;
+}
+
+.av .db-card {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  border-radius: 22px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: db-in 0.25s ease-out;
+}
+@keyframes db-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.99);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .av .db-card {
+    animation: none;
+  }
+}
+.av .db-card.is-dragging {
+  opacity: 0.4;
+}
+.av .db-card__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 12px 8px 8px;
+}
+.av .db-card__head h2 {
+  flex: 1;
+  min-inline-size: 0;
+  font-size: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.av .db-handle {
+  display: grid;
+  place-items: center;
+  inline-size: 26px;
+  block-size: 30px;
+  border-radius: 8px;
+  color: var(--ink2);
+  cursor: grab;
+}
+.av .db-handle:hover {
+  background: var(--panel-2);
+  color: var(--ink);
+}
+.av .db-handle:active {
+  cursor: grabbing;
+}
+.av .db-handle svg,
+.av .db-card__icon svg {
+  inline-size: 17px;
+  block-size: 17px;
+}
+.av .db-card__icon {
+  display: grid;
+  place-items: center;
+  inline-size: 30px;
+  block-size: 30px;
+  border-radius: 9px;
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+.av .db-card {
+  position: relative;
+}
+/* the card's tools appear over the right of its header on hover or keyboard focus,
+   so even small cards keep their full title */
+.av .db-card__tools {
+  position: absolute;
+  inset-block-start: 9px;
+  inset-inline-end: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 4px 3px 10px;
+  border-radius: 999px;
+  background: var(--panel);
+  box-shadow: -14px 0 14px -4px var(--panel);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.av .db-card:hover .db-card__tools,
+.av .db-card:focus-within .db-card__tools {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (hover: none) {
+  .av .db-card__tools {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: none;
+  }
+}
+.av .db-sizes {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--panel-2);
+}
+.av .db-sizes button {
+  min-inline-size: 26px;
+  block-size: 24px;
+  padding: 0 7px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--ink2);
+  font: 600 11.5px/1 var(--sans);
+}
+.av .db-sizes button[aria-pressed='true'] {
+  background: var(--teal);
+  color: #fff;
+}
+.av .db-icon-btn {
+  display: grid;
+  place-items: center;
+  inline-size: 28px;
+  block-size: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--ink2);
+}
+.av .db-icon-btn svg {
+  inline-size: 15px;
+  block-size: 15px;
+}
+.av .db-icon-btn:hover:not(:disabled) {
+  background: var(--panel-2);
+  color: var(--ink);
+}
+.av .db-icon-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.av .db-remove:hover:not(:disabled) {
+  color: var(--high);
+}
+.av .db-card__body {
+  padding: 4px 18px 18px;
+  min-inline-size: 0;
+}
+
+.av .db-drop {
+  display: grid;
+  place-items: center;
+  min-block-size: 160px;
+  border: 2px dashed var(--teal);
+  border-radius: 22px;
+  background: rgba(1, 150, 186, 0.08);
+  color: var(--teal);
+  font: 600 14px/1 var(--sans);
+}
+
+.av .db-empty {
+  grid-column: 1 / -1;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 90px 20px;
+  border: 2px dashed var(--line);
+  border-radius: 24px;
+  color: var(--ink2);
+  text-align: center;
+}
+.av .db-empty svg {
+  inline-size: 34px;
+  block-size: 34px;
+  color: var(--teal);
+}
+.av .db-empty b {
+  font: 700 20px/1.2 var(--cond);
+  color: var(--ink);
+}
+
+/* ---------- the component list ---------- */
+.av .db-palette {
+  position: sticky;
+  top: 22px;
+  display: flex;
+  flex-direction: column;
+  max-block-size: calc(100vh - 140px);
+  border-radius: 22px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: box-shadow 0.15s;
+}
+.av .db-palette.is-remove {
+  box-shadow: var(--shadow), inset 0 0 0 2px var(--high);
+}
+.av .db-palette__head {
+  padding: 18px 18px 10px;
+  border-bottom: 1px solid var(--line);
+}
+.av .db-palette__head h2 {
+  font-size: 19px;
+}
+.av .db-palette__head p {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--ink2);
+}
+.av .db-palette__remove {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 12px 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(184, 22, 60, 0.12);
+  color: var(--high);
+  font: 600 13.5px/1.2 var(--sans);
+}
+.av .db-palette__remove svg {
+  inline-size: 16px;
+  block-size: 16px;
+}
+.av .db-palette__list {
+  overflow: auto;
+  /* room at the end so the last items scroll clear of the floating Light/Dark switch */
+  padding: 6px 12px 64px;
+  scrollbar-width: thin;
+}
+.av .db-group h3 {
+  margin: 12px 6px 6px;
+  font: 700 11.5px/1 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink2);
+}
+.av .db-group ul {
+  display: grid;
+  gap: 6px;
+}
+.av .db-tile {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 8px 8px 9px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  cursor: grab;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.av .db-tile:hover:not(.is-used) {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(-2px);
+}
+.av .db-tile:active:not(.is-used) {
+  cursor: grabbing;
+}
+.av .db-tile.is-used {
+  cursor: default;
+  opacity: 0.55;
+}
+.av .db-tile__icon {
+  display: grid;
+  place-items: center;
+  inline-size: 34px;
+  block-size: 34px;
+  border-radius: 10px;
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+.av .db-tile__icon svg {
+  inline-size: 17px;
+  block-size: 17px;
+}
+.av .db-tile__text {
+  display: grid;
+  gap: 2px;
+  min-inline-size: 0;
+}
+.av .db-tile__text b {
+  font: 600 14px/1.2 var(--sans);
+}
+.av .db-tile__text small {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12.5px;
+  color: var(--ink2);
+}
+.av .db-tile__add {
+  display: grid;
+  place-items: center;
+  inline-size: 30px;
+  block-size: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+}
+.av .db-tile__add svg {
+  inline-size: 16px;
+  block-size: 16px;
+}
+.av .db-tile__add:disabled {
+  background: var(--panel-2);
+  color: var(--teal);
+  cursor: default;
+}
+
+/* ---------- inside the components ---------- */
+.av .dw-ring {
+  position: relative;
+  flex: none;
+  display: inline-block;
+}
+.av .dw-ring svg {
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: visible;
+}
+.av .dw-ring circle {
+  fill: none;
+  stroke-width: 7.5;
+}
+.av .dw-ring__track {
+  stroke: rgba(11, 29, 51, 0.1);
+}
+.av[data-mode='dark'] .dw-ring__track {
+  stroke: rgba(255, 255, 255, 0.09);
+}
+.av .dw-ring__value {
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 3px rgba(1, 150, 186, 0.45));
+}
+.av .dw-ring b {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font: 700 13px/1 var(--sans);
+}
+.av .dw-split .dw-ring b {
+  font-size: 19px;
+}
+
+.av .dw-nums {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+.av .dw-nums li {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--panel-2);
+}
+.av .dw-nums b {
+  display: block;
+  font: 800 26px/1 var(--cond);
+}
+.av .dw-nums span {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--ink2);
+}
+
+.av .dw-attn {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 16px;
+  background: var(--hero);
+  color: var(--hero-ink);
+  box-shadow: var(--hero-ring);
+}
+.av .dw-attn li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+.av .dw-attn b {
+  font: 800 20px/1 var(--cond);
+}
+.av .dw-attn__icon {
+  display: grid;
+  place-items: center;
+  inline-size: 34px;
+  block-size: 34px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #7fdcf2;
+}
+.av .dw-attn__icon svg {
+  inline-size: 17px;
+  block-size: 17px;
+}
+
+.av .dw-map.stage {
+  position: relative;
+  block-size: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.av .db-xl .dw-map.stage {
+  block-size: 440px;
+}
+
+.av .dw-split {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.av .dw-legend {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+.av .dw-legend b {
+  font-weight: 800;
+}
+.av .dw-legend--row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 10px;
+  font-size: 13.5px;
+}
+.av .dw-legend--row i {
+  display: inline-block;
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: 3px;
+  margin-inline-end: 4px;
+  vertical-align: -1px;
+}
+
+.av .dw-list {
+  display: grid;
+  gap: 4px;
+}
+.av .dw-list__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  inline-size: 100%;
+  padding: 8px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--ink);
+  text-align: start;
+  text-decoration: none;
+  font: inherit;
+}
+a.dw-list__row:hover,
+button.dw-list__row:hover {
+  background: var(--panel-2);
+}
+.av .dw-log li {
+  display: flex;
+  gap: 12px;
+  padding: 8px;
+}
+.av .dw-list__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  inline-size: 34px;
+  block-size: 34px;
+  border-radius: 10px;
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+.av .dw-list__icon svg {
+  inline-size: 16px;
+  block-size: 16px;
+}
+.av .dw-list__main {
+  display: grid;
+  gap: 2px;
+  min-inline-size: 0;
+  flex: 1;
+}
+.av .dw-list__main b {
+  font: 600 14px/1.3 var(--sans);
+}
+.av .dw-list__main small {
+  font-size: 12.5px;
+  color: var(--ink2);
+}
+.av .dw-list__side {
+  flex: none;
+  font-size: 13px;
+  color: var(--ink2);
+  white-space: nowrap;
+}
+.av .dw-list__side b {
+  color: var(--ink);
+}
+
+.av .dw-bars {
+  display: grid;
+  gap: 10px;
+}
+.av .dw-bars li {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.9fr) minmax(0, 1.4fr) auto;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+.av .dw-bars__label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+.av a.dw-bars__label:hover {
+  color: var(--teal);
+}
+.av .dw-bars__label small {
+  font-weight: 400;
+  color: var(--ink2);
+}
+.av .dw-bars__track {
+  block-size: 9px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  overflow: hidden;
+}
+.av .dw-bars__track i {
+  display: block;
+  block-size: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7fdcf2, #0196ba);
+}
+.av .dw-bars b {
+  min-inline-size: 64px;
+  text-align: end;
+  font-size: 13.5px;
+}
+
+.av .dw-t {
+  font-size: 14px;
+}
+.av .dw-t .num {
+  text-align: end;
+}
+.av .dw-t .nw {
+  white-space: nowrap;
+}
+.av .dw-scroll {
+  max-block-size: 300px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.av .dw-scroll thead th {
+  position: sticky;
+  top: 0;
+  background: var(--panel);
+}
+.av .dw-note,
+.av .dw-empty {
+  font-size: 13.5px;
+  color: var(--ink2);
+}
+.av .dw-note {
+  margin-bottom: 10px;
+}
+.av .dw-empty {
+  padding: 18px 4px;
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1300px) {
+  .av .db-sm {
+    grid-column: span 6;
+  }
+  .av .db-md,
+  .av .db-lg {
+    grid-column: span 12;
+  }
+}
+@media (max-width: 1000px) {
+  .av .db {
+    grid-template-columns: 1fr;
+  }
+  .av .db-palette {
+    position: static;
+    max-block-size: none;
+  }
+  .av .db-sm {
+    grid-column: span 12;
+  }
+}
+
+/* ---------- note ---------- */
+.av .dw-note-text {
+  display: block;
+  inline-size: 100%;
+  min-block-size: 150px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel-2);
+  color: var(--ink);
+  font: 400 15px/1.5 var(--sans);
+  resize: vertical;
+}
+.av .dw-note-text::placeholder {
+  color: var(--ink2);
+}
+.av .dw-note-text:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(1, 150, 186, 0.15);
+}

@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { ModeProvider } from './mode/ModeContext';
 import { ThemeProvider } from './mode/ThemeContext';
@@ -21,18 +22,30 @@ import { Landing } from './screens/Landing';
 /** Where the phone app lives. Its own links (/risks, /todo…) resolve under it. */
 export const APP_BASE = '/app';
 
+/** ACAPS's analyst view (for the ACAPS team), loaded only when opened: its data is large. */
+const ANALYST_BASE = '/analyst';
+const AnalystApp = lazy(() => import('./analyst/AnalystApp'));
+
 /*
- * Two sites in one bundle, each with its own router:
+ * Three sites in one bundle, each with its own router:
  * - the website at "/": the home page plus web versions of every page,
  *   laid out for a desktop browser, with the PillNav menu;
- * - the phone app at "/app": unchanged, in the phone frame on desktop.
- * Going from one to the other is a normal page load, so their menus never mix.
+ * - the phone app at "/app": unchanged, in the phone frame on desktop;
+ * - the analyst view at "/analyst": for ACAPS's team, with the same menu.
+ * Going from one to another is a normal page load, so their menus never mix.
  */
 export default function App() {
-  const isApp = window.location.pathname === APP_BASE || window.location.pathname.startsWith(`${APP_BASE}/`);
+  const under = (base: string) => window.location.pathname === base || window.location.pathname.startsWith(`${base}/`);
   // Changing language re-renders everything in the new language (the key remounts the tree)
   const language = useLanguage();
-  return <ModeProvider key={language}>{isApp ? <PhoneApp /> : <Website />}</ModeProvider>;
+  if (under(ANALYST_BASE)) {
+    return (
+      <Suspense fallback={null}>
+        <AnalystApp />
+      </Suspense>
+    );
+  }
+  return <ModeProvider key={language}>{under(APP_BASE) ? <PhoneApp /> : <Website />}</ModeProvider>;
 }
 
 function Website() {

@@ -1,0 +1,3 @@
+/* The notebook beside a risk (only with ?tabs): the page CSS makes .ws one column. */
+.av .ws.ws-dock{grid-template-columns:minmax(0,1fr) 380px!important}
+@media (max-width:1180px){.av .ws.ws-dock{grid-template-columns:minmax(0,1fr) 320px!important}}
