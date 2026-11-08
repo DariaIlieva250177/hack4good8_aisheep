@@ -3,8 +3,9 @@ import re
 
 import pytest
 
-from build_demo_data import SPOT_ON_EXAMPLE, build
+from build_demo_data import EXPORT, SPOT_ON_EXAMPLE, build
 from points import SPOT_ON_BONUS
+from synthetic_data import CONFIG, build_all
 
 
 @pytest.fixture(scope="module")
@@ -29,6 +30,26 @@ def test_demo_expert_has_a_track_record_and_matching_rank(built):
     assert rank["points"] == row.points == row.forecast_points + SPOT_ON_BONUS
     assert rank["position"] == row.position
     assert rank["out_of"] == ranks.position.notna().sum()
+
+
+def test_the_demo_expert_holds_a_top_place(built):
+    rank = built[3]["expert"]["rank"]
+    chad = next(g for g in rank["groups"] if g["name"] == "Chad")
+    assert rank["position"] <= 10
+    assert chad["position"] == 1
+
+
+def test_a_stronger_demo_expert_changes_only_their_own_forecasts(built):
+    tables, _, _, bundle = built
+    demo = bundle["expert"]["expert_id"]
+    weaker, _ = build_all(EXPORT, {**CONFIG, "demo_skill": None})
+    assert tables["stances"].equals(weaker["stances"])
+    assert tables["comments"].equals(weaker["comments"])
+    now, before = tables["forecasts"], weaker["forecasts"]
+    assert now[now.expert_id != demo].equals(before[before.expert_id != demo])
+    mine, mine_before = now[now.expert_id == demo], before[before.expert_id == demo]
+    assert len(mine) == len(mine_before)
+    assert (mine.answer_level.values != mine_before.answer_level.values).any()
 
 
 def test_experts_under_the_minimum_have_no_position(built):

@@ -50,7 +50,7 @@
 <body>
 <main>
   <h1>Ground Truth data model</h1>
-  <p class="lead">All 31 tables the data build makes, and how they connect. Risks, countries, triggers and outcomes are real ACAPS data; everything about experts is synthetic. Each box shows the main fields; every field is described in <code>docs/data_model.md</code>.</p>
+  <p class="lead">All 33 tables the data build makes, and how they connect. Risks, countries, triggers and outcomes are real ACAPS data; everything about experts is synthetic. Each box shows the main fields; every field is described in <code>docs/data_model.md</code>.</p>
 
   <ul class="legend" aria-label="Table groups">
     <li><span class="swatch" data-group="acaps"></span>ACAPS data (real)</li>
@@ -77,7 +77,8 @@
     <li>"Verified, then deleted" experts lose their name, organisation, email and documents after approval.</li>
     <li>Display names are never stored with the expert: a new random name for every risk, kept within that risk's discussion.</li>
     <li>An opinion can be changed once; the change shows as "Changed opinion" in the same discussion.</li>
-    <li>Triggers come from ACAPS; an expert's suggestion is added only after ACAPS accepts it, without showing who suggested it.</li>
+    <li>Triggers come from ACAPS. An expert who thinks one is missing says so in their answer.</li>
+    <li>An expert can send a risk statement as a suggested card. The moderator approves or rejects it, then posts it as a new risk.</li>
     <li>Card colours: <span class="dot" style="background:#D64545"></span>red (very urgent), <span class="dot" style="background:#E8873A"></span>orange (urgent), <span class="dot" style="background:#E8C547"></span>yellow (every other risk). There is no green.</li>
   </ul>
 
@@ -86,7 +87,7 @@
     <table>
       <thead><tr><th>Table</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td><code>discussion_threads</code>, <code>private_messages</code></td><td>Public threads and private discussions between two experts</td></tr>
+        <tr><td><code>discussion_threads</code>, <code>private_messages</code></td><td>Public threads and private discussions between two experts. Moderators can never read private chats</td></tr>
         <tr><td><code>notification_tokens</code>, <code>notification_addresses</code></td><td>Alerts for anonymous experts, stored apart from answers</td></tr>
         <tr><td><code>client_requests</code></td><td>Expert panel analysis on request</td></tr>
         <tr><td><code>moderation_log</code></td><td>Every approval, denial and edit by ACAPS staff</td></tr>
@@ -111,7 +112,7 @@ const TABLE_GROUP = {
   experts:'people', expert_identity:'people', expert_countries:'people', expert_domains:'people',
   application_documents:'people', anonymity_history:'people', moderators:'people',
   expert_risk_matches:'match', display_names:'match',
-  risk_windows:'publish', forecast_questions:'publish', countries:'publish', notifications:'publish', discussion_reads:'publish', ranks:'publish', group_ranks:'publish', contributions:'publish',
+  risk_windows:'publish', forecast_questions:'publish', countries:'publish', notifications:'publish', discussion_reads:'publish', moderator_messages:'publish', chat_summaries:'publish', ranks:'publish', group_ranks:'publish', contributions:'publish',
   card_swipes:'activity', todo_items:'activity', stances:'activity', comments:'activity', sources:'activity',
   comment_likes:'activity', forecasts:'activity', suggestions:'activity', discussion_views:'activity',
 };
@@ -160,7 +161,11 @@ const definition = `erDiagram
   forecast_questions ||--o{ forecasts : receives
   experts ||--o{ forecasts : makes
   experts ||--o{ suggestions : sends
-  suggestions |o--o| triggers : "accepted as"
+  suggestions |o--o| risks : "posted as"
+  moderators ||--o{ moderator_messages : posts
+  risks ||--o{ moderator_messages : "shown on"
+  moderators ||--o{ chat_summaries : writes
+  risks ||--o| chat_summaries : "closed with"
   experts ||--o{ discussion_views : reads
   risks ||--o{ discussion_views : "read in"
   categories {
@@ -203,7 +208,6 @@ const definition = `erDiagram
     string risk_id FK
     string title
     string source
-    string suggestion_id FK
   }
   experts {
     string expert_id PK
@@ -372,10 +376,25 @@ const definition = `erDiagram
   suggestions {
     string suggestion_id PK
     string expert_id FK
-    string type
-    string risk_id FK
-    string title
+    string statement
+    string area
+    string why
     string status
+    string posted_risk_id FK
+  }
+  moderator_messages {
+    string message_id PK
+    string risk_id FK
+    string moderator_id FK
+    string text
+    date posted_at
+  }
+  chat_summaries {
+    string summary_id PK
+    string risk_id FK
+    string moderator_id FK
+    string text
+    date written_at
   }
   discussion_views {
     string expert_id FK

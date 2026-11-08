@@ -220,7 +220,7 @@ export function AnswerDetail() {
           canCommit={validate}
           onFuseEnd={send}
         />
-        {me && <p className="t-small t-muted answer__note">{en.answer.note(displayNameFor(me))}</p>}
+        {me && <p className="t-small t-muted answer__note">{en.answer.note(displayNameFor(me, risk.id))}</p>}
       </form>
 
       {/* replace: the sent form shouldn't be one Back press away */}

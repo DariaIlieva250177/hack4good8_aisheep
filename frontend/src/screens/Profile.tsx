@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Bell, ChevronRight, Globe, Info, KeyRound, LogOut, Palette, UserRound, Wifi, type LucideIcon } from 'lucide-react';
+import { Bell, ChevronRight, Globe, Info, KeyRound, LogOut, MapPin, Palette, Shapes, UserRound, Wifi, type LucideIcon } from 'lucide-react';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { Avatar } from '../components/Avatar';
 import { GlassLayer } from '../components/glass/GlassButton';
@@ -61,6 +61,13 @@ export function Profile() {
           <p className="t-small t-muted">{en.profile.panel(me.panel)}</p>
         </div>
       </section>
+
+      {!!(me.countries?.length || me.domains?.length) && (
+        <SettingsGroup title={en.profile.expertise}>
+          <ExpertiseRow Icon={MapPin} label={en.profile.countries} values={me.countries ?? []} />
+          <ExpertiseRow Icon={Shapes} label={en.profile.domains} values={me.domains ?? []} />
+        </SettingsGroup>
+      )}
 
       <SettingsGroup title={en.profile.account}>
         <SettingsRow Icon={UserRound} label={en.profile.manage} onClick={() => setSheet('personal')} />
@@ -159,6 +166,18 @@ function SettingsGroup({ title, children }: { title: string; children: ReactNode
       <h2 className="settings-group__title">{title}</h2>
       <ul className="settings-list soft-card">{children}</ul>
     </section>
+  );
+}
+
+function ExpertiseRow({ Icon, label, values }: { Icon: LucideIcon; label: string; values: string[] }) {
+  return (
+    <li className="settings-row settings-row--stacked">
+      <span className="settings-row__label">
+        <Icon size={20} aria-hidden="true" />
+        {label}
+      </span>
+      <p className="t-small t-muted">{values.join(', ')}</p>
+    </li>
   );
 }
 

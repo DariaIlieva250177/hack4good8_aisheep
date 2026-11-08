@@ -1,6 +1,6 @@
 # Data model
 
-How Ground Truth stores ACAPS risks, experts and everything experts do in the app. There are 31 tables in seven groups. `python src/build_demo_data.py` builds all of them; the files are in `data/synthetic/`. Notebook `05_generate_synthetic_data` builds the first 28, but not the points tables in group 7.
+How Ground Truth stores ACAPS risks, experts and everything experts do in the app. There are 33 tables in seven groups. `python src/build_demo_data.py` builds all of them; the files are in `data/synthetic/`. Notebook `05_generate_synthetic_data` builds the first 30, but not the points tables in group 7.
 
 **Real** ACAPS data: risks, countries, triggers, outcomes. **Synthetic**: everything about experts. No real person is in the data.
 
@@ -16,7 +16,7 @@ How Ground Truth stores ACAPS risks, experts and everything experts do in the ap
   | Domain only | 0.4 |
 
   The weights set how much a vote counts in the weighted total on each card, so a vote from an expert matched on country and domain counts for more than a domain-only vote. They do not change the rank. They are a starting assumption for ACAPS to test in the pilot.
-- **Group answers on a card.** Each card shows the plain counts, the weighted total, and a separate line for experts matched on the risk's country. That line stays empty under 3 answers, because in a smaller group it could show how one person voted.
+- **Group answers.** When a chat closes, experts see the agree share with each vote counted by its weight, and a separate line for experts matched on the risk's country, such as "5 of 6 Chad experts agree". That line stays empty under 3 answers, because in a smaller group it could show how one person voted. The plain counts stay in the data but are not shown.
 - **Approval** happens per country and per domain. The moderator can deny any of them.
 - **Anonymity.** The expert chooses the level at registration and can change it in settings:
   - **known to ACAPS:** personal data kept; the expert can hide their name from ACAPS on a single answer. ACAPS still sees and uses the answer, just not who gave it.
@@ -48,7 +48,9 @@ How Ground Truth stores ACAPS risks, experts and everything experts do in the ap
   | Urgent | Orange | High risk |
   | Watch | Yellow | Every other risk |
 
-- **Triggers come from ACAPS.** Every risk shows the triggers ACAPS already posted. Experts can suggest a missing one; it joins the list only after ACAPS accepts it, and the app never shows which expert suggested it.
+- **Triggers come from ACAPS.** Every risk shows the triggers ACAPS posted. An expert who thinks one is missing says so in their answer.
+- **Suggested cards.** An expert sends a risk statement through "Add your own card". The moderator approves or rejects it, then posts it as a new risk, setting its country, chat deadline and the rest.
+- **The moderator** has what the app shows and nothing else: posting risks and updates, reviewing suggested cards, setting chat names and deadlines, posting messages, writing the closing summary, recording what happened, and reading answers, results and every expert's numbers. Answers appear under the name other experts see, and experts appear by code on the Panel screen, so the two cannot be linked there.
 - **ACAPS opens each risk**, sets its chat deadline and its horizon (N months), and can edit the forecast question.
 
 ---
@@ -90,9 +92,7 @@ All categories a risk matches. Fields: `risk_id`, `category_id`, `is_primary`.
 | Field | Notes |
 |---|---|
 | `trigger_id`, `risk_id`, `title`, `description` | |
-| `source` | `acaps` for triggers ACAPS posted (from the export, most of them), `expert_suggestion` for accepted suggestions |
-| `suggestion_id`, `suggested_by` | only for accepted suggestions; never shown in the app |
-| `added_at` | when ACAPS accepted a suggestion |
+| `source` | always `acaps`: every trigger comes from the export |
 
 ---
 
@@ -174,7 +174,7 @@ When a risk's chat is open. Fields: `window_id`, `risk_id`, `opens`, `closes` (t
 Fields: `swipe_id`, `expert_id`, `risk_id`, `stance_on_card` (agree, disagree or empty), `direction` (left or right), `result` (`todo`, `done`, `skipped`), `swiped_at`.
 
 ### `todo_items`
-Fields: `expert_id`, `risk_id`, `added_at`, `status` (`open` or `done`), `completed_at`. The app sorts open items by urgency.
+Fields: `expert_id`, `risk_id`, `added_at`, `status` (`open`, `done` or `removed`), `completed_at`. The app sorts open items by urgency. ACAPS sees only how many experts removed a card.
 
 ### `stances`
 | Field | Notes |
@@ -190,10 +190,10 @@ Fields: `expert_id`, `risk_id`, `added_at`, `status` (`open` or `done`), `comple
 | Field | Notes |
 |---|---|
 | `comment_id`, `risk_id`, `expert_id` | the display name comes from `display_names` |
-| `kind` | `answer` or `changed_opinion` |
+| `kind` | `answer`, `changed_opinion` or `reply` |
 | `text` | |
 | `source_id`, `ai_draft_used` | when the comment started from an AI summary of a source |
-| `reply_to` | for threaded discussion later |
+| `reply_to` | the answer a reply sits under |
 | `posted_at` | |
 | `name_hidden_from_acaps` | true when the expert hid their name on this risk |
 
@@ -223,12 +223,16 @@ Fields: `comment_id`, `expert_id`, `liked_at`. Only members of that risk's commu
 ### `suggestions`
 | Field | Notes |
 |---|---|
-| `suggestion_id`, `expert_id` | |
-| `type` | `missing_trigger` or `new_risk` |
-| `risk_id` | for missing triggers |
-| `country`, `category_id` | for new risks |
-| `title`, `description`, `created_at` | |
-| `status`, `reviewed_by`, `reviewed_at` | accepted triggers are added to `triggers` |
+| `suggestion_id`, `expert_id` | the app never shows the moderator who sent a card |
+| `statement`, `area`, `why`, `created_at` | what the expert typed into "Add your own card" |
+| `status`, `reviewed_by`, `reviewed_at` | `new`, `approved`, `rejected` or `posted` |
+| `posted_risk_id` | the risk it became once posted |
+
+### `moderator_messages`
+What the moderator posted to a chat. The latest one shows in the chat list. Fields: `message_id`, `risk_id`, `moderator_id`, `text`, `posted_at`.
+
+### `chat_summaries`
+The moderator's wrap-up at the top of a closed chat. Each is built from the numbers here; a real one would be written by hand. Fields: `summary_id`, `risk_id`, `moderator_id`, `text`, `written_at`.
 
 ### `discussion_views`
 Read-only views of discussions outside an expert's countries and domains. Fields: `expert_id`, `risk_id`, `viewed_at`.
@@ -253,7 +257,7 @@ The hidden skill, bias, noise, activity and comment quality of each synthetic ex
 Built by `src/build_demo_data.py`, not the notebook. Each expert sees only their own rows.
 
 ### `ranks`
-Every approved expert's points. Position goes by average points per scored forecast, and experts under 5 scored forecasts have no position yet. Fields: `expert_id`, `points`, `average_points`, `position`, `forecast_points`, `bonus_points`, `forecasts`, `calls`, `correct`.
+Every approved expert's points. Position goes by average points per scored forecast, and experts under 5 scored forecasts have no position yet. `brier` is their average squared error, and `acaps_brier` is what ACAPS scored on the same risks; lower is better. Fields: `expert_id`, `points`, `average_points`, `position`, `forecast_points`, `bonus_points`, `forecasts`, `calls`, `correct`.
 
 ### `group_ranks`
 Each expert's position inside their approved countries and domains, using the same average. Groups under 3 ranked experts are left out. Fields: `expert_id`, `group_type` (`country` or `domain`), `group`, `position`, `out_of`.
@@ -279,7 +283,7 @@ How much each expert contributed per country. A risk across two countries counts
 
 | Table | Purpose |
 |---|---|
-| `discussion_threads`, `private_messages` | Public threads and private discussions between two experts |
+| `discussion_threads`, `private_messages` | Public threads and private discussions between two experts. Moderators can never read private chats |
 | `notification_tokens`, `notification_addresses` | How alerts reach anonymous experts, stored apart from answers |
 | `client_requests` | Expert panel analysis on request |
 | `moderation_log` | Every approval, denial and edit by ACAPS staff |

@@ -3,7 +3,7 @@ import { useMode } from '../mode/ModeContext';
 
 /*
  * Glossy chrome shapes in ACAPS blues. Decorative only: aria-hidden, and not rendered in lite mode.
- * Placeholder SVGs; swap for files from UI_Images/shapes/ when they exist.
+ * Placeholder SVG shapes.
  */
 
 export type MetalVariant = 'coil' | 'ring' | 'knot' | 'drop';

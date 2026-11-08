@@ -257,29 +257,16 @@ const pct = (n: number, total: number) => (total ? Math.round((n / total) * 100)
  */
 function ExpiredTopic({ topic }: { topic: Topic }) {
   const t = en.topic;
+  const { group, forecasts, outcome } = topic.community;
   const all = [...(topic.mine ? [topic.mine] : []), ...topic.others];
   const comments = all.reduce((n, a) => n + (a.comments?.length ?? 0), 0);
   const likes = all.reduce((n, a) => n + (a.likes ?? 0), 0);
-  const counts: Record<Verdict, number> = {
-    yes: all.filter((a) => a.verdict === 'yes').length,
-    no: all.filter((a) => a.verdict === 'no').length,
-  };
-  // Percentages are out of the experts who voted (some gave only a forecast or text)
-  const voted = counts.yes + counts.no;
-  const forecasts = all.map((a) => a.forecast).filter((f): f is NonNullable<typeof f> => f != null);
-  const avg = forecasts.length ? forecasts.reduce((x, y) => x + y, 0) / forecasts.length : null;
-  const byStep = [1, 2, 3, 4, 5].map((s) => forecasts.filter((f) => f === s).length);
   const topDiscussed = [...all]
+      .filter((a) => a.text)
     .sort((a, b) => (b.likes ?? 0) + 2 * (b.comments?.length ?? 0) - ((a.likes ?? 0) + 2 * (a.comments?.length ?? 0)))
     .slice(0, 2);
 
-  const total = all.length;
-  const consensus =
-    pct(counts.yes, voted) >= 60
-      ? t.consensusAgree
-      : pct(counts.no, voted) >= 60
-        ? t.consensusDisagree
-        : t.consensusSplit;
+  const total = group?.answers ?? forecasts?.reduce((x, y) => x + y, 0) ?? all.length;
   const ended = new Date(topic.community.endsAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
 
   return (
@@ -291,6 +278,30 @@ function ExpiredTopic({ topic }: { topic: Topic }) {
         <Lock size={20} aria-hidden="true" />
         <span>{t.endedNote(ended)}</span>
       </p>
+
+      {outcome && (
+        <section className="topic__section" aria-labelledby="ended-outcome">
+          <h2 id="ended-outcome" className="topic__heading t-title">
+            {t.whatHappened}
+          </h2>
+          <div className="ended-card">
+            <p className="ended-card__headline">{outcome.happened ? t.itHappened : t.itDidNotHappen}</p>
+            {outcome.whatHappened && <p className="ended-card__text">{outcome.whatHappened}</p>}
+            {outcome.youSaid && (
+              <p className="ended-card__forecast">
+                {t.youSaid(outcome.youSaid)}
+                {outcome.points != null && (
+                  <>
+                    {' · '}
+                    <b>{t.points(outcome.points)}</b>
+                  </>
+                )}
+              </p>
+            )}
+            {outcome.bonusPoints > 0 && <p className="ended-card__forecast">{t.spotOn(outcome.bonusPoints)}</p>}
+          </div>
+        </section>
+      )}
 
       {/* 1. Summary */}
       <section className="topic__section" aria-labelledby="ended-summary">
@@ -333,7 +344,60 @@ function ExpiredTopic({ topic }: { topic: Topic }) {
         <h2 id="ended-results" className="topic__heading t-title">
           {t.finalResults}
         </h2>
-        <div className="ended-card">
+        <FinalResults topic={topic} />
+      </section>
+
+      {/* 3. Full discussion, read-only */}
+      {all.some((a) => a.text) && (
+        <section className="topic__section" aria-labelledby="ended-discussion">
+          <h2 id="ended-discussion" className="topic__heading t-title">
+            {t.fullDiscussion}
+          </h2>
+          <ul className="topic__answers">
+            {topic.mine?.text && (
+              <li>
+                <AnswerItem answer={topic.mine} you readOnly showVerdict />
+              </li>
+            )}
+            {topic.others.map((a) => (
+              <li key={a.id}>
+                <AnswerItem answer={a} readOnly showVerdict />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+  );
+}
+
+/**
+ * The panel's view: agree share and the panel forecast. Experts see it once a
+ * chat has closed.
+ */
+export function FinalResults({ topic }: { topic: Topic }) {
+  const t = en.topic;
+  const { group, forecasts: spread } = topic.community;
+  const all = [...(topic.mine ? [topic.mine] : []), ...topic.others];
+  const yes = all.filter((a) => a.verdict === 'yes').length;
+  const no = all.filter((a) => a.verdict === 'no').length;
+  // Our group answer counts each vote by how closely the expert matches the risk.
+  // Without one, percentages are out of the experts who voted.
+  const agree = group?.weightedAgree ?? pct(yes, yes + no);
+  const shares: Record<Verdict, number> = { yes: agree, no: 100 - agree };
+  const voted = group ? group.answers > 0 : yes + no > 0;
+
+  const listed = all.map((a) => a.forecast).filter((f): f is NonNullable<typeof f> => f != null);
+  const byStep = spread ?? [1, 2, 3, 4, 5].map((s) => listed.filter((f) => f === s).length);
+  const forecasts = byStep.reduce((x, y) => x + y, 0);
+  const avg = forecasts ? byStep.reduce((sum, n, i) => sum + n * (i + 1), 0) / forecasts : null;
+
+  const consensus = agree >= 60 ? t.consensusAgree : 100 - agree >= 60 ? t.consensusDisagree : t.consensusSplit;
+
+  return (
+    <div className="ended-card">
+      {voted && (
+        <>
           <p className="ended-card__headline">{consensus}</p>
 
           <h3 className="ended-card__sub">{t.agreeWithAcaps}</h3>
@@ -347,56 +411,37 @@ function ExpiredTopic({ topic }: { topic: Topic }) {
               <li key={v} className={`result-bars__row result-bars__row--${v}`}>
                 <span className="result-bars__label">{label}</span>
                 <span className="result-bars__track" aria-hidden="true">
-                  <span className="result-bars__fill" style={{ inlineSize: `${pct(counts[v], voted)}%` }} />
+                  <span className="result-bars__fill" style={{ inlineSize: `${shares[v]}%` }} />
                 </span>
-                <span className="result-bars__value">
-                  {pct(counts[v], voted)}%<span className="sr-only"> ({t.ofExperts(counts[v], voted)})</span>
-                </span>
+                <span className="result-bars__value">{shares[v]}%</span>
               </li>
             ))}
           </ul>
-
-          {avg !== null && (
-            <>
-              <h3 className="ended-card__sub">{en.answer.likelihood}</h3>
-              <p className="ended-card__forecast">
-                {t.panelForecast} <b>{en.answer.scale[Math.round(avg) - 1]}</b>
-              </p>
-              <ol className="forecast-dist" aria-label={en.answer.likelihood}>
-                {byStep.map((n, i) => (
-                  <li key={i} className={Math.round(avg) - 1 === i ? 'is-on' : ''}>
-                    <span
-                      className="forecast-dist__bar"
-                      style={{ blockSize: `${8 + pct(n, forecasts.length) * 0.6}px` }}
-                    />
-                    <span className="forecast-dist__n">{n}</span>
-                    <span className="forecast-dist__label">{en.answer.scale[i]}</span>
-                  </li>
-                ))}
-              </ol>
-            </>
+          {group?.countryAnswers != null && group.countryAgree != null && (
+            <p className="ended-card__forecast">
+              {t.countryAgree(group.countryAgree, group.countryAnswers, group.country)}
+            </p>
           )}
-        </div>
-      </section>
+        </>
+      )}
 
-      {/* 3. Full discussion, read-only */}
-      <section className="topic__section" aria-labelledby="ended-discussion">
-        <h2 id="ended-discussion" className="topic__heading t-title">
-          {t.fullDiscussion}
-        </h2>
-        <ul className="topic__answers">
-          {topic.mine && (
-            <li>
-              <AnswerItem answer={topic.mine} you readOnly showVerdict />
-            </li>
-          )}
-          {topic.others.map((a) => (
-            <li key={a.id}>
-              <AnswerItem answer={a} readOnly showVerdict />
-            </li>
-          ))}
-        </ul>
-      </section>
+      {avg !== null && (
+        <>
+          <h3 className="ended-card__sub">{en.answer.likelihood}</h3>
+          <p className="ended-card__forecast">
+            {t.panelForecast} <b>{en.answer.scale[Math.round(avg) - 1]}</b>
+          </p>
+          <ol className="forecast-dist" aria-label={en.answer.likelihood}>
+            {byStep.map((n, i) => (
+              <li key={i} className={Math.round(avg) - 1 === i ? 'is-on' : ''}>
+                <span className="forecast-dist__bar" style={{ blockSize: `${8 + pct(n, forecasts) * 0.6}px` }} />
+                <span className="forecast-dist__n">{n}</span>
+                <span className="forecast-dist__label">{en.answer.scale[i]}</span>
+              </li>
+            ))}
+          </ol>
+        </>
+      )}
     </div>
   );
 }

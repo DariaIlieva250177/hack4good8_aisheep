@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Users } from 'lucide-react';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { TimeLeft } from '../components/TimeLeft';
-import { displayNameFor, getCommunities, getMe } from '../data/api';
+import { getCommunities, getMe } from '../data/api';
 import { imageFor, imageUrl } from '../data/families';
 import { useQuery } from '../data/useQuery';
 import { useNow } from '../data/useNow';
@@ -29,7 +29,7 @@ export function Community() {
   return (
     <div className="screen community">
       <ScreenHeader title={en.community.title} variant="large" />
-      {me && <p className="community__as">{en.community.youAppearAs(displayNameFor(me))}</p>}
+      {me && <p className="community__as">{en.community.youAppearAs}</p>}
 
       {data && (
         <>

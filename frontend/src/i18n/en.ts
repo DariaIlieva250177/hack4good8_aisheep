@@ -2,6 +2,12 @@ import type { Family, ImageCategory, NotificationKind, RiskLevel, Verdict } from
 
 const n = (v: number) => v.toLocaleString('en-GB');
 
+const ordinal = (v: number) => {
+  const tens = v % 100;
+  const suffix = tens >= 11 && tens <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' } as Record<number, string>)[v % 10] ?? 'th';
+  return `${v}${suffix}`;
+};
+
 export const en = {
   appName: 'AI Sheep',
 
@@ -104,7 +110,7 @@ export const en = {
   },
 
   card: {
-    question: 'Do you recognise this picture?',
+    question: 'Do you agree with this statement?',
     later: 'Later',
     skip: 'Skip',
     dragLater: 'Answer later',
@@ -149,7 +155,7 @@ export const en = {
       flipBody: 'see the triggers behind the risk',
     },
     stackLabel: 'Risks to review',
-    sent: 'Sent. You’ll see the group’s view when the round closes.',
+    sent: 'Sent. You’ll see the group’s view when the chat closes.',
     movedToTodo: 'Moved to To-do.',
     skipped: 'Skipped.',
     undo: 'Undo',
@@ -185,10 +191,13 @@ export const en = {
     },
     identityHelp: {
       name: (name: string) => `Peers see “${name}”.`,
-      pseudonym: (p: string) => `Peers see “${p}”.`,
+      pseudonym: (p: string) => `Peers see a new name in every chat, such as “${p}”.`,
       anonymous: 'Peers see “Anonymous expert”.',
     },
     privacyHelp: 'Whatever you choose, nothing you write is ever shown to the public.',
+    expertise: 'Your expertise',
+    countries: 'Countries',
+    domains: 'Domains',
   },
 
   settings: {
@@ -243,8 +252,8 @@ export const en = {
       thisDevice: 'This device',
       sessionList: [
         { device: 'Browser on this computer', when: 'Now' },
-        { device: 'Android phone, N’Djamena', when: '2 days ago' },
-        { device: 'Laptop, Abéché', when: '3 weeks ago' },
+        { device: 'Android phone', when: '2 days ago' },
+        { device: 'Laptop', when: '3 weeks ago' },
       ],
       signOutOthers: 'Log out of all other devices',
       signedOutOthers: 'Logged out of all other devices.',
@@ -279,9 +288,9 @@ export const en = {
 
   todo: {
     title: 'To-do',
-    urgent: 'Urgent',
-    moderate: 'Moderate',
-    low: 'Low',
+    urgent: 'High risk',
+    moderate: 'Medium risk',
+    low: 'Low risk',
     toAnswer: (n: number) => `${n} to answer`,
     removed: 'Removed from To-do.',
     removeLabel: (title: string) => `Remove from To-do: ${title}`,
@@ -308,9 +317,9 @@ export const en = {
     disagree: 'Disagree',
     likelihood: 'How likely is this to happen?',
     likelihoodUnset: 'Not set yet',
-    scale: ['Very unlikely', 'Unlikely', 'Neutral', 'Likely', 'Very likely'],
-    note: (name: string) => `Shared with your panel as ${name}. Never shown to the public.`,
-    sent: 'Sent. You’ll see the group’s view when the round closes.',
+    scale: ['Very unlikely', 'Unlikely', 'Even chance', 'Likely', 'Very likely'],
+    note: (name: string) => `Other experts see this as ${name}. Never shown to the public.`,
+    sent: 'Sent. You’ll see the group’s view when the chat closes.',
   },
 
   webLogin: {
@@ -458,7 +467,7 @@ export const en = {
     cv: 'CV',
     chooseCv: 'Upload your CV',
     needsCv: 'Upload your CV.',
-    articles: 'Articles where you were cited',
+    articles: 'Articles where you were cited (optional)',
     chooseArticles: 'Upload articles',
     addMoreArticles: 'Add more articles',
     needsArticles: 'Upload at least one article where you were cited.',
@@ -487,8 +496,8 @@ export const en = {
     why: 'Why it matters',
     needsWhy: 'Tell ACAPS why this risk matters.',
     whyPlaceholder: 'What are you seeing on the ground?',
-    send: 'Send to the company',
-    sentTitle: 'Your idea was sent to the company!',
+    send: 'Send to ACAPS',
+    sentTitle: 'Your idea was sent to ACAPS!',
     sentBody: 'You will receive a notification if ACAPS approves the idea.',
     ok: 'OK',
   },
@@ -524,7 +533,7 @@ export const en = {
     others: 'Other communities',
     members: (m: number) => `${m} members`,
     newCount: (c: number) => `${c} new`,
-    youAppearAs: (name: string) => `You appear as ${name} in these chats`,
+    youAppearAs: 'You get a new name in every chat, so nobody can link your chats.',
     unreadTotal: (n: number) => `${n} unread`,
     openToExplore: 'open to explore',
     active: 'Active',
@@ -549,7 +558,7 @@ export const en = {
     others: 'How others answered',
     lockedTitle: 'Other answers are hidden',
     locked: (c: number) => `Answer first to see how ${c} others answered. This keeps everyone’s view independent.`,
-    newSinceLast: 'New since last round',
+    newSinceLast: 'New since your last visit',
     anonymous: 'Anonymous expert',
     you: 'You',
     exploreNote:
@@ -578,6 +587,15 @@ export const en = {
     consensusDisagree: 'The experts largely disagree with the ACAPS analysis.',
     consensusSplit: 'The experts are divided on this analysis.',
     fullDiscussion: 'Full discussion',
+    agreeShare: (percent: number) => `${percent}% agree`,
+    countryAgree: (agree: number, total: number, country: string | null) =>
+      `${agree} of ${total} ${country ?? 'local'} experts agree`,
+    whatHappened: 'What happened',
+    itHappened: 'This risk happened.',
+    itDidNotHappen: 'This risk did not happen.',
+    youSaid: (answer: string) => `You said: ${answer}`,
+    points: (p: number) => `${p > 0 ? '+' : ''}${p} ${Math.abs(p) === 1 ? 'point' : 'points'}`,
+    spotOn: (p: number) => `+${p} for a spot-on comment`,
   },
 
   ranking: {
@@ -592,7 +610,7 @@ export const en = {
     awardsIn: 'Annual awards in',
     awardsNote: 'The most accurate experts of the year are recognised at the annual awards.',
     helped: (crisis: string, people: string, upTo: boolean) =>
-      `Your input helped to prevent “${crisis}” and helped ${upTo ? 'up to' : 'over'} ${people} people living in this area.`,
+      `Your input helped inform the analysis of “${crisis}”, in an area where ${upTo ? 'up to' : 'over'} ${people} people live.`,
     helpedGeneric: (country: string) => `Your input helped ACAPS follow the situation in ${country}.`,
     moreCrises: (n: number) => `+ ${n} more ${n === 1 ? 'crisis' : 'crises'} you helped assess here`,
     zoomIn: 'Zoom in on the globe',
@@ -607,7 +625,6 @@ export const en = {
     yourRanking: 'Your ranking',
     rankOf: (r: number, of: number, panel: string) => `#${r} of ${of} on the ${panel} panel`,
     rankNote: 'Ranked by the accuracy of your resolved forecasts.',
-    roundCloses: (round: number) => `Round ${round} closes in`,
     countdownUnits: { d: 'days', h: 'hours', m: 'min', s: 'sec' },
     countdownSr: (d: number, h: number, m: number) => `${d} days, ${h} hours and ${m} minutes`,
     certificates: 'Your certificates',
@@ -622,9 +639,11 @@ export const en = {
     statBrier: 'Accuracy (Brier)',
     statBaseline: (b: number) => `ACAPS baseline ${b.toFixed(2)}`,
     statBrierNote: 'Lower is better',
-    statRounds: 'Rounds joined',
+    statRounds: 'Chats joined',
     countryCount: (k: number) => `${k} ${k === 1 ? 'contribution' : 'contributions'}`,
     synthetic: 'All values are synthetic examples.',
+    overall: (points: number, position: number, outOf: number) => `${n(points)} points, ${ordinal(position)} of ${outOf} overall`,
+    groupRank: (name: string, position: number, outOf: number) => `${name}: ${ordinal(position)} of ${outOf}`,
   },
 
   notifications: {
@@ -633,7 +652,7 @@ export const en = {
     empty: 'No notifications yet.',
     kind: {
       analysis: 'New analysis',
-      round: 'Round open',
+      round: 'Chat open',
       summary: 'Group summary',
       resolved: 'Forecast resolved',
       reply: 'Peer reply',

@@ -26,9 +26,9 @@ type Field = 'first' | 'last' | 'email' | 'domain' | 'country' | 'cv' | 'article
 
 /**
  * "Become part of our community": expert sign-up on the home page.
- * Required: names, email, one domain, one country, a CV and at least one
- * article in which the expert was cited. A second domain and a second
- * country are optional.
+ * Required: names, email, one domain, one country and a CV. Articles in
+ * which the expert was cited, a second domain and a second country are
+ * optional, because many local experts have never been cited.
  */
 export function RegisterForm() {
   const id = useId();
@@ -57,7 +57,7 @@ export function RegisterForm() {
     domain: !domain,
     country: !country.trim(),
     cv: !cv,
-    articles: articles.length === 0,
+    articles: false,
   };
   const bad = (f: Field) => tried && errors[f];
   const errId = (f: Field) => `${id}-${f}-error`;

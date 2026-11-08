@@ -232,7 +232,8 @@ def contribution_tables():
         "risk_countries": pd.DataFrame({"risk_id": ["R1", "R2", "R2"], "country": ["Chad", "Chad", "Mali"]}),
         "countries": pd.DataFrame({"country": ["Chad", "Mali"], "iso_numeric": ["148", "466"],
                                    "region": ["Central Africa", "West Africa"]}),
-        "risks": pd.DataFrame({"risk_id": ["R1", "R2"], "expected_exposure": [">500,000", "20,000-100,000"]}),
+        "risks": pd.DataFrame({"risk_id": ["R1", "R2"], "title": ["Risk one", "Risk two"],
+                               "expected_exposure": [">500,000", "20,000-100,000"]}),
     }
 
 
@@ -256,7 +257,9 @@ def test_the_app_total_counts_a_contribution_once():
     assert summary["country_count"] == 2
     assert summary["region_count"] == 2
     assert summary["resolved_forecasts"] == 1
-    assert summary["countries"][0] == {"country": "Chad", "iso_numeric": "148", "region": "Central Africa", "count": 4}
+    assert summary["countries"][0] == {"country": "Chad", "iso_numeric": "148", "region": "Central Africa", "count": 4,
+                                       "crises": [{"title": "Risk one", "exposure": ">500,000"},
+                                                  {"title": "Risk two", "exposure": "20,000-100,000"}]}
 
 
 def test_changing_an_answer_is_not_another_contribution():
@@ -285,7 +288,7 @@ WRITTEN = pd.read_csv(EXPORT.parent / "r1043_comments.csv").set_index("comment_i
 
 
 def demo_comments(tables):
-    return tables["comments"].query("risk_id == 'R1043'").set_index("comment_id")
+    return tables["comments"].query("risk_id == 'R1043' and kind != 'reply'").set_index("comment_id")
 
 
 def test_every_comment_on_the_demo_risk_is_hand_written(tables):
@@ -318,7 +321,7 @@ def test_the_app_shows_the_written_comments(bundle):
 # the app file
 def test_the_ranking_screen_gets_country_and_domain_ranks(bundle):
     groups = {g["name"]: g for g in bundle["expert"]["rank"]["groups"]}
-    assert (groups["Chad"]["position"], groups["Chad"]["out_of"]) == (4, 5)
+    assert (groups["Chad"]["position"], groups["Chad"]["out_of"]) == (1, 5)
     assert groups["Chad"]["type"] == "country"
     assert groups["Armed conflict"]["type"] == "domain"
     assert "Algeria" not in groups

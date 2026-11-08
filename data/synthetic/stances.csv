@@ -736,3 +736,6 @@ ST00734,E080,R1054,disagree,2,True,ST00733,2026-10-23,False,country_only,0.6
 ST00735,E080,R1055,agree,1,False,,2026-10-20,False,country_only,0.6
 ST00736,E080,R1061,disagree,1,False,,2026-10-30,False,domain_only,0.4
 ST00737,E080,R1073,disagree,1,False,,2026-11-06,False,domain_only,0.4
+ST00738,E041,R1049,agree,1,False,,2026-10-27,False,domain_only,0.4
+ST00739,E041,R1053,agree,1,False,,2026-10-20,False,domain_only,0.4
+ST00740,E041,R1074,disagree,1,False,,2026-10-17,False,domain_only,0.4

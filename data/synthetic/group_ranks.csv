@@ -28,8 +28,8 @@ E030,country,Sudan,15,18
 E035,country,Palestine,2,5
 E036,country,Palestine,3,5
 E038,country,Afghanistan,2,5
-E041,country,Chad,4,5
-E042,country,Chad,2,5
+E041,country,Chad,1,5
+E042,country,Chad,3,5
 E043,country,Afghanistan,3,5
 E044,country,Afghanistan,4,5
 E047,country,Myanmar,4,4
@@ -41,9 +41,9 @@ E054,country,Palestine,5,5
 E055,country,Niger,1,4
 E056,country,Niger,3,4
 E059,country,Chad,5,5
-E060,country,Chad,1,5
+E060,country,Chad,2,5
 E060,country,Myanmar,2,4
-E061,country,Chad,3,5
+E061,country,Chad,4,5
 E062,country,Mozambique,2,4
 E063,country,Sudan,11,18
 E065,country,Sudan,18,18
@@ -57,44 +57,44 @@ E075,country,Kenya,3,4
 E076,country,South Sudan,3,3
 E080,country,Sudan,2,18
 E080,country,Mali,1,3
-E001,domain,Armed conflict,26,39
-E002,domain,Armed conflict,11,39
+E001,domain,Armed conflict,27,39
+E002,domain,Armed conflict,12,39
 E002,domain,Earthquake / landslide,2,7
 E002,domain,Political crisis,2,6
-E003,domain,Armed conflict,24,39
-E004,domain,Armed conflict,30,39
+E003,domain,Armed conflict,25,39
+E004,domain,Armed conflict,31,39
 E004,domain,Disease outbreak,5,5
 E004,domain,Displacement,7,14
 E005,domain,Armed conflict,37,39
 E005,domain,Cross-border insecurity,7,8
 E005,domain,Drought,12,13
-E006,domain,Armed conflict,9,39
+E006,domain,Armed conflict,10,39
 E009,domain,Drought,3,13
 E010,domain,Drought,3,13
 E012,domain,Drought,6,13
 E013,domain,Drought,6,13
 E014,domain,Drought,8,13
-E014,domain,Armed conflict,21,39
+E014,domain,Armed conflict,22,39
 E014,domain,Displacement,4,14
 E016,domain,Drought,1,13
-E017,domain,Armed conflict,6,39
+E017,domain,Armed conflict,7,39
 E017,domain,Earthquake / landslide,1,7
 E018,domain,Armed conflict,35,39
 E018,domain,Political crisis,4,6
 E019,domain,Armed conflict,2,39
 E019,domain,Displacement,1,14
-E020,domain,Armed conflict,12,39
+E020,domain,Armed conflict,13,39
 E020,domain,Disease outbreak,2,5
 E021,domain,Economic crisis / prices,2,9
 E021,domain,Cyclone / storm,1,4
 E022,domain,Economic crisis / prices,8,9
 E022,domain,Cross-border insecurity,6,8
-E023,domain,Armed conflict,7,39
-E024,domain,Armed conflict,18,39
+E023,domain,Armed conflict,8,39
+E024,domain,Armed conflict,19,39
 E024,domain,Economic crisis / prices,4,9
 E025,domain,Armed conflict,1,39
-E026,domain,Armed conflict,3,39
-E026,domain,Infrastructure failure,2,8
+E026,domain,Armed conflict,4,39
+E026,domain,Infrastructure failure,3,8
 E027,domain,Infrastructure failure,1,8
 E027,domain,Drought,2,13
 E028,domain,Infrastructure failure,7,8
@@ -104,50 +104,50 @@ E030,domain,Displacement,10,14
 E030,domain,Earthquake / landslide,4,7
 E032,domain,Drought,10,13
 E032,domain,Displacement,5,14
-E033,domain,Armed conflict,4,39
+E033,domain,Armed conflict,5,39
 E034,domain,Armed conflict,38,39
 E034,domain,Political crisis,5,6
-E035,domain,Armed conflict,16,39
+E035,domain,Armed conflict,17,39
 E035,domain,Economic crisis / prices,3,9
-E036,domain,Armed conflict,17,39
+E036,domain,Armed conflict,18,39
 E036,domain,Disease outbreak,3,5
 E036,domain,Cross-border insecurity,3,8
 E038,domain,Cross-border insecurity,4,8
 E040,domain,Cross-border insecurity,8,8
 E040,domain,Infrastructure failure,8,8
 E040,domain,Earthquake / landslide,6,7
-E041,domain,Armed conflict,33,39
-E041,domain,Infrastructure failure,6,8
-E042,domain,Armed conflict,14,39
+E041,domain,Armed conflict,3,39
+E041,domain,Infrastructure failure,1,8
+E042,domain,Armed conflict,15,39
 E042,domain,Cross-border insecurity,1,8
-E043,domain,Armed conflict,20,39
+E043,domain,Armed conflict,21,39
 E043,domain,Cyclone / storm,3,4
 E043,domain,Cross-border insecurity,5,8
-E044,domain,Armed conflict,25,39
+E044,domain,Armed conflict,26,39
 E044,domain,Drought,9,13
 E044,domain,Flood,2,5
-E045,domain,Armed conflict,22,39
+E045,domain,Armed conflict,23,39
 E045,domain,Economic crisis / prices,6,9
-E046,domain,Armed conflict,15,39
+E046,domain,Armed conflict,16,39
 E046,domain,Cross-border insecurity,2,8
-E047,domain,Armed conflict,31,39
-E048,domain,Armed conflict,13,39
+E047,domain,Armed conflict,32,39
+E048,domain,Armed conflict,14,39
 E049,domain,Displacement,3,14
 E050,domain,Disease outbreak,1,5
-E051,domain,Armed conflict,31,39
+E051,domain,Armed conflict,32,39
 E051,domain,Flood,3,5
-E052,domain,Armed conflict,29,39
+E052,domain,Armed conflict,30,39
 E052,domain,Economic crisis / prices,7,9
-E052,domain,Infrastructure failure,4,8
+E052,domain,Infrastructure failure,5,8
 E053,domain,Displacement,2,14
 E054,domain,Displacement,12,14
-E055,domain,Armed conflict,19,39
-E055,domain,Infrastructure failure,3,8
-E056,domain,Armed conflict,28,39
+E055,domain,Armed conflict,20,39
+E055,domain,Infrastructure failure,4,8
+E056,domain,Armed conflict,29,39
 E056,domain,Cyclone / storm,4,4
 E056,domain,Displacement,6,14
 E059,domain,Armed conflict,36,39
-E060,domain,Armed conflict,9,39
+E060,domain,Armed conflict,10,39
 E061,domain,Displacement,9,14
 E061,domain,Flood,4,5
 E062,domain,Political crisis,3,6
@@ -157,20 +157,20 @@ E065,domain,Displacement,14,14
 E066,domain,Drought,13,13
 E066,domain,Earthquake / landslide,7,7
 E066,domain,Displacement,13,14
-E067,domain,Armed conflict,22,39
+E067,domain,Armed conflict,23,39
 E068,domain,Drought,11,13
 E069,domain,Economic crisis / prices,5,9
 E069,domain,Flood,1,5
 E069,domain,Earthquake / landslide,3,7
-E071,domain,Armed conflict,27,39
-E072,domain,Armed conflict,8,39
+E071,domain,Armed conflict,28,39
+E072,domain,Armed conflict,9,39
 E072,domain,Cyclone / storm,2,4
 E073,domain,Political crisis,6,6
 E073,domain,Armed conflict,39,39
 E074,domain,Displacement,8,14
-E074,domain,Infrastructure failure,5,8
+E074,domain,Infrastructure failure,6,8
 E074,domain,Economic crisis / prices,9,9
-E075,domain,Armed conflict,5,39
+E075,domain,Armed conflict,6,39
 E076,domain,Armed conflict,34,39
 E076,domain,Flood,5,5
 E079,domain,Economic crisis / prices,1,9

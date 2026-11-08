@@ -1,0 +1,105 @@
+summary_id,risk_id,moderator_id,text,written_at
+CS001,R0353,M03,22 experts sent a forecast. The panel forecast was unlikely. It did not happen.,2025-12-07
+CS002,R0990,M03,6 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-03-30
+CS003,R1015,M03,11 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-01-10
+CS004,R1056,M03,25 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-06-06
+CS005,R0371,M03,4 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability medium. It did not happen.,2026-04-15
+CS006,R1020,M03,15 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability high. It did not happen.,2026-07-02
+CS007,R1039,M03,4 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-05-03
+CS008,R0510,M03,3 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It happened.,2026-05-14
+CS009,R0094,M03,21 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability medium. It did not happen.,2026-06-13
+CS010,R0116,M03,2 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-02-20
+CS011,R0369,M03,24 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2025-12-29
+CS012,R1013,M03,25 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability high. It did not happen.,2026-05-06
+CS013,R1019,M03,14 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability very high. It happened.,2026-02-21
+CS014,R1023,M03,8 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability high. It happened.,2026-07-11
+CS015,R0529,M03,28 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-08-18
+CS016,R0462,M03,7 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability low. It happened.,2026-09-07
+CS017,R0463,M03,28 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-06-23
+CS018,R0552,M03,25 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability medium. It did not happen.,2026-01-31
+CS019,R0365,M03,29 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability low. It happened.,2026-07-29
+CS020,R0553,M03,16 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2025-11-23
+CS021,R1026,M03,18 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-07-01
+CS022,R0522,M03,26 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-09-08
+CS023,R0105,M03,3 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It did not happen.,2026-08-31
+CS024,R0349,M03,17 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-01-06
+CS025,R1018,M03,10 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-06-04
+CS026,R1040,M03,12 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability very high. It happened.,2026-04-03
+CS027,R1008,M03,1 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-07-05
+CS028,R1030,M03,22 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-04-20
+CS029,R0030,M03,15 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability medium. It did not happen.,2026-08-15
+CS030,R1029,M03,17 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability low. It did not happen.,2026-05-25
+CS031,R0996,M03,28 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-04-05
+CS032,R0345,M03,21 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability low. It happened.,2026-03-18
+CS033,R0305,M03,24 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-03-23
+CS034,R0998,M03,5 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-07-16
+CS035,R0031,M03,10 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-01-18
+CS036,R0274,M03,7 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-04-13
+CS037,R0960,M03,19 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-04-04
+CS038,R0985,M03,5 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability high. It did not happen.,2026-02-05
+CS039,R1027,M03,30 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-06-22
+CS040,R1034,M03,21 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2025-12-28
+CS041,R0970,M03,3 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability low. It did not happen.,2026-06-13
+CS042,R0976,M03,24 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability low. It did not happen.,2026-04-11
+CS043,R0995,M03,18 experts sent a forecast. The panel forecast was very unlikely. ACAPS rated the probability low. It did not happen.,2025-12-10
+CS044,R1028,M03,20 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability low. It did not happen.,2026-04-09
+CS045,R0033,M03,19 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability medium. It happened.,2025-12-14
+CS046,R0089,M03,1 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-04-25
+CS047,R0242,M03,8 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-06-07
+CS048,R0301,M03,4 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability high. It happened.,2026-08-20
+CS049,R1014,M03,3 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-05-25
+CS050,R1005,M03,20 experts sent a forecast. The panel forecast was very unlikely. ACAPS rated the probability very low. It did not happen.,2026-01-31
+CS051,R0296,M03,6 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability high. It did not happen.,2026-08-15
+CS052,R0952,M03,11 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability very high. It happened.,2026-08-22
+CS053,R0335,M03,19 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-07-23
+CS054,R0977,M03,5 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability very high. It happened.,2026-02-04
+CS055,R1017,M03,10 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-01-30
+CS056,R0134,M03,22 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability low. It did not happen.,2026-01-11
+CS057,R0961,M03,19 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability very high. It happened.,2025-12-26
+CS058,R1012,M03,20 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability high. It happened.,2026-03-26
+CS059,R0387,M03,26 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-07-25
+CS060,R0978,M03,26 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-04-09
+CS061,R1021,M03,12 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-09-04
+CS062,R1041,M03,17 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability medium. It did not happen.,2026-09-06
+CS063,R0546,M03,4 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-01-20
+CS064,R0957,M03,20 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability medium. It did not happen.,2026-03-14
+CS065,R0492,M03,3 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability medium. It did not happen.,2025-12-06
+CS066,R0303,M03,27 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-04-10
+CS067,R0542,M03,19 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability very high. It did not happen.,2026-09-14
+CS068,R1016,M03,10 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-03-20
+CS069,R0190,M03,22 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-04-05
+CS070,R1007,M03,17 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-02-26
+CS071,R1009,M03,8 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability very high. It happened.,2026-06-12
+CS072,R1033,M03,23 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-08-25
+CS073,R0332,M03,5 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability medium. It happened.,2026-05-28
+CS074,R0002,M03,18 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability high. It happened.,2026-03-24
+CS075,R0018,M03,9 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability very high. It happened.,2025-12-01
+CS076,R0120,M03,10 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-03-25
+CS077,R0073,M03,27 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability low. It happened.,2026-06-23
+CS078,R0248,M03,16 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability high. It happened.,2026-06-10
+CS079,R0200,M03,25 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability low. It happened.,2026-02-11
+CS080,R0357,M03,22 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-04-15
+CS081,R0367,M03,27 experts sent a forecast. The panel forecast was unlikely. It did not happen.,2026-03-09
+CS082,R0999,M03,28 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-07-19
+CS083,R1000,M03,19 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-02-05
+CS084,R1001,M03,16 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-01-14
+CS085,R1002,M03,30 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-02-26
+CS086,R1003,M03,4 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability very low. It happened.,2026-04-22
+CS087,R1004,M03,2 experts sent a forecast. The panel forecast was very unlikely. ACAPS rated the probability low. It did not happen.,2026-07-23
+CS088,R0107,M03,16 experts sent a forecast. The panel forecast was very unlikely. ACAPS rated the probability very low. It did not happen.,2026-01-11
+CS089,R0982,M03,10 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-01-06
+CS090,R0549,M03,11 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-09-05
+CS091,R0078,M03,5 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-03-22
+CS092,R0254,M03,21 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability low. It happened.,2025-12-08
+CS093,R0108,M03,19 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability high. It happened.,2026-03-04
+CS094,R0215,M03,9 experts sent a forecast. The panel forecast was unlikely. It did not happen.,2025-12-09
+CS095,R1022,M03,3 experts sent a forecast. The panel forecast was unlikely. It did not happen.,2026-09-04
+CS096,R0954,M03,12 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-04-12
+CS097,R0993,M03,19 experts sent a forecast. The panel forecast was an even chance. ACAPS rated the probability medium. It happened.,2026-01-26
+CS098,R1011,M03,15 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-03-09
+CS099,R0007,M03,23 experts sent a forecast. The panel forecast was likely. It happened.,2025-12-26
+CS100,R0525,M03,18 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability low. It did not happen.,2026-05-03
+CS101,R1025,M03,22 experts sent a forecast. The panel forecast was unlikely. ACAPS rated the probability medium. It did not happen.,2026-02-25
+CS102,R0106,M03,4 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability medium. It happened.,2026-06-16
+CS103,R0090,M03,2 experts sent a forecast. The panel forecast was very likely. ACAPS rated the probability high. It happened.,2026-01-08
+CS104,R0512,M03,11 experts sent a forecast. The panel forecast was likely. ACAPS rated the probability high. It happened.,2026-06-03
