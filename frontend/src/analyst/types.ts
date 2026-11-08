@@ -1,7 +1,7 @@
 /*
  * Shapes of data/analyst-data.json: the data the analyst view was built with
  * (ACAPS risks, updates and triggers; simulated experts, answers and ranks).
- * Extracted unchanged from analyst/acaps_community_analyst_view_reviewd.html.
+ * Extracted unchanged from analyst/acaps_community_analyst_view.html.
  */
 
 export type Level = 'High' | 'Medium' | 'Low' | string;

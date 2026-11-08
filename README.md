@@ -1,4 +1,4 @@
-# Ground Truth
+# ACAPS Community
 
 A small, moderated network of humanitarian experts who check and forecast ACAPS risk analyses in a few minutes, while each expert controls their own anonymity.
 
@@ -39,35 +39,36 @@ Every expert's vote counts, but a vote from someone who knows the country and th
 | Country only | 0.6 |
 | Domain only | 0.4 |
 
-When the chat closes, the group view shows two lines. These are the R1043 numbers in the demo, from simulated votes:
+When the chat closes, the group view shows the share who agree, counted by weight, and a separate line for the country's own experts. In the demo, from simulated votes, R1043 stands at:
 
 > **80% agree**
 
-Country experts are the small panel ACAPS asked for, and domain-only experts add a wider view at a lower weight. The country line stays empty under 3 answers, because in a smaller group it could show how one person voted. R1043's chat is still open in the demo, so these lines appear on the moderator's Chad page rather than in the expert app.
+Country experts are the small panel ACAPS asked for, and domain-only experts add a wider view at a lower weight. The country line stays empty under 3 answers, because in a smaller group it could show how one person voted. R1043's chat is still open in the demo, so its result shows in the analyst view rather than in the expert app.
 
 ### What the moderator does
 
-ACAPS's moderator works on a desktop view, [`analyst/moderator_mockup_v3.html`](analyst/moderator_mockup_v3.html). It is one file: open it in a browser, with nothing to install.
+ACAPS's moderator works in the analyst view, part of the same frontend: run `npm run dev` in `frontend/` and open http://localhost:5173/analyst. A single-file copy, [`analyst/acaps_community_analyst_view.html`](analyst/acaps_community_analyst_view.html), opens in a browser with nothing to install.
 
-![The moderator's Chad page: each open risk beside the share of experts who agree with ACAPS, what experts say, and the Chad panel by rank](docs/images/moderator-country.png)
+![The analyst view's Chad page: each open risk beside the share of experts who agree with ACAPS, links to other risks, and the Chad panel by rank](docs/images/moderator-country.png)
 
 | Screen | What it holds |
 |---|---|
 | Picture | A map of the open risks. Click a country to open its page |
 | Country | Each risk next to how many experts agree with ACAPS and how likely most think it is, what experts say across the country's risks, links to other risks, and the country's panel |
 | Open risks | Votes, answers, likes and turnout on every open risk |
+| Risk | One risk: whether experts agree with ACAPS, and what they say, grouped by subject with the best-matched experts first |
 | Approvals | People who applied, with what they sent. Approve or deny each country and field |
-| Workspace | One risk: what experts say, grouped by subject with the best-matched experts first, the ACAPS updates and triggers, and report notes |
 | Connect | Links between risks, each with a stated cause, which the moderator confirms or rejects |
 | Panel | Panel numbers, ranks by code, and each expert's account |
+| Custom dashboard | A board the moderator arranges from widgets, such as risks closing soonest, lowest turnout, agreement with ACAPS and top forecasters |
 | Upload a risk | A new risk, with a preview of the card and a count of the experts who will get it |
 | Suggested risks | Risks that experts proposed from the app, waiting for the moderator |
 
-![The moderator's workspace for R1043: 80% agree with ACAPS, and what experts say grouped by subject](docs/images/moderator-risk.png)
+![The analyst view's page for R1043: 80% agree with ACAPS, and what experts say grouped by subject](docs/images/moderator-risk.png)
 
-The AI summaries and groupings in the demo were written in advance, and nothing reaches the report notes until a person accepts it. Experts appear to the moderator by code, never by name, and a code never appears next to an answer. An answer shows only the match level, such as "Knows the country", and on every risk in the demo each label fits at least 3 approved experts, so it cannot point to one person.
+The AI summaries and groupings in the demo were written in advance, and nothing reaches the report notes until a person accepts it. Every answer shows the expert's code, which opens their account. The account shows name, email and organisation only for experts who aren't fully anonymous. For "Verified, then deleted", ACAPS keeps only the code and the activity.
 
-The view's data is embedded in the file. It was built from `data/synthetic/` and does not change when the data is rebuilt.
+The analyst view reads a fixed demo file, `frontend/src/analyst/data/analyst-data.json`, which does not change when the data is rebuilt.
 
 ### Anonymity
 
@@ -75,12 +76,12 @@ Nothing an expert writes is ever shown to the public. Anonymity has two sides.
 
 **What other experts see.** The expert chooses in the app's settings, and can change it at any time: their name, a pseudonym, or "Anonymous expert". A pseudonym is different on every risk, so two discussions cannot be linked through a name.
 
-**What ACAPS keeps.** Each expert has one of three levels, and the moderator view shows which.
+**What ACAPS keeps.** Each expert has one of three levels, and the analyst view shows which.
 
 | Level | What ACAPS keeps |
 |---|---|
 | Known to ACAPS | Personal data. The expert can hide their name on a single answer, and ACAPS still sees and uses the answer |
-| Verified anonymous | Personal data in a separate table that is never shown in the app |
+| Verified anonymous | Name, email and organisation, shown to ACAPS moderators only, never to other experts |
 | Verified, then deleted | No personal data after review. Contact details, documents, the application comment and education are deleted |
 
 Every expert gets a secret 12-word recovery code, and only its hash is stored, so an expert whose contact details are deleted can still get back into their account. The demo app signs in with a username and password, and its sign-up form does not ask for the level yet.
@@ -125,10 +126,9 @@ The app runs on generated files, with no server or real login yet, so anything d
 - **Points arrive late.** They only come with outcomes, and the pilot runs for about two months, so experts need another reason to return before then. Alert data exists, but nothing delivers alerts yet.
 - **Country panels come first.** In the simulated data, a typical risk has only 2 or 3 answers from country experts, and one open risk has none.
 - **The weights are an assumption.** ACAPS should test them during the pilot. The simulation cannot show that local experts are more accurate, because we set that ourselves.
-- **Sign-up needs the anonymity level.** The data model and the moderator view have the three levels, but the sign-up form does not ask for one, and sign-in still uses a password instead of the recovery code.
-- **Small groups need a check in code.** On the demo risks, every match label fits at least 3 approved experts. A live system must check this on every risk and use a wider label for any smaller group.
-- **Verified anonymous depends on access.** The identity table shares an ID with the answers, so ACAPS must limit who can open it.
-- **The moderator view needs a server.** Today it is one file with its data embedded.
+- **Sign-up needs the anonymity level.** The data model and the analyst view have the three levels, but the sign-up form does not ask for one, and sign-in still uses a password instead of the recovery code.
+- **Verified anonymous depends on access.** Moderators see these experts' name, email and organisation in their accounts, so ACAPS must limit who can open the analyst view.
+- **The analyst view needs a server.** Today it reads a fixed demo file.
 
 ## Run it
 
@@ -141,12 +141,12 @@ python -m pytest tests          # 174 tests
 
 cd frontend
 npm install
-npm run dev                     # website at http://localhost:5173, app at /app
+npm run dev                     # website at http://localhost:5173, app at /app, analyst view at /analyst
 ```
 
-The moderator view needs no build: open `analyst/moderator_mockup_v3.html` in a browser.
+The single-file analyst view, `analyst/acaps_community_analyst_view.html`, needs no build: open it in a browser.
 
-Use `build_demo_data.py` to rebuild the data. The save cell in notebook 05 writes the app file without ranks, and notebook 03 overwrites `experts.csv` with an old format.
+Use `build_demo_data.py` to rebuild the data. The save cell in notebook 05 writes the app file without ranks.
 
 ## What's in this repo
 
@@ -162,8 +162,10 @@ Use `build_demo_data.py` to rebuild the data. The save cell in notebook 05 write
 | `data/data_model/data_model.md` | The data model and the rules behind it |
 | `data/synthetic/` | The generated tables |
 | `app/data/expert_demo.json` | Everything the expert app reads for the demo expert |
-| `frontend/` | The expert app and website: React and TypeScript, reading through `src/data/api.ts` |
-| `analyst/moderator_mockup_v3.html` | ACAPS's moderator view |
+| `frontend/` | The expert app, website and analyst view: React and TypeScript. The expert app reads through `src/data/api.ts` |
+| `frontend/src/analyst/` | ACAPS's analyst view |
+| `analyst/acaps_community_analyst_view.html` | A single-file copy of the analyst view |
+| `demo-video/` | The demo video and the scripts that recorded it |
 | `tests/` | Tests for the build, points, anonymity and group numbers |
 | `docs/` | Challenge brief, evaluation criteria, data dictionary, ACAPS's risk method, our moderator research and screenshots |
 | `notebooks/data/` | Data exploration and preparation |

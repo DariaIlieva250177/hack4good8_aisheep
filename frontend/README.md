@@ -1,11 +1,11 @@
-# Ground Truth: expert app and website
+# ACAPS Community: expert app, website and analyst view
 
-The phone app that experts use and the public website, in one React and TypeScript bundle. Both read the demo expert's data from `app/data/expert_demo.json`, which `python src/build_demo_data.py` writes. Nothing is saved: anything you do lasts until the page reloads.
+The phone app that experts use, the public website and ACAPS's analyst view, in one React and TypeScript bundle. The app and website read the demo expert's data from `app/data/expert_demo.json`, which `python src/build_demo_data.py` writes. Nothing is saved: anything you do lasts until the page reloads.
 
 ```bash
 cd frontend
 npm install
-npm run dev     # website at http://localhost:5173, app at http://localhost:5173/app
+npm run dev     # website at http://localhost:5173, app at /app, analyst view at /analyst
 npm run build
 ```
 
@@ -15,6 +15,7 @@ The login screen accepts anything: there is no real login yet.
 
 | Path | What |
 |---|---|
+| `src/analyst/` | ACAPS's analyst view, with its own demo data in `src/analyst/data/analyst-data.json` |
 | `src/data/live.ts` | Turns `app/data/expert_demo.json` into the app's risks, chats, alerts and ranking |
 | `src/data/api.ts` | The only data entry point for the screens. Replace these functions with server calls later |
 | `src/data/families.ts` | Risk family colours and the image for each illustration category |
@@ -31,5 +32,7 @@ The app always starts in lite mode (system font, no images, blur, waves or metal
 ## Routes
 
 Website: `/` home and sign-up, plus web versions of the app pages.
+
+Analyst view, under `/analyst`: `/picture` · `/open` · `/risk/:id` · `/country/:name` · `/approve` · `/connect` · `/track` · `/dashboard` · `/upload`
 
 App, under `/app`: `/login` · `/risks` · `/todo` · `/alerts` · `/community` · `/community/:riskId` · `/ranking` · `/profile` · `/answer/:riskId`

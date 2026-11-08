@@ -1,6 +1,6 @@
 # Data model
 
-How Ground Truth stores ACAPS risks, experts and everything experts do in the app. There are 33 tables in seven groups. `python src/build_demo_data.py` builds all of them; the files are in `data/synthetic/`. Notebook `05_generate_synthetic_data` builds the first 30, but not the points tables in group 7.
+How ACAPS Community stores ACAPS risks, experts and everything experts do in the app. There are 33 tables in seven groups. `python src/build_demo_data.py` builds all of them; the files are in `data/synthetic/`. Notebook `05_generate_synthetic_data` builds the first 30, but not the points tables in group 7.
 
 **Real** ACAPS data: risks, countries, triggers, outcomes. **Synthetic**: everything about experts. No real person is in the data.
 
@@ -20,7 +20,7 @@ How Ground Truth stores ACAPS risks, experts and everything experts do in the ap
 - **Approval** happens per country and per domain. The moderator can deny any of them.
 - **Anonymity.** The expert chooses the level at registration and can change it in settings:
   - **known to ACAPS:** personal data kept; the expert can hide their name from ACAPS on a single answer. ACAPS still sees and uses the answer, just not who gave it.
-  - **verified anonymous:** personal data kept in `expert_identity` and never shown in the app. It shares an `expert_id` with the expert's answers, so this rests on who at ACAPS can open that table.
+  - **verified anonymous:** personal data kept in `expert_identity`. ACAPS moderators see it in the expert's account; other experts and the public never do. It shares an `expert_id` with the expert's answers, so this rests on who at ACAPS can open that table.
   - **verified, then deleted:** personal data, documents, the application comment and education are needed for approval, then deleted.
 
   Changing level only applies to new answers. Past answers stay as they were given, so an answer ACAPS could see stays visible to ACAPS.
@@ -272,6 +272,7 @@ How much each expert contributed per country. A risk across two countries counts
 | Data | The expert | Other experts | ACAPS moderator | Public |
 |---|---|---|---|---|
 | `expert_identity` | own | never | only if personal data is kept | never |
+| Expert code | own | never | next to every answer and in the panel | never |
 | Stances, comments, forecasts | own | in the risk's community, under that risk's display name | yes, without the name if the expert hid it | never |
 | Rank | **own only** | never | yes | never |
 | Swipes, to-do items | own | never | skip counts per risk only | never |
