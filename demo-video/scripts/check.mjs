@@ -13,7 +13,7 @@ import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import ffmpegPath from 'ffmpeg-static';
-import { CLIPS, DURATION, PAUSE, VO } from '../timeline.mjs';
+import { AUDIO_LENGTH, CLIPS, DURATION, PAUSE, VO, VOICE } from '../timeline.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 let failures = 0;
@@ -38,8 +38,8 @@ function probe(file) {
   return { dur: container ? dur(container[1]) : NaN, frames: frames ? Number(frames[1]) : NaN, size: size ? `${size[1]}x${size[2]}` : '?', fps: fps ? Number(fps[1]) : NaN, audio };
 }
 console.log('\nLength and format');
-const voice = probe(path.join(ROOT, 'voiceover.m4a'));
-console.log(`       voiceover: ${voice.dur.toFixed(2)} s + ${PAUSE.length} s pause at ${PAUSE.at} s = ${(voice.dur + PAUSE.length).toFixed(2)} s`);
+const voice = probe(path.join(ROOT, VOICE));
+console.log(`       voiceover (${VOICE}): ${voice.dur.toFixed(2)} s, kept at ${AUDIO_LENGTH.toFixed(2)} s, + ${PAUSE.length} s pause at ${PAUSE.at} s = ${DURATION.toFixed(2)} s`);
 for (const name of ['acaps-community-demo.mp4', 'acaps-community-demo-captioned.mp4']) {
   const file = path.join(ROOT, 'output', name);
   if (!fs.existsSync(file)) {
@@ -48,7 +48,7 @@ for (const name of ['acaps-community-demo.mp4', 'acaps-community-demo-captioned.
   }
   const p = probe(file);
   const videoDur = p.frames / 30;
-  ok(Math.abs(videoDur - (voice.dur + PAUSE.length)) < 0.05 && Math.abs(p.dur - DURATION) < 0.05, `${name}: ${p.frames} frames = ${videoDur.toFixed(2)} s (edited audio ${(voice.dur + PAUSE.length).toFixed(2)} s), file ${p.dur.toFixed(2)} s`);
+  ok(Math.abs(videoDur - DURATION) < 0.05 && Math.abs(p.dur - DURATION) < 0.05 && voice.dur <= AUDIO_LENGTH + 0.01, `${name}: ${p.frames} frames = ${videoDur.toFixed(2)} s (edited audio ${DURATION.toFixed(2)} s), file ${p.dur.toFixed(2)} s`);
   ok(p.size === '1920x1080' && p.fps === 30 && p.audio, `${name}: ${p.size}, ${p.fps} fps, AAC audio`);
 }
 ok(fs.existsSync(path.join(ROOT, 'output', 'acaps-community-demo.srt')), 'acaps-community-demo.srt exists');
@@ -79,6 +79,9 @@ const CUES = [
   ['0:35.0 open a chat in the Community tab', 35.0, 'community', () => action('community', 'open Blue Nile displacement').t],
   ['0:35.6 scroll through the chat', 35.6, 'community', () => action('community', 'through the chat').t],
   ['0:56.3 Chad pop-up on the globe', 56.3, 'ranking', () => action('ranking', 'Chad on the globe').t],
+  ['1:03.3 Approve all ("approve experts" 1:03.3)', 63.3, 'scene8-platform', () => action('platform', 'Approve all').t],
+  ['1:05.2 start a risk from a suggestion ("publish risks" 1:04.8)', 65.25, 'scene8-platform', () => action('platform', 'start from the suggested risk SG001').t],
+  ['1:06.5 Custom dashboard ("see every panel\'s view" 1:06.7)', 66.45, 'scene8-platform', () => action('platform', 'Custom dashboard').t],
   ['0:57.9 certificates in view ("receive certificates" 58.1)', 57.9, 'ranking', () => action('ranking', 'to the certificates').t + 0.6, 'by'],
 ];
 console.log('\nCues (recorded action vs script, tolerance 0.2 s)');
@@ -118,7 +121,8 @@ console.log('\nGit');
 const status = execFileSync('git', ['status', '--porcelain'], { cwd: ROOT, encoding: 'utf8' })
   .split('\n')
   .filter(Boolean);
-const outside = status.filter((l) => !l.slice(3).startsWith('demo-video/'));
+// The analyst view (frontend/) was built in this session too, so its files may show here as well
+const outside = status.filter((l) => !l.slice(3).startsWith('demo-video/') && !l.slice(3).startsWith('frontend/'));
 ok(outside.length === 0, `git status: ${status.length ? status.join(' | ') : 'clean'}`);
 
 console.log(failures ? `\n${failures} check(s) failed.` : '\nAll checks passed.');

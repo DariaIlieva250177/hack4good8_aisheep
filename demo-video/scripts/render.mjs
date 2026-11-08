@@ -14,7 +14,7 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import ffmpegPath from 'ffmpeg-static';
 import { launch } from '../scripts/capture.mjs';
-import { CLIPS, DURATION, FPS, PAUSE, TEAL, VO } from '../timeline.mjs';
+import { CLIPS, DURATION, FPS, PAUSE, TEAL, VO, VOICE } from '../timeline.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'output');
@@ -192,9 +192,19 @@ function overlaysFor(clip, g, c, t) {
 }
 
 /* ---------- closing / title elements (no frame) ---------- */
+/*
+ * The animated logo, with every class renamed "lg-…". Its stylesheet is global once the SVG is in
+ * the page, and its looping ".ring" ping animation (scale 1 to 1.6) used to grab the highlight
+ * rings too, so they pulsed at random sizes from frame to frame.
+ */
+const LOGO_CLASSES = ['c', 'drop', 'ink', 'l', 'logo', 'pupil', 'ring', 'r1', 'r2', 'teal'];
 const LOGO_ANIM = fs
   .readFileSync(path.join(ROOT, 'assets', 'logo-animated.svg'), 'utf8')
-  .replace(/<metadata>[\s\S]*?<\/metadata>/, '');
+  .replace(/<metadata>[\s\S]*?<\/metadata>/, '')
+  .replace(/class="([^"]*)"/g, (_, list) => `class="${list.split(/\s+/).map((c) => (LOGO_CLASSES.includes(c) ? `lg-${c}` : c)).join(' ')}"`)
+  .replace(/<style>([\s\S]*?)<\/style>/, (_, css) =>
+    `<style>${css.replace(new RegExp(`\\.(${LOGO_CLASSES.join('|')})(?![\\w-])`, 'g'), '.lg-$1')}</style>`,
+  );
 function titleOverlays(clip, t) {
   const out = [];
   for (const o of clip.overlays ?? []) {
@@ -271,7 +281,7 @@ async function buildAudio() {
   const graph =
     `[0:a]atrim=0:${at},asetpts=N/SR/TB[a];[0:a]atrim=start=${at},asetpts=N/SR/TB[b];` +
     `anullsrc=r=48000:cl=mono,atrim=0:${length}[s];[a][s][b]concat=n=3:v=0:a=1[out]`;
-  const p = spawn(ffmpegPath, ['-y', '-loglevel', 'error', '-i', path.join(ROOT, 'voiceover.m4a'), '-filter_complex', graph, '-map', '[out]', '-ar', '48000', '-ac', '1', AUDIO], { stdio: 'inherit' });
+  const p = spawn(ffmpegPath, ['-y', '-loglevel', 'error', '-i', path.join(ROOT, VOICE), '-filter_complex', graph, '-map', '[out]', '-ar', '48000', '-ac', '1', AUDIO], { stdio: 'inherit' });
   await new Promise((res, rej) => p.on('close', (c) => (c ? rej(new Error('audio edit failed')) : res())));
 }
 
@@ -292,7 +302,7 @@ const write = (stream, buf) => new Promise((res) => (stream.write(buf) ? res() :
 
 fs.mkdirSync(OUT, { recursive: true });
 await buildAudio();
-const browser = await launch('desktop'); // device scale doesn't matter: frames are 1920x1080 CSS px at 1x
+const browser = await launch('compose'); // 1920x1080 at exactly 1x (see capture.mjs)
 const ctx = await browser.newContext({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 await page.goto(pathToFileURL(path.join(ROOT, 'edit', 'compose.html')).href);

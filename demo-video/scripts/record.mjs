@@ -436,5 +436,45 @@ await runTake('ranking', {
   },
 });
 
+/*
+ * Scene 8: the ACAPS analyst view (desktop). Times are in the voiceover's own clock; the edit
+ * plays this take 1.5 s later (after the pause). Cues from the word timings of the voiceover:
+ * "approve experts" 61.8, "publish risks" 63.34, "see every panel's view in one place" 65.16.
+ */
+await runTake('platform', {
+  kind: 'desktop',
+  url: '/analyst/approve',
+  videoStart: 58.7,
+  script: async (take, at) => {
+    const page = take.page;
+    // "…to approve experts": approve every item for the first applicant and send the decision
+    await at(61.75);
+    await tapEl(take, 'button:has-text("Approve all")', 'Approve all');
+    await at(62.45);
+    await tapEl(take, 'button:has-text("Send decision")', 'Send decision');
+    await page.mouse.move(5, 5);
+    // "publish risks": Upload a risk, started from an expert's suggested risk
+    await at(63.15);
+    await tapEl(take, '.av-nav__actions a.top-btn.primary', 'Upload a risk');
+    await page.locator('#upFrom').waitFor();
+    await at(63.75);
+    take.action('select', { label: 'start from the suggested risk SG001' });
+    await page.locator('#upFrom').selectOption('SG001');
+    await page.mouse.move(5, 5);
+    await sleep(150);
+    await take.box('preview', '.prev');
+    // "see every panel's view in one place": the custom dashboard
+    await at(64.95);
+    await tapEl(take, '.pill-nav a:has-text("Custom dashboard")', 'Custom dashboard');
+    await page.mouse.move(5, 5);
+    await page.locator('.db-card').first().waitFor();
+    await at(66.4);
+    const y = 330;
+    take.action('scroll', { label: 'down the dashboard', y });
+    await smoothScroll(page, '.pn', y, 1600);
+    await at(69.0);
+  },
+});
+
 if (server) process.kill(-server.pid);
 console.log('Recorded.');

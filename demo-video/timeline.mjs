@@ -22,7 +22,9 @@
 export const PAUSE = { at: 37.5, length: 1.5 };
 const P = PAUSE.length;
 
-export const AUDIO_LENGTH = 75.9333; // voiceover.m4a
+/** The voiceover: the denoised recording (same timing as voiceover.m4a, checked word by word) */
+export const VOICE = 'voiceover-denoised.wav';
+export const AUDIO_LENGTH = 75.9333; // the original recording's length; the video keeps it (the denoised file is 0.07 s shorter, padded with silence)
 export const DURATION = AUDIO_LENGTH + P; // 77.433 s = 2323 frames at 30 fps
 export const FPS = 30;
 export const TEAL = '#0196BA'; // the app's logo / accent blue
@@ -202,13 +204,30 @@ export const CLIPS = [
   },
 
   /*
-   * 8 ACAPS moderator platform: an empty slot for now (plain background, the
-   * voiceover keeps playing). To drop in footage later, record a take (e.g.
-   * 'platform' in record.mjs with videoStart 58.7) and set:
-   *   frame: 'browser', take: 'platform', shift: P
-   * then re-render. Nothing else moves.
+   * 8 The ACAPS analyst view: approve an expert ("approve experts"), start a risk from an
+   * expert's suggestion ("publish risks"), then the custom dashboard ("see every panel's view
+   * in one place"). One continuous take, recorded with the voiceover's clock (shift P).
    */
-  { id: 'scene8-platform', scene: '8', start: 58.7 + P, end: 68.1 + P, fade: 0.3, frame: 'none' },
+  {
+    id: 'scene8-platform',
+    scene: '8',
+    start: 58.7 + P,
+    end: 68.1 + P,
+    fade: 0.3,
+    frame: 'browser',
+    take: 'platform',
+    shift: P,
+    camera: [
+      // a slow push-in while the platform is introduced, back out before the first click
+      { t: 58.7 + P, scale: 1 },
+      { t: 61.2 + P, scale: 1.04, ease: 'inOut' },
+      { t: 61.7 + P, scale: 1, ease: 'inOut' },
+    ],
+    overlays: [
+      { type: 'actions', from: 60.2 + P, to: 68.1 + P }, // taps: Approve all, Send decision, Upload a risk, Custom dashboard
+      { type: 'ring', box: 'preview', from: 63.95 + P, to: 64.85 + P, pad: 10 }, // the risk card experts will get
+    ],
+  },
 
   /* 9 Closing */
   {

@@ -22,6 +22,9 @@ export const VIEWPORTS = {
   // 2x: sharper than the phone appears in 1080p, and the screencast keeps up (~39 fps)
   phone: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 },
   desktop: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1.25 },
+  // the compositor (edit/compose.html): exactly 1920x1080 at 1x. A forced 1.25 here made some
+  // frames draw the highlight rings 18% too big, so they flickered.
+  compose: { viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 },
 };
 
 /**
