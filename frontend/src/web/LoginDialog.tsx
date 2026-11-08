@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AlertCircle, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { Logo } from '../components/Logo';
 import { signIn } from './auth';
 import { useLoginDefaults } from '../mode/loginDefaults';
@@ -10,7 +10,7 @@ import './LoginDialog.css';
 /**
  * "Log in" pop-up on the home page. On success it signs in and opens the
  * full website (Risks), where the menu and your avatar appear.
- * Prototype: any well-formed email and a password are accepted.
+ * Demo: there are no accounts yet, so Log in works with any email and password, or none.
  */
 export function LoginDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const id = useId();
@@ -21,7 +21,6 @@ export function LoginDialog({ open, onClose }: { open: boolean; onClose: () => v
   const applyDefaults = useLoginDefaults();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [tried, setTried] = useState(false);
 
   useEffect(() => {
     const d = ref.current;
@@ -34,13 +33,8 @@ export function LoginDialog({ open, onClose }: { open: boolean; onClose: () => v
     if (!open && d.open) d.close();
   }, [open]);
 
-  const badEmail = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
-  const badPassword = !password;
-
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    setTried(true);
-    if (badEmail || badPassword) return;
     applyDefaults();
     signIn();
     onClose();
@@ -83,17 +77,9 @@ export function LoginDialog({ open, onClose }: { open: boolean; onClose: () => v
           type="email"
           autoComplete="email"
           value={email}
-          aria-invalid={tried && badEmail}
-          aria-describedby={tried && badEmail ? `${id}-email-error` : undefined}
           onChange={(e) => setEmail(e.target.value)}
           ref={emailInput}
         />
-        {tried && badEmail && (
-          <p id={`${id}-email-error`} className="login-dialog__error" role="alert">
-            <AlertCircle size={16} aria-hidden="true" />
-            {t.needsEmail}
-          </p>
-        )}
 
         <label className="login-dialog__label" htmlFor={`${id}-password`}>
           {t.password}
@@ -104,16 +90,8 @@ export function LoginDialog({ open, onClose }: { open: boolean; onClose: () => v
           type="password"
           autoComplete="current-password"
           value={password}
-          aria-invalid={tried && badPassword}
-          aria-describedby={tried && badPassword ? `${id}-password-error` : undefined}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {tried && badPassword && (
-          <p id={`${id}-password-error`} className="login-dialog__error" role="alert">
-            <AlertCircle size={16} aria-hidden="true" />
-            {t.needsPassword}
-          </p>
-        )}
 
         <button type="submit" className="login-dialog__submit">
           {t.submit}

@@ -325,7 +325,7 @@ export const en = {
   webLogin: {
     open: 'Log in',
     title: 'Log in',
-    intro: 'Welcome back to ACAPS Community.',
+    intro: 'Demo: press Log in. No email or password needed.',
     email: 'Email',
     password: 'Password',
     needsEmail: 'Enter the email address of your account.',

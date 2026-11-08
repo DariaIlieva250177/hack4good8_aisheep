@@ -323,7 +323,7 @@ export const es: Translation = {
   webLogin: {
     open: 'Iniciar sesión',
     title: 'Iniciar sesión',
-    intro: 'Te damos de nuevo la bienvenida a ACAPS Community.',
+    intro: 'Demo: pulsa Iniciar sesión. No hace falta correo ni contraseña.',
     email: 'Correo electrónico',
     password: 'Contraseña',
     needsEmail: 'Escribe el correo electrónico de tu cuenta.',

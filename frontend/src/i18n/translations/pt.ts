@@ -315,7 +315,7 @@ export const pt: Translation = {
   webLogin: {
     open: 'Entrar',
     title: 'Entrar',
-    intro: 'Bem-vindo de volta à ACAPS Community.',
+    intro: 'Demo: carregue em Entrar. Não precisa de e-mail nem palavra-passe.',
     email: 'E-mail',
     password: 'Palavra-passe',
     needsEmail: 'Introduzir o endereço de e-mail da conta.',
