@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACAPS Community demo</title>
+<link rel="icon" href="/favicon.svg">
+<style>
+  :root {
+    --ink: #0c2731; --muted: #47606b; --bg: #eef5f8; --card: #ffffff;
+    --line: #d6e4ea; --brand: #004b78; --accent: #0096ba;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: flex; align-items: center; justify-content: center; padding: 32px 16px;
+  }
+  main { width: 100%; max-width: 920px; }
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  header svg { width: 40px; height: 40px; flex: none; }
+  h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.15; margin: 0; letter-spacing: -0.01em; }
+  .lede { color: var(--muted); margin: 8px 0 28px; max-width: 60ch; }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  a.card {
+    display: flex; flex-direction: column; gap: 8px; padding: 22px 20px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 16px; color: inherit; text-decoration: none;
+    transition: border-color .15s, transform .15s, box-shadow .15s;
+  }
+  a.card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 75, 120, .10); }
+  a.card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .who { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+  .card h2 { font-size: 21px; margin: 0; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .go { margin-top: auto; padding-top: 10px; font-weight: 600; color: var(--brand); }
+  .more { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); font-size: 15px; }
+  .more a { color: var(--brand); font-weight: 600; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { a.card { transition: none; } a.card:hover { transform: none; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#004b78"/><circle cx="16" cy="16" r="7" fill="none" stroke="#0096ba" stroke-width="3"/><circle cx="16" cy="16" r="2.5" fill="#fff"/></svg>
+    <h1>ACAPS Community</h1>
+  </header>
+  <p class="lede">A small, trusted network of humanitarian experts who check and forecast ACAPS risk analyses. Three parts, all running on simulated data. Nothing you do is saved.</p>
+  <div class="grid">
+    <a class="card" href="/">
+      <span class="who">For everyone</span>
+      <h2>Website</h2>
+      <p>What the community is, how it works, and the form where experts apply to join.</p>
+      <span class="go">Open the website →</span>
+    </a>
+    <a class="card" href="/app/login">
+      <span class="who">For experts</span>
+      <h2>Expert app</h2>
+      <p>Risk cards, a one-minute answer, the risk's chat and your track record. Log in with any username and password.</p>
+      <span class="go">Open the app →</span>
+    </a>
+    <a class="card" href="/analyst">
+      <span class="who">For ACAPS</span>
+      <h2>Analyst view</h2>
+      <p>The map of open risks, a page per country and per risk, approvals, links between risks and the panel. Best on a desktop.</p>
+      <span class="go">Open the analyst view →</span>
+    </a>
+  </div>
+  <p class="more">
+    <a href="https://youtu.be/tfIt53hhEKY">Watch the demo video</a>
+    <a href="https://github.com/DariaIlieva250177/hack4good8_aisheep">Source code on GitHub</a>
+  </p>
+</main>
+</body>
+</html>

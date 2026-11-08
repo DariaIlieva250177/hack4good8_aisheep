@@ -6,7 +6,7 @@
 
 **Repository:** https://github.com/DariaIlieva250177/hack4good8_aisheep
 
-**Demo:** https://mellow-pithivier-3abcbb.netlify.app (expert app at [/app](https://mellow-pithivier-3abcbb.netlify.app/app), analyst view at [/analyst](https://mellow-pithivier-3abcbb.netlify.app/analyst))
+**Demo:** https://mellow-pithivier-3abcbb.netlify.app/demo/ (a start page that links the website, the expert app and the analyst view)
 
 **Video:** https://youtu.be/tfIt53hhEKY
 
