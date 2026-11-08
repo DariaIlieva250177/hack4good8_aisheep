@@ -1,0 +1,4 @@
+# Local tools and bulky intermediates (re-created by the scripts)
+node_modules/
+recordings/
+frames/

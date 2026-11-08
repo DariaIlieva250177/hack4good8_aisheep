@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Demo compositor</title>
+<style>
+  /* The app's own font (copied from the frontend's dependencies) */
+  @font-face {
+    font-family: 'Bricolage';
+    src: url('../assets/bricolage-grotesque-latin-wght-normal.woff2') format('woff2');
+    font-weight: 200 800;
+  }
+  /* Same font with its width axis, for the condensed headline */
+  @font-face {
+    font-family: 'BricolageWide';
+    src: url('../assets/bricolage-grotesque-latin-standard-normal.woff2') format('woff2');
+    font-weight: 200 800;
+    font-stretch: 75% 100%;
+  }
+  :root { --teal: #0196ba; --ink: #14202b; }
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: 'Bricolage', system-ui, sans-serif;
+    color: var(--ink);
+    /* Soft, light background */
+    background:
+      radial-gradient(60% 55% at 78% 22%, rgba(1, 150, 186, 0.10), transparent 70%),
+      radial-gradient(55% 60% at 15% 90%, rgba(1, 150, 186, 0.07), transparent 70%),
+      linear-gradient(160deg, #f6f8f9 0%, #ebf1f4 100%);
+  }
+  .layer { position: absolute; inset: 0; }
+
+  /* ---------- Phone frame (drawn here, not in the app) ---------- */
+  .phone { position: absolute; background: #0e1a22; box-shadow: 0 40px 90px rgba(10, 30, 45, 0.28), 0 12px 30px rgba(10, 30, 45, 0.16); }
+  .phone::before { /* side button */
+    content: ''; position: absolute; right: -4px; top: 22%; width: 4px; height: 9%; border-radius: 0 3px 3px 0; background: #0e1a22;
+  }
+  .screen { position: absolute; overflow: hidden; background: #e6f0f8; }
+  .screen img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
+
+  /* ---------- Minimal browser frame ---------- */
+  .browser { position: absolute; background: #fff; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(10, 30, 45, 0.18), 0 0 0 1px rgba(10, 30, 45, 0.06); }
+  .browser .bar { position: absolute; left: 0; right: 0; top: 0; background: #f2f4f6; border-bottom: 1px solid #e3e7ea; }
+  .browser .dots { position: absolute; top: 50%; translate: 0 -50%; display: flex; gap: 8px; }
+  .browser .dots i { width: 11px; height: 11px; border-radius: 50%; background: #d5dade; display: block; }
+  .browser .addr { position: absolute; top: 50%; left: 50%; translate: -50% -50%; height: 24px; padding: 0 16px; border-radius: 999px;
+    background: #fff; border: 1px solid #e3e7ea; font-size: 13px; color: #5a6670; display: grid; place-items: center; white-space: nowrap; }
+  .browser .content { position: absolute; left: 0; right: 0; bottom: 0; overflow: hidden; }
+  .browser .content img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
+
+  /* ---------- Overlays ---------- */
+  .ring { position: absolute; border: 3px solid var(--teal); border-radius: 14px;
+    box-shadow: 0 0 0 6px rgba(1, 150, 186, 0.16), 0 0 26px rgba(1, 150, 186, 0.35); }
+  .ring.ellipse { border-radius: 999px; }
+  .mark { position: absolute; border-radius: 6px; background: rgba(1, 150, 186, 0.22); box-shadow: 0 0 0 2px var(--teal); }
+  .tap { position: absolute; border-radius: 50%; translate: -50% -50%; }
+  .tap .dot { position: absolute; inset: 0; border-radius: 50%; background: rgba(1, 150, 186, 0.35); border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(1, 60, 90, 0.35); }
+  .tap .wave { position: absolute; inset: 0; border-radius: 50%; border: 3px solid var(--teal); }
+  .pill { position: absolute; translate: -50% -100%; padding: 9px 18px; border-radius: 999px; background: var(--teal); color: #fff;
+    font-weight: 700; font-size: 22px; white-space: nowrap; box-shadow: 0 10px 24px -8px rgba(1, 90, 125, 0.55); }
+  .panel-group { position: absolute; width: 560px; }
+  .headline { position: relative; z-index: 1; font-family: 'BricolageWide', sans-serif; font-stretch: 75%; font-weight: 800; font-size: 104px;
+    line-height: 0.86; letter-spacing: -0.01em; text-transform: uppercase; color: var(--teal); margin: 0 0 -34px -6px;
+    transform-origin: left bottom; text-shadow: 5px 7px 10px rgba(10, 30, 45, 0.32); }
+  .panel { position: relative; width: 520px; padding: 50px 32px 22px; border-radius: 26px; background: #fff;
+    box-shadow: 0 30px 70px rgba(10, 30, 45, 0.18), inset 0 0 0 1px rgba(1, 150, 186, 0.18); }
+  .panel h3 { margin: 0 0 18px; font-size: 32px; font-weight: 800; letter-spacing: -0.02em; display: flex; gap: 12px; align-items: center; }
+  .panel h3::before { content: ''; width: 14px; height: 14px; border-radius: 50%; background: var(--teal); flex: none; }
+  .panel .row { display: grid; gap: 4px; padding: 14px 0; border-top: 1px solid #e6ecef; }
+  .panel .k { font-size: 21px; color: #5a6670; }
+  .panel .v { font-size: 26px; font-weight: 800; }
+  .panel .v.strong { color: var(--teal); }
+  .bar { }
+  .logo { position: absolute; left: 50%; translate: -50% 0; }
+  .logo svg { display: block; width: 100%; height: auto; }
+  .title { position: absolute; left: 0; right: 0; text-align: center; font-weight: 800; letter-spacing: -0.03em; }
+
+  /* ---------- Captions ---------- */
+  .caption { position: absolute; left: 50%; bottom: 34px; translate: -50% 0; width: max-content; max-width: 1680px; padding: 10px 24px; border-radius: 14px;
+    background: rgba(14, 26, 34, 0.82); color: #fff; font-size: 30px; font-weight: 500; line-height: 1.3; text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<div id="logo-anim" class="logo" style="top:236px;width:380px;opacity:0"></div>
+<div id="cap"></div>
+<script>
+  // (The logo SVG is put into the page by render.mjs.)
+  const cache = new Map();
+
+  function img(src) {
+    if (!cache.has(src)) {
+      const i = new Image();
+      i.decoding = 'sync';
+      i.src = src;
+      cache.set(src, i.decode().then(() => i));
+      if (cache.size > 40) cache.delete(cache.keys().next().value);
+    }
+    return cache.get(src);
+  }
+
+  const px = (v) => `${v}px`;
+
+  /** Draw one frame from `state` (computed in render.mjs). */
+  window.setLogo = (svg) => {
+    document.getElementById('logo-anim').innerHTML = svg;
+  };
+
+  /** Show the animated logo at its own time `t` (s): every CSS animation in it is paused and seeked. */
+  function drawLogo(logo) {
+    const box = document.getElementById('logo-anim');
+    box.style.opacity = logo ? logo.opacity : 0;
+    const ms = logo ? logo.t * 1000 : 0;
+    for (const a of box.getAnimations({ subtree: true })) {
+      a.pause();
+      a.currentTime = ms;
+    }
+  }
+
+  window.draw = async (state) => {
+    drawLogo(state.logo);
+    const html = [];
+    for (const L of state.layers) {
+      const parts = [];
+      if (L.frame === 'phone') {
+        const s = L.screen;
+        const bezel = L.bezel;
+        parts.push(`<div class="phone" style="left:${px(s.x - bezel)};top:${px(s.y - bezel)};width:${px(s.w + 2 * bezel)};height:${px(s.h + 2 * bezel)};border-radius:${px(L.radius + bezel)}"></div>`);
+        parts.push(`<div class="screen" style="left:${px(s.x)};top:${px(s.y)};width:${px(s.w)};height:${px(s.h)};border-radius:${px(L.radius)}"><img src="${L.src}"></div>`);
+      } else if (L.frame === 'browser') {
+        const b = L.box;
+        const c = L.content;
+        parts.push(`<div class="browser" style="left:${px(b.x)};top:${px(b.y)};width:${px(b.w)};height:${px(b.h)};border-radius:${px(14 * L.k)}">
+          <div class="bar" style="height:${px(L.barH)}"><div class="dots" style="left:${px(18 * L.k)};gap:${px(8 * L.k)}"><i></i><i></i><i></i></div>
+          <div class="addr" style="transform:scale(${L.k})">ACAPS Community</div></div>
+          <div class="content" style="top:${px(L.barH)}"><img src="${L.src}"></div></div>`);
+      }
+      html.push(`<div class="layer" style="opacity:${L.opacity}">${parts.join('')}${L.overlays.join('')}</div>`);
+    }
+    html.push(state.extra.join(''));
+    document.getElementById('root').innerHTML = html.join('');
+    document.getElementById('cap').innerHTML = state.caption ? `<div class="caption">${state.caption}</div>` : '';
+    // wait for the frame images
+    await Promise.all(state.layers.filter((l) => l.src).map((l) => img(l.src)));
+    await Promise.all([...document.images].map((i) => (i.complete ? null : i.decode().catch(() => {}))));
+  };
+</script>
+</body>
+</html>

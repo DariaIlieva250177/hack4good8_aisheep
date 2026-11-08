@@ -1,0 +1,16 @@
+{
+  "name": "acaps-community-demo-video",
+  "private": true,
+  "type": "module",
+  "description": "Records the ACAPS Community app and website and edits the demo video. Nothing here touches the app.",
+  "scripts": {
+    "record": "node scripts/record.mjs",
+    "render": "node scripts/render.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "5.2.0",
+    "playwright-core": "1.59.0",
+    "pngjs": "7.0.0"
+  }
+}
